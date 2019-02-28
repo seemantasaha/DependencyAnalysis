@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/jgraphx/jgraphx.jar"/>
+	<classpathentry kind="lib" path="lib/wala/com.ibm.wala.core-1.3.9.jar"/>
+	<classpathentry kind="lib" path="lib/wala/com.ibm.wala.shrike-1.3.9.jar"/>
+	<classpathentry kind="lib" path="lib/wala/com.ibm.wala.util-1.3.9.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.5/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/cloning/cloning-1.9.2.jar"/>
+	<classpathentry kind="lib" path="lib/cloning/objenesis-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/gson/gson-2.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/google-http/google-http-client-1.22.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-http/google-http-client-jackson2-1.22.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-http/jackson-core-2.1.3.jar"/>
+	<classpathentry kind="lib" path="lib/google-http/jackson-core-asl-1.9.11.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

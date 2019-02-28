@@ -1,0 +1,200 @@
+=JANALYZER=
+
+The Janalyzer is a //static analysis// tool that identifies interprocedural loops and allocation instructions inside interprocedural loops. These help point an analyst towards areas of the program that are potentially vulnerable to complexity attacks. 
+The initial panel that starts up has 2 tabs shown at the top of it - //Configuration// and //Setup//.
+
+==CONFIGURATION==
+
+This is the initial panel that is presented to the user when running janalyzer. It is used for configuring Janalyzer to run its analysis and present the call graph for the program to test.
+There are two options for loading your application into the Janalyzer which are specified by the //"Averroes"// checkbox selection:
+
+1. Use the application files and Java class libraries defined for the project. This method may take much longer for Janalyzer to process depending on the size of the library, and it is possible that Janalyzer will never complete due to the amount of time spent analyzing the library. This method requires the following steps:
+- First **un-check** the **"Averroes"** checkbox to select this mode of operation.
+- Add the challenge program's jar file(s) to the **Application** box.
+- Add all library jar files the challenge program specifies to the **Libraries** box.
+- Add the "rt.jar" file from the JRE library you are using to the **Libraries** box.
+  (not necessary if the //JRE Path// location in the **Setup** tab is specified, as it will be automatically added)
+- In the **Used APIs** box, specify the path to the "APIsUsed.txt" file for that challenge program.
+
+2. (Preferred method) Use the //Averroes// stubs to reduce the analysis time of Janalyzer. Stubs for the challenge programs can be found in the //janalyzer/test/averroes/<project name>// directory. This method requires the following steps:
+- First **check** the **"Averroes"** checkbox to select this mode of operation.
+- Find the //"averroes-lib-class.jar"// and //"organized-app.jar"// specified for this project and add them to the **Application** box.
+- Add the //"placeholder-lib.jar"// from the same directory to the **Library** box.
+- **Used APIs** should be cleared, since this is not needed in this mode.
+
+**NOTE:** The first option (non-Averroes) must be setup in order to generate the Averroes files for the project, if they are not already created.
+
+With either option, in the **Additional Entries** box, you can give a text file containing a list of methods that should be considered as additional entry points into the application. The reason for this is that some of the web-handlers aren't called directly, but are registered as callbacks, and so WALA's static analysis doesn't recognize that they should be in the generated call graph. You should list the methods you wish to include, one per line, in the following format:
+
+//Lcom/cyberpointllc/stac/webserver/handler/AbstractHttpHandler.handle(Lcom/sun/net/httpserver/HttpExchange;)V//
+
+(It's very similar to the JNI format, with the main difference being that you use a "." instead of a "/" between the class and method name)
+
+As an alternative, you may select the //"Use all public methods as entries"// checkbox that will consider all methods defined as public as possible entry points.
+
+==SETUP==
+
+This panel allows the user to specify parameters used by various Janalyzer tools in one place and provides access to running two of these tools:
+- //Decompiler// is used for generating source code from the Java bytecode to help with manual analysis.
+- //Averroes// is used for generating summaries for the libraries to reduce the amount of analysis time Janalyzer takes so it can focus on the application code.
+
+The //Setup// panel provides the following parameters to setup:
+- **JRE Path** - specifies where the JRE file rt.jar is located which is necessary to be loaded in the Libraries section of //Janalyzer Configuration// if the Averroes box is NOT checked. It is also used if the //Averroes// tool is run in order to generate the summary files to use if the Averroes box IS checked in //Janalyzer Configuration//. Note that JRE version 8 is not supported by the Averroes tool, so JRE version 7 should be used.
+- **Project Path** - The path to the upper level of the project being tested. This, at a minimum, should contain the test jar files and libraries, which may also be located in a //challenge_program// subdirectory in this path. It may also include a //description.txt// file that describes the challenge and a //questions// subdirectory that contains the questions pertainent to the challenge. Note that setting this directory selection will automatically set the //Project Name// entry to the last directory name in the path, since that is traditionally the project name.
+- **Project Name** - The name associated with the project (typically the name of the last directory in the //Project Path//)
+- **Play audio tone** - Checking this box will send an audio beep to the speaker when the //Decompiler// or //Averroes// tools complete. This is handy for large jobs that may take 10-15 minutes to complete to alert the user when done.
+
+One way to reduce the amount of setup time between projects is to save the configuration settings for each one and load them when needed. The //Load// and //Save// buttons at the bottom of the panel allow you to do that. Since directory structures between users is frequently different, the configuration file tries to make these usable by all assuming that all path references should be based on the following 3 paths:
+- //JRE Path// - defined by the user in //Setup// and saved in the ~/.janalyzer/site.properties file for each user under the key "JrePath".
+- //Project Path// - defined by the user in //Setup// and saved in the ~/.janalyzer/site.properties file for each user under the key "ProjectPath".
+- //Janalyzer Path// - assumed to be the location Janalyzer was launched from.
+Another feature that speeds deployment is that the last configuration file loaded is also automatically saved in the ~/.janalyzer/site.properties file under the key "LastConfigFile" prior to shutting down Janalyzer. If no configuration was loaded or changes were made to the configuration and were not saved, the configuration will be saved in the file "default.config" in the base Janalyzer directory and will be used as the last config file loaded.
+
+The //Help// button at the bottom of the panel gives access to this //README// file, as well as the //description.txt// file and //questions// files defined in the project path (if found).
+
+==CALL GRAPH==
+
+Selecting **Run** from the //Configuration// panel will begin the analysis and display the call graph for the program.
+
+You will be notified of any **Missing Methods** or **Missing Summaries** that may affect the outcome of the analysis. You should verify these are acceptable before proceeding.
+This will result in the //Call Graph// screen that allows you to view the program module connections graphically. The drop down buttons at the top allow you to view the selected recursions, loops and news that Janalyzer found. An asterisk (*) will mark the Loops selections that Janalyzer noted as "suspicious". The buttons have the following features:
+**CG ON** - Selects between only viewing the nodes of interest for the selected Recursion, Loop or New selection, or viewing them in the entire call graph. The nodes of interest in either case are color coded to mark their interest level.
+**Locate** - Allows a user to search the call graph for the specified class and method, and to find a path between two methods.
+**Add Filter** - Allows a user to filter out specific methods from the Loop and New cases that he wishes to exclude (if manual testing indicated no vulnerability there).
+**Run SPF** - Allows the user to enter the SPF mode where he can select a method for testing using either Worst Case Analysys (WCA) or Side Channel by creating and running a driver file for it. This can also be entered by clicking on the method to test and selecting the "Run SPF" button that is presented.
+**Load SPF** - Allows the user to load a saved SPF file and enter the SPF mode for creating a driver and testing it.
+**jBond** - Allows the user to run jBond (see section below).
+
+The following additional tools are used to provide the ability to generate files that are used in analyzing the code. All files that are generated by Janalyzer will be placed in a **janalyzer** folder under the specified project path. Each tool places its results in a separate subfolder named after the tool.
+
+=TOOLS=
+
+==DECOMPILER==
+
+This tool is used to decompile (generate source code) from a list of jar files. It uses 2 decompilers, Procyon and FernFlower, that are installed as part of Janalyzer. It allow the user to select which decompiler to use to allow for optimal results. FernFlower creates a zip file of the source code for each jar file that is decompiled and the zip files are then decompressed into a src directory that is created. Procyon creates only the source files in the src directory. A checkbox allows the user to automatically eliminate the extra subclass files that are created by Procyon when a class file includes subclass definitions.
+
+**Requirements:**
+- Project Path must be specified to point to the directory containing the jar file or a lib directory that contains the application jar file along with the associated library jars.
+
+**Outputs:**
+- **decompiler** - main folder containing the following:
+  - **zip** folder - contains the zipped filesw that correspond to each jar file that is decompiled.
+  - **src** folder - contains the unzipped source code organized in folders corresponding to the package names.
+
+==AVERROES==
+
+This tool is used to generate the library summary files (stubs) that decreases the amount of time Janalyzer requires to analyze the program, since this prevents it from having to analyze the libraries used, which may be quite extensive.
+There are 2 tools (built into Janalyzer) that are used for this:
+
+- **Tamiflex** (more specifically, the Play-Out Agent of Tamiflex) logs the reflective calls in the program to create a reflections list file (refl.log). This output file can then be fed as an into Averroes, which can improve the ability for it to create the library summary files. Note that Tamiflex is an optional step, and requires that you specify a Startup Script to actually run the program to be analyzed. This step may require user interaction (as in the case of a web server application, which may require the user to login and perform some minor interaction). The script may also not automatically terminate, so it may be necessary to press the Stop button after running it in order for Tamiflex to complete. It is considered successful if the refl.log file is generated upon completion.
+
+- **Averroes** for generating the library summary files (stubs) that can be used by Janalyzer for decreasing the time it takes to load the program being analyzed.
+
+**Requirements:**
+- Project Path must be specified to point to the directory containing the jar file or a lib directory that contains the application jar file along with the associated library jars.
+- Project name must be specified so that it can create the corresponding subdirectory in Janalyzer in which to save the results.
+- The JRE Path selection in Janalyzer's initial window in the Setup tab must be specified. This should be set to the location of the rt.jar file to use when compiling the application. NOTE: It MUST be JRE 7 for Tamiflex to work.
+- The Application and Library files for the project (in non-Averroes mode) //should// be selected prior to running this. The Application files can be set after entering Averroes tool, but not the Libraries, which are used to help determine the RegEx setting.
+
+**Outputs:**
+- **averroes** folder - contains all outputs from the program:
+  - **averroes-lib-class.jar** - (//Averroes//) the main averroes library class for the input program (to be placed in Application list)
+  - **organized-app.jar** - (//Averroes//) the original application code of the input program as is (to be placed in Application list)
+  - **placeholder-lib.jar** - (//Averroes//) the stubs averroes generates for the library classes of the given input program (to be placed in Libraries list)
+  - **organized-lib.jar** - (//Averroes//) the original library code of the input program as is (not used)
+  - **classes** - (//Averroes//) a directory that contains the class files that averroes generates (not used)
+  - **refl.log** - (//Tamiflex//) the reflection information generated by Tamiflex
+
+The steps of the process are:
+
+1. Specify the Application file(s) that comprise the program. These are also transferred over from
+   Janalyzer's initial window that allows you to set the Application and Library files for the
+   program (the Averroes checkbox must be unchecked to specify these program files - if Averroes
+   is checked, the files specified will reflect the location of the Averroes files that are
+   created from this section).
+2. Press the Search button next to the Main Class combobox to search the application jar files
+   for all the instances of a main() method call to run the application. It searches for Main
+   Class and Start Class in the manifest files, as well as other cases of finding a "main" method.
+   If multiple entries are found, the most likely ones (those specified in a manifest file or the
+   "main" calls that are contained in the jar file having that same name as the project) are placed
+   at the top of the combo box selection list and the 1st entry is chosen.
+3. Make certain that the App regex selection expresses just the selection that you want to examine
+   in the application. If this encompasses portions of the libraries, Averroes may generate an
+   exception in trying to resolve the selection. You may enter a value manually, or can press the
+   Auto button to have it automatically generated. it will also be re-generated if the Application
+   file selection is modified. Note that in order for the Auto button to work correctly, it is
+   assumed that the user specified the Library files for the program in the initial Janalyzer window.
+4. (Optional) Provide a Start Script entry and run Tamiflex on the script file provided in the
+   challenge problem. You will need to follow the instructions provided for the program on starting
+   up the script and interacting with it (note that some web servers may have a lengthy startup,
+   which requires you to monitor the Output tab window to see when it has completed its startup).
+   If the script does not terminate automatically, you will be required to press the Stop button
+   to terminate it so Tamiflex can finish generating the refl.log file.
+5. Press the Start button to generate the averroes files.
+6. If successful, press the Save button to copy the reflections log and summary files to the
+   Janalyzer directory in order for it to use these newly created files. This also allows checking
+   these files into the Janalyzer project for future reference.
+
+==jBOND JSON OVERLAY==
+
+The call-graph panel can overlay results from an input JSON file as coloring of the nodes. This file typically comes from the jBond tool, but could also come from elsewhere, hence a brief description of the file format here. What is displayed is a simple mapping of methods to doubles; the higher the double, the darker the color of the node representing the method. The file format is a JSON export of the following data structure: HashMap<String,HashMap<String,Double>>(). The first String holds the method name in the format described at the top of this file for "additional entries". Then, for each method in the map (it does not have to include all methods in the program), it contains a map of a feature name string (e.g. "Method time") to a Double. It is very simple to export this to JSON using the gson library. For an example, see the JBondResults class in the jBond repository.
+
+==SPF==
+
+This panel is designed for creating and running a driver for the SPF (Worst Case Analyzer or Side Channel mode) which can be run on the host machine or in the cloud, and for monitoring the previous cloud jobs that have run and allowing accessing the status of prevously run jobs as well as downloading the results. Note that all cloud jobs are monitored, not just the ones run by the current user. This allows the ability for any user to access the results of any of the jobs run in the cloud.
+
+The SPF Analyzer pane can be brought up from the Call Graph pane in 2 ways:
+- selecting the //"Run SPF"// button at the top of the screen. This will default the Test Method selection to the 1st class and method in the lists.
+- selecting a method with the mouse and clicking the //"Run SPF"// button on the dialog box. This will assign the selected method as the Test Method to use.
+
+**Requirements:**
+- Project Path must be specified to point to the directory containing the jar file or a lib directory that contains the application jar file along with the associated library jars. Note that it will also first look for a folder called "challenge_program" in the project path because that is how the last challenge was organized. It will also look beneath this folder for a "server" directory in the event it is a web application and has a server and client subdirectories. Then it checks for a "lib" folder containing jar files and if not found verifies there is at least 1 jar file in the current path.
+
+**Outputs:**
+
+- **spf** - the main folder that contains all outputs by the SPF tool
+  - **drivers** - this is where the created driver and configuration files are placed, as well as the zip file that is sent to the cloud.
+  - **bin** - this will hold the driver class created when the driver is built.
+  - **results** - this will hold the results of the SPF after launching the driver.
+  - **downloads** - this will hold any result files that are downloaded from the Cloud Jobs window. each job results will be placed in its own subdirectory under here.
+
+**Organization of the controls:**
+
+The top left portion of the pane has the selections for specifying the method to be tested and the specification of what to symbolize in its list of parameters. If the parameter is a class, the user can be specify the method for the driver to use to setup the contents of the class. If the parameter is an Object, the user can specify it to be any class or String object. Janalyzer attempts to pick the most likely selections for parameters when the test method is selected. These settings are used for configuring the driver's java file and a few entries in the SPF configuration file that defines the parameter list for the method (//symbolic.method// and //symbolic.heuristic.measuredmethods//). After specifying these parameters, the user should make sure his configuration file setting are correct (in the WCA Setup or Side Channel panels) and can then generate his driver and configuration files by pressing the //"Create WCA"// button for the Worst Case Analyzer driver or //"Create SChan"// button for the Side Channel driver. The final step is to Build and Launch the driver.
+
+The top right portion of the pane has multiple tabs for configuring different SPF attributes.
+
+===WCA Setup===
+This sets up the SPF configuration file entries for running the Worst Case Analyzer. These entries do not affect the driver java file and are independant of the Side Channel setup parameters. After modifying these parameters, the user should update his generated files by pressing the //"Create WCA"// button before Building or Launching.
+
+===Side Channel===
+This sets up the SPF configuration file entries for running the Side Channel. These entries do not affect the driver java file and are independant of the Worst Case Analyzer setup parameters. After modifying these parameters, the user should update his generated files by pressing the //"Create SChan"// button before Building or Launching.
+
+===Cloud Filter===
+This allows the user to filter the cloud jobs that are displayed in the Cloud Jobs window at the bottom of the screen to make finding the entries you are looking for easier. More details on this are presented in the **SPF Cloud Operation** section below.
+
+The bottom of the pane consists of multiple tabs for showing various outputs for viewing progress and results:
+- **Driver File** - This displays the driver java file that is created when either the //"Create WCA"// or //"Create SChan"// buttons are pressed. This field is editable and can then be saved with the "Save" button, keeping in mind that when a Create button is pressed again any changes made will be lost. If the field is edited, it will display the text in blue to remind the user to Save his changes before attempting to Build or Launch.
+- **Config File** - This displays the driver configuration file that is created when either the //"Create WCA"// or //"Create SChan"// buttons are pressed. It is also editable.
+- **Output** - This displays output from the Build and Launch processes to monitor the progress and any errors that occur. It will also host viewing the job results that are downloaded from the cloud.
+- **Cloud Jobs** - This lists a table of the cloud jobs that have been run or are currently running and give details on their status. More details on this are presented in the **SPF Cloud Operation** section below.
+- **Debug** - This is for looking into the details of commands that are executed and used for debugging problems. It is enabled and disabled by a flag in the Janalyzer.config file.
+
+===SPF Cloud Operation:===
+
+**Selection of where to run the driver:**
+
+In the SPF Analyzer pane there is a checkbox at the bottom marked "Use Cloud". If this box is checked, the Launch button will cause the drivers to be launched in the cloud, otherwise they will be launched as normal on the current machine. When the cloud jobs complete, the results will automatically be downloaded and placed in the results directory just like when they are run from the host machine.
+
+**NOTE 1:** there are now 2 buttons at the bottom of the screen to run the driver: Build and Launch. Build will perform the compilation of the driver and create any files that are necessary for the Launch process. The Launch will run SPF on the driver(s). If launching from the host machine (not the cloud), Launch still functions as it previously did by first performing a compile of the drivers, and then launching. When launching in the cloud, the zip file to send must first be created, so the Build must be performed before the Launch can be run.
+
+**NOTE 2:** In the WCA Setup panel at the top of this pane there are now 2 checkboxes next to the Policy and History settings to enable a range of values to be executed. These can be selected to run run multiple instances of the test using different values for these parameters. If this is performed on the host machine instead of in the cloud, the Launch will run each instance successively. The user must close the graph of the results for each instance before the next one will run. The cloud will run all instances simultaneously as separate jobs. This will cause multiple results to be produced, which will be given unique names (i.e. a numeric suffix will be added to the name) in the results path.
+
+**Monitoring current cloud jobs:**
+
+There is now a "Cloud Jobs" tab at the bottom of the SPF Analyzer pane. Clicking on this tab will cause a timer to run every 4 sec to query for cloud job information and will be listed in table format with each row indicating a cloud job that has run/is running. The jobs are sorted in order of the Job id values, which are named with a timestamp value so they will be chronological with oldest at the top and most recent at the bottom. The columns give information about the status of each job and the 1st column indicates if it is a job that was started by the current Janalyzer session. This column will indicate "---" if not and a numeric value indicating the Launch number for it. You don't need to have started a job in Janalyzer to view the list of jobs or request the results from it.
+
+To download the results of a file, simply click on the row containing the job of interest and a dialog box will ask whether you want to view the results or download them. Viewing them will place the contents of all results files (seperated by a series of dashes) in the Output tab of this pane, which will become the active tab (assuming there were no errors extracting the file). If you choose to download the file(s) they will be placed in the specified: //<ProjectPath>/spf/downloads/<jobid>// location.
+
+There is also a new tab in the Setup area at the top of the pane called "Cloud Filter". This allows selecting one or more of User name, Job Name, and Start Time window to narrow the list of entries displayed in the table. The User name must be a complete name you are interested in, however the Job Name filters those begining with the specified characters. Therefore "Config_textcr" will match with any of Config_textcrunchr_7_0, Config_textcrunchr_7_1, Cnofig_textcrud. The Time field allows a selection of the earliest Start Time (to get only more recent events) and can also be capped by specifying a latest Start Time to limit any newer entries from appearing. A tally of the total number of jobs listed and the number that have been filtered is displayed at the bottom to help determine how many you have weeded out.
+

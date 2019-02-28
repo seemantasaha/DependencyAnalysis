@@ -1,0 +1,11 @@
+Class.getDeclaredField;<java.lang.invoke.MethodHandle: java.lang.invoke.LambdaForm form>;java.lang.invoke.MethodHandle.<clinit>;1451;isAccessible=false;
+Class.getDeclaredField;<java.util.concurrent.atomic.AtomicBoolean: int value>;java.util.concurrent.atomic.AtomicBoolean.<clinit>;59;isAccessible=false;
+Class.getMethod;<edu.networkcusp.place.StacMain: void main(java.lang.String[])>;sun.launcher.LauncherHelper.validateMainClass;544;isAccessible=false;
+Field.getName;<java.lang.invoke.MethodHandle: java.lang.invoke.LambdaForm form>;java.lang.Class.searchFields;;isAccessible=false;
+Field.getName;<java.lang.invoke.MethodHandle: java.lang.invoke.MethodType type>;java.lang.Class.searchFields;;isAccessible=false;
+Field.getName;<java.util.concurrent.atomic.AtomicBoolean: int value>;java.lang.Class.searchFields;;isAccessible=false;
+Field.getName;<java.util.concurrent.atomic.AtomicBoolean: long serialVersionUID>;java.lang.Class.searchFields;;isAccessible=false;
+Field.getName;<java.util.concurrent.atomic.AtomicBoolean: long valueOffset>;java.lang.Class.searchFields;;isAccessible=false;
+Field.getName;<java.util.concurrent.atomic.AtomicBoolean: sun.misc.Unsafe unsafe>;java.lang.Class.searchFields;;isAccessible=false;
+Method.getModifiers;<edu.networkcusp.place.StacMain: void main(java.lang.String[])>;sun.launcher.LauncherHelper.validateMainClass;557;isAccessible=false;
+Method.getName;<edu.networkcusp.place.StacMain: void main(java.lang.String[])>;java.lang.Class.searchMethods;;isAccessible=false;

@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JAnalyzer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SliceFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SliceFrame.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/build/classes/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21180">
+              <caret line="1826" column="6" selection-start-line="1826" selection-start-column="6" selection-end-line="1826" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#23138#23139#0" expanded="true" />
+                <element signature="e#23191#23192#0" expanded="true" />
+                <element signature="e#23428#23429#0" expanded="true" />
+                <element signature="e#23479#23480#0" expanded="true" />
+                <element signature="e#23749#23750#0" expanded="true" />
+                <element signature="e#23798#23799#0" expanded="true" />
+                <element signature="e#24033#24034#0" expanded="true" />
+                <element signature="e#24087#24088#0" expanded="true" />
+                <element signature="e#24323#24324#0" expanded="true" />
+                <element signature="e#24381#24382#0" expanded="true" />
+                <element signature="e#24970#24971#0" expanded="true" />
+                <element signature="e#25020#25021#0" expanded="true" />
+                <element signature="e#25426#25427#0" expanded="true" />
+                <element signature="e#25476#25477#0" expanded="true" />
+                <element signature="e#25625#25626#0" expanded="true" />
+                <element signature="e#25674#25675#0" expanded="true" />
+                <element signature="e#25829#25830#0" expanded="true" />
+                <element signature="e#25884#25885#0" expanded="true" />
+                <element signature="e#26191#26192#0" expanded="true" />
+                <element signature="e#26249#26250#0" expanded="true" />
+                <element signature="e#26439#26440#0" expanded="true" />
+                <element signature="e#26489#26490#0" expanded="true" />
+                <element signature="e#26675#26676#0" expanded="true" />
+                <element signature="e#26725#26726#0" expanded="true" />
+                <element signature="e#26912#26913#0" expanded="true" />
+                <element signature="e#26962#26963#0" expanded="true" />
+                <element signature="e#27148#27149#0" expanded="true" />
+                <element signature="e#27198#27199#0" expanded="true" />
+                <element signature="e#27388#27389#0" expanded="true" />
+                <element signature="e#27439#27440#0" expanded="true" />
+                <element signature="e#27622#27623#0" expanded="true" />
+                <element signature="e#27671#27672#0" expanded="true" />
+                <element signature="e#27963#27964#0" expanded="true" />
+                <element signature="e#28021#28022#0" expanded="true" />
+                <element signature="e#28223#28224#0" expanded="true" />
+                <element signature="e#28281#28282#0" expanded="true" />
+                <element signature="e#28673#28674#0" expanded="true" />
+                <element signature="e#28723#28724#0" expanded="true" />
+                <element signature="e#29106#29107#0" expanded="true" />
+                <element signature="e#29157#29158#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/output/safe/Timing.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/ProgramDependenceGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/core/Program.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="111" column="38" lean-forward="true" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>showJSO</find>
+      <find>instrumentSecretDepBranch</find>
+      <find>resetSlicingMenuitemActionPerformed</find>
+      <find>allsou</find>
+      <find>allSOurce</find>
+      <find>allSour</find>
+      <find>showJSON</find>
+      <find>paintSlice</find>
+      <find>&quot;Source line number =</find>
+      <find>showJs</find>
+      <find>asm.</find>
+      <find>ClassVisitor</find>
+      <find>jdk.internal.org.objectweb.asm</find>
+      <find>runButton</find>
+      <find>save</find>
+      <find>saveButton</find>
+      <find>Window</find>
+      <find>RunButtonActionPerformed</find>
+      <find>makeProgram(</find>
+      <find>appPaths</find>
+      <find>appList</find>
+      <find>Save</find>
+      <find>class</find>
+      <find>allSource</find>
+      <find>className</find>
+      <find>allSourceLines</find>
+      <find>saveSetupButton</find>
+      <find>procName</find>
+      <find>checkNodeIsInLoop</find>
+      <find>checkEffectedBranchNode</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/core/Statement.java" />
+        <option value="$PROJECT_DIR$/src/gui/CFG.java" />
+        <option value="$PROJECT_DIR$/src/gui/SliceFrame.java" />
+        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
+        <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="67" />
+    <option name="y" value="114" />
+    <option name="width" value="1803" />
+    <option name="height" value="520" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="input" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
+              <item name="safe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="nashorn.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="nashorn.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="jdk" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551381915874" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.25084746" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/gui/resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="AnalyzerFrame" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="gui.AnalyzerFrame" />
+      <module name="JAnalyzer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="" />
+      <created>1547144998674</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547144998674</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="25" width="1853" height="930" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12119535" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29837704" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.26217228" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32958803" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.23470661" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17044826" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29837704" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.26217228" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.23470661" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
+    </layout-to-restore>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/gui/AverroesFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeCT/ClassWriter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/ClassVisitor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeBT/IInstruction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="30" column="68" lean-forward="true" selection-start-line="30" selection-start-column="68" selection-end-line="30" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/classLoader/IBytecodeMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SSAInstruction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="71" column="35" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeCT/ClassReader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/cfg/IBasicBlock.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/classLoader/IMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/SliceFrame.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/tree/LineNumberNode.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/ClassWriter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="465" selection-start-line="465" selection-end-line="465" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/ClassVisitor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/awt/Window.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="1950" lean-forward="true" selection-start-line="1950" selection-end-line="1950" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/Opcodes.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/javax/swing/Timer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="162" column="9" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LoginModified.class" />
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/MethodVisitor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="161" column="16" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/IR.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login.java" />
+    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/BaseGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ipa/callgraph/AnalysisScope.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="139" column="61" selection-start-line="139" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/LLogin.class" />
+    <entry file="file://$PROJECT_DIR$/src/Login.class" />
+    <entry file="file://$PROJECT_DIR$/src/input/Login1.class" />
+    <entry file="file://$PROJECT_DIR$/src/input/Login.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/Type.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/SliceFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Log.java" />
+    <entry file="file://$PROJECT_DIR$/src/Sanity.java" />
+    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28335">
+          <caret line="2628" column="43" selection-start-line="2627" selection-start-column="42" selection-end-line="2634" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blazer/blazer-java/GPT14.java" />
+    <entry file="file://$PROJECT_DIR$/src/output/GPT14.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/K96.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/Login.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/ModPow1.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/ModPow2.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/MoreSanity.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/PWCheck.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/Sanity.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/Timing.class" />
+    <entry file="file://$PROJECT_DIR$/src/output/User.class" />
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21180">
+          <caret line="1826" column="6" selection-start-line="1826" selection-start-column="6" selection-end-line="1826" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#23138#23139#0" expanded="true" />
+            <element signature="e#23191#23192#0" expanded="true" />
+            <element signature="e#23428#23429#0" expanded="true" />
+            <element signature="e#23479#23480#0" expanded="true" />
+            <element signature="e#23749#23750#0" expanded="true" />
+            <element signature="e#23798#23799#0" expanded="true" />
+            <element signature="e#24033#24034#0" expanded="true" />
+            <element signature="e#24087#24088#0" expanded="true" />
+            <element signature="e#24323#24324#0" expanded="true" />
+            <element signature="e#24381#24382#0" expanded="true" />
+            <element signature="e#24970#24971#0" expanded="true" />
+            <element signature="e#25020#25021#0" expanded="true" />
+            <element signature="e#25426#25427#0" expanded="true" />
+            <element signature="e#25476#25477#0" expanded="true" />
+            <element signature="e#25625#25626#0" expanded="true" />
+            <element signature="e#25674#25675#0" expanded="true" />
+            <element signature="e#25829#25830#0" expanded="true" />
+            <element signature="e#25884#25885#0" expanded="true" />
+            <element signature="e#26191#26192#0" expanded="true" />
+            <element signature="e#26249#26250#0" expanded="true" />
+            <element signature="e#26439#26440#0" expanded="true" />
+            <element signature="e#26489#26490#0" expanded="true" />
+            <element signature="e#26675#26676#0" expanded="true" />
+            <element signature="e#26725#26726#0" expanded="true" />
+            <element signature="e#26912#26913#0" expanded="true" />
+            <element signature="e#26962#26963#0" expanded="true" />
+            <element signature="e#27148#27149#0" expanded="true" />
+            <element signature="e#27198#27199#0" expanded="true" />
+            <element signature="e#27388#27389#0" expanded="true" />
+            <element signature="e#27439#27440#0" expanded="true" />
+            <element signature="e#27622#27623#0" expanded="true" />
+            <element signature="e#27671#27672#0" expanded="true" />
+            <element signature="e#27963#27964#0" expanded="true" />
+            <element signature="e#28021#28022#0" expanded="true" />
+            <element signature="e#28223#28224#0" expanded="true" />
+            <element signature="e#28281#28282#0" expanded="true" />
+            <element signature="e#28673#28674#0" expanded="true" />
+            <element signature="e#28723#28724#0" expanded="true" />
+            <element signature="e#29106#29107#0" expanded="true" />
+            <element signature="e#29157#29158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/safe/Timing.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ProgramDependenceGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="111" column="38" lean-forward="true" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="hg4idea.settings">
+    <option name="CHECK_INCOMING_OUTGOING" value="true" />
+    <option name="RECENT_HG_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.25084746" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>JAnalyzer</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.25084746" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.25084746" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
