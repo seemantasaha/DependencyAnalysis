@@ -33,6 +33,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
   private int nodeInstructionIndex;
   private IInstruction[] byteCodeInstructions;
   private List<String> imbalanceAnalysisJSON;
+  private List<ImbalanceAnalysisItem> imbalanceAnalysisJSONItems;
   Map<Integer, ImbalanceAnalysisItem > nodeShrikeInstructionsMap;
   Map<ImbalanceAnalysisItem, IInstruction> bytecodeMap;
   
@@ -44,6 +45,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
     this.endingInstruction = "1001001";
     
     this.imbalanceAnalysisJSON = new ArrayList<String>();
+    this.imbalanceAnalysisJSONItems = new ArrayList<ImbalanceAnalysisItem>();
     //this.imbalanceAnalysisJSON = "[ ";
     
     this.nodeInstructionIndex = 0;
@@ -108,7 +110,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         instruction = instruction.replace("\"", "'");
         instruction = instruction.replace("\\\n", "newline");
 
-        ImbalanceAnalysisItem iaNode = new ImbalanceAnalysisItem(jsonItemID, shrikeInstructions.length, instruction, nodeCost, null, null);
+        ImbalanceAnalysisItem iaNode = new ImbalanceAnalysisItem(jsonItemID, node, this.procedure, shrikeInstructions.length, instruction, nodeCost, null, null);
 
         nodeShrikeInstructionsMap.put(node.getNumber(), iaNode);
       }
@@ -196,6 +198,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
       if ((k == nodeList.size()-1) || (cfg.getSuccNodes(node).hasNext() == false))
           jsonItem += " }";
       this.imbalanceAnalysisJSON.add(jsonItem);
+      this.imbalanceAnalysisJSONItems.add(nodeItem);
       k++;
     }
     
@@ -204,6 +207,17 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
     //System.out.println(this.imbalanceAnalysisJSON);
     
     layoutGraph();    
+  }
+
+  public ImbalanceAnalysisItem getJsonItem(String nodeStringID) {
+      for (ImbalanceAnalysisItem item : imbalanceAnalysisJSONItems) {
+          String itemID = item.getID();
+          boolean found = itemID.equals(nodeStringID);
+          if (found == true) {
+              return item;
+          }
+      }
+      return null;
   }
   
   private Integer getCostOfInstruction(String instruction) {
@@ -312,6 +326,10 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
   final public List<String> getJSON() {
       return this.imbalanceAnalysisJSON;
   }
+
+    final public List<ImbalanceAnalysisItem> getJSONItems() {
+        return this.imbalanceAnalysisJSONItems;
+    }
   
   final public void paintNode(ISSABasicBlock node, String color) {
     colorVertex(node, color);

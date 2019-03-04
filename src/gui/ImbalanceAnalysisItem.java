@@ -7,6 +7,8 @@ package gui;
 
 import com.ibm.wala.ssa.ISSABasicBlock;
 import com.ibm.wala.ssa.SSAInstruction;
+import core.Procedure;
+
 import java.util.Iterator;
 
 /**
@@ -15,14 +17,18 @@ import java.util.Iterator;
  */
 public class ImbalanceAnalysisItem {
     private String itemID;
+    private ISSABasicBlock node;
+    private Procedure proc;
     private int numberOfInstructions;
     private String itemInstructions;
     private Integer nodeCost;
     private String[] incomingItems;
     private String[] outgoingItems;
     
-    public ImbalanceAnalysisItem(String id, int numberOfInstructions, String instructions, Integer nodeCost, String[] incomingItems, String[] outgoingItems) {
+    public ImbalanceAnalysisItem(String id, ISSABasicBlock node, Procedure proc, int numberOfInstructions, String instructions, Integer nodeCost, String[] incomingItems, String[] outgoingItems) {
         this.itemID = id;
+        this.node = node;
+        this.proc = proc;
         this.numberOfInstructions = numberOfInstructions;
         this.itemInstructions = instructions;
         this.nodeCost = nodeCost;
@@ -33,6 +39,12 @@ public class ImbalanceAnalysisItem {
     public String getID() {
         return this.itemID;
     }
+
+    public ISSABasicBlock getBlockNode() {
+        return this.node;
+    }
+
+    public Procedure getProcedure() { return this.proc; }
     
     public int getNumberOfInstructions() {
         return this.numberOfInstructions;

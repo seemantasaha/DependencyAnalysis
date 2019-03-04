@@ -2375,7 +2375,8 @@ public class AnalyzerFrame extends javax.swing.JFrame {
 
   private void appAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appAddButtonActionPerformed
     statusMessage.init();
-    FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar Files","jar");
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar and Class Files","jar", "class");
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/benchmarks/blazer")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
@@ -2401,6 +2402,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void libAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libAddButtonActionPerformed
     statusMessage.init();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar Files","jar");
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/benchmarks/blazer")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
@@ -2551,7 +2553,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
             }
         }*/
 
-        try {
+        /*try {
             Set<Integer> allSrcLines = new HashSet<>();
             //allSrcLines.add(6); allSrcLines.add(11); allSrcLines.add(12);
             allSrcLines.add(30); allSrcLines.add(35); allSrcLines.add(36);
@@ -2567,9 +2569,9 @@ public class AnalyzerFrame extends javax.swing.JFrame {
 
                 //Let's move through all the methods
 
-                /*for (MethodNode methodNode : classNode.methods) {
-                    System.out.println(methodNode.name + "  " + methodNode.desc);
-                }*/
+//                for (MethodNode methodNode : classNode.methods) {
+//                    System.out.println(methodNode.name + "  " + methodNode.desc);
+//                }
 
                 ClassWriter cw = new ClassWriter(cr, Opcodes.ASM4);
 
@@ -2702,9 +2704,10 @@ public class AnalyzerFrame extends javax.swing.JFrame {
                             return null;
                         }
                         MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
-                        /*if ("main".equals(name)) {
-                            return new ourMethodVisitor(mv, jdk.internal.org.objectweb.asm.Type.getArgumentTypes(desc));
-                        } else */if (procName.equals(name)) {
+//                        if ("main".equals(name)) {
+//                            return new ourMethodVisitor(mv, jdk.internal.org.objectweb.asm.Type.getArgumentTypes(desc));
+//                        } else
+                        if (procName.equals(name)) {
                             return new ourMethodVisitor(mv, jdk.internal.org.objectweb.asm.Type.getArgumentTypes(desc));
                         }
                         return mv;
@@ -2730,7 +2733,36 @@ public class AnalyzerFrame extends javax.swing.JFrame {
             }
         } catch(FileNotFoundException ex) {
             System.err.println(ex.toString());
+        }*/
+
+        String s = null;
+
+        /*try {
+            Process p = Runtime.getRuntime().exec("python src/coco-channel/main.py src/coco-channel/input/blazer/json/Login_UNSAFE");
+
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+            BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+
+            // read the output from the command
+            System.out.println("Here is the standard output of the command:\n");
+            while ((s = stdInput.readLine()) != null) {
+                System.out.println(s);
+            }
+
+            // read any errors from the attempted command
+            System.out.println("Here is the standard error of the command (if any):\n");
+            while ((s = stdError.readLine()) != null) {
+                System.out.println(s);
+            }
+
+            System.exit(0);
         }
+        catch (IOException e) {
+            System.out.println("exception happened - here's what I know: ");
+            e.printStackTrace();
+            System.exit(-1);
+        }*/
 
     }//GEN-LAST:event_saveSetupButtonActionPerformed
 

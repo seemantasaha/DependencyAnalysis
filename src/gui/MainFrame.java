@@ -610,6 +610,7 @@ public class MainFrame extends javax.swing.JFrame {
     retMenuItem = new javax.swing.JMenuItem();
     showJsonMenuitem = new javax.swing.JMenuItem();
     resetSlicing = new javax.swing.JMenuItem();
+    invokeCoCoChannel = new javax.swing.JMenuItem();
     instrumentSecretDepBranch = new javax.swing.JMenuItem();
     pdgOptPopupMenu = new javax.swing.JPopupMenu();
     backMenuItem = new javax.swing.JMenuItem();
@@ -679,6 +680,14 @@ public class MainFrame extends javax.swing.JFrame {
       }
     });
     cfgOptPopupMenu.add(resetSlicing);
+
+    invokeCoCoChannel.setText("Invoke CoCo-Channel");
+    invokeCoCoChannel.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        invokeCoCoChannelMenuitemActionPerformed(evt);
+      }
+    });
+    cfgOptPopupMenu.add(invokeCoCoChannel);
 
     instrumentSecretDepBranch.setText("Instrument Secret Dependent Branch");
     instrumentSecretDepBranch.addActionListener(new java.awt.event.ActionListener() {
@@ -1253,6 +1262,32 @@ public class MainFrame extends javax.swing.JFrame {
     this.refreshDrawing();
   }
 
+  private void paintSideChannel(List<String> nodeList) {
+    CG cg = this.getCG();
+    cg.paintProcedureSet(Program.getProcedureSet(), "white");
+    for (Procedure proc : Program.getProcedureSet()) {
+      CFG cfg = this.getCFG(proc);
+      cfg.getProcedure().dependentNodes.clear();
+      cfg.paintNodeSet(proc.getNodeSet(), "aquamarine");
+    }
+
+    for (String nodeString : nodeList) {
+      ImbalanceAnalysisItem nodeItem = this.currentCFG.getJsonItem(nodeString);
+      if (nodeItem == null)
+        continue;
+      Procedure proc =  nodeItem.getProcedure();
+      ISSABasicBlock target = nodeItem.getBlockNode();
+      if (proc == null || target == null)
+        continue;
+      cg.colorVertex(proc, "red");
+      CFG cfg = this.getCFG(proc);
+      if (cfg == null)
+        continue;
+      cfg.paintNode(target, "red");
+    }
+    this.refreshDrawing();
+  }
+
   /*added by Seemanta Saha 01/17/2018
   check that a node is successor of another node
   */
@@ -1689,7 +1724,6 @@ public class MainFrame extends javax.swing.JFrame {
       return;
 
     //Choose a file to save the json
-    File fileToSave = null;
     JFileChooser fileChooser = new JFileChooser();
     fileChooser.setDialogTitle("Specify a file to save");
 
@@ -1767,6 +1801,38 @@ public class MainFrame extends javax.swing.JFrame {
     MainFrame.allSourceLines.clear();
     MainFrame.allStmtSet.clear();
     paintSlice(new HashSet<Statement>());
+  }
+
+  private void invokeCoCoChannelMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
+    String s = null;
+    try {
+      Process p = Runtime.getRuntime().exec("python src/coco-channel/main.py " + fileToSave);
+
+      BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+      BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+
+      List<String> branchNodesForSideChannel = new ArrayList<String>();
+
+      // read the output from the command
+      while ((s = stdInput.readLine()) != null) {
+        if(s.startsWith("side channel branch component id :")) {
+          String node = s.split("side channel branch component id : ")[1];
+          System.out.println(node);
+          branchNodesForSideChannel.add(node);
+        }
+      }
+      // read any errors from the attempted command
+      while ((s = stdError.readLine()) != null) {
+        System.out.println(s);
+      }
+
+      paintSideChannel(branchNodesForSideChannel);
+    }
+    catch (IOException e) {
+      System.out.println("exception happened - here's what I know: ");
+      e.printStackTrace();
+    }
   }
 
   private void instrumentSecretDepbranchMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
@@ -2278,13 +2344,14 @@ public class MainFrame extends javax.swing.JFrame {
   private javax.swing.JButton runspfButton;
   private javax.swing.JMenuItem showJsonMenuitem;
   private javax.swing.JMenuItem resetSlicing;
+  private javax.swing.JMenuItem invokeCoCoChannel;
   private javax.swing.JMenuItem instrumentSecretDepBranch;
   private javax.swing.JMenuItem showPDGMenuItem;
   private javax.swing.JMenuItem silceMenuItem;
   private javax.swing.JComboBox<String> zoomComboBox;
   private javax.swing.JLabel zoomLabel;
   // End of variables declaration//GEN-END:variables
-
+  public File fileToSave = null;
 
   public class CustomClassWriter {
 
