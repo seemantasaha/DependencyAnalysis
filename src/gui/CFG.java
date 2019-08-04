@@ -77,6 +77,10 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
     ControlFlowGraph<SSAInstruction, ISSABasicBlock> cfg = proc.getCFG();
     IBytecodeMethod method = (IBytecodeMethod)this.procedure.getIR().getMethod();
     this.byteCodeInstructions = method.getInstructions();
+    /*System.out.println("Byte code instruction for method : " + method.toString() + " --------------------->");
+    for (IInstruction ins : this.byteCodeInstructions) {
+        System.out.println(ins.);
+    }*/
     nodeShrikeInstructionsMap = new HashMap<>();
     bytecodeMap = new HashMap<>();
 

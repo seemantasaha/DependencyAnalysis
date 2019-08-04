@@ -1,4 +1,4 @@
-package edu.ucsb.cs.vlab;
+package vlab.cs.ucsb.edu;
 
 import java.math.BigInteger;
 import java.util.Map;
@@ -86,6 +86,7 @@ public class DriverProxy {
 	
 	static {
 		System.loadLibrary("abc");
+		System.out.println("ABC library loaded properly");
 	}
 
 	public DriverProxy() {

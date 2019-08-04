@@ -1,11 +1,14 @@
-package edu.ucsb.cs.vlab;
+package vlab.cs.ucsb.edu;
 
-import edu.ucsb.cs.vlab.DriverProxy.Option;
-//import edu.ucsb.cs.vlab.translate.smtlib.from.abc.ABCTranslator;
+import vlab.cs.ucsb.edu.DriverProxy.Option;
 
 import java.math.BigDecimal;
-import java.util.*;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+//import edu.ucsb.cs.vlab.translate.smtlib.from.abc.ABCTranslator;
 
 
 public class ModelCounter {
@@ -14,10 +17,10 @@ public class ModelCounter {
   int bound;
   BigInteger total_model_count;
 
-  ModelCounter(int bound) {
+  public ModelCounter(int bound) {
     this.abc = new DriverProxy();
     //this.abc.setOption(DriverProxy.Option.DISABLE_EQUIVALENCE_CLASSES);
-    this.bound = 0;
+    this.bound = bound;
     this.total_model_count = new BigInteger("0");
   }
 

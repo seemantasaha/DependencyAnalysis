@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.*;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -37,6 +38,7 @@ import javax.swing.Timer;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.AttributeSet;
 
+import vlab.cs.ucsb.edu.ModelCounter;
 import jdk.internal.org.objectweb.asm.*;
 import jdk.internal.org.objectweb.asm.Opcodes.*;
 import jdk.internal.org.objectweb.asm.Type;
@@ -2735,9 +2737,9 @@ public class AnalyzerFrame extends javax.swing.JFrame {
             System.err.println(ex.toString());
         }*/
 
-        String s = null;
+        /*String s = null;
 
-        /*try {
+        try {
             Process p = Runtime.getRuntime().exec("python src/coco-channel/main.py src/coco-channel/input/blazer/json/Login_UNSAFE");
 
             BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -2763,6 +2765,44 @@ public class AnalyzerFrame extends javax.swing.JFrame {
             e.printStackTrace();
             System.exit(-1);
         }*/
+
+        ModelCounter mc = new ModelCounter(4);
+
+        String constraint = "(declare-fun h () String)\n" +
+                "(declare-fun l () String)\n" +
+                "(assert (in h /[A-Z]{0,4}/))\n" +
+                "(assert (in l /[A-Z]{0,4}/))\n" +
+                "\n" +
+                "(assert (not (= (len  l) (len  h))))\n" +
+                "(assert (<= (len  l) 4))\n" +
+                "(assert (<= (len  h) 4))\n" +
+                "(check-sat)";
+
+        constraint = "(declare-fun h () String)(declare-fun l () String)\n" +
+                "\n" +
+                "(assert (and (in h /[A-Z]{0,4}/)(in l /[A-Z]{0,4}/)))\n" +
+                "\n" +
+                "(assert (or (and (not (= (len \"A\") (len l))))))\n" +
+                "\n" +
+                "(assert (or (and (not (= (charAt \"FRPZ\" 0) (charAt l 0)))(= (len \"FRPZ\") (len l)))))\n" +
+                "\n" +
+                "(assert (or (and (not (= (charAt \"AIZC\" 0) (charAt l 0)))(= (len \"AIZC\") (len l)))))\n" +
+                "\n" +
+                "(assert (or (and (not (= (charAt \"DUKC\" 0) (charAt l 0)))(= (len \"DUKC\") (len l)))))\n" +
+                "\n" +
+                "(assert (not (= l \"\")))\n" +
+                "(assert (not (= l \"A\")))\n" +
+                "(assert (not (= l \"FRPZ\")))\n" +
+                "(assert (not (= l \"AIZC\")))\n" +
+                "(assert (not (= l \"DUKC\")))\n" +
+                "\n" +
+                "(check-sat)";
+
+        BigDecimal count = mc.getModelCount(constraint);
+
+        System.out.println(count);
+
+        mc.disposeABC();
 
     }//GEN-LAST:event_saveSetupButtonActionPerformed
 
