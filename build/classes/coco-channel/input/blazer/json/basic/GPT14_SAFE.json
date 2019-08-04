@@ -1,0 +1,8 @@
+[ { "id" : "[ modular_exponentiation_safeLGPT14BIBIBI_1001001 ] " , "instruction_count" : 1 , "secret_dependent_branch" : "false",  "outgoing" : { } }, 
+{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI_13 ] " , "instruction_count" : 2 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI_1001001" : "1"} }, 
+{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI_12 ] " , "instruction_count" : 8 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI_4" : "1"} }, 
+{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI_11 ] " , "instruction_count" : 1 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI_12" : "1"} }, 
+{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI_10 ] " , "instruction_count" : 131 , "secret_dependent_branch" : "true",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI_12" : "1", "modular_exponentiation_safeLGPT14BIBIBI_11" : "1"} }, 
+{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI_5 ] " , "instruction_count" : 151 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI_10" : "1"} }, 
+{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI_4 ] " , "instruction_count" : 12 , "secret_dependent_branch" : "true",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI_5" : "1", "modular_exponentiation_safeLGPT14BIBIBI_13" : "1"} }, 
+{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI_0 ] " , "instruction_count" : 1, "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI_4" : "1"} } ]

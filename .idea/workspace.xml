@@ -2,15 +2,174 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JAnalyzer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/SliceFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SliceFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JAnalyzer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33$ourMethodVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$34.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$JarFileFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$JarFileFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$StatusMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$StatusMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ImbalanceAnalysisItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ImbalanceAnalysisItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$23$ourMethodVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CFGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CFGMouseAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGMouseAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InfoListMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InfoListMouseAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$PDGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$PDGMouseAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/GPT14.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/GPT14.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/K96.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/ModPow1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/ModPow2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/MoreSanity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/PWCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/Sanity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/Timing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/java/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/K96Safe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/K96Safe.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/K96Unsafe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/K96Unsafe.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/Login.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/LoginUnsafe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/MoreSanityArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/MoreSanityArray.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/PWCheckLength.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/PWCheckLength.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/PWCheckSegment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/PWCheckSegment.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanitySanity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanitySanity.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanityStraight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanityStraight.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanityTaint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanityTaint.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/Timing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/Timing.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/User.jpf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/DynaTable/SchoolCalendarServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/GWT_advanced_table/UsersTableModelServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/boot-stateless-auth/TokenHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/boot-stateless-auth/TokenHandlerModified.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/jdk/MessageDigest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/jdk/modified/MessageDigest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/jetty/Credential.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/jetty/safe version/Credential.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/boot_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/boot_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/isEqual_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/isEqual_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/jdk_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/jdk_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/jetty_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/jetty_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/orientDB_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/orientDB_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/picketbox_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/picketbox_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/picketbox_validatePw_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/ss_equals_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/ss_equals_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/ss_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/ss_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/tomcat_safe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/basic/tomcat_unsafe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/boot-stateless-auth/parseUserFromToken_safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/boot-stateless-auth/parseUserFromToken_unsafe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/jdk/isEqual_safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/jdk/isEqual_unsafe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/jetty/check_safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/jetty/check_unsafe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/orientDB/checkPassword_safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/orientDB/checkPassword_unsafe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/picketbox/validatePassword_safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/picketbox/validatePassword_unsafe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/spring-security/equals_safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/spring-security/equals_unsafe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/tomcat/authenticate_safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/tomcat/authenticate_unsafe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/tomcat/matches" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/json/tomcat/mutate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/orientdb/MessageDigest_isEqual.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/orientdb/OSecurityManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/pac4j/DbAuthenticator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/picketbox/UsernamePasswordLoginModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/picketbox/modified/UsernamePasswordLoginModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/spring-security/PasswordEncoderUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/spring-security/PasswordEncoderUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/spring-security/modified/PasswordEncoderUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/DataSourceRealm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,89 +181,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21180">
-              <caret line="1826" column="6" selection-start-line="1826" selection-start-column="6" selection-end-line="1826" selection-end-column="6" />
+            <state relative-caret-position="273">
+              <caret line="91" column="72" selection-start-line="91" selection-start-column="72" selection-end-line="91" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#23138#23139#0" expanded="true" />
-                <element signature="e#23191#23192#0" expanded="true" />
-                <element signature="e#23428#23429#0" expanded="true" />
-                <element signature="e#23479#23480#0" expanded="true" />
-                <element signature="e#23749#23750#0" expanded="true" />
-                <element signature="e#23798#23799#0" expanded="true" />
-                <element signature="e#24033#24034#0" expanded="true" />
-                <element signature="e#24087#24088#0" expanded="true" />
-                <element signature="e#24323#24324#0" expanded="true" />
-                <element signature="e#24381#24382#0" expanded="true" />
-                <element signature="e#24970#24971#0" expanded="true" />
-                <element signature="e#25020#25021#0" expanded="true" />
-                <element signature="e#25426#25427#0" expanded="true" />
-                <element signature="e#25476#25477#0" expanded="true" />
-                <element signature="e#25625#25626#0" expanded="true" />
-                <element signature="e#25674#25675#0" expanded="true" />
-                <element signature="e#25829#25830#0" expanded="true" />
-                <element signature="e#25884#25885#0" expanded="true" />
-                <element signature="e#26191#26192#0" expanded="true" />
-                <element signature="e#26249#26250#0" expanded="true" />
-                <element signature="e#26439#26440#0" expanded="true" />
-                <element signature="e#26489#26490#0" expanded="true" />
-                <element signature="e#26675#26676#0" expanded="true" />
-                <element signature="e#26725#26726#0" expanded="true" />
-                <element signature="e#26912#26913#0" expanded="true" />
-                <element signature="e#26962#26963#0" expanded="true" />
-                <element signature="e#27148#27149#0" expanded="true" />
-                <element signature="e#27198#27199#0" expanded="true" />
-                <element signature="e#27388#27389#0" expanded="true" />
-                <element signature="e#27439#27440#0" expanded="true" />
-                <element signature="e#27622#27623#0" expanded="true" />
-                <element signature="e#27671#27672#0" expanded="true" />
-                <element signature="e#27963#27964#0" expanded="true" />
-                <element signature="e#28021#28022#0" expanded="true" />
-                <element signature="e#28223#28224#0" expanded="true" />
-                <element signature="e#28281#28282#0" expanded="true" />
-                <element signature="e#28673#28674#0" expanded="true" />
-                <element signature="e#28723#28724#0" expanded="true" />
-                <element signature="e#29106#29107#0" expanded="true" />
-                <element signature="e#29157#29158#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/output/safe/Timing.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/ProgramDependenceGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/core/Program.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="111" column="38" lean-forward="true" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+            <state relative-caret-position="247">
+              <caret line="1857" column="52" selection-start-line="1857" selection-start-column="52" selection-end-line="1857" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,21 +208,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>showJSO</find>
-      <find>instrumentSecretDepBranch</find>
-      <find>resetSlicingMenuitemActionPerformed</find>
-      <find>allsou</find>
-      <find>allSOurce</find>
-      <find>allSour</find>
-      <find>showJSON</find>
-      <find>paintSlice</find>
-      <find>&quot;Source line number =</find>
-      <find>showJs</find>
-      <find>asm.</find>
-      <find>ClassVisitor</find>
-      <find>jdk.internal.org.objectweb.asm</find>
-      <find>runButton</find>
-      <find>save</find>
       <find>saveButton</find>
       <find>Window</find>
       <find>RunButtonActionPerformed</find>
@@ -143,16 +223,46 @@
       <find>procName</find>
       <find>checkNodeIsInLoop</find>
       <find>checkEffectedBranchNode</find>
+      <find>resetSlicingMenuitemActionPerformed</find>
+      <find>resetSlicing</find>
+      <find>showJsonMenuitem</find>
+      <find>fileToSave</find>
+      <find>addBt</find>
+      <find>AddButton</find>
+      <find>invokeCo</find>
+      <find>showJson</find>
+      <find>showJSON</find>
+      <find>imbalanceAnalysisJSON</find>
+      <find>showJSO</find>
+      <find>imbalanceAnalysisJSON.</find>
+      <find>coco</find>
+      <find>byteCodeInstructions</find>
+      <find>Login.class</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/core/Statement.java" />
-        <option value="$PROJECT_DIR$/src/gui/CFG.java" />
         <option value="$PROJECT_DIR$/src/gui/SliceFrame.java" />
-        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
+        <option value="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/ModelCounter.java" />
+        <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/DriverProxy.java" />
+        <option value="$PROJECT_DIR$/src/edu/DriverProxy.java" />
+        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
+        <option value="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/jpf/symbc/bytecode/CASTORE.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/jpf/symbc/string/translate/SMTLIBTranslator.java" />
+        <option value="$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/PathCondition.java" />
+        <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/Translator.java" />
+        <option value="$PROJECT_DIR$/src/gui/CFG.java" />
       </list>
     </option>
   </component>
@@ -164,11 +274,11 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
-    <option name="y" value="114" />
-    <option name="width" value="1803" />
-    <option name="height" value="520" />
+    <option name="y" value="25" />
+    <option name="width" value="1853" />
+    <option name="height" value="930" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -177,7 +287,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -202,58 +311,29 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-              <item name="safe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="nashorn.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="nashorn.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="jdk" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551381915874" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564885494715" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AttackSynthesis" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.25084746" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="edu" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/vlab/cs/ucsb/edu" />
       <recent name="$PROJECT_DIR$/src/gui/resources" />
     </key>
   </component>
@@ -269,14 +349,52 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AnalyzerFrame">
     <configuration name="AnalyzerFrame" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="gui.AnalyzerFrame" />
       <module name="JAnalyzer" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=/usr/local/lib" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ModelCounter (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vlab.cs.ucsb.edu.ModelCounter" />
+      <module name="JAnalyzer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vlab.cs.ucsb.edu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ModelCounter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ucsb.cs.vlab.ModelCounter" />
+      <module name="JAnalyzer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ucsb.cs.vlab.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.AnalyzerFrame" />
+      <item itemvalue="Application.ModelCounter (1)" />
+      <item itemvalue="Application.ModelCounter" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ModelCounter (1)" />
+        <item itemvalue="Application.ModelCounter" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -292,9 +410,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="930" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12119535" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18151632" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -302,19 +421,19 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29837704" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.26217228" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32958803" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21814255" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3320849" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32958803" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3008739" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.23470661" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24958494" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
@@ -323,7 +442,7 @@
       <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17044826" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1770891" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -331,19 +450,19 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29837704" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.26217228" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32958803" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.93882644" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3320849" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3008739" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.23470661" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24958494" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
@@ -352,282 +471,19 @@
       <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
     </layout-to-restore>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gui/AverroesFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="54" column="7" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeCT/ClassWriter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/ClassVisitor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeBT/IInstruction.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="30" column="68" lean-forward="true" selection-start-line="30" selection-start-column="68" selection-end-line="30" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/classLoader/IBytecodeMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SSAInstruction.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="71" column="35" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeCT/ClassReader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/cfg/IBasicBlock.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/classLoader/IMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/SliceFrame.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/tree/LineNumberNode.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/ClassWriter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="465" selection-start-line="465" selection-end-line="465" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/ClassVisitor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/awt/Window.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="1950" lean-forward="true" selection-start-line="1950" selection-end-line="1950" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/Opcodes.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/javax/swing/Timer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="162" column="9" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LoginModified.class" />
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/MethodVisitor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="161" column="16" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/IR.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/BaseGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ipa/callgraph/AnalysisScope.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="139" column="61" selection-start-line="139" selection-end-line="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/LLogin.class" />
-    <entry file="file://$PROJECT_DIR$/src/Login.class" />
-    <entry file="file://$PROJECT_DIR$/src/input/Login1.class" />
-    <entry file="file://$PROJECT_DIR$/src/input/Login.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/jdk/internal/org/objectweb/asm/Type.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/SliceFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Log.java" />
-    <entry file="file://$PROJECT_DIR$/src/Sanity.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28335">
-          <caret line="2628" column="43" selection-start-line="2627" selection-start-column="42" selection-end-line="2634" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blazer/blazer-java/GPT14.java" />
-    <entry file="file://$PROJECT_DIR$/src/output/GPT14.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/K96.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/Login.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/ModPow1.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/ModPow2.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/MoreSanity.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/PWCheck.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/Sanity.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/Timing.class" />
-    <entry file="file://$PROJECT_DIR$/src/output/User.class" />
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21180">
-          <caret line="1826" column="6" selection-start-line="1826" selection-start-column="6" selection-end-line="1826" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#23138#23139#0" expanded="true" />
-            <element signature="e#23191#23192#0" expanded="true" />
-            <element signature="e#23428#23429#0" expanded="true" />
-            <element signature="e#23479#23480#0" expanded="true" />
-            <element signature="e#23749#23750#0" expanded="true" />
-            <element signature="e#23798#23799#0" expanded="true" />
-            <element signature="e#24033#24034#0" expanded="true" />
-            <element signature="e#24087#24088#0" expanded="true" />
-            <element signature="e#24323#24324#0" expanded="true" />
-            <element signature="e#24381#24382#0" expanded="true" />
-            <element signature="e#24970#24971#0" expanded="true" />
-            <element signature="e#25020#25021#0" expanded="true" />
-            <element signature="e#25426#25427#0" expanded="true" />
-            <element signature="e#25476#25477#0" expanded="true" />
-            <element signature="e#25625#25626#0" expanded="true" />
-            <element signature="e#25674#25675#0" expanded="true" />
-            <element signature="e#25829#25830#0" expanded="true" />
-            <element signature="e#25884#25885#0" expanded="true" />
-            <element signature="e#26191#26192#0" expanded="true" />
-            <element signature="e#26249#26250#0" expanded="true" />
-            <element signature="e#26439#26440#0" expanded="true" />
-            <element signature="e#26489#26490#0" expanded="true" />
-            <element signature="e#26675#26676#0" expanded="true" />
-            <element signature="e#26725#26726#0" expanded="true" />
-            <element signature="e#26912#26913#0" expanded="true" />
-            <element signature="e#26962#26963#0" expanded="true" />
-            <element signature="e#27148#27149#0" expanded="true" />
-            <element signature="e#27198#27199#0" expanded="true" />
-            <element signature="e#27388#27389#0" expanded="true" />
-            <element signature="e#27439#27440#0" expanded="true" />
-            <element signature="e#27622#27623#0" expanded="true" />
-            <element signature="e#27671#27672#0" expanded="true" />
-            <element signature="e#27963#27964#0" expanded="true" />
-            <element signature="e#28021#28022#0" expanded="true" />
-            <element signature="e#28223#28224#0" expanded="true" />
-            <element signature="e#28281#28282#0" expanded="true" />
-            <element signature="e#28673#28674#0" expanded="true" />
-            <element signature="e#28723#28724#0" expanded="true" />
-            <element signature="e#29106#29107#0" expanded="true" />
-            <element signature="e#29157#29158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/output/safe/Timing.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
@@ -649,10 +505,142 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/coco-channel/input/themis/jetty/safe version/Credential.java" />
+    <entry file="file://$PROJECT_DIR$/src/coco-channel/input/blazer/java/Login.java" />
+    <entry file="file://$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanitySanity.java" />
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/javax/swing/filechooser/FileNameExtensionFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/z3str2/Z3Translator.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/ModelCounter.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/DriverProxy.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/DriverProxy.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/Z3Interface.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/versions/Z3StringProcessor.java" />
+    <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/DriverProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30885">
+          <caret line="2800" column="37" selection-start-line="2800" selection-start-column="37" selection-end-line="2800" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#73617#73618#0" expanded="true" />
+            <element signature="e#73684#73685#0" expanded="true" />
+            <element signature="e#75608#75609#0" expanded="true" />
+            <element signature="e#75675#75676#0" expanded="true" />
+            <element signature="e#77959#77960#0" expanded="true" />
+            <element signature="e#78026#78027#0" expanded="true" />
+            <element signature="e#110752#110753#0" expanded="true" />
+            <element signature="e#110819#110820#0" expanded="true" />
+            <element signature="e#111118#111119#0" expanded="true" />
+            <element signature="e#111185#111186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/System.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1920">
+          <caret line="164" column="25" selection-start-line="164" selection-start-column="25" selection-end-line="164" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="111" column="38" lean-forward="true" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
+        <state relative-caret-position="945">
+          <caret line="109" column="2" selection-start-line="109" selection-start-column="2" selection-end-line="109" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/modelling/Output.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/NormalFormTranslator.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/generic/StringConstraintTranslator.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/TranslationManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/concolic/ConcreteExecutionListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/arrays/ArrayConstraint.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/HeuristicListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/SymbolicListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/SymbolicInstructionFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/PCChoiceGenerator.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/bytecode/CASTORE.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/bytecode/symarrays/CASTORE.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/bytecode/BASTORE.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/mixednumstrg/SpecialIntegerExpression.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/SymbolicInteger.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/string/StringExpression.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/string/translate/SMTLIBTranslator.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/heap/Helper.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/heap/HeapSymbolicListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/heap/HeapNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/heap/HeapChoiceGenerator.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/Z3.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/PathCondition.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/Constraint.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/abc/ABCTranslator.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/Expression.java" />
+    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/string/translate/TranslateToCVC.java" />
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/Translator.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/classLoader/IBytecodeMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeBT/IInstruction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="91" column="72" selection-start-line="91" selection-start-column="72" selection-end-line="91" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="1857" column="52" selection-start-line="1857" selection-start-column="52" selection-end-line="1857" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -692,7 +680,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25084746" />
               </list>
             </option>
           </splitter-proportions>
