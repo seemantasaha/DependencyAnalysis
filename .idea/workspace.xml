@@ -2,83 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JAnalyzer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$24.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$25.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$26.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$27.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$28.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$29.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$30.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$31.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$32.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33$ourMethodVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$34.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$JarFileFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$JarFileFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$StatusMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$StatusMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/ImbalanceAnalysisItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ImbalanceAnalysisItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$23$ourMethodVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$24.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CFGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CFGMouseAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGMouseAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InfoListMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InfoListMouseAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$PDGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$PDGMouseAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" afterDir="false" />
@@ -170,6 +94,7 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -192,14 +117,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="1857" column="52" selection-start-line="1857" selection-start-column="52" selection-end-line="1857" selection-end-column="52" />
+            <state relative-caret-position="422">
+              <caret line="1934" column="58" lean-forward="true" selection-start-line="1934" selection-start-column="58" selection-end-line="1934" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/output/MessageDigest.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="22" column="36" lean-forward="true" selection-end-line="125" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/output/safe/Login.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -208,7 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>saveButton</find>
       <find>Window</find>
       <find>RunButtonActionPerformed</find>
       <find>makeProgram(</find>
@@ -238,6 +180,7 @@
       <find>coco</find>
       <find>byteCodeInstructions</find>
       <find>Login.class</find>
+      <find>&quot;java/util/Arrays&quot;, &quot;toString&quot;</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -252,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/core/Statement.java" />
         <option value="$PROJECT_DIR$/src/gui/SliceFrame.java" />
         <option value="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" />
-        <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/DriverProxy.java" />
         <option value="$PROJECT_DIR$/src/edu/DriverProxy.java" />
@@ -263,6 +205,7 @@
         <option value="$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/PathCondition.java" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/Translator.java" />
         <option value="$PROJECT_DIR$/src/gui/CFG.java" />
+        <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
       </list>
     </option>
   </component>
@@ -303,6 +246,12 @@
               <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="input" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -310,6 +259,13 @@
               <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="output" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
+              <item name="safe" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -320,8 +276,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564885494715" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AttackSynthesis" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564965220964" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jvm_fuzzing/themis/boot-auth" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.25084746" />
@@ -484,29 +440,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/output/safe/Timing.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ProgramDependenceGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/coco-channel/input/themis/jetty/safe version/Credential.java" />
-    <entry file="file://$PROJECT_DIR$/src/coco-channel/input/blazer/java/Login.java" />
     <entry file="file://$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanitySanity.java" />
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/javax/swing/filechooser/FileNameExtensionFilter.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -634,13 +567,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/safe/GPT14.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-456" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/safe/K96.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-918" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/safe/Login.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="1857" column="52" selection-start-line="1857" selection-start-column="52" selection-end-line="1857" selection-end-column="52" />
+        <state relative-caret-position="422">
+          <caret line="1934" column="58" lean-forward="true" selection-start-line="1934" selection-start-column="58" selection-end-line="1934" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/MessageDigest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="22" column="36" lean-forward="true" selection-end-line="125" />
         </state>
       </provider>
     </entry>

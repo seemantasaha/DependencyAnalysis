@@ -1838,6 +1838,17 @@ public class MainFrame extends javax.swing.JFrame {
   private void instrumentSecretDepbranchMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
     System.out.println(MainFrame.allSourceLines);
 
+    System.out.println(AnalyzerFrame.classPath);
+    if (AnalyzerFrame.classPath.endsWith(".jar")) {
+      String patharray[] = AnalyzerFrame.classPath.split("/");
+      String path = "";
+      for (int i=0; i < patharray.length-1; i++) {
+        path = path + patharray[i] + "/";
+      }
+      AnalyzerFrame.classPath = path + currentCFG.getProcedure().getClassName().split("L")[1] + ".class";
+      System.out.println(AnalyzerFrame.classPath);
+    }
+
     //asm bytecode instrumentation
     try {
       //Set<Integer> allSrcLines = new HashSet<>();
