@@ -6,12 +6,9 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import com.ibm.wala.classLoader.IBytecodeMethod;
 //import com.ibm.wala.shrikeCT.ClassReader;
+import com.ibm.wala.shrikeBT.IInstruction;
 import com.ibm.wala.shrikeCT.InvalidClassFileException;
-import com.ibm.wala.ssa.IR;
-import com.ibm.wala.ssa.ISSABasicBlock;
-import com.ibm.wala.ssa.SSAInstruction;
-import com.ibm.wala.ssa.SSANewInstruction;
-import com.ibm.wala.ssa.SymbolTable;
+import com.ibm.wala.ssa.*;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.view.mxGraph;
 import core.Loop;
@@ -1258,6 +1255,35 @@ public class MainFrame extends javax.swing.JFrame {
           }
         }
       }
+
+      for (ISSABasicBlock block : proc.getNodeSet()) {
+        if (block.getLastInstructionIndex() < 0)
+          continue;
+        SSAInstruction inst = block.getLastInstruction();
+        if (inst == null)
+          continue;
+        if (inst.toString().startsWith("return")) {
+          System.err.println("return at line : ");
+          ISSABasicBlock target = proc.getNode(inst);
+          int bcIndex = 0;
+          try {
+            bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
+            try {
+              int src_line_number = target.getMethod().getLineNumber(bcIndex);
+              System.err.println("Source line number = " + src_line_number);
+              if(MainFrame.allSourceLines.containsKey(src_line_number)) {
+                MainFrame.allSourceLines.remove(src_line_number);
+              }
+            } catch (Exception e) {
+              System.err.println("Bytecode index no good");
+              System.err.println(e.getMessage());
+            }
+          } catch (Exception e ) {
+            System.err.println("it's probably not a BT method (e.g. it's a fakeroot method)");
+            System.err.println(e.getMessage());
+          }
+        }
+      }
     }
     this.refreshDrawing();
   }
@@ -1986,7 +2012,10 @@ public class MainFrame extends javax.swing.JFrame {
                 while(!this.firstline && !lineVisited.contains(line-prevLinediff)){
                   prevLinediff++;
                 }
+                System.err.println("line="+line);
+                System.err.println("prevLinediff="+prevLinediff);
                 if (allSourceLines.keySet().contains(line - prevLinediff)) {
+                  System.err.println("fallThrough");
                   mv.visitVarInsn(Opcodes.ALOAD, 0);
                   mv.visitVarInsn(Opcodes.ALOAD, 0);
                   mv.visitFieldInsn(Opcodes.GETSTATIC, className, "branchAt" + (line - prevLinediff) + "fallThrough", "I");
@@ -1995,6 +2024,7 @@ public class MainFrame extends javax.swing.JFrame {
                   mv.visitFieldInsn(Opcodes.PUTSTATIC, className, "branchAt" + (line - prevLinediff) + "fallThrough", "I");
                 }
                 if (allSourceLines.keySet().contains(line)) {
+                  System.err.println("branchAt");
                   mv.visitVarInsn(Opcodes.ALOAD, 0);
                   mv.visitVarInsn(Opcodes.ALOAD, 0);
                   mv.visitFieldInsn(Opcodes.GETSTATIC, className, "branchAt" + line + "all", "I");

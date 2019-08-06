@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" afterDir="false" />
@@ -95,6 +94,7 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/output/MessageDigest.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/output/MessageDigest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
+            <state relative-caret-position="1311">
               <caret line="91" column="72" selection-start-line="91" selection-start-column="72" selection-end-line="91" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -117,32 +117,74 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="1934" column="58" lean-forward="true" selection-start-line="1934" selection-start-column="58" selection-end-line="1934" selection-end-column="58" />
+            <state relative-caret-position="284">
+              <caret line="1266" column="53" lean-forward="true" selection-start-line="1266" selection-start-column="53" selection-end-line="1266" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#23030#23031#0" expanded="true" />
+                <element signature="e#23083#23084#0" expanded="true" />
+                <element signature="e#23320#23321#0" expanded="true" />
+                <element signature="e#23371#23372#0" expanded="true" />
+                <element signature="e#23641#23642#0" expanded="true" />
+                <element signature="e#23690#23691#0" expanded="true" />
+                <element signature="e#23925#23926#0" expanded="true" />
+                <element signature="e#23979#23980#0" expanded="true" />
+                <element signature="e#24215#24216#0" expanded="true" />
+                <element signature="e#24273#24274#0" expanded="true" />
+                <element signature="e#24521#24522#0" expanded="true" />
+                <element signature="e#24584#24585#0" expanded="true" />
+                <element signature="e#25178#25179#0" expanded="true" />
+                <element signature="e#25228#25229#0" expanded="true" />
+                <element signature="e#25634#25635#0" expanded="true" />
+                <element signature="e#25684#25685#0" expanded="true" />
+                <element signature="e#25833#25834#0" expanded="true" />
+                <element signature="e#25882#25883#0" expanded="true" />
+                <element signature="e#26037#26038#0" expanded="true" />
+                <element signature="e#26092#26093#0" expanded="true" />
+                <element signature="e#26399#26400#0" expanded="true" />
+                <element signature="e#26457#26458#0" expanded="true" />
+                <element signature="e#26647#26648#0" expanded="true" />
+                <element signature="e#26697#26698#0" expanded="true" />
+                <element signature="e#26883#26884#0" expanded="true" />
+                <element signature="e#26933#26934#0" expanded="true" />
+                <element signature="e#27120#27121#0" expanded="true" />
+                <element signature="e#27170#27171#0" expanded="true" />
+                <element signature="e#27356#27357#0" expanded="true" />
+                <element signature="e#27406#27407#0" expanded="true" />
+                <element signature="e#27596#27597#0" expanded="true" />
+                <element signature="e#27647#27648#0" expanded="true" />
+                <element signature="e#27830#27831#0" expanded="true" />
+                <element signature="e#27879#27880#0" expanded="true" />
+                <element signature="e#28171#28172#0" expanded="true" />
+                <element signature="e#28229#28230#0" expanded="true" />
+                <element signature="e#28431#28432#0" expanded="true" />
+                <element signature="e#28489#28490#0" expanded="true" />
+                <element signature="e#28881#28882#0" expanded="true" />
+                <element signature="e#28931#28932#0" expanded="true" />
+                <element signature="e#29314#29315#0" expanded="true" />
+                <element signature="e#29365#29366#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/output/MessageDigest.class">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="22" column="36" lean-forward="true" selection-end-line="125" />
+            <state relative-caret-position="226">
+              <caret line="220" column="6" lean-forward="true" selection-start-line="220" selection-start-column="6" selection-end-line="221" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/output/safe/Login.class">
+        <entry file="file://$PROJECT_DIR$/src/output/MessageDigest.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+            <state relative-caret-position="335">
+              <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -151,16 +193,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Window</find>
-      <find>RunButtonActionPerformed</find>
-      <find>makeProgram(</find>
       <find>appPaths</find>
       <find>appList</find>
       <find>Save</find>
       <find>class</find>
       <find>allSource</find>
       <find>className</find>
-      <find>allSourceLines</find>
       <find>saveSetupButton</find>
       <find>procName</find>
       <find>checkNodeIsInLoop</find>
@@ -181,6 +219,10 @@
       <find>byteCodeInstructions</find>
       <find>Login.class</find>
       <find>&quot;java/util/Arrays&quot;, &quot;toString&quot;</find>
+      <find>inst instanceof</find>
+      <find>lineVisited</find>
+      <find>getLastInstruction</find>
+      <find>allSourceLines</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -246,6 +288,12 @@
               <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -276,7 +324,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564965220964" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565079324546" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../jvm_fuzzing/themis/boot-auth" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
@@ -369,7 +417,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18151632" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18372993" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -377,8 +425,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32958803" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21814255" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23326133" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3320849" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -440,17 +488,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/coco-channel/input/blazer/quantification/SanitySanity.java" />
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/javax/swing/filechooser/FileNameExtensionFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/z3str2/Z3Translator.java" />
-    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/ModelCounter.java" />
-    <entry file="file://$PROJECT_DIR$/src/edu/DriverProxy.java" />
     <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/DriverProxy.java" />
     <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/Z3Interface.java" />
     <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/versions/Z3StringProcessor.java" />
@@ -543,27 +580,10 @@
     <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/Expression.java" />
     <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/string/translate/TranslateToCVC.java" />
     <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/Translator.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/classLoader/IBytecodeMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeBT/IInstruction.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="779">
           <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="91" column="72" selection-start-line="91" selection-start-column="72" selection-end-line="91" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -580,27 +600,129 @@
         <state relative-caret-position="-918" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/safe/Login.class">
+    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="1934" column="58" lean-forward="true" selection-start-line="1934" selection-start-column="58" selection-end-line="1934" selection-end-column="58" />
+        <state relative-caret-position="1311">
+          <caret line="91" column="72" selection-start-line="91" selection-start-column="72" selection-end-line="91" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/safe/Login.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ProgramDependenceGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1596">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="680" column="16" selection-start-line="680" selection-start-column="16" selection-end-line="680" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/output/MessageDigest.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="22" column="36" lean-forward="true" selection-end-line="125" />
+        <state relative-caret-position="335">
+          <caret line="47" column="35" lean-forward="true" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SSAConditionalBranchInstruction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+          <folding>
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1134#1135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/classLoader/IBytecodeMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SSACFG.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="488" column="19" selection-start-line="488" selection-start-column="19" selection-end-line="488" selection-end-column="19" />
+          <folding>
+            <element signature="e#29044#29045#0" expanded="true" />
+            <element signature="e#29131#29132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="220" column="6" lean-forward="true" selection-start-line="220" selection-start-column="6" selection-end-line="221" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="1266" column="53" lean-forward="true" selection-start-line="1266" selection-start-column="53" selection-end-line="1266" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#23030#23031#0" expanded="true" />
+            <element signature="e#23083#23084#0" expanded="true" />
+            <element signature="e#23320#23321#0" expanded="true" />
+            <element signature="e#23371#23372#0" expanded="true" />
+            <element signature="e#23641#23642#0" expanded="true" />
+            <element signature="e#23690#23691#0" expanded="true" />
+            <element signature="e#23925#23926#0" expanded="true" />
+            <element signature="e#23979#23980#0" expanded="true" />
+            <element signature="e#24215#24216#0" expanded="true" />
+            <element signature="e#24273#24274#0" expanded="true" />
+            <element signature="e#24521#24522#0" expanded="true" />
+            <element signature="e#24584#24585#0" expanded="true" />
+            <element signature="e#25178#25179#0" expanded="true" />
+            <element signature="e#25228#25229#0" expanded="true" />
+            <element signature="e#25634#25635#0" expanded="true" />
+            <element signature="e#25684#25685#0" expanded="true" />
+            <element signature="e#25833#25834#0" expanded="true" />
+            <element signature="e#25882#25883#0" expanded="true" />
+            <element signature="e#26037#26038#0" expanded="true" />
+            <element signature="e#26092#26093#0" expanded="true" />
+            <element signature="e#26399#26400#0" expanded="true" />
+            <element signature="e#26457#26458#0" expanded="true" />
+            <element signature="e#26647#26648#0" expanded="true" />
+            <element signature="e#26697#26698#0" expanded="true" />
+            <element signature="e#26883#26884#0" expanded="true" />
+            <element signature="e#26933#26934#0" expanded="true" />
+            <element signature="e#27120#27121#0" expanded="true" />
+            <element signature="e#27170#27171#0" expanded="true" />
+            <element signature="e#27356#27357#0" expanded="true" />
+            <element signature="e#27406#27407#0" expanded="true" />
+            <element signature="e#27596#27597#0" expanded="true" />
+            <element signature="e#27647#27648#0" expanded="true" />
+            <element signature="e#27830#27831#0" expanded="true" />
+            <element signature="e#27879#27880#0" expanded="true" />
+            <element signature="e#28171#28172#0" expanded="true" />
+            <element signature="e#28229#28230#0" expanded="true" />
+            <element signature="e#28431#28432#0" expanded="true" />
+            <element signature="e#28489#28490#0" expanded="true" />
+            <element signature="e#28881#28882#0" expanded="true" />
+            <element signature="e#28931#28932#0" expanded="true" />
+            <element signature="e#29314#29315#0" expanded="true" />
+            <element signature="e#29365#29366#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
