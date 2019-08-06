@@ -1262,8 +1262,8 @@ public class MainFrame extends javax.swing.JFrame {
         SSAInstruction inst = block.getLastInstruction();
         if (inst == null)
           continue;
-        if (inst.toString().startsWith("return")) {
-          System.err.println("return at line : ");
+        System.err.println(inst);
+        if (inst.toString().startsWith("return") || inst.toString().contains("= invokevirtual")) {
           ISSABasicBlock target = proc.getNode(inst);
           int bcIndex = 0;
           try {
