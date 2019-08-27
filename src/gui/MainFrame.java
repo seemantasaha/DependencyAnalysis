@@ -1263,7 +1263,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (inst == null)
           continue;
         System.err.println(inst);
-        if (inst.toString().startsWith("return") || inst.toString().contains("= invokevirtual")) {
+        if (inst.toString().startsWith("return") /*|| inst.toString().contains("= invokevirtual")*/) {
           ISSABasicBlock target = proc.getNode(inst);
           int bcIndex = 0;
           try {
@@ -1871,7 +1871,10 @@ public class MainFrame extends javax.swing.JFrame {
       for (int i=0; i < patharray.length-1; i++) {
         path = path + patharray[i] + "/";
       }
-      AnalyzerFrame.classPath = path + currentCFG.getProcedure().getClassName().split("L")[1] + ".class";
+//      if(path.endsWith("/jar/")) {
+//        path = path.split("/jar/")[0]+"/classes/";
+//      }
+      AnalyzerFrame.classPath = path + currentCFG.getProcedure().getClassName().substring(1)+".class";
       System.out.println(AnalyzerFrame.classPath);
     }
 
@@ -1900,14 +1903,15 @@ public class MainFrame extends javax.swing.JFrame {
         ClassVisitor cv = new ClassVisitor(Opcodes.ASM4, cw) {
 
           class ourMethodVisitor extends MethodVisitor {
-
+            int access;
             int line;
             boolean firstline = true;
             jdk.internal.org.objectweb.asm.Type[] params;
 
-            ourMethodVisitor(MethodVisitor mv, jdk.internal.org.objectweb.asm.Type[] param) {
+            ourMethodVisitor(MethodVisitor mv, int access, jdk.internal.org.objectweb.asm.Type[] param) {
               super(Opcodes.ASM4, mv);
               this.params = param;
+              this.access = access;
             }
 
             //@Override
@@ -1924,7 +1928,12 @@ public class MainFrame extends javax.swing.JFrame {
                 case Opcodes.DRETURN:
                 case Opcodes.RETURN:
                   int i = 0;
+                  System.out.println(access);
+                  if (access != 9 && access != 25) {
+                    i = 1;
+                  }
                   for (jdk.internal.org.objectweb.asm.Type tp : params) {
+                    System.out.println(tp);
                     mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
                     if (tp.equals(jdk.internal.org.objectweb.asm.Type.BOOLEAN_TYPE)) {
                       mv.visitVarInsn(Opcodes.ILOAD, i);
@@ -1954,13 +1963,18 @@ public class MainFrame extends javax.swing.JFrame {
                       if (tp.toString().equals("[B")) {
                         mv.visitVarInsn(Opcodes.ALOAD, i);
                         mv.visitFieldInsn(Opcodes.INVOKESTATIC, "java/util/Arrays", "toString", "([B)Ljava/lang/String;");
+                        //mv.visitTypeInsn(Opcodes.NEW, "java/lang/String");
+                        //mv.visitInsn(Opcodes.DUP);
+                        //mv.visitFieldInsn(Opcodes.INVOKESPECIAL, "java/lang/String", "<init>", "([B)Ljava/lang/String;");
+                        mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
                       } else if (tp.toString().equals("[I")) {
                         mv.visitVarInsn(Opcodes.ALOAD, i);
                         mv.visitFieldInsn(Opcodes.INVOKESTATIC, "java/util/Arrays", "toString", "([I)Ljava/lang/String;");
+                        mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
                       } else {
                         mv.visitVarInsn(Opcodes.ALOAD, i);
+                        mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
                       }
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
                     }
 
                     mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
@@ -2044,7 +2058,11 @@ public class MainFrame extends javax.swing.JFrame {
             }
             MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
             if (procNameSet.contains(name)) {
-              return new ourMethodVisitor(mv, jdk.internal.org.objectweb.asm.Type.getArgumentTypes(desc));
+              System.out.println("access = " + access);
+              System.out.println("name = " + name);
+              System.out.println("desc = " + desc);
+              System.out.println("signature = " + signature);
+              return new ourMethodVisitor(mv, access, jdk.internal.org.objectweb.asm.Type.getArgumentTypes(desc));
             }
             return mv;
           }
@@ -2057,6 +2075,10 @@ public class MainFrame extends javax.swing.JFrame {
         //Dump the class in a file
         File outDir=new File("src/output/");
         outDir.mkdirs();
+//        if (className.contains("/")) {
+//          String[] clsarr = className.split("/");
+//          className = clsarr[clsarr.length - 1].split(".class")[0];
+//        }
         DataOutputStream dout=new DataOutputStream(new FileOutputStream(new File(outDir,className+".class")));
         dout.write(cw.toByteArray());
         dout.flush();

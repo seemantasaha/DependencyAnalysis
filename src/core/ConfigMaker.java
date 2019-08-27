@@ -60,8 +60,12 @@ public class ConfigMaker {
     
     for (String entry : otherEntrySet) {
       Atom entryMth = Atom.findOrCreateAsciiAtom(getEntryMethodName(entry));
+      System.out.println(entryMth);
       TypeReference typeRef = TypeReference.findOrCreate(appClsLoaderRef, TypeName.string2TypeName(getEntryClassName(entry)));
+      System.out.println(typeRef);
+      System.out.println(typeRef.getName());
       IClass cls = cha.lookupClass(typeRef);
+      System.out.println(cls);
       if (cls.isAbstract()) {
         // TODO: we need to check whether the subclass is still abstract? and find the nearest non-abstract desendant
         for (IClass subCls : cha.getImmediateSubclasses(cls)) {
