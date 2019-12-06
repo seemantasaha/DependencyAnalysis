@@ -2378,7 +2378,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void appAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appAddButtonActionPerformed
     statusMessage.init();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar and Class Files","jar", "class");
-    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/benchmarks/blazer")); //temporary
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/spf/jpf-security/build/examples/svcomp/jpfregression/")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
@@ -2766,7 +2766,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
             System.exit(-1);
         }*/
 
-        ModelCounter mc = new ModelCounter(4);
+        ModelCounter mc = new ModelCounter(4, "abc.string");
 
         String constraint = "(declare-fun h () String)\n" +
                 "(declare-fun l () String)\n" +

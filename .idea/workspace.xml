@@ -3,15 +3,44 @@
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/core/ConfigMaker$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/core/ConfigMaker$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/core/ConfigMaker$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/core/ConfigMaker$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/core/ConfigMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/core/ConfigMaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$24$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$24$ourMethodVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JAnalyzer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JAnalyzer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$24$ourMethodVisitor.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CFGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CFGMouseAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGMouseAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InfoListMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InfoListMouseAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$PDGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$PDGMouseAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/vlab/cs/ucsb/edu/ModelCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/vlab/cs/ucsb/edu/ModelCounter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" afterDir="false" />
@@ -103,10 +132,10 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/ConfigMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/ConfigMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/output/Credential.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/output/Credential.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/output/MessageDigest.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/output/MessageDigest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,10 +147,103 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/NumberFormatException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="703">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/Integer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10602">
+              <caret line="591" selection-start-line="591" selection-end-line="591" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28671">
-              <caret line="1929" column="28" selection-start-line="1929" selection-start-column="28" selection-end-line="1929" selection-end-column="28" />
+            <state relative-caret-position="214">
+              <caret line="2009" column="8" selection-start-line="2009" selection-start-column="8" selection-end-line="2012" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#21069#21158#0" expanded="true" />
+                <element signature="e#23200#23201#0" expanded="true" />
+                <element signature="e#23253#23254#0" expanded="true" />
+                <element signature="e#23490#23491#0" expanded="true" />
+                <element signature="e#23541#23542#0" expanded="true" />
+                <element signature="e#23811#23812#0" expanded="true" />
+                <element signature="e#23860#23861#0" expanded="true" />
+                <element signature="e#24095#24096#0" expanded="true" />
+                <element signature="e#24149#24150#0" expanded="true" />
+                <element signature="e#24408#24409#0" expanded="true" />
+                <element signature="e#24470#24471#0" expanded="true" />
+                <element signature="e#24714#24715#0" expanded="true" />
+                <element signature="e#24772#24773#0" expanded="true" />
+                <element signature="e#25020#25021#0" expanded="true" />
+                <element signature="e#25083#25084#0" expanded="true" />
+                <element signature="e#25677#25678#0" expanded="true" />
+                <element signature="e#25727#25728#0" expanded="true" />
+                <element signature="e#26133#26134#0" expanded="true" />
+                <element signature="e#26183#26184#0" expanded="true" />
+                <element signature="e#26332#26333#0" expanded="true" />
+                <element signature="e#26381#26382#0" expanded="true" />
+                <element signature="e#26536#26537#0" expanded="true" />
+                <element signature="e#26591#26592#0" expanded="true" />
+                <element signature="e#26898#26899#0" expanded="true" />
+                <element signature="e#26956#26957#0" expanded="true" />
+                <element signature="e#27146#27147#0" expanded="true" />
+                <element signature="e#27196#27197#0" expanded="true" />
+                <element signature="e#27382#27383#0" expanded="true" />
+                <element signature="e#27432#27433#0" expanded="true" />
+                <element signature="e#27619#27620#0" expanded="true" />
+                <element signature="e#27669#27670#0" expanded="true" />
+                <element signature="e#27855#27856#0" expanded="true" />
+                <element signature="e#27905#27906#0" expanded="true" />
+                <element signature="e#28095#28096#0" expanded="true" />
+                <element signature="e#28146#28147#0" expanded="true" />
+                <element signature="e#28329#28330#0" expanded="true" />
+                <element signature="e#28378#28379#0" expanded="true" />
+                <element signature="e#28670#28671#0" expanded="true" />
+                <element signature="e#28728#28729#0" expanded="true" />
+                <element signature="e#28930#28931#0" expanded="true" />
+                <element signature="e#28988#28989#0" expanded="true" />
+                <element signature="e#29380#29381#0" expanded="true" />
+                <element signature="e#29430#29431#0" expanded="true" />
+                <element signature="e#29813#29814#0" expanded="true" />
+                <element signature="e#29864#29865#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1330">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SymbolTable.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4541">
+              <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,45 +252,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/output/org/apache/ftpserver/usermanager/Md5PasswordEncryptor.class">
+        <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1330">
-              <caret line="70" column="39" selection-end-line="468" />
+            <state relative-caret-position="2603">
+              <caret line="159" column="12" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="76" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/output/Credential.class">
+        <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+            <state relative-caret-position="722">
+              <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/output/DbAuthenticator.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="170" column="41" selection-end-line="292" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/output/org/apache/ftpserver/usermanager/SaltedPasswordEncryptor.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="77" column="36" selection-end-line="523" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/output/fr/xephi/authme/security/crypts/UnsaltedMethod.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5928" />
           </provider>
         </entry>
       </file>
@@ -176,27 +276,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addBt</find>
-      <find>AddButton</find>
-      <find>invokeCo</find>
-      <find>showJson</find>
-      <find>showJSON</find>
-      <find>imbalanceAnalysisJSON</find>
-      <find>showJSO</find>
-      <find>imbalanceAnalysisJSON.</find>
-      <find>coco</find>
-      <find>byteCodeInstructions</find>
-      <find>Login.class</find>
-      <find>&quot;java/util/Arrays&quot;, &quot;toString&quot;</find>
-      <find>inst instanceof</find>
-      <find>lineVisited</find>
-      <find>getLastInstruction</find>
-      <find>instrume</find>
-      <find>java/util/Arrays</find>
-      <find>digestSHA256</find>
-      <find>isEqual_inline</find>
-      <find>Arrays.toString</find>
-      <find>Arrays</find>
       <find>allSrcLines</find>
       <find>Bytecode :</find>
       <find>allSourceLines</find>
@@ -206,6 +285,27 @@
       <find>instru</find>
       <find>classPath</find>
       <find>access</find>
+      <find>show</find>
+      <find>imbalanceAnalysisJSON</find>
+      <find>blazer</find>
+      <find>jq</find>
+      <find>launchProgramGen</find>
+      <find>showJSON</find>
+      <find>showJsonMenuitem</find>
+      <find>SymbolTable</find>
+      <find>showJSO</find>
+      <find>resetSlicing</find>
+      <find>allStmtSet</find>
+      <find>symTab.getIntValue</find>
+      <find>locationFrame</find>
+      <find>SMTLib</find>
+      <find>branchModel</find>
+      <find>branchModelCountMenuitem</find>
+      <find>digraph</find>
+      <find>paintSlice</find>
+      <find>pain</find>
+      <find>digr</find>
+      <find>translateToSMTLib</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -226,14 +326,15 @@
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/DriverProxy.java" />
         <option value="$PROJECT_DIR$/src/edu/DriverProxy.java" />
-        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
-        <option value="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/gov/nasa/jpf/symbc/bytecode/CASTORE.java" />
         <option value="$PROJECT_DIR$/src/gov/nasa/jpf/symbc/string/translate/SMTLIBTranslator.java" />
         <option value="$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/PathCondition.java" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/Translator.java" />
-        <option value="$PROJECT_DIR$/src/gui/CFG.java" />
         <option value="$PROJECT_DIR$/src/core/ConfigMaker.java" />
+        <option value="$PROJECT_DIR$/src/gui/CFG.java" />
+        <option value="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" />
+        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
+        <option value="$PROJECT_DIR$/src/core/MarkovChain.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
       </list>
     </option>
@@ -258,7 +359,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -276,79 +376,41 @@
               <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="input" type="462c0819:PsiDirectoryNode" />
+              <item name="edu" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
               <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-              <item name="crypts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
-              <item name="ftpserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
-              <item name="ftpserver" type="462c0819:PsiDirectoryNode" />
-              <item name="usermanager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-              <item name="apache" type="462c0819:PsiDirectoryNode" />
-              <item name="ftpserver" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="wala" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566458646502" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575668976694" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.25084746" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/output" />
+      <recent name="$PROJECT_DIR$/src/core" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/output" />
       <recent name="$PROJECT_DIR$/src/vlab/cs/ucsb/edu" />
       <recent name="$PROJECT_DIR$/src/gui/resources" />
     </key>
@@ -373,6 +435,8 @@
   </component>
   <component name="RunManager" selected="Application.AnalyzerFrame">
     <configuration name="AnalyzerFrame" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/jdk1.8.0_231/jre" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="gui.AnalyzerFrame" />
       <module name="JAnalyzer" />
       <option name="VM_PARAMETERS" value="-Djava.library.path=/usr/local/lib" />
@@ -431,11 +495,20 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2080797" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2245008" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -443,19 +516,19 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31857452" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3315335" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991699" visible="true" weight="0.3182297" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3308746" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3008739" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.23434125" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.300216" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013835" side_tool="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32937366" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.23393045" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24958494" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24932542" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
@@ -464,7 +537,7 @@
       <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1770891" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2245008" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -472,19 +545,19 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32958803" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.93882644" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3320849" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.3182297" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3308746" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3008739" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.23470661" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.300216" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013835" side_tool="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32937366" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.23393045" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24958494" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24932542" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
@@ -497,32 +570,16 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java</url>
-          <line>55</line>
+          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
+          <line>2013</line>
           <properties />
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/heap/HeapSymbolicListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/heap/HeapNode.java" />
-    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/heap/HeapChoiceGenerator.java" />
-    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/Z3.java" />
-    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/PathCondition.java" />
-    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/Constraint.java" />
-    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/abc/ABCTranslator.java" />
-    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/numeric/Expression.java" />
-    <entry file="file://$PROJECT_DIR$/src/gov/nasa/jpf/symbc/string/translate/TranslateToCVC.java" />
     <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/vlab/translate/smtlib/from/Translator.java" />
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeBT/IInstruction.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/output/safe/GPT14.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-456" />
@@ -558,23 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="220" column="6" lean-forward="true" selection-start-line="220" selection-start-column="6" selection-end-line="221" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="91" column="72" selection-start-line="91" selection-start-column="72" selection-end-line="91" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -692,13 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1957">
-          <caret line="149" column="46" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/output/org/apache/ftpserver/usermanager/PasswordUtil.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
@@ -757,13 +790,6 @@
     <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6867">
-          <caret line="2973" column="30" selection-start-line="2973" selection-start-column="30" selection-end-line="2973" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/output/org/apache/ftpserver/util/StringUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-570">
@@ -771,47 +797,192 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/output/fr/xephi/authme/security/crypts/UnsaltedMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28671">
-          <caret line="1929" column="28" selection-start-line="1929" selection-start-column="28" selection-end-line="1929" selection-end-column="28" />
+        <state relative-caret-position="122">
+          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/org/apache/ftpserver/usermanager/SaltedPasswordEncryptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="77" column="36" selection-end-line="523" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/DbAuthenticator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="170" column="41" selection-end-line="292" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/Credential.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/output/org/apache/ftpserver/usermanager/Md5PasswordEncryptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="70" column="39" selection-end-line="468" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.shrike-1.3.9.jar!/com/ibm/wala/shrikeBT/IInstruction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Reporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/cfg/IBasicBlock.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/ISSABasicBlock.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38513">
+          <caret line="2768" column="57" selection-start-line="2768" selection-start-column="57" selection-end-line="2768" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/MarkovChain.java" />
+    <entry file="file://$PROJECT_DIR$/src/core/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2926">
+          <caret line="200" column="27" selection-start-line="200" selection-start-column="27" selection-end-line="200" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10602">
+          <caret line="591" selection-start-line="591" selection-end-line="591" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1330">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SymbolTable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4541">
+          <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/org/apache/ftpserver/usermanager/Md5PasswordEncryptor.class">
+    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1330">
-          <caret line="70" column="39" selection-end-line="468" />
+        <state relative-caret-position="2603">
+          <caret line="159" column="12" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/Credential.class">
+    <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+        <state relative-caret-position="722">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/DbAuthenticator.class">
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="170" column="41" selection-end-line="292" />
+        <state relative-caret-position="214">
+          <caret line="2009" column="8" selection-start-line="2009" selection-start-column="8" selection-end-line="2012" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#21069#21158#0" expanded="true" />
+            <element signature="e#23200#23201#0" expanded="true" />
+            <element signature="e#23253#23254#0" expanded="true" />
+            <element signature="e#23490#23491#0" expanded="true" />
+            <element signature="e#23541#23542#0" expanded="true" />
+            <element signature="e#23811#23812#0" expanded="true" />
+            <element signature="e#23860#23861#0" expanded="true" />
+            <element signature="e#24095#24096#0" expanded="true" />
+            <element signature="e#24149#24150#0" expanded="true" />
+            <element signature="e#24408#24409#0" expanded="true" />
+            <element signature="e#24470#24471#0" expanded="true" />
+            <element signature="e#24714#24715#0" expanded="true" />
+            <element signature="e#24772#24773#0" expanded="true" />
+            <element signature="e#25020#25021#0" expanded="true" />
+            <element signature="e#25083#25084#0" expanded="true" />
+            <element signature="e#25677#25678#0" expanded="true" />
+            <element signature="e#25727#25728#0" expanded="true" />
+            <element signature="e#26133#26134#0" expanded="true" />
+            <element signature="e#26183#26184#0" expanded="true" />
+            <element signature="e#26332#26333#0" expanded="true" />
+            <element signature="e#26381#26382#0" expanded="true" />
+            <element signature="e#26536#26537#0" expanded="true" />
+            <element signature="e#26591#26592#0" expanded="true" />
+            <element signature="e#26898#26899#0" expanded="true" />
+            <element signature="e#26956#26957#0" expanded="true" />
+            <element signature="e#27146#27147#0" expanded="true" />
+            <element signature="e#27196#27197#0" expanded="true" />
+            <element signature="e#27382#27383#0" expanded="true" />
+            <element signature="e#27432#27433#0" expanded="true" />
+            <element signature="e#27619#27620#0" expanded="true" />
+            <element signature="e#27669#27670#0" expanded="true" />
+            <element signature="e#27855#27856#0" expanded="true" />
+            <element signature="e#27905#27906#0" expanded="true" />
+            <element signature="e#28095#28096#0" expanded="true" />
+            <element signature="e#28146#28147#0" expanded="true" />
+            <element signature="e#28329#28330#0" expanded="true" />
+            <element signature="e#28378#28379#0" expanded="true" />
+            <element signature="e#28670#28671#0" expanded="true" />
+            <element signature="e#28728#28729#0" expanded="true" />
+            <element signature="e#28930#28931#0" expanded="true" />
+            <element signature="e#28988#28989#0" expanded="true" />
+            <element signature="e#29380#29381#0" expanded="true" />
+            <element signature="e#29430#29431#0" expanded="true" />
+            <element signature="e#29813#29814#0" expanded="true" />
+            <element signature="e#29864#29865#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/org/apache/ftpserver/usermanager/SaltedPasswordEncryptor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="77" column="36" selection-end-line="523" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/fr/xephi/authme/security/crypts/UnsaltedMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5928" />
       </provider>
     </entry>
   </component>
@@ -827,7 +998,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25084746" />
               </list>
             </option>
           </splitter-proportions>
@@ -839,7 +1010,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25084746" />
               </list>
             </option>
           </splitter-proportions>

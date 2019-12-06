@@ -157,7 +157,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         ImbalanceAnalysisItem succNodeItem = nodeShrikeInstructionsMap.get(succNode.getNumber());
                 
         if (lastInst instanceof SSAConditionalBranchInstruction) {
-          jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"false\"", "\"secret_dependent_branch\" : \"branch\"");
+            String reportedIns = Reporter.getSSAInstructionString(lastInst);
+            jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"false\"", "\"secret_dependent_branch\" : \"branch\", \"ins_to_translate\" : \"" + reportedIns + "\"");
           int target = ((SSAConditionalBranchInstruction)lastInst).getTarget();
           if (succNode == cfg.getBlockForInstruction(target)) {
               addEdge(node, succNode, "TRUE");
@@ -285,9 +286,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         i++;
       }
       
-      //nodeString += "instruction: " + inst.toString() + "\n";
-      nodeString += Reporter.getSSAInstructionString(inst);
-      nodeString += "\n";
+      //nodeString += "instruction: " + inst.toString() + "\n"; //format: conditional branch(lt, to iindex=43) 26,27
+      nodeString += Reporter.getSSAInstructionString(inst) + "\n"; //printing the texts are shown in the cfg node
       instNum++;
 
       while (neededByteCodeInst != null && this.nodeInstructionIndex < this.byteCodeInstructions.length) {
@@ -318,7 +318,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         }
        }
     }
-    //System.out.println(nodeStr);    
+    //System.out.println("ns : " + nodeString);
     addVertex(node, instNum, nodeString);
     return nodeStr;
   }

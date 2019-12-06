@@ -46,12 +46,14 @@ import jdk.internal.org.objectweb.asm.tree.MultiANewArrayInsnNode;
 import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 import jdk.internal.org.objectweb.asm.tree.TypeInsnNode;
 import jdk.internal.org.objectweb.asm.tree.VarInsnNode;
+import vlab.cs.ucsb.edu.ModelCounter;
 
 
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -606,6 +608,7 @@ public class MainFrame extends javax.swing.JFrame {
     optSeparator1 = new javax.swing.JPopupMenu.Separator();
     retMenuItem = new javax.swing.JMenuItem();
     showJsonMenuitem = new javax.swing.JMenuItem();
+    branchModelCountMenuitem = new javax.swing.JMenuItem();
     resetSlicing = new javax.swing.JMenuItem();
     invokeCoCoChannel = new javax.swing.JMenuItem();
     instrumentSecretDepBranch = new javax.swing.JMenuItem();
@@ -669,6 +672,14 @@ public class MainFrame extends javax.swing.JFrame {
       }
     });
     cfgOptPopupMenu.add(showJsonMenuitem);
+
+    branchModelCountMenuitem.setText("Markov Chain");
+    branchModelCountMenuitem.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        branchModelCountMenuitemActionPerformed(evt);
+      }
+    });
+    cfgOptPopupMenu.add(branchModelCountMenuitem);
 
     resetSlicing.setText("Reset Slicing");
     resetSlicing.addActionListener(new java.awt.event.ActionListener() {
@@ -1440,8 +1451,10 @@ public class MainFrame extends javax.swing.JFrame {
       Set<Statement> stmtSet = new HashSet<>();
       Set<Statement> cntrlStmtSet = new HashSet<>();
       String selected = (String)infoList.getSelectedValue();
+
       if (selected != null){
         selected = selected.split("@")[0];
+        MainFrame.selectedVariables.add(selected);
         Map<ISSABasicBlock, Object> mapCFG = currentCFG.getVertexMap();
         for (ISSABasicBlock entry : mapCFG.keySet()){
           String compare = currentCFG.getGraph().getLabel(mapCFG.get(entry));
@@ -1454,7 +1467,23 @@ public class MainFrame extends javax.swing.JFrame {
                       ((compare.contains("phi") || compare.contains("arrayload") || compare.contains("arraylength")) &&
                               compare.matches("(.*[^0-9])?" + selected.substring(1, selected.length()) + "([^0-9].*)?"))){
                 found.add(entry);
-                stmtSet = ProgramDependenceGraph.sliceProgramForward(currentCFG.getProcedure(), entry.getLastInstruction());
+                System.out.println("\n=============================\n");
+                Iterator<SSAInstruction> itr = entry.iterator();
+                while(itr.hasNext()) {
+                  SSAInstruction ins = itr.next();
+                  System.out.println(ins);
+                  if(Reporter.getSSAInstructionString(ins).contains("=")) {
+                    String[] inspart = Reporter.getSSAInstructionString(ins).split("=");
+                    if(inspart[1].contains(selected)) {
+                      stmtSet.addAll(ProgramDependenceGraph.sliceProgramForward(currentCFG.getProcedure(),ins));
+                      String newvar = inspart[0].replace(" ","");
+                      System.out.println(newvar);
+                      MainFrame.selectedVariables.add(newvar);
+                    }
+                  }
+                }
+                System.out.println("\n=============================\n");
+                stmtSet.addAll(ProgramDependenceGraph.sliceProgramForward(currentCFG.getProcedure(),entry.getLastInstruction()));
                 MainFrame.allStmtSet.addAll(stmtSet);
                 for (Statement s : MainFrame.allStmtSet) {
                   sliceStmtSet.add(s);
@@ -1745,6 +1774,314 @@ public class MainFrame extends javax.swing.JFrame {
     }
   }//GEN-LAST:event_otherComboBoxActionPerformed
 
+  private void branchModelCountMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
+    if (this.currentCFG == null)
+      return;
+
+    List<String> jsonItems = this.currentCFG.getJSON();
+    List<String> invokedProcedures = new ArrayList<String>();
+    invokedProcedures.add(this.currentCFG.getProcedure().getFullSignature());
+
+    String modelName = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName();
+    Procedure cureProc = this.currentCFG.getProcedure();
+    int numberofNodes = cureProc.getNodeSet().size() + 1;
+
+    String graphOutput = "digraph {\n";
+    String prismModel = "dtmc\n\n" + "module " + modelName + "\n\n";
+    String asseetionReachabilityNode="", assertionExecutionNode="";
+    prismModel += "\t" + "s : [0.." + numberofNodes +"] init 0;\n\n";
+    String completeJSON = "[ ";
+    int i = 0;
+    for (String jsonItem: jsonItems) {
+
+      String jsonItemID = jsonItem.split(" ")[4];
+      String jsonItemNodeNumber = jsonItemID.split("#")[1];
+
+      //remmeber this: Procedure cureProc = this.currentCFG.getProcedure();
+
+      if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
+        //start: additional code for counting secret dependent branches
+        String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
+        System.out.println("Instruction to translate: " + ins_to_translate);
+
+        String[] ins_comps = ins_to_translate.split(" ");
+
+        String comp_sign = "";
+        List<String> vars = new ArrayList<>();
+        for(int in = 0; in < ins_comps.length; in++) {
+          String incomp = ins_comps[in];
+          if(incomp.contains("v"))
+            vars.add(incomp);
+          else
+            comp_sign = incomp;
+        }
+
+        List<String> smtConsList = translateToSMTLib(cureProc, vars, comp_sign);
+        System.out.println(smtConsList.get(1));
+
+        modelCounter.setBound(10);
+        modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
+        BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
+        BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
+
+        double true_prob = cons_count.doubleValue()/dom_count.doubleValue();
+
+        System.out.println("Probability of true branch: "+ true_prob);
+
+        double false_prob = 1.0 - true_prob;
+
+
+        //end: additional code for counting secret dependent branches
+        jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\", \"true_branch_probability\" : \"" + true_prob + "\", \"false_branch_probability\" : \"" + false_prob + "\"");
+
+
+        String fromNode = jsonItem.split("\\[")[1].split("]")[0].split("#")[1].split(" ")[0];
+
+        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
+
+        String trueNode = outgoingNodes[0].split("#")[1].split("\"")[0];
+        String falseNode = outgoingNodes[1].split("#")[1].split("\"")[0];
+
+        String trueNodeProb = "";
+        String falseNodeProb = "";
+
+        if(fromNode.equals(asseetionReachabilityNode)) {
+          assertionExecutionNode = falseNode;
+        }
+
+        if(jsonItem.contains("$assertionsDisabled")) {
+          asseetionReachabilityNode = falseNode;
+          trueNodeProb = "0.0";
+          falseNodeProb = "1.0";
+        } else {
+          trueNodeProb = jsonItem.split("\"true_branch_probability\" : \"")[1].split("\"")[0];
+          falseNodeProb = jsonItem.split("\"false_branch_probability\" : \"")[1].split("\"")[0];
+        }
+
+        graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + trueNodeProb + "\"];\n";
+        graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
+
+        prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
+      }
+      else if (jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")){
+        String fromNode = jsonItem.split("\\[")[1].split("]")[0].split("#")[1].split(" ")[0];
+
+        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
+
+        //String trueNode = outgoingNodes[0].split("#")[1].split("\"")[0];
+        String falseNode = outgoingNodes[1].split("#")[1].split("\"")[0];
+
+        //graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
+        graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+
+        //prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+        prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+      }
+      else {
+        String fromNode = jsonItem.split("\\[")[1].split("]")[0].split("#")[1].split(" ")[0];
+        if (fromNode.equals("1001001")) { fromNode = ""+numberofNodes; }
+        String[] outgoingNode = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
+        if (outgoingNode[0].contains("#")) {
+          String toNode = outgoingNode[0].split("#")[1].split("\"")[0];
+          if (toNode.equals("1001001")) { toNode = ""+numberofNodes; }
+          graphOutput += "\t" + fromNode + " -> " + toNode + "[label= " + "\"" + "1.0" + "\"];\n";
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + toNode + ");\n";
+        } else {
+          graphOutput += "\t" + fromNode + " -> " + fromNode + "[label= " + "\"" + "1.0" + "\"];\n";
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + fromNode + ");\n";
+        }
+      }
+
+      completeJSON += jsonItem;
+      if (i < jsonItems.size() - 1)
+        completeJSON += ",\n";
+      i++;
+
+      // Recursive inlining of function calls
+      if (jsonItem.contains("Invoke") && !jsonItem.contains("<init>")) {
+        completeJSON = recursiveInlining(invokedProcedures, jsonItems, i, jsonItemID, jsonItem, completeJSON, 0);
+      }
+    }
+    completeJSON += " ]";
+
+    System.out.println(completeJSON);
+
+    graphOutput += "}";
+    System.out.println(graphOutput);
+
+    String fileName = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".dot";
+    try {
+      BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+      writer.write(graphOutput);
+      writer.close();
+    } catch(IOException ex) {
+      System.out.println(ex);
+    }
+
+//    try
+//    {
+//      Runtime.getRuntime().exec(new String[] {"xdot", fileName});
+//    }
+//    catch (Exception ex)
+//    {
+//      System.out.println(ex);
+//    }
+
+    prismModel += "\nendmodule";
+
+    System.out.println(prismModel);
+
+    String model_file = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".sm";
+    try {
+      BufferedWriter writer = new BufferedWriter(new FileWriter(model_file));
+      writer.write(prismModel);
+      writer.close();
+    } catch(IOException ex) {
+      System.out.println(ex);
+    }
+
+    String assertionReachabilitySpec = "P=? [F s = " + asseetionReachabilityNode + "]";
+    String assertionExecutionSpec = "P=? [F s = " + assertionExecutionNode + "]";
+
+    System.out.println(assertionReachabilitySpec);
+    System.out.println(assertionExecutionSpec);
+
+    String proerties_file = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".csl";
+    try {
+      BufferedWriter writer = new BufferedWriter(new FileWriter(proerties_file));
+      writer.write(assertionReachabilitySpec + "\n" + assertionExecutionSpec);
+      writer.close();
+    } catch(IOException ex) {
+      System.out.println(ex);
+    }
+
+
+    Process proc1 = null;
+    try
+    {
+      proc1 = Runtime.getRuntime().exec(new String[] {"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "1"});
+
+      if (proc1 == null) return;;
+
+      BufferedReader stdInput = new BufferedReader(new
+              InputStreamReader(proc1.getInputStream()));
+
+      BufferedReader stdError = new BufferedReader(new
+              InputStreamReader(proc1.getErrorStream()));
+
+      // Read the output from the command
+      String s = null;
+//      if ((s = stdInput.readLine()) != null) {
+//        System.out.println("PRISM run output:\n");
+//      }
+      while ((s = stdInput.readLine()) != null) {
+        if(s.contains("Result: ")) {
+          String prob = s.split("Result: ")[1].split(" (value in the initial state)")[0];
+          System.out.println("Probability to reach assertion: " + prob);
+        }
+      }
+
+      // Read any errors from the attempted command
+      if ((s = stdError.readLine()) != null)
+        System.out.println("Here is the standard error of the command (if any):\n");
+      while ((s = stdError.readLine()) != null) {
+        System.out.println(s);
+      }
+    }
+    catch (Exception ex)
+    {
+      System.out.println(ex);
+    }
+
+    Process proc2 = null;
+    try
+    {
+      proc2 = Runtime.getRuntime().exec(new String[] {"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "2"});
+
+      if (proc2 == null) return;;
+
+      BufferedReader stdInput = new BufferedReader(new
+              InputStreamReader(proc2.getInputStream()));
+
+      BufferedReader stdError = new BufferedReader(new
+              InputStreamReader(proc2.getErrorStream()));
+
+      // Read the output from the command
+//      String s = null;
+//      if ((s = stdInput.readLine()) != null) {
+//        System.out.println("PRISM run output:\n");
+//      }
+      while ((s = stdInput.readLine()) != null) {
+        if(s.contains("Result: ")) {
+          String prob = s.split("Result: ")[1].split(" (value in the initial state)")[0];
+          System.out.println("Probability for assertion failure: " + prob);
+        }
+      }
+
+      // Read any errors from the attempted command
+      if ((s = stdError.readLine()) != null)
+        System.out.println("Here is the standard error of the command (if any):\n");
+      while ((s = stdError.readLine()) != null) {
+        System.out.println(s);
+      }
+    }
+    catch (Exception ex)
+    {
+      System.out.println(ex);
+    }
+  }
+
+
+  private List<String> translateToSMTLib(Procedure proc, List<String> vars, String sign) {
+    System.out.println(MainFrame.selectedVariables);
+
+    String dom_cons = "";
+    String cons = "";
+    for(String var : vars) {
+      //if (MainFrame.selectedVariables.contains(var)) {
+      cons += "(declare-fun " + var + "() Int)\n";
+      //}
+    }
+    dom_cons = cons;
+
+    if(sign.equals("!=")) {
+      cons += "(assert (not (= ";
+    } else if(sign.equals("==")) {
+      cons += "(assert (= ";
+    } else {
+      cons += "(assert (" + sign + " ";
+    }
+
+    SymbolTable symTab = proc.getIR().getSymbolTable();
+    int var1 = Integer.parseInt(vars.get(0).substring(1));
+    int var2 = Integer.parseInt(vars.get(1).substring(1));
+    if (symTab.isNumberConstant(var1)) {
+      int v1 = symTab.getIntValue(var1);
+      cons += v1 + " ";
+    } else {
+      cons += vars.get(0) + " ";
+    }
+    if (symTab.isNumberConstant(var2)) {
+      int v2 = symTab.getIntValue(var2);
+      cons += v2;
+    } else {
+      cons += vars.get(1);
+    }
+
+    if(sign.equals("!=")) {
+      cons += ")";
+    }
+    cons += "))\n";
+    cons += "(check-sat)";
+    dom_cons += "(check-sat)";
+
+    List<String> consList = new ArrayList<>();
+    consList.add(dom_cons);
+    consList.add(cons);
+
+    return consList;
+  }
+
   private void showJsonMenuitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showJsonMenuitemActionPerformed
     if (this.currentCFG == null)
       return;
@@ -1770,7 +2107,9 @@ public class MainFrame extends javax.swing.JFrame {
       String jsonItemID = jsonItem.split(" ")[4];
       String jsonItemNodeNumber = jsonItemID.split("#")[1];
 
-      if (this.currentCFG.getProcedure().dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
+      Procedure cureProc = this.currentCFG.getProcedure();
+
+      if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
         jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\"");
       }
 
@@ -2338,7 +2677,9 @@ public class MainFrame extends javax.swing.JFrame {
 
   private Map<String, Map<Double, Set<Procedure>>>  jBondMap = new TreeMap<>();
   static public Set<Statement> allStmtSet = new HashSet<>();
+  static public Set<String> selectedVariables = new HashSet<>();
   static public Map<Integer, String> allSourceLines = new HashMap<>();
+  static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");
 
   final public void refreshDrawing() {
     if (this.currentPDG != null)
@@ -2406,6 +2747,7 @@ public class MainFrame extends javax.swing.JFrame {
   private javax.swing.JMenuItem retMenuItem;
   private javax.swing.JButton runspfButton;
   private javax.swing.JMenuItem showJsonMenuitem;
+  private javax.swing.JMenuItem branchModelCountMenuitem;
   private javax.swing.JMenuItem resetSlicing;
   private javax.swing.JMenuItem invokeCoCoChannel;
   private javax.swing.JMenuItem instrumentSecretDepBranch;
