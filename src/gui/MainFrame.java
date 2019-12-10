@@ -1774,6 +1774,14 @@ public class MainFrame extends javax.swing.JFrame {
     }
   }//GEN-LAST:event_otherComboBoxActionPerformed
 
+  private String getNodeFromID(String jsonItemID) {
+    if(nodeMap.get(jsonItemID) == null) {
+      nodeMap.put(jsonItemID, counter);
+      counter++;
+    }
+    return nodeMap.get(jsonItemID).toString();
+  }
+
   private void branchModelCountMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
     if (this.currentCFG == null)
       return;
@@ -1784,12 +1792,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     String modelName = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName();
     Procedure cureProc = this.currentCFG.getProcedure();
-    int numberofNodes = cureProc.getNodeSet().size() + 1;
 
-    String graphOutput = "digraph {\n";
-    String prismModel = "dtmc\n\n" + "module " + modelName + "\n\n";
-    String asseetionReachabilityNode="", assertionExecutionNode="";
-    prismModel += "\t" + "s : [0.." + numberofNodes +"] init 0;\n\n";
     String completeJSON = "[ ";
     int i = 0;
     for (String jsonItem: jsonItems) {
@@ -1798,100 +1801,9 @@ public class MainFrame extends javax.swing.JFrame {
       String jsonItemNodeNumber = jsonItemID.split("#")[1];
 
       //remmeber this: Procedure cureProc = this.currentCFG.getProcedure();
-
       if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
-        //start: additional code for counting secret dependent branches
-        String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
-        System.out.println("Instruction to translate: " + ins_to_translate);
-
-        String[] ins_comps = ins_to_translate.split(" ");
-
-        String comp_sign = "";
-        List<String> vars = new ArrayList<>();
-        for(int in = 0; in < ins_comps.length; in++) {
-          String incomp = ins_comps[in];
-          if(incomp.contains("v"))
-            vars.add(incomp);
-          else
-            comp_sign = incomp;
-        }
-
-        List<String> smtConsList = translateToSMTLib(cureProc, vars, comp_sign);
-        System.out.println(smtConsList.get(1));
-
-        modelCounter.setBound(10);
-        modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
-        BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
-        BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
-
-        double true_prob = cons_count.doubleValue()/dom_count.doubleValue();
-
-        System.out.println("Probability of true branch: "+ true_prob);
-
-        double false_prob = 1.0 - true_prob;
-
-
-        //end: additional code for counting secret dependent branches
-        jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\", \"true_branch_probability\" : \"" + true_prob + "\", \"false_branch_probability\" : \"" + false_prob + "\"");
-
-
-        String fromNode = jsonItem.split("\\[")[1].split("]")[0].split("#")[1].split(" ")[0];
-
-        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
-
-        String trueNode = outgoingNodes[0].split("#")[1].split("\"")[0];
-        String falseNode = outgoingNodes[1].split("#")[1].split("\"")[0];
-
-        String trueNodeProb = "";
-        String falseNodeProb = "";
-
-        if(fromNode.equals(asseetionReachabilityNode)) {
-          assertionExecutionNode = falseNode;
-        }
-
-        if(jsonItem.contains("$assertionsDisabled")) {
-          asseetionReachabilityNode = falseNode;
-          trueNodeProb = "0.0";
-          falseNodeProb = "1.0";
-        } else {
-          trueNodeProb = jsonItem.split("\"true_branch_probability\" : \"")[1].split("\"")[0];
-          falseNodeProb = jsonItem.split("\"false_branch_probability\" : \"")[1].split("\"")[0];
-        }
-
-        graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + trueNodeProb + "\"];\n";
-        graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
-
-        prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
+        jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\"");
       }
-      else if (jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")){
-        String fromNode = jsonItem.split("\\[")[1].split("]")[0].split("#")[1].split(" ")[0];
-
-        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
-
-        //String trueNode = outgoingNodes[0].split("#")[1].split("\"")[0];
-        String falseNode = outgoingNodes[1].split("#")[1].split("\"")[0];
-
-        //graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
-        graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
-
-        //prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
-        prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
-      }
-      else {
-        String fromNode = jsonItem.split("\\[")[1].split("]")[0].split("#")[1].split(" ")[0];
-        if (fromNode.equals("1001001")) { fromNode = ""+numberofNodes; }
-        String[] outgoingNode = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
-        if (outgoingNode[0].contains("#")) {
-          String toNode = outgoingNode[0].split("#")[1].split("\"")[0];
-          if (toNode.equals("1001001")) { toNode = ""+numberofNodes; }
-          graphOutput += "\t" + fromNode + " -> " + toNode + "[label= " + "\"" + "1.0" + "\"];\n";
-          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + toNode + ");\n";
-        } else {
-          graphOutput += "\t" + fromNode + " -> " + fromNode + "[label= " + "\"" + "1.0" + "\"];\n";
-          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + fromNode + ");\n";
-        }
-      }
-
       completeJSON += jsonItem;
       if (i < jsonItems.size() - 1)
         completeJSON += ",\n";
@@ -1905,6 +1817,129 @@ public class MainFrame extends javax.swing.JFrame {
     completeJSON += " ]";
 
     System.out.println(completeJSON);
+
+
+    //MARKOV CHAIN CONSTRUCTION
+    String[] interProcItems = completeJSON.split("\n");
+    int numberofNodes = interProcItems.length;
+
+    String graphOutput = "digraph {\n";
+    String prismModel = "dtmc\n\n" + "module " + modelName + "\n\n";
+    String asseetionReachabilityNode="", assertionExecutionNode="";
+    prismModel += "\t" + "s : [0.." + numberofNodes +"] init 0;\n\n";
+
+
+    for (String jsonItem: interProcItems) {
+
+      if(jsonItem.startsWith("[ "))
+        jsonItem = jsonItem.substring(2);
+      String jsonItemID = jsonItem.split(" ")[4];
+
+      if (jsonItem.contains("\"secret_dependent_branch\" : \"true\"")) {
+        //start: additional code for counting secret dependent branches
+        String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
+        System.out.println("Instruction to translate: " + ins_to_translate);
+
+        String[] ins_comps = ins_to_translate.split(" ");
+
+        String comp_sign = "";
+        List<String> vars = new ArrayList<>();
+        for (int in = 0; in < ins_comps.length; in++) {
+          String incomp = ins_comps[in];
+          if (incomp.contains("v"))
+            vars.add(incomp);
+          else
+            comp_sign = incomp;
+        }
+
+        List<String> smtConsList = translateToSMTLib(cureProc, vars, comp_sign);
+        System.out.println(smtConsList.get(1));
+
+        modelCounter.setBound(10);
+        modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
+        BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
+        BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
+
+        double true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+
+        System.out.println("Probability of true branch: " + true_prob);
+
+        double false_prob = 1.0 - true_prob;
+
+
+        //end: additional code for counting secret dependent branches
+        jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"true\"", "\"secret_dependent_branch\" : \"true\", \"true_branch_probability\" : \"" + true_prob + "\", \"false_branch_probability\" : \"" + false_prob + "\"");
+
+
+        String fromNode = getNodeFromID(jsonItemID);
+
+
+        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
+
+        String trueNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
+
+        String falseNode = getNodeFromID(outgoingNodes[1].split("\"")[1]);
+
+        String trueNodeProb = "";
+        String falseNodeProb = "";
+
+        if (fromNode.equals(asseetionReachabilityNode)) {
+          assertionExecutionNode = falseNode;
+        }
+
+        if (jsonItem.contains("$assertionsDisabled")) {
+          asseetionReachabilityNode = falseNode;
+          trueNodeProb = "0.0";
+          falseNodeProb = "1.0";
+        } else {
+          trueNodeProb = jsonItem.split("\"true_branch_probability\" : \"")[1].split("\"")[0];
+          falseNodeProb = jsonItem.split("\"false_branch_probability\" : \"")[1].split("\"")[0];
+        }
+
+        graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + trueNodeProb + "\"];\n";
+        graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
+
+        prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
+      } else if (jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
+
+        String fromNode = getNodeFromID(jsonItemID);
+
+
+        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
+
+        String trueNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
+
+        String falseNode = getNodeFromID(outgoingNodes[1].split("\"")[1]);
+
+        if (fromNode.equals(asseetionReachabilityNode)) {
+          assertionExecutionNode = falseNode;
+        }
+
+        if (jsonItem.contains("$assertionsDisabled")) {
+          asseetionReachabilityNode = falseNode;
+          graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "0.0" + "\"];\n";
+          graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+        } else {
+          graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+        }
+      } else {
+        String fromNode = getNodeFromID(jsonItemID);
+
+
+        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
+
+        if (outgoingNodes[0].contains("#")) {
+          String toNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
+          graphOutput += "\t" + fromNode + " -> " + toNode + "[label= " + "\"" + "1.0" + "\"];\n";
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + toNode + ");\n";
+        } else {
+          graphOutput += "\t" + fromNode + " -> " + fromNode + "[label= " + "\"" + "1.0" + "\"];\n";
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + fromNode + ");\n";
+        }
+      }
+    }
 
     graphOutput += "}";
     System.out.println(graphOutput);
@@ -1940,94 +1975,109 @@ public class MainFrame extends javax.swing.JFrame {
       System.out.println(ex);
     }
 
-    String assertionReachabilitySpec = "P=? [F s = " + asseetionReachabilityNode + "]";
-    String assertionExecutionSpec = "P=? [F s = " + assertionExecutionNode + "]";
+    String assertionReachabilitySpec = "";
+    String assertionExecutionSpec = "";
 
-    System.out.println(assertionReachabilitySpec);
-    System.out.println(assertionExecutionSpec);
+    if (!asseetionReachabilityNode.equals(""))
+      assertionReachabilitySpec = "P=? [F s = " + asseetionReachabilityNode + "]";
+    if (!assertionExecutionNode.equals(""))
+      assertionExecutionSpec = "P=? [F s = " + assertionExecutionNode + "]";
 
+    System.out.println("assertionReachabilitySpec: " + assertionReachabilitySpec);
+    System.out.println("assertionExecutionSpec: " + assertionExecutionSpec);
+
+    int num_properties = 0;
     String proerties_file = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".csl";
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(proerties_file));
-      writer.write(assertionReachabilitySpec + "\n" + assertionExecutionSpec);
+      if(!assertionReachabilitySpec.equals("") && !assertionExecutionSpec.equals("")) {
+        writer.write(assertionReachabilitySpec + "\n" + assertionExecutionSpec);
+        num_properties = 2;
+      }
+      else if (!assertionReachabilitySpec.equals("")) {
+        writer.write(assertionReachabilitySpec);
+        num_properties = 1;
+      }
+
       writer.close();
     } catch(IOException ex) {
       System.out.println(ex);
     }
 
 
-    Process proc1 = null;
-    try
-    {
-      proc1 = Runtime.getRuntime().exec(new String[] {"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "1"});
+    if (num_properties >= 1) {
+      Process proc1 = null;
+      try {
+        proc1 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "1"});
 
-      if (proc1 == null) return;;
+        if (proc1 == null) return;
+        ;
 
-      BufferedReader stdInput = new BufferedReader(new
-              InputStreamReader(proc1.getInputStream()));
+        BufferedReader stdInput = new BufferedReader(new
+                InputStreamReader(proc1.getInputStream()));
 
-      BufferedReader stdError = new BufferedReader(new
-              InputStreamReader(proc1.getErrorStream()));
+        BufferedReader stdError = new BufferedReader(new
+                InputStreamReader(proc1.getErrorStream()));
 
-      // Read the output from the command
-      String s = null;
+        // Read the output from the command
+        String s = null;
 //      if ((s = stdInput.readLine()) != null) {
 //        System.out.println("PRISM run output:\n");
 //      }
-      while ((s = stdInput.readLine()) != null) {
-        if(s.contains("Result: ")) {
-          String prob = s.split("Result: ")[1].split(" (value in the initial state)")[0];
-          System.out.println("Probability to reach assertion: " + prob);
+        while ((s = stdInput.readLine()) != null) {
+          System.out.println(s);
+          if (s.contains("Result: ")) {
+            String prob = s.split("Result: ")[1].split(" ")[0];
+            System.out.println("Probability to reach assertion: " + prob);
+          }
         }
-      }
 
-      // Read any errors from the attempted command
-      if ((s = stdError.readLine()) != null)
-        System.out.println("Here is the standard error of the command (if any):\n");
-      while ((s = stdError.readLine()) != null) {
-        System.out.println(s);
+        // Read any errors from the attempted command
+        if ((s = stdError.readLine()) != null)
+          System.out.println("Here is the standard error of the command (if any):\n");
+        while ((s = stdError.readLine()) != null) {
+          System.out.println(s);
+        }
+      } catch (Exception ex) {
+        System.out.println(ex);
       }
     }
-    catch (Exception ex)
-    {
-      System.out.println(ex);
-    }
 
-    Process proc2 = null;
-    try
-    {
-      proc2 = Runtime.getRuntime().exec(new String[] {"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "2"});
+    if(num_properties == 2) {
+      Process proc2 = null;
+      try {
+        proc2 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "2"});
 
-      if (proc2 == null) return;;
+        if (proc2 == null) return;
+        ;
 
-      BufferedReader stdInput = new BufferedReader(new
-              InputStreamReader(proc2.getInputStream()));
+        BufferedReader stdInput = new BufferedReader(new
+                InputStreamReader(proc2.getInputStream()));
 
-      BufferedReader stdError = new BufferedReader(new
-              InputStreamReader(proc2.getErrorStream()));
+        BufferedReader stdError = new BufferedReader(new
+                InputStreamReader(proc2.getErrorStream()));
 
-      // Read the output from the command
-//      String s = null;
+        // Read the output from the command
+        String s = null;
 //      if ((s = stdInput.readLine()) != null) {
 //        System.out.println("PRISM run output:\n");
 //      }
-      while ((s = stdInput.readLine()) != null) {
-        if(s.contains("Result: ")) {
-          String prob = s.split("Result: ")[1].split(" (value in the initial state)")[0];
-          System.out.println("Probability for assertion failure: " + prob);
+        while ((s = stdInput.readLine()) != null) {
+          if (s.contains("Result: ")) {
+            String prob = s.split("Result: ")[1].split(" ")[0];
+            System.out.println("Probability for assertion failure: " + prob);
+          }
         }
-      }
 
-      // Read any errors from the attempted command
-      if ((s = stdError.readLine()) != null)
-        System.out.println("Here is the standard error of the command (if any):\n");
-      while ((s = stdError.readLine()) != null) {
-        System.out.println(s);
+        // Read any errors from the attempted command
+        if ((s = stdError.readLine()) != null)
+          System.out.println("Here is the standard error of the command (if any):\n");
+        while ((s = stdError.readLine()) != null) {
+          System.out.println(s);
+        }
+      } catch (Exception ex) {
+        System.out.println(ex);
       }
-    }
-    catch (Exception ex)
-    {
-      System.out.println(ex);
     }
   }
 
@@ -2055,6 +2105,7 @@ public class MainFrame extends javax.swing.JFrame {
     SymbolTable symTab = proc.getIR().getSymbolTable();
     int var1 = Integer.parseInt(vars.get(0).substring(1));
     int var2 = Integer.parseInt(vars.get(1).substring(1));
+
     if (symTab.isNumberConstant(var1)) {
       int v1 = symTab.getIntValue(var1);
       cons += v1 + " ";
@@ -2674,6 +2725,9 @@ public class MainFrame extends javax.swing.JFrame {
   private LoopFilterFrame                           newFilterFrame;
 
   private int                                       recursiveBound;
+
+  private static int counter = 0;
+  private static Map<String, Integer> nodeMap = new HashMap<>();
 
   private Map<String, Map<Double, Set<Procedure>>>  jBondMap = new TreeMap<>();
   static public Set<Statement> allStmtSet = new HashSet<>();
