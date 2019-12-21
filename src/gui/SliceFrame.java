@@ -228,8 +228,12 @@ public class SliceFrame extends javax.swing.JFrame {
     int index = this.stmtComboBox.getSelectedIndex();
     SSAInstruction inst = this.instructionMap.get(index);    
     if (forward) {
+      long start = System.currentTimeMillis();
       Set<Statement> stmtSet = ProgramDependenceGraph.sliceProgramForward(procedure, inst);
       paintSlice(stmtSet);
+      long finish = System.currentTimeMillis();
+      long timeElapsed = finish - start;
+      MainFrame.dependencyAnalysisTime += timeElapsed;
     } else {
       Set<Statement> stmtSet = ProgramDependenceGraph.sliceProgramBackward(procedure, inst);
       paintSlice(stmtSet);

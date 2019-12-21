@@ -1330,7 +1330,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
         this.libMissTextArea.setText(null);
         for (String miss : misses)
           this.libMissTextArea.append(miss + newLine);
-        JOptionPane.showConfirmDialog(null, libMissPane, "Missing Methods", JOptionPane.DEFAULT_OPTION);
+        //JOptionPane.showConfirmDialog(null, libMissPane, "Missing Methods", JOptionPane.DEFAULT_OPTION);
       }
       
       Set<String> unknowns = LibrarySummary.getUnknownMethodSet();
@@ -1339,11 +1339,11 @@ public class AnalyzerFrame extends javax.swing.JFrame {
         this.libMissTextArea.setText(null);
         for (String unknown : unknowns)
           this.libMissTextArea.append(unknown + newLine);
-        JOptionPane.showConfirmDialog(null, libMissPane, msg, JOptionPane.DEFAULT_OPTION);
+        //JOptionPane.showConfirmDialog(null, libMissPane, msg, JOptionPane.DEFAULT_OPTION);
       }
     } catch (Exception e) {
       e.printStackTrace();
-      JOptionPane.showMessageDialog (null, "APP/LIB can't be loaded", "Error", JOptionPane.ERROR_MESSAGE);
+      //JOptionPane.showMessageDialog (null, "APP/LIB can't be loaded", "Error", JOptionPane.ERROR_MESSAGE);
       dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
       return 2;
     }
@@ -2378,7 +2378,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void appAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appAddButtonActionPerformed
     statusMessage.init();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar and Class Files","jar", "class");
-    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/jqf/tutorial/jpf-regression/ExSymExeResearch_true")); //temporary
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/jqf/tutorial/jayhorn-recursive-assert-reach/")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
@@ -3288,6 +3288,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
 
             // check if thread has completed
             if (!done && programGen.exitcode >= 0) {
+                System.out.println("CFG construction time: " + timestamp);
                 statusMessage.info("generateProgram returned: " + programGen.exitcode);
                 
                 // program generation was successful

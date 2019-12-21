@@ -69,6 +69,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javafx.util.Pair;
 
 @SuppressWarnings({"rawtypes", "unchecked", "serial"})
 
@@ -1438,6 +1439,7 @@ public class MainFrame extends javax.swing.JFrame {
     Set found = new HashSet<>();
     @Override
     public void mouseReleased(MouseEvent evt) {
+      long start = System.currentTimeMillis();
       if (currentCFG == null){
         return;
       }
@@ -1538,6 +1540,11 @@ public class MainFrame extends javax.swing.JFrame {
           }
         }
         paintSlice(sliceStmtSet);
+
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+        dependencyAnalysisTime += timeElapsed;
+
         //currentCFG.paintNodeSet(found, "yellow");
         graphPanel.update(graphPanel.getGraphics());
       }
@@ -1783,6 +1790,9 @@ public class MainFrame extends javax.swing.JFrame {
   }
 
   private void branchModelCountMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
+
+    long start = System.currentTimeMillis();
+
     if (this.currentCFG == null)
       return;
 
@@ -1791,6 +1801,7 @@ public class MainFrame extends javax.swing.JFrame {
     invokedProcedures.add(this.currentCFG.getProcedure().getFullSignature());
 
     String modelName = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName();
+    modelName = modelName.replace("$","_");
     Procedure cureProc = this.currentCFG.getProcedure();
 
     String completeJSON = "[ ";
@@ -1821,7 +1832,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     //MARKOV CHAIN CONSTRUCTION
     String[] interProcItems = completeJSON.split("\n");
-    int numberofNodes = interProcItems.length;
+    numberofNodes = interProcItems.length;
 
     String graphOutput = "digraph {\n";
     String prismModel = "dtmc\n\n" + "module " + modelName + "\n\n";
@@ -1855,7 +1866,7 @@ public class MainFrame extends javax.swing.JFrame {
         List<String> smtConsList = translateToSMTLib(cureProc, vars, comp_sign);
         System.out.println(smtConsList.get(1));
 
-        modelCounter.setBound(10);
+        modelCounter.setBound(31);
         modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
         BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
         BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
@@ -1878,28 +1889,66 @@ public class MainFrame extends javax.swing.JFrame {
 
         String trueNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
 
-        String falseNode = getNodeFromID(outgoingNodes[1].split("\"")[1]);
+        if(outgoingNodes.length == 2) {
 
-        String trueNodeProb = "";
-        String falseNodeProb = "";
+          String falseNode = getNodeFromID(outgoingNodes[1].split("\"")[1]);
 
-        if (fromNode.equals(asseetionReachabilityNode)) {
-          assertionExecutionNode = falseNode;
-        }
+          String trueNodeProb = "";
+          String falseNodeProb = "";
 
-        if (jsonItem.contains("$assertionsDisabled")) {
-          asseetionReachabilityNode = falseNode;
-          trueNodeProb = "0.0";
-          falseNodeProb = "1.0";
+          if (fromNode.equals(asseetionReachabilityNode)) {
+            assertionExecutionNode = falseNode;
+          }
+
+          if (jsonItem.contains("$assertionsDisabled")) {
+            asseetionReachabilityNode = falseNode;
+            trueNodeProb = "0.0";
+            falseNodeProb = "1.0";
+          } else {
+            trueNodeProb = jsonItem.split("\"true_branch_probability\" : \"")[1].split("\"")[0];
+            falseNodeProb = jsonItem.split("\"false_branch_probability\" : \"")[1].split("\"")[0];
+          }
+
+          List<String> edgeList = edgeMap.get(fromNode);
+          if (edgeList == null) {
+            edgeList = new ArrayList<>();
+          }
+          edgeList.add(trueNode);
+          edgeList.add(falseNode);
+          edgeMap.put(fromNode,edgeList);
+
+          MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,trueNode,trueNodeProb,true, false);
+          MarkovChainInformation falseChain = new MarkovChainInformation(fromNode,falseNode,falseNodeProb,true, false);
+          transitionMap.put(new Pair<>(fromNode,trueNode), trueChain);
+          transitionMap.put(new Pair<>(fromNode,falseNode), falseChain);
+
+          List<MarkovChainInformation> list = new ArrayList<>();
+          list.add(trueChain);
+          list.add(falseChain);
+          transitionlistMap.put(fromNode, list);
+
+          graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + trueNodeProb + "\"];\n";
+          graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
+
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
         } else {
-          trueNodeProb = jsonItem.split("\"true_branch_probability\" : \"")[1].split("\"")[0];
-          falseNodeProb = jsonItem.split("\"false_branch_probability\" : \"")[1].split("\"")[0];
+          List<String> edgeList = edgeMap.get(fromNode);
+          if (edgeList == null) {
+            edgeList = new ArrayList<>();
+          }
+          edgeList.add(trueNode);
+          edgeMap.put(fromNode,edgeList);
+
+          MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,trueNode,"1.0",true, false);
+          transitionMap.put(new Pair<>(fromNode,trueNode), trueChain);
+          List<MarkovChainInformation> list = new ArrayList<>();
+          list.add(trueChain);
+          transitionlistMap.put(fromNode, list);
+
+          graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
+
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
         }
-
-        graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + trueNodeProb + "\"];\n";
-        graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
-
-        prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
       } else if (jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
 
         String fromNode = getNodeFromID(jsonItemID);
@@ -1909,20 +1958,60 @@ public class MainFrame extends javax.swing.JFrame {
 
         String trueNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
 
-        String falseNode = getNodeFromID(outgoingNodes[1].split("\"")[1]);
 
-        if (fromNode.equals(asseetionReachabilityNode)) {
-          assertionExecutionNode = falseNode;
-        }
+        if (outgoingNodes.length == 2) {
+          String falseNode = getNodeFromID(outgoingNodes[1].split("\"")[1]);
 
-        if (jsonItem.contains("$assertionsDisabled")) {
-          asseetionReachabilityNode = falseNode;
-          graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "0.0" + "\"];\n";
-          graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
-          prismModel += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+          if (fromNode.equals(asseetionReachabilityNode)) {
+            assertionExecutionNode = falseNode;
+          }
+
+          List<String> edgeList = edgeMap.get(fromNode);
+          if (edgeList == null) {
+            edgeList = new ArrayList<>();
+          }
+          edgeList.add(trueNode);
+          edgeList.add(falseNode);
+          edgeMap.put(fromNode,edgeList);
+
+          MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,trueNode,"1.0",false, jsonItem.contains("$assertionsDisabled"));
+          MarkovChainInformation falseChain = new MarkovChainInformation(fromNode,falseNode,"1.0",false, jsonItem.contains("$assertionsDisabled"));
+          transitionMap.put(new Pair<>(fromNode,trueNode), trueChain);
+          transitionMap.put(new Pair<>(fromNode,falseNode), falseChain);
+
+          List<MarkovChainInformation> list = new ArrayList<>();
+          list.add(trueChain);
+          list.add(falseChain);
+          transitionlistMap.put(fromNode, list);
+
+
+          if (jsonItem.contains("$assertionsDisabled")) {
+            asseetionReachabilityNode = falseNode;
+            graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "0.0" + "\"];\n";
+            graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+            prismModel += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+          } else {
+            graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
+            graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+            prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
+            prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+          }
         } else {
-          graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
-          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+          List<String> edgeList = edgeMap.get(fromNode);
+          if (edgeList == null) {
+            edgeList = new ArrayList<>();
+          }
+          edgeList.add(trueNode);
+          edgeMap.put(fromNode,edgeList);
+
+          MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,trueNode,"1.0",false, false);
+          transitionMap.put(new Pair<>(fromNode,trueNode), trueChain);
+          List<MarkovChainInformation> list = new ArrayList<>();
+          list.add(trueChain);
+          transitionlistMap.put(fromNode, list);
+
+          graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
+          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
         }
       } else {
         String fromNode = getNodeFromID(jsonItemID);
@@ -1932,9 +2021,29 @@ public class MainFrame extends javax.swing.JFrame {
 
         if (outgoingNodes[0].contains("#")) {
           String toNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
+
+          List<String> edgeList = edgeMap.get(fromNode);
+          if (edgeList == null) {
+            edgeList = new ArrayList<>();
+          }
+          edgeList.add(toNode);
+          edgeMap.put(fromNode,edgeList);
+
+          MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,toNode,"1.0",false, false);
+          transitionMap.put(new Pair<>(fromNode,toNode), trueChain);
+          List<MarkovChainInformation> list = new ArrayList<>();
+          list.add(trueChain);
+          transitionlistMap.put(fromNode, list);
+
           graphOutput += "\t" + fromNode + " -> " + toNode + "[label= " + "\"" + "1.0" + "\"];\n";
           prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + toNode + ");\n";
         } else {
+          MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,fromNode,"1.0",false, false);
+          transitionMap.put(new Pair<>(fromNode,fromNode), trueChain);
+          List<MarkovChainInformation> list = new ArrayList<>();
+          list.add(trueChain);
+          transitionlistMap.put(fromNode, list);
+
           graphOutput += "\t" + fromNode + " -> " + fromNode + "[label= " + "\"" + "1.0" + "\"];\n";
           prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + fromNode + ");\n";
         }
@@ -1944,32 +2053,87 @@ public class MainFrame extends javax.swing.JFrame {
     graphOutput += "}";
     System.out.println(graphOutput);
 
+    prismModel += "\nendmodule";
+    System.out.println(prismModel);
+
+
+    //unrolling loop
+    boolean[] visited = new boolean[numberofNodes];
+    boolean[] recStack = new boolean[numberofNodes];
+
+    isCyclicUtil(0, 0, visited, recStack);
+
+
+    String markovChainOutput = "digraph {\n";
+    String prismOutput = "dtmc\n\n" + "module " + modelName + "\n\n";
+    if(backEdgeExists)
+      prismOutput += "\t" + "s : [0.." + (numberofNodes * loopbound) +"] init 0;\n\n";
+    else
+      prismOutput += "\t" + "s : [0.." + (numberofNodes) +"] init 0;\n\n";
+
+
+    for (Map.Entry<String, List<MarkovChainInformation>> entry : transitionlistMap.entrySet()) {
+      List<MarkovChainInformation> mChainList = entry.getValue();
+
+      String fromNode = entry.getKey();
+
+      if(mChainList.size() >= 1) {
+        MarkovChainInformation trueChain = mChainList.get(0);
+        String trueNode = trueChain.getToNode();
+        String trueNodeProb = trueChain.getProb();
+        boolean depNode = trueChain.isDepBranchNode();
+        boolean assertNode = trueChain.isAssertNode();
+        String falseNode = "", falseNodeProb = "";
+        if(mChainList.size() == 2) {
+          MarkovChainInformation falseChain = mChainList.get(1);
+          falseNode = falseChain.getToNode();
+          falseNodeProb = falseChain.getProb();
+
+          if(depNode) {
+            markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + trueNodeProb + "\"];\n";
+            markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
+            prismOutput += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
+
+          } else {
+            if(assertNode) {
+              markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "0.0" + "\"];\n";
+              markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+              prismOutput += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+            } else {
+              markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
+              markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+              prismOutput += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
+              prismOutput += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+            }
+          }
+        } else{
+          markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
+          prismOutput += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
+        }
+      }
+    }
+
+    markovChainOutput += "}";
+    prismOutput += "\nendmodule";
+
+
+    System.out.println(markovChainOutput);
+
+    System.out.println(prismOutput);
+
     String fileName = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".dot";
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-      writer.write(graphOutput);
+      writer.write(markovChainOutput);
       writer.close();
     } catch(IOException ex) {
       System.out.println(ex);
     }
 
-//    try
-//    {
-//      Runtime.getRuntime().exec(new String[] {"xdot", fileName});
-//    }
-//    catch (Exception ex)
-//    {
-//      System.out.println(ex);
-//    }
-
-    prismModel += "\nendmodule";
-
-    System.out.println(prismModel);
-
     String model_file = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".sm";
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(model_file));
-      writer.write(prismModel);
+      writer.write(prismOutput);
       writer.close();
     } catch(IOException ex) {
       System.out.println(ex);
@@ -2004,8 +2168,9 @@ public class MainFrame extends javax.swing.JFrame {
       System.out.println(ex);
     }
 
-
+    long p1timeElapsed=0,p2timeElapsed=0;
     if (num_properties >= 1) {
+      long p1start = System.currentTimeMillis();
       Process proc1 = null;
       try {
         proc1 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "1"});
@@ -2041,9 +2206,12 @@ public class MainFrame extends javax.swing.JFrame {
       } catch (Exception ex) {
         System.out.println(ex);
       }
+      long p1finish = System.currentTimeMillis();
+      p1timeElapsed = p1finish - p1start;
     }
 
     if(num_properties == 2) {
+      long p2start = System.currentTimeMillis();
       Process proc2 = null;
       try {
         proc2 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "2"});
@@ -2077,6 +2245,160 @@ public class MainFrame extends javax.swing.JFrame {
         }
       } catch (Exception ex) {
         System.out.println(ex);
+      }
+      long p2finish = System.currentTimeMillis();
+      p2timeElapsed = p2finish - p2start;
+    }
+
+    long finish = System.currentTimeMillis();
+    long timeElapsed = finish - start;
+
+    long totalExecutionTime = dependencyAnalysisTime + timeElapsed;
+    System.out.println("Dependency analysis time: " + dependencyAnalysisTime + "ms");
+    System.out.println("Execution time for probabilistic analysis: " + timeElapsed + "ms");
+    System.out.println("Total Execution time: " + totalExecutionTime + "ms");
+    long p1execTime = totalExecutionTime - p2timeElapsed;
+    long p2execTime = totalExecutionTime - p1timeElapsed;
+    System.out.println("Execution time for P1: " + p1execTime + "ms");
+    System.out.println("Execution time for P2: " + p2execTime + "ms");
+  }
+
+  private boolean isCyclicUtil(int s, int i, boolean[] visited, boolean[] recStack) {
+
+    // Mark the current node as visited and
+    // part of recursion stack
+    if (recStack[i])
+      return true;
+
+    if (visited[i])
+      return false;
+
+    visited[i] = true;
+
+    recStack[i] = true;
+    List<String> children = edgeMap.get(Integer.toString(i));
+
+    if (children != null) {
+      for (String c : children) {
+        if (isCyclicUtil(i, Integer.parseInt(c), visited, recStack)) {
+          System.out.println("backedge: " + i + " --> " + c);
+          backEdgeExists = true;
+          //unroll loops
+          int newNode = Integer.parseInt(c) + numberofNodes;
+          //edgeMap.get(Integer.toString(i)).remove(c);
+          //edgeMap.get(Integer.toString(i)).add(Integer.toString(newNode));
+          //transitionMap.put(new Pair<>(Integer.toString(i), c), transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode)));
+          //transitionMap.remove(new Pair<>(Integer.toString(i), c));
+
+          MarkovChainInformation chain = transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode));
+          transitionMap.put(new Pair<>(Integer.toString(i), c), chain);
+          List<MarkovChainInformation> list = new ArrayList<>();
+          list.add(chain);
+          transitionlistMap.put(Integer.toString(i), list);
+
+          transitionMap.remove(new Pair<>(Integer.toString(i), c));
+          List<MarkovChainInformation> oldList = transitionlistMap.get(Integer.toString(i));
+          for (MarkovChainInformation m : oldList) {
+            if(m.getToNode().equals(c))
+              oldList.remove(m);
+          }
+
+          int be_from = i;
+          List<Integer> beFromList = new ArrayList<>();
+          beFromList.add(be_from);
+          int be = Integer.parseInt(c);
+          List<Integer> beList = new ArrayList<>();
+          beList.add(be);
+          for(int x = 0; x<loopbound-1; x++) {
+            boolean[] visitedUnroll = new boolean[numberofNodes];
+            dfsToAddUnrolledNodes(Integer.parseInt(c), visitedUnroll, be_from, be, x, beList, beFromList);
+            be_from = be_from + numberofNodes;
+            be = be + numberofNodes;
+            beFromList.add(be_from);
+            beList.add(be);
+          }
+        }
+      }
+    }
+
+
+    recStack[i] = false;
+
+    return false;
+  }
+
+  private void dfsToAddUnrolledNodes(int i, boolean[] visited, int be_from, int be, int x, List<Integer> beList, List<Integer> beFromList) {
+
+    if (visited[i])
+      return;
+
+    visited[i] = true;
+
+    int bounded_node = (numberofNodes * (x+1));
+
+    String from = Integer.toString(i+bounded_node);
+    List<String> children = edgeMap.get(Integer.toString(i));
+    List<String> fromChildren = new ArrayList<>();
+
+    if (children != null) {
+      for (String c : children) {
+        if (beList.contains(Integer.parseInt(c)))
+          continue;
+        if (Integer.parseInt(c) > bounded_node)
+          continue;
+        //if (Integer.parseInt(c) != numberofNodes) {
+        String to = "";
+        if(Integer.parseInt(c) == numberofNodes-1)
+          to = c;
+        else
+          to = Integer.toString(Integer.parseInt(c) + bounded_node);
+        fromChildren.add(to);
+        //edgeMap.put(from, fromChildren);
+
+        MarkovChainInformation mChain = transitionMap.get(new Pair<>(Integer.toString(i),c));
+        MarkovChainInformation chain = new MarkovChainInformation(from, to, mChain.getProb(), mChain.isDepBranchNode(), mChain.isAssertNode());
+        transitionMap.put(new Pair<>(from, to), chain);
+
+        List<MarkovChainInformation> list = new ArrayList<>();
+        if(transitionlistMap.get(from) != null) {
+          list = transitionlistMap.get(from);
+        }
+        list.add(chain);
+        transitionlistMap.put(from, list);
+
+        if(beFromList.contains(Integer.parseInt(c))) {
+          if(x == loopbound-2) {
+            if(transitionMap.get(new Pair<>(to, Integer.toString(numberofNodes - 1))) == null) {
+              //List<String> specialChildren = new ArrayList<>();
+              //specialChildren.add(Integer.toString(numberofNodes-1));
+              //edgeMap.put(to,specialChildren);
+              MarkovChainInformation chain2 = new MarkovChainInformation(to, Integer.toString(numberofNodes - 1), "1.0", false, false);
+              transitionMap.put(new Pair<>(to, Integer.toString(numberofNodes - 1)), chain2);
+
+              List<MarkovChainInformation> list2 = new ArrayList<>();
+              if (transitionlistMap.get(to) != null) {
+                list2 = transitionlistMap.get(to);
+              }
+              list2.add(chain2);
+              transitionlistMap.put(to, list2);
+            }
+          } else {
+            if(transitionMap.get(new Pair<>(to, Integer.toString(be + (numberofNodes*2)))) == null) {
+              MarkovChainInformation chain2 = new MarkovChainInformation(to, Integer.toString(be + (numberofNodes * 2)), "1.0", false, false);
+              transitionMap.put(new Pair<>(to, Integer.toString(be + (numberofNodes * 2))), chain2);
+
+              List<MarkovChainInformation> list2 = new ArrayList<>();
+              if (transitionlistMap.get(to) != null) {
+                list2 = transitionlistMap.get(to);
+              }
+              list2.add(chain2);
+              transitionlistMap.put(to, list2);
+            }
+          }
+        }
+
+        dfsToAddUnrolledNodes(Integer.parseInt(c), visited, be_from, be, x, beList, beFromList);
+      //}
       }
     }
   }
@@ -2214,6 +2536,7 @@ public class MainFrame extends javax.swing.JFrame {
 
 
   private void resetSlicingMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
+    dependencyAnalysisTime = 0;
     MainFrame.allSourceLines.clear();
     MainFrame.allStmtSet.clear();
     paintSlice(new HashSet<Statement>());
@@ -2725,9 +3048,17 @@ public class MainFrame extends javax.swing.JFrame {
   private LoopFilterFrame                           newFilterFrame;
 
   private int                                       recursiveBound;
+  private int                                       numberofNodes;
+  private int                                       loopbound = 1;
+  public static long                                dependencyAnalysisTime = 0;
+  private boolean backEdgeExists = false;
 
   private static int counter = 0;
   private static Map<String, Integer> nodeMap = new HashMap<>();
+  private static Map<String, List<String>> edgeMap =  new HashMap<>();
+
+  private static Map<Pair<String, String>, MarkovChainInformation> transitionMap = new HashMap<>();
+  private static Map<String, List<MarkovChainInformation>> transitionlistMap = new HashMap<>();
 
   private Map<String, Map<Double, Set<Procedure>>>  jBondMap = new TreeMap<>();
   static public Set<Statement> allStmtSet = new HashSet<>();
@@ -2845,6 +3176,45 @@ public class MainFrame extends javax.swing.JFrame {
         default: // do nothing
       }
       super.visitInsn(opcode);
+    }
+  }
+
+  private class MarkovChainInformation {
+
+    String fromNode, toNode, prob;
+    boolean depBranchNode, assertNode;
+
+    public MarkovChainInformation(String fromNode, String toNode, String prob, boolean depBranchNode, boolean assertNode) {
+      this.fromNode = fromNode;
+      this.toNode = toNode;
+      this.prob = prob;
+      this.depBranchNode = depBranchNode;
+      this.assertNode = assertNode;
+    }
+
+    public String getFromNode() {
+      return fromNode;
+    }
+
+    public String getToNode() {
+      return toNode;
+    }
+
+    public String getProb() {
+      return prob;
+    }
+
+    public boolean isDepBranchNode() {
+      return depBranchNode;
+    }
+
+    public boolean isAssertNode() {
+      return assertNode;
+    }
+
+    public MarkovChainInformation updateToNode(String toNode) {
+      this.toNode = toNode;
+      return this;
     }
   }
 }
