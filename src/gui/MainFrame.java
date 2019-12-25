@@ -1804,6 +1804,110 @@ public class MainFrame extends javax.swing.JFrame {
     modelName = modelName.replace("$","_");
     Procedure cureProc = this.currentCFG.getProcedure();
 
+
+    //preprocessing source code branch condition in CFG
+    List<String> jsonItemsToBeAdded = new ArrayList<>();
+    List<String> jsonItemsToBeRemoved = new ArrayList<>();
+    String trueNodeToUpdate = "";
+    String falseNodeToUpdate = "";
+    String insTotranslate = "";
+
+    //for (String jsonItem: jsonItems) {
+    for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
+      String jsonItem = it.next();
+      String jsonItemID = jsonItem.split(" ")[4];
+      String jsonItemNodeNumber = jsonItemID.split("#")[1];
+      if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
+        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
+        String trueNode = outgoingNodes[0].split("\"")[1];
+        String falseNode = "";
+        String insn = "";
+        if(outgoingNodes.length == 2) {
+          falseNode = outgoingNodes[1].split("\"")[1];
+          insn = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
+
+          boolean sameVarFlag = false;
+          String[] ins1 = insTotranslate.split(" ");
+          String[] ins2 = insn.split(" ");
+          HashSet<String> tmp = new HashSet<String>();
+          for (String s : ins1) {
+            if(s.contains("v"))
+              tmp.add(s);
+          }
+          for (String s : ins2) {
+            if (tmp.contains(s)) {
+              sameVarFlag = true;
+              break;
+            }
+          }
+
+          if(jsonItemID.equals(trueNodeToUpdate) && sameVarFlag) {
+            jsonItemsToBeRemoved.add(jsonItem);
+            String updatedInsn = insTotranslate + " and " + insn;
+            String updatedJsonItem = jsonItem.replace(insn,updatedInsn);
+            jsonItemsToBeAdded.add(updatedJsonItem);
+
+            trueNodeToUpdate = "";
+            falseNodeToUpdate = "";
+            insTotranslate = "";
+          }
+          else if(jsonItemID.equals(falseNodeToUpdate) && sameVarFlag) {
+            jsonItemsToBeRemoved.add(jsonItem);
+            String updatedInsn = "not " + insTotranslate + " and " + insn;
+            String updatedJsonItem = jsonItem.replace(insn,updatedInsn);
+            jsonItemsToBeAdded.add(updatedJsonItem);
+
+            trueNodeToUpdate = "";
+            falseNodeToUpdate = "";
+            insTotranslate = "";
+          }
+          else {
+            jsonItemsToBeRemoved.add(jsonItem);
+            trueNodeToUpdate = trueNode;
+            falseNodeToUpdate = falseNode;
+            insTotranslate = insn;
+          }
+        }
+      }
+    }
+    if(jsonItemsToBeRemoved.size() == 2 * jsonItemsToBeAdded.size()) {
+      int count = 1;
+      String key = "", val = "";
+      Map<String, String> replaceMap = new HashMap<>();
+      for(String item : jsonItemsToBeRemoved) {
+        jsonItems.remove(item);
+        if(count % 2 == 1) {
+          key = "\""+item.split(" ")[4]+"\"";
+        } else {
+          val = "\""+item.split(" ")[4]+"\"";
+          replaceMap.put(key,val);
+        }
+        count++;
+      }
+      for(String item : jsonItemsToBeAdded) {
+        jsonItems.add(item);
+      }
+
+      List<String> newJsonItems = new ArrayList<>();
+      for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
+        String item  = it.next();
+        boolean flag = false;
+        for (Map.Entry<String,String> entry : replaceMap.entrySet()) {
+          if(item.contains(entry.getKey())) {
+            String newItem = item.replace(entry.getKey(), entry.getValue());
+            newJsonItems.add(newItem);
+            flag = true;
+          }
+        }
+        if(!flag) {
+          newJsonItems.add(item);
+        }
+      }
+      jsonItems.clear();
+      jsonItems.addAll(newJsonItems);
+    }
+
+
     String completeJSON = "[ ";
     int i = 0;
     for (String jsonItem: jsonItems) {
@@ -1851,19 +1955,7 @@ public class MainFrame extends javax.swing.JFrame {
         String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
         System.out.println("Instruction to translate: " + ins_to_translate);
 
-        String[] ins_comps = ins_to_translate.split(" ");
-
-        String comp_sign = "";
-        List<String> vars = new ArrayList<>();
-        for (int in = 0; in < ins_comps.length; in++) {
-          String incomp = ins_comps[in];
-          if (incomp.contains("v"))
-            vars.add(incomp);
-          else
-            comp_sign = incomp;
-        }
-
-        List<String> smtConsList = translateToSMTLib(cureProc, vars, comp_sign);
+        List<String> smtConsList = translateToSMTLib(ins_to_translate, cureProc);
         System.out.println(smtConsList.get(1));
 
         modelCounter.setBound(31);
@@ -2254,6 +2346,7 @@ public class MainFrame extends javax.swing.JFrame {
     long timeElapsed = finish - start;
 
     long totalExecutionTime = dependencyAnalysisTime + timeElapsed;
+    System.out.println("CFG construction time: " + MainFrame.cfgConsTime);
     System.out.println("Dependency analysis time: " + dependencyAnalysisTime + "ms");
     System.out.println("Execution time for probabilistic analysis: " + timeElapsed + "ms");
     System.out.println("Total Execution time: " + totalExecutionTime + "ms");
@@ -2404,47 +2497,93 @@ public class MainFrame extends javax.swing.JFrame {
   }
 
 
-  private List<String> translateToSMTLib(Procedure proc, List<String> vars, String sign) {
+  private List<String> translateToSMTLib(String ins_to_translate, Procedure proc) {
     System.out.println(MainFrame.selectedVariables);
 
-    String dom_cons = "";
+    String[] consArr = ins_to_translate.split(" and ");
+
     String cons = "";
-    for(String var : vars) {
+    String dom_cons = "";
+    String consVar = "";
+
+    Set<String> varSet = new HashSet<>();
+
+    for(String con: consArr) {
+      String[] ins_comps = con.split(" ");
+
+      String sign = "";
+
+      List<String> vars = new ArrayList<>();
+      for (int in = 0; in < ins_comps.length; in++) {
+        String incomp = ins_comps[in];
+        if (incomp.contains("v"))
+          vars.add(incomp);
+        else
+          sign = incomp;
+      }
+
+
+
+      for(String var : vars) {
+        //if (MainFrame.selectedVariables.contains(var)) {
+        varSet.add(var);
+        //}
+      }
+
+
+      String end = "";
+      if(sign.equals("!=")) {
+        if (!con.contains("not")) {
+          cons += "(assert (not (= ";
+          end = ")";
+        }
+        else
+          cons += "(assert (= ";
+      } else if(sign.equals("==")) {
+        if (!con.contains("not"))
+          cons += "(assert (= ";
+        else {
+          cons += "(assert (not (= ";
+          end = ")";
+        }
+      } else {
+        if (!con.contains("not"))
+          cons += "(assert (" + sign + " ";
+        else {
+          cons += "(assert (not (" + sign + " ";
+          end = ")";
+        }
+      }
+
+      SymbolTable symTab = proc.getIR().getSymbolTable();
+      int var1 = Integer.parseInt(vars.get(0).substring(1));
+      int var2 = Integer.parseInt(vars.get(1).substring(1));
+
+      if (symTab.isNumberConstant(var1)) {
+        int v1 = symTab.getIntValue(var1);
+        cons += v1 + " ";
+      } else {
+        cons += vars.get(0) + " ";
+      }
+      if (symTab.isNumberConstant(var2)) {
+        int v2 = symTab.getIntValue(var2);
+        cons += v2;
+      } else {
+        cons += vars.get(1);
+      }
+
+      cons += end;
+      cons += "))\n";
+    }
+
+    for(String var : varSet) {
       //if (MainFrame.selectedVariables.contains(var)) {
-      cons += "(declare-fun " + var + "() Int)\n";
+      consVar += "(declare-fun " + var + "() Int)\n";
       //}
     }
-    dom_cons = cons;
+    dom_cons = consVar;
 
-    if(sign.equals("!=")) {
-      cons += "(assert (not (= ";
-    } else if(sign.equals("==")) {
-      cons += "(assert (= ";
-    } else {
-      cons += "(assert (" + sign + " ";
-    }
-
-    SymbolTable symTab = proc.getIR().getSymbolTable();
-    int var1 = Integer.parseInt(vars.get(0).substring(1));
-    int var2 = Integer.parseInt(vars.get(1).substring(1));
-
-    if (symTab.isNumberConstant(var1)) {
-      int v1 = symTab.getIntValue(var1);
-      cons += v1 + " ";
-    } else {
-      cons += vars.get(0) + " ";
-    }
-    if (symTab.isNumberConstant(var2)) {
-      int v2 = symTab.getIntValue(var2);
-      cons += v2;
-    } else {
-      cons += vars.get(1);
-    }
-
-    if(sign.equals("!=")) {
-      cons += ")";
-    }
-    cons += "))\n";
+    cons = consVar + cons;
     cons += "(check-sat)";
     dom_cons += "(check-sat)";
 
@@ -3052,6 +3191,7 @@ public class MainFrame extends javax.swing.JFrame {
   private int                                       loopbound = 1;
   public static long                                dependencyAnalysisTime = 0;
   private boolean backEdgeExists = false;
+  public static String cfgConsTime = "";
 
   private static int counter = 0;
   private static Map<String, Integer> nodeMap = new HashMap<>();

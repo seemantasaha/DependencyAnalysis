@@ -2378,7 +2378,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void appAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appAddButtonActionPerformed
     statusMessage.init();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar and Class Files","jar", "class");
-    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/jqf/tutorial/jayhorn-recursive-assert-reach/")); //temporary
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/jqf/tutorial/jpf-regression-modified/")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
@@ -3288,7 +3288,8 @@ public class AnalyzerFrame extends javax.swing.JFrame {
 
             // check if thread has completed
             if (!done && programGen.exitcode >= 0) {
-                System.out.println("CFG construction time: " + timestamp);
+                MainFrame.cfgConsTime = timestamp;
+                //System.out.println("CFG construction time: " + timestamp);
                 statusMessage.info("generateProgram returned: " + programGen.exitcode);
                 
                 // program generation was successful
