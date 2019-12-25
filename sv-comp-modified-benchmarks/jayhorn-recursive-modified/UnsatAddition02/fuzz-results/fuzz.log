@@ -1,0 +1,8 @@
+Saving new input (at run 1): input #0 of size 12; total coverage = 6
+Saved - fuzz-results/corpus/id_000000 random +count+cov+valid
+Saving new input (at run 4): input #1 of size 12; total coverage = 8
+Saved - fuzz-results/corpus/id_000001 src:000000,havoc:4 +count+cov+valid
+Saving new input (at run 22): input #2 of size 12; total coverage = 12
+Saved - fuzz-results/corpus/id_000002 src:000000,havoc:1 +count+cov+valid
+Found crash: class java.lang.AssertionError - 
+Saved - fuzz-results/failures/id_000000 src:000000,havoc:14 +crash

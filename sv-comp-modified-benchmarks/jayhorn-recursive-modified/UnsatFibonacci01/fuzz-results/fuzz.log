@@ -1,0 +1,2 @@
+Found crash: class java.lang.RuntimeException - Unexpected INVOKEMETHOD_EXCEPTION
+Saved - fuzz-results/failures/id_000000 random +crash
