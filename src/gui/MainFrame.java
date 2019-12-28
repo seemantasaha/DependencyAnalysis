@@ -1804,7 +1804,6 @@ public class MainFrame extends javax.swing.JFrame {
     modelName = modelName.replace("$","_");
     Procedure cureProc = this.currentCFG.getProcedure();
 
-
     //preprocessing source code branch condition in CFG
     List<String> jsonItemsToBeAdded = new ArrayList<>();
     List<String> jsonItemsToBeRemoved = new ArrayList<>();
@@ -1870,42 +1869,67 @@ public class MainFrame extends javax.swing.JFrame {
         }
       }
     }
-    if(jsonItemsToBeRemoved.size() == 2 * jsonItemsToBeAdded.size()) {
-      int count = 1;
-      String key = "", val = "";
-      Map<String, String> replaceMap = new HashMap<>();
-      for(String item : jsonItemsToBeRemoved) {
-        jsonItems.remove(item);
-        if(count % 2 == 1) {
-          key = "\""+item.split(" ")[4]+"\"";
-        } else {
-          val = "\""+item.split(" ")[4]+"\"";
-          replaceMap.put(key,val);
-        }
-        count++;
-      }
-      for(String item : jsonItemsToBeAdded) {
-        jsonItems.add(item);
-      }
-
-      List<String> newJsonItems = new ArrayList<>();
-      for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
-        String item  = it.next();
-        boolean flag = false;
-        for (Map.Entry<String,String> entry : replaceMap.entrySet()) {
-          if(item.contains(entry.getKey())) {
-            String newItem = item.replace(entry.getKey(), entry.getValue());
-            newJsonItems.add(newItem);
-            flag = true;
-          }
-        }
-        if(!flag) {
-          newJsonItems.add(item);
+    List<String> actualList = new ArrayList<>();
+    for(String item : jsonItemsToBeAdded) {
+      String itemId = item.split(" ")[4];
+      String itemId2 = itemId;
+      int n = Integer.parseInt(itemId.split("#")[1]) - 1;
+      String itemId1 = itemId .split("#")[0] + "#" + n;
+      int count = 0;
+      List<String> tempList = new ArrayList<>();
+      for(String it : jsonItemsToBeRemoved) {
+        String itId = item.split(" ")[4];
+        if(itId.equals(itemId1) || itId.equals(itemId2)) {
+          tempList.add(it);
+          count++;
+          if(count == 2)
+            break;
         }
       }
-      jsonItems.clear();
-      jsonItems.addAll(newJsonItems);
+      if(count == 2) {
+        actualList.addAll(tempList);
+      }
+      tempList.clear();
     }
+    jsonItemsToBeRemoved.clear();
+    jsonItemsToBeRemoved.addAll(actualList);
+
+    //if(jsonItemsToBeRemoved.size() == 2 * jsonItemsToBeAdded.size()) {
+    int count = 1;
+    String key = "", val = "";
+    Map<String, String> replaceMap = new HashMap<>();
+    for(String item : jsonItemsToBeRemoved) {
+      jsonItems.remove(item);
+      if(count % 2 == 1) {
+        key = "\""+item.split(" ")[4]+"\"";
+      } else {
+        val = "\""+item.split(" ")[4]+"\"";
+        replaceMap.put(key,val);
+      }
+      count++;
+    }
+    for(String item : jsonItemsToBeAdded) {
+      jsonItems.add(item);
+    }
+
+    List<String> newJsonItems = new ArrayList<>();
+    for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
+      String item  = it.next();
+      boolean flag = false;
+      for (Map.Entry<String,String> entry : replaceMap.entrySet()) {
+        if(item.contains(entry.getKey())) {
+          String newItem = item.replace(entry.getKey(), entry.getValue());
+          newJsonItems.add(newItem);
+          flag = true;
+        }
+      }
+      if(!flag) {
+        newJsonItems.add(item);
+      }
+    }
+    jsonItems.clear();
+    jsonItems.addAll(newJsonItems);
+    //}
 
 
     String completeJSON = "[ ";
@@ -1955,7 +1979,7 @@ public class MainFrame extends javax.swing.JFrame {
         String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
         System.out.println("Instruction to translate: " + ins_to_translate);
 
-        List<String> smtConsList = translateToSMTLib(ins_to_translate, cureProc);
+        List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
         System.out.println(smtConsList.get(1));
 
         modelCounter.setBound(31);
@@ -3204,6 +3228,7 @@ public class MainFrame extends javax.swing.JFrame {
   static public Set<Statement> allStmtSet = new HashSet<>();
   static public Set<String> selectedVariables = new HashSet<>();
   static public Map<Integer, String> allSourceLines = new HashMap<>();
+  static public Map<String, Procedure> itemProcMap = new HashMap<>();
   static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");
 
   final public void refreshDrawing() {

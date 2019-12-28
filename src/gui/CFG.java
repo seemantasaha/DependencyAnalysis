@@ -72,7 +72,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         }
         parameterInfo += paramInfoParts;
     }
-    
+
+    MainFrame.itemProcMap.put(this.procedure.getProcedureName() + classInfo + parameterInfo, this.procedure);
     
     ControlFlowGraph<SSAInstruction, ISSABasicBlock> cfg = proc.getCFG();
     IBytecodeMethod method = (IBytecodeMethod)this.procedure.getIR().getMethod();
