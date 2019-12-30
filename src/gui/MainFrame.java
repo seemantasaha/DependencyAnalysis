@@ -1485,8 +1485,20 @@ public class MainFrame extends javax.swing.JFrame {
                   }
                 }
                 System.out.println("\n=============================\n");
-                stmtSet.addAll(ProgramDependenceGraph.sliceProgramForward(currentCFG.getProcedure(),entry.getLastInstruction()));
-                MainFrame.allStmtSet.addAll(stmtSet);
+                String[] inspart = Reporter.getSSAInstructionString(entry.getLastInstruction()).split(" ");
+                boolean runFlag = false;
+                for(String s : inspart){
+                  for(String sv : MainFrame.selectedVariables) {
+                    if(s.equals(sv)){
+                      runFlag = true;
+                      break;
+                    }
+                  }
+                }
+                if(runFlag) {
+                  stmtSet.addAll(ProgramDependenceGraph.sliceProgramForward(currentCFG.getProcedure(), entry.getLastInstruction()));
+                  MainFrame.allStmtSet.addAll(stmtSet);
+                }
                 for (Statement s : MainFrame.allStmtSet) {
                   sliceStmtSet.add(s);
                   ArrayList<ISSABasicBlock> nodeList = checkEffectedBranchNode(s);
