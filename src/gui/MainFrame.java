@@ -2237,9 +2237,6 @@ public class MainFrame extends javax.swing.JFrame {
               prismOutput += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
             } else {
 
-              markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
-              markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
-
               String fID = idMap.get(Integer.parseInt(falseNode));
               String[] splittedfID = fID.split("#");
               ISSABasicBlock fNode = itemNodeMap.get(splittedfID[0]+"#"+splittedfID[splittedfID.length-1]);
