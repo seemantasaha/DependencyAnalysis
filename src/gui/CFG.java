@@ -118,6 +118,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         ImbalanceAnalysisItem iaNode = new ImbalanceAnalysisItem(jsonItemID, node, this.procedure, shrikeInstructions.length, instruction, nodeCost, null, null);
 
         nodeShrikeInstructionsMap.put(node.getNumber(), iaNode);
+
+        MainFrame.itemNodeMap.put(jsonItemID,node);
       }
     }
     

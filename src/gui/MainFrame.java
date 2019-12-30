@@ -141,7 +141,7 @@ public class MainFrame extends javax.swing.JFrame {
       numverOFProcedure++;
       classNames.add(proc.getClassName());
       loadControlFlowGraph(proc);
-//PDG--loadProcedureDependenceGraph(proc);
+      loadProcedureDependenceGraph(proc);
     }
 
     System.out.println("Number of Classes: " + classNames.size());
@@ -555,7 +555,7 @@ public class MainFrame extends javax.swing.JFrame {
   }
 
   private void showProcedureDependecenGraph(Procedure proc) {
-//PDG--drawProcedureDependenceGraph(proc);
+    drawProcedureDependenceGraph(proc);
   }
 
   void showjBondResult(Map<Double, Set<Procedure>> procSetMap) {
@@ -1784,6 +1784,7 @@ public class MainFrame extends javax.swing.JFrame {
   private String getNodeFromID(String jsonItemID) {
     if(nodeMap.get(jsonItemID) == null) {
       nodeMap.put(jsonItemID, counter);
+      idMap.put(counter,jsonItemID);
       counter++;
     }
     return nodeMap.get(jsonItemID).toString();
@@ -2180,6 +2181,13 @@ public class MainFrame extends javax.swing.JFrame {
     isCyclicUtil(0, 0, visited, recStack);
 
 
+    String id = idMap.get(Integer.parseInt(asseetionReachabilityNode));
+    String[] splittedID = id.split("#");
+    Procedure proc = itemProcMap.get(splittedID[0]);
+    ISSABasicBlock node = itemNodeMap.get(splittedID[0]+"#"+splittedID[splittedID.length-1]);
+    Set<ISSABasicBlock> domSet = proc.getDominatorSet(node);
+
+
     String markovChainOutput = "digraph {\n";
     String prismOutput = "dtmc\n\n" + "module " + modelName + "\n\n";
     if(backEdgeExists)
@@ -2216,10 +2224,36 @@ public class MainFrame extends javax.swing.JFrame {
               markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
               prismOutput += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
             } else {
+
               markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
               markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
-              prismOutput += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
-              prismOutput += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+
+              String fID = idMap.get(Integer.parseInt(falseNode));
+              String[] splittedfID = fID.split("#");
+              ISSABasicBlock fNode = itemNodeMap.get(splittedfID[0]+"#"+splittedfID[splittedfID.length-1]);
+
+              String tID = idMap.get(Integer.parseInt(trueNode));
+              String[] splittedtID = tID.split("#");
+              ISSABasicBlock tNode = itemNodeMap.get(splittedtID[0]+"#"+splittedtID[splittedtID.length-1]);
+
+              if(domSet.contains(tNode) && !domSet.contains(fNode)) {
+                markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
+                markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "0.0" + "\"];\n";
+                prismOutput += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ") + " + "0.0" + " : " + "(s' = " + falseNode + ");\n";
+              }
+
+              else if(domSet.contains(fNode) && !domSet.contains(tNode)) {
+                markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "0.0" + "\"];\n";
+                markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+                prismOutput += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+              }
+
+              else if(domSet.contains(fNode) && !domSet.contains(tNode)) {
+                //Need to implement this
+              }
+              else {
+                //this case is not possible, false and true node both being in dominator set
+              }
             }
           }
         } else{
@@ -2397,7 +2431,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     if (children != null) {
       for (String c : children) {
-        if (isCyclicUtil(i, Integer.parseInt(c), visited, recStack)) {
+        if (isCyclicUtil(i, Integer.parseInt(c), visited, recStack) && i != Integer.parseInt(c)) {
           System.out.println("backedge: " + i + " --> " + c);
           backEdgeExists = true;
           //unroll loops
@@ -3219,6 +3253,7 @@ public class MainFrame extends javax.swing.JFrame {
 
   private static int counter = 0;
   private static Map<String, Integer> nodeMap = new HashMap<>();
+  private static Map<Integer, String> idMap = new HashMap<>();
   private static Map<String, List<String>> edgeMap =  new HashMap<>();
 
   private static Map<Pair<String, String>, MarkovChainInformation> transitionMap = new HashMap<>();
@@ -3229,6 +3264,7 @@ public class MainFrame extends javax.swing.JFrame {
   static public Set<String> selectedVariables = new HashSet<>();
   static public Map<Integer, String> allSourceLines = new HashMap<>();
   static public Map<String, Procedure> itemProcMap = new HashMap<>();
+  static public Map<String, ISSABasicBlock> itemNodeMap = new HashMap<>();
   static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");
 
   final public void refreshDrawing() {
