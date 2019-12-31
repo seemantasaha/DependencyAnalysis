@@ -1802,6 +1802,18 @@ public class MainFrame extends javax.swing.JFrame {
     return nodeMap.get(jsonItemID).toString();
   }
 
+  private void removeAllTransitions(String node, String assertNode) {
+    List<MarkovChainInformation> list = transitionlistMap.get(node);
+    if(list == null)
+      return;
+    for(MarkovChainInformation mi : list) {
+      if(!mi.getToNode().equals(assertNode)) {
+        removeAllTransitions(mi.getToNode(), assertNode);
+        transitionlistMap.remove(mi.getToNode());
+      }
+    }
+  }
+
   private void branchModelCountMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
 
     long start = System.currentTimeMillis();
@@ -1891,7 +1903,7 @@ public class MainFrame extends javax.swing.JFrame {
       int count = 0;
       List<String> tempList = new ArrayList<>();
       for(String it : jsonItemsToBeRemoved) {
-        String itId = item.split(" ")[4];
+        String itId = it.split(" ")[4];
         if(itId.equals(itemId1) || itId.equals(itemId2)) {
           tempList.add(it);
           count++;
@@ -2185,19 +2197,80 @@ public class MainFrame extends javax.swing.JFrame {
     prismModel += "\nendmodule";
     System.out.println(prismModel);
 
+    //dominator analysis for probability distribution to true or false branch
+    //++removing extra analyis where branching and merging does not effect result
+    String id = idMap.get(Integer.parseInt(asseetionReachabilityNode));
+    String[] splittedID = id.split("#");
+    Procedure proc = itemProcMap.get(splittedID[0]);
+    ISSABasicBlock node = itemNodeMap.get(splittedID[0]+"#"+splittedID[splittedID.length-1]);
+    Set<ISSABasicBlock> domSet = proc.getDominatorSet(node);
+
+
+
+    /* For all the dominators of assertionReachability node if there is no direct connection between a pair of dominators
+     * 1. make a direct connection with probability 1.0
+     * 2. remove all in between nodes and the transitions, it can be tricky, start from the dominator for which there
+     * was no edge to the other dominator node. From both false and true node remove all the nodes untill it reaches the
+     * other dominator node
+     * */
+
+    ISSABasicBlock prevImDom = node;
+    ISSABasicBlock imDom = proc.getImmediateDominator(node);
+    while(imDom != null) {
+      //do something
+      String ns = nodeItemMap.get(imDom);
+      if(nodeMap.get(ns) == null) {
+        ns = ns.split("#")[0] + "#1#" + ns.split("#")[1];
+      }
+      if(nodeMap.get(ns) != null) {
+        String fromNode = Integer.toString(nodeMap.get(ns));
+
+        ns = nodeItemMap.get(prevImDom);
+        if (nodeMap.get(ns) == null) {
+          ns = ns.split("#")[0] + "#1#" + ns.split("#")[1];
+        }
+        if (nodeMap.get(ns) != null) {
+          String toNode = Integer.toString(nodeMap.get(ns));
+
+          List<MarkovChainInformation> toList = transitionlistMap.get(fromNode);
+          boolean flagToUpdate = true;
+          for (MarkovChainInformation mi : toList) {
+            if (mi.getToNode().equals(toNode)) {
+              flagToUpdate = false;
+              break;
+            }
+          }
+
+          if (flagToUpdate) {
+            MarkovChainInformation directChain = new MarkovChainInformation(fromNode, toNode, "1.0", false, false);
+            List<MarkovChainInformation> list = new ArrayList<>();
+            list.add(directChain);
+            transitionlistMap.put(fromNode, list);
+
+            for (MarkovChainInformation mi : toList) {
+              if (!mi.getToNode().equals(toNode)) {
+                removeAllTransitions(mi.getToNode(), toNode);
+                transitionlistMap.remove(mi.getToNode());
+              }
+            }
+          }
+        }
+      }
+
+      prevImDom = imDom;
+      imDom = proc.getImmediateDominator(imDom);
+
+      if(imDom.equals(prevImDom))
+        break;
+    }
+
+
 
     //unrolling loop
     boolean[] visited = new boolean[numberofNodes];
     boolean[] recStack = new boolean[numberofNodes];
 
     isCyclicUtil(0, 0, visited, recStack);
-
-
-    String id = idMap.get(Integer.parseInt(asseetionReachabilityNode));
-    String[] splittedID = id.split("#");
-    Procedure proc = itemProcMap.get(splittedID[0]);
-    ISSABasicBlock node = itemNodeMap.get(splittedID[0]+"#"+splittedID[splittedID.length-1]);
-    Set<ISSABasicBlock> domSet = proc.getDominatorSet(node);
 
 
     String markovChainOutput = "digraph {\n";
@@ -3274,6 +3347,7 @@ public class MainFrame extends javax.swing.JFrame {
   static public Map<Integer, String> allSourceLines = new HashMap<>();
   static public Map<String, Procedure> itemProcMap = new HashMap<>();
   static public Map<String, ISSABasicBlock> itemNodeMap = new HashMap<>();
+  static public Map<ISSABasicBlock, String> nodeItemMap = new HashMap<>();
   static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");
 
   final public void refreshDrawing() {

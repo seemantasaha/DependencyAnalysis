@@ -120,6 +120,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         nodeShrikeInstructionsMap.put(node.getNumber(), iaNode);
 
         MainFrame.itemNodeMap.put(jsonItemID,node);
+        MainFrame.nodeItemMap.put(node,jsonItemID);
       }
     }
     

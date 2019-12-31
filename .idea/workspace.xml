@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.csl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.sm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" afterDir="false" />
@@ -96,6 +108,7 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -110,10 +123,54 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="2267" selection-start-line="2267" selection-end-line="2267" />
+            <state relative-caret-position="94">
+              <caret line="3331" column="54" lean-forward="true" selection-start-line="3331" selection-start-column="54" selection-end-line="3331" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#23221#23222#0" expanded="true" />
+                <element signature="e#23274#23275#0" expanded="true" />
+                <element signature="e#23511#23512#0" expanded="true" />
+                <element signature="e#23562#23563#0" expanded="true" />
+                <element signature="e#23832#23833#0" expanded="true" />
+                <element signature="e#23881#23882#0" expanded="true" />
+                <element signature="e#24116#24117#0" expanded="true" />
+                <element signature="e#24170#24171#0" expanded="true" />
+                <element signature="e#24429#24430#0" expanded="true" />
+                <element signature="e#24491#24492#0" expanded="true" />
+                <element signature="e#24735#24736#0" expanded="true" />
+                <element signature="e#24793#24794#0" expanded="true" />
+                <element signature="e#25041#25042#0" expanded="true" />
+                <element signature="e#25104#25105#0" expanded="true" />
+                <element signature="e#25698#25699#0" expanded="true" />
+                <element signature="e#25748#25749#0" expanded="true" />
+                <element signature="e#26154#26155#0" expanded="true" />
+                <element signature="e#26204#26205#0" expanded="true" />
+                <element signature="e#26353#26354#0" expanded="true" />
+                <element signature="e#26402#26403#0" expanded="true" />
+                <element signature="e#26557#26558#0" expanded="true" />
+                <element signature="e#26612#26613#0" expanded="true" />
+                <element signature="e#26919#26920#0" expanded="true" />
+                <element signature="e#26977#26978#0" expanded="true" />
+                <element signature="e#27167#27168#0" expanded="true" />
+                <element signature="e#27217#27218#0" expanded="true" />
+                <element signature="e#27403#27404#0" expanded="true" />
+                <element signature="e#27453#27454#0" expanded="true" />
+                <element signature="e#27640#27641#0" expanded="true" />
+                <element signature="e#27690#27691#0" expanded="true" />
+                <element signature="e#27876#27877#0" expanded="true" />
+                <element signature="e#27926#27927#0" expanded="true" />
+                <element signature="e#28116#28117#0" expanded="true" />
+                <element signature="e#28167#28168#0" expanded="true" />
+                <element signature="e#28350#28351#0" expanded="true" />
+                <element signature="e#28399#28400#0" expanded="true" />
+                <element signature="e#28691#28692#0" expanded="true" />
+                <element signature="e#28749#28750#0" expanded="true" />
+                <element signature="e#28951#28952#0" expanded="true" />
+                <element signature="e#29009#29010#0" expanded="true" />
+                <element signature="e#29401#29402#0" expanded="true" />
+                <element signature="e#29451#29452#0" expanded="true" />
+                <element signature="e#29834#29835#0" expanded="true" />
+                <element signature="e#29885#29886#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,8 +179,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2641">
-              <caret line="166" column="77" selection-start-line="166" selection-start-column="77" selection-end-line="166" selection-end-column="77" />
+            <state relative-caret-position="3021">
+              <caret line="186" column="31" selection-start-line="186" selection-start-column="31" selection-end-line="186" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -170,11 +227,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5833">
-              <caret line="329" selection-start-line="329" selection-end-line="329" />
+            <state relative-caret-position="1900">
+              <caret line="122" column="49" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#13287#13288#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,8 +239,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3857">
-              <caret line="238" column="9" selection-start-line="238" selection-start-column="9" selection-end-line="238" selection-end-column="9" />
+            <state relative-caret-position="11932">
+              <caret line="687" column="35" selection-start-line="687" selection-start-column="35" selection-end-line="687" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -202,12 +258,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>elapsedTime</find>
-      <find>total</find>
-      <find>sliceProgramForward</find>
-      <find>Slice</find>
-      <find>dependencyAnalysisTime</find>
-      <find>jayhorn</find>
       <find>jay</find>
       <find>modelName</find>
       <find>branchModelCount</find>
@@ -228,10 +278,16 @@
       <find>-modified</find>
       <find>itemProcMap</find>
       <find>branchModelCountMenuitem</find>
-      <find>nodeMap</find>
       <find>assertNode</find>
       <find>constructControlDependenceGraph</find>
       <find>paintSlice</find>
+      <find>asseetionReachabilityNode</find>
+      <find>itemNodeMap</find>
+      <find>transitionlistMap</find>
+      <find>idMap</find>
+      <find>removeAllTransitions</find>
+      <find>nodeMap</find>
+      <find>getNodeFromID</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -286,6 +342,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -308,13 +366,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577691044187" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577772778845" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -421,6 +477,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2245008" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -431,8 +488,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.32771337" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32982087" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991699" visible="true" weight="0.32771337" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32982087" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
@@ -485,15 +542,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2239</line>
+          <line>2312</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2195</line>
+          <line>1897</line>
           <properties />
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -796,18 +853,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="2267" selection-start-line="2267" selection-end-line="2267" />
+        <state relative-caret-position="94">
+          <caret line="3331" column="54" lean-forward="true" selection-start-line="3331" selection-start-column="54" selection-end-line="3331" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#23221#23222#0" expanded="true" />
+            <element signature="e#23274#23275#0" expanded="true" />
+            <element signature="e#23511#23512#0" expanded="true" />
+            <element signature="e#23562#23563#0" expanded="true" />
+            <element signature="e#23832#23833#0" expanded="true" />
+            <element signature="e#23881#23882#0" expanded="true" />
+            <element signature="e#24116#24117#0" expanded="true" />
+            <element signature="e#24170#24171#0" expanded="true" />
+            <element signature="e#24429#24430#0" expanded="true" />
+            <element signature="e#24491#24492#0" expanded="true" />
+            <element signature="e#24735#24736#0" expanded="true" />
+            <element signature="e#24793#24794#0" expanded="true" />
+            <element signature="e#25041#25042#0" expanded="true" />
+            <element signature="e#25104#25105#0" expanded="true" />
+            <element signature="e#25698#25699#0" expanded="true" />
+            <element signature="e#25748#25749#0" expanded="true" />
+            <element signature="e#26154#26155#0" expanded="true" />
+            <element signature="e#26204#26205#0" expanded="true" />
+            <element signature="e#26353#26354#0" expanded="true" />
+            <element signature="e#26402#26403#0" expanded="true" />
+            <element signature="e#26557#26558#0" expanded="true" />
+            <element signature="e#26612#26613#0" expanded="true" />
+            <element signature="e#26919#26920#0" expanded="true" />
+            <element signature="e#26977#26978#0" expanded="true" />
+            <element signature="e#27167#27168#0" expanded="true" />
+            <element signature="e#27217#27218#0" expanded="true" />
+            <element signature="e#27403#27404#0" expanded="true" />
+            <element signature="e#27453#27454#0" expanded="true" />
+            <element signature="e#27640#27641#0" expanded="true" />
+            <element signature="e#27690#27691#0" expanded="true" />
+            <element signature="e#27876#27877#0" expanded="true" />
+            <element signature="e#27926#27927#0" expanded="true" />
+            <element signature="e#28116#28117#0" expanded="true" />
+            <element signature="e#28167#28168#0" expanded="true" />
+            <element signature="e#28350#28351#0" expanded="true" />
+            <element signature="e#28399#28400#0" expanded="true" />
+            <element signature="e#28691#28692#0" expanded="true" />
+            <element signature="e#28749#28750#0" expanded="true" />
+            <element signature="e#28951#28952#0" expanded="true" />
+            <element signature="e#29009#29010#0" expanded="true" />
+            <element signature="e#29401#29402#0" expanded="true" />
+            <element signature="e#29451#29452#0" expanded="true" />
+            <element signature="e#29834#29835#0" expanded="true" />
+            <element signature="e#29885#29886#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2641">
-          <caret line="166" column="77" selection-start-line="166" selection-start-column="77" selection-end-line="166" selection-end-column="77" />
+        <state relative-caret-position="3021">
+          <caret line="186" column="31" selection-start-line="186" selection-start-column="31" selection-end-line="186" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -844,19 +945,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5833">
-          <caret line="329" selection-start-line="329" selection-end-line="329" />
+        <state relative-caret-position="1900">
+          <caret line="122" column="49" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#13287#13288#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3857">
-          <caret line="238" column="9" selection-start-line="238" selection-start-column="9" selection-end-line="238" selection-end-column="9" />
+        <state relative-caret-position="11932">
+          <caret line="687" column="35" selection-start-line="687" selection-start-column="35" selection-end-line="687" selection-end-column="35" />
         </state>
       </provider>
     </entry>
