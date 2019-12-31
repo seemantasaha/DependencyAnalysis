@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.csl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.sm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
@@ -108,8 +104,8 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t.dot" beforeDir="false" afterPath="$PROJECT_DIR$/t.dot" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -123,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="3331" column="54" lean-forward="true" selection-start-line="3331" selection-start-column="54" selection-end-line="3331" selection-end-column="54" />
+            <state relative-caret-position="232">
+              <caret line="2339" column="106" selection-start-line="2339" selection-start-column="106" selection-end-line="2339" selection-end-column="106" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#23221#23222#0" expanded="true" />
@@ -258,8 +254,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>jay</find>
-      <find>modelName</find>
       <find>branchModelCount</find>
       <find>iter</find>
       <find>CFG construction time:</find>
@@ -288,6 +282,8 @@
       <find>removeAllTransitions</find>
       <find>nodeMap</find>
       <find>getNodeFromID</find>
+      <find>isCy</find>
+      <find>endNode</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -342,8 +338,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -366,6 +360,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -542,15 +538,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2312</line>
+          <line>2533</line>
           <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>1897</line>
-          <properties />
-          <option name="timeStamp" value="26" />
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -853,8 +843,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="3331" column="54" lean-forward="true" selection-start-line="3331" selection-start-column="54" selection-end-line="3331" selection-end-column="54" />
+        <state relative-caret-position="232">
+          <caret line="2339" column="106" selection-start-line="2339" selection-start-column="106" selection-end-line="2339" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#23221#23222#0" expanded="true" />

@@ -2187,6 +2187,8 @@ public class MainFrame extends javax.swing.JFrame {
 
           graphOutput += "\t" + fromNode + " -> " + fromNode + "[label= " + "\"" + "1.0" + "\"];\n";
           prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + fromNode + ");\n";
+
+          endNode = fromNode;
         }
       }
     }
@@ -2330,8 +2332,12 @@ public class MainFrame extends javax.swing.JFrame {
                 prismOutput += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
               }
 
-              else if(domSet.contains(fNode) && !domSet.contains(tNode)) {
-                //Need to implement this
+              else if(!domSet.contains(fNode) && !domSet.contains(tNode)) {
+                //Need to change this later
+                markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "1.0" + "\"];\n";
+                markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
+                prismOutput += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
+                prismOutput += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
               }
               else {
                 //this case is not possible, false and true node both being in dominator set
@@ -2521,9 +2527,14 @@ public class MainFrame extends javax.swing.JFrame {
           //edgeMap.get(Integer.toString(i)).remove(c);
           //edgeMap.get(Integer.toString(i)).add(Integer.toString(newNode));
           //transitionMap.put(new Pair<>(Integer.toString(i), c), transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode)));
-          //transitionMap.remove(new Pair<>(Integer.toString(i), c));
+          //transitionMap.reprob = "1.0"move(new Pair<>(Integer.toString(i), c));
 
-          MarkovChainInformation chain = transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode));
+          MarkovChainInformation chain = null;
+          if(loopbound > 1) {
+            chain = transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode));
+          } else {
+            chain = transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(endNode);
+          }
           transitionMap.put(new Pair<>(Integer.toString(i), c), chain);
           List<MarkovChainInformation> list = new ArrayList<>();
           list.add(chain);
@@ -3337,7 +3348,7 @@ public class MainFrame extends javax.swing.JFrame {
   private static Map<String, Integer> nodeMap = new HashMap<>();
   private static Map<Integer, String> idMap = new HashMap<>();
   private static Map<String, List<String>> edgeMap =  new HashMap<>();
-
+  private static String endNode = "";
   private static Map<Pair<String, String>, MarkovChainInformation> transitionMap = new HashMap<>();
   private static Map<String, List<MarkovChainInformation>> transitionlistMap = new HashMap<>();
 
