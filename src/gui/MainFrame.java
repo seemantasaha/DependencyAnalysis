@@ -1219,15 +1219,16 @@ public class MainFrame extends javax.swing.JFrame {
         int bcIndex = 0;
         try {
           if (inst.toString().startsWith("conditional branch")) {
-            System.err.println ( "Bytecode : " + inst.toString() );
+            System.out.println ( "Bytecode : " + inst.toString() );
             bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
             try {
               int src_line_number = target.getMethod().getLineNumber(bcIndex);
-              System.err.println("Source line number = " + src_line_number);
+              nodeLineMap.put(target, src_line_number);
+              System.out.println("Source line number = " + src_line_number);
               MainFrame.allSourceLines.put(src_line_number, proc.getProcedureName());
             } catch (Exception e) {
-              System.err.println("Bytecode index no good");
-              System.err.println(e.getMessage());
+              System.out.println("Bytecode index is incorrect");
+              System.out.println(e.getMessage());
             }
           }
         } catch (Exception e ) {
@@ -1246,20 +1247,20 @@ public class MainFrame extends javax.swing.JFrame {
           int bcIndex = 0;
           try {
             if (inst.toString().startsWith("conditional branch")) {
-              System.err.println ( "Bytecode : " + inst.toString() );
+              System.out.println ( "Bytecode : " + inst.toString() );
               bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
               try {
                 int src_line_number = target.getMethod().getLineNumber(bcIndex);
-                System.err.println("Source line number = " + src_line_number);
+                System.out.println("Source line number = " + src_line_number);
                 MainFrame.allSourceLines.put(src_line_number, proc.getProcedureName());
               } catch (Exception e) {
-                System.err.println("Bytecode index no good");
-                System.err.println(e.getMessage());
+                System.out.println("Bytecode index no good");
+                System.out.println(e.getMessage());
               }
             }
           } catch (Exception e ) {
-            System.err.println("it's probably not a BT method (e.g. it's a fakeroot method)");
-            System.err.println(e.getMessage());
+            System.out.println("it's probably not a BT method (e.g. it's a fakeroot method)");
+            System.out.println(e.getMessage());
           }
           if (target != null) {
             cfg.getProcedure().dependentNodes.add(""+target.getNumber());
@@ -1835,6 +1836,7 @@ public class MainFrame extends javax.swing.JFrame {
     String trueNodeToUpdate = "";
     String falseNodeToUpdate = "";
     String insTotranslate = "";
+    String jsonItemId1 = "";
 
     //for (String jsonItem: jsonItems) {
     for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
@@ -1846,11 +1848,14 @@ public class MainFrame extends javax.swing.JFrame {
         String trueNode = outgoingNodes[0].split("\"")[1];
         String falseNode = "";
         String insn = "";
+        String jsonItemId2 = "";
         if(outgoingNodes.length == 2) {
           falseNode = outgoingNodes[1].split("\"")[1];
           insn = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
+          jsonItemId2 = jsonItemID;
 
           boolean sameVarFlag = false;
+          boolean sameLineFlag = false;
           String[] ins1 = insTotranslate.split(" ");
           String[] ins2 = insn.split(" ");
           HashSet<String> tmp = new HashSet<String>();
@@ -1865,7 +1870,15 @@ public class MainFrame extends javax.swing.JFrame {
             }
           }
 
-          if(jsonItemID.equals(trueNodeToUpdate) && sameVarFlag) {
+          if(!jsonItemId1.equals("") && !jsonItemId2.equals("")) {
+            ISSABasicBlock n1 = itemNodeMap.get(jsonItemId1);
+            ISSABasicBlock n2 = itemNodeMap.get(jsonItemId2);
+            if (nodeLineMap.get(n1) == nodeLineMap.get(n2)) {
+              sameLineFlag = true;
+            }
+          }
+
+          if(jsonItemID.equals(trueNodeToUpdate) && sameVarFlag && sameLineFlag) {
             jsonItemsToBeRemoved.add(jsonItem);
             String updatedInsn = insTotranslate + " and " + insn;
             String updatedJsonItem = jsonItem.replace(insn,updatedInsn);
@@ -1875,7 +1888,7 @@ public class MainFrame extends javax.swing.JFrame {
             falseNodeToUpdate = "";
             insTotranslate = "";
           }
-          else if(jsonItemID.equals(falseNodeToUpdate) && sameVarFlag) {
+          else if(jsonItemID.equals(falseNodeToUpdate) && sameVarFlag && sameLineFlag) {
             jsonItemsToBeRemoved.add(jsonItem);
             String updatedInsn = "not " + insTotranslate + " and " + insn;
             String updatedJsonItem = jsonItem.replace(insn,updatedInsn);
@@ -1890,6 +1903,7 @@ public class MainFrame extends javax.swing.JFrame {
             trueNodeToUpdate = trueNode;
             falseNodeToUpdate = falseNode;
             insTotranslate = insn;
+            jsonItemId1 = jsonItemID;
           }
         }
       }
@@ -3443,6 +3457,7 @@ public class MainFrame extends javax.swing.JFrame {
   private static String assertionNode = "";
   private static Map<Pair<String, String>, MarkovChainInformation> transitionMap = new HashMap<>();
   private static Map<String, List<MarkovChainInformation>> transitionlistMap = new HashMap<>();
+  private static Map<ISSABasicBlock, Integer> nodeLineMap = new HashMap<>();
 
   private Map<String, Map<Double, Set<Procedure>>>  jBondMap = new TreeMap<>();
   static public Set<Statement> allStmtSet = new HashSet<>();

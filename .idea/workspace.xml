@@ -2,57 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.sm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$24.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$25.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$26.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$27.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$28.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$29.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$30.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$31.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$32.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/ImbalanceAnalysisItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ImbalanceAnalysisItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" afterDir="false" />
@@ -144,9 +96,6 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -161,8 +110,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="2600" column="22" selection-start-line="2600" selection-start-column="22" selection-end-line="2600" selection-end-column="22" />
+            <state relative-caret-position="203">
+              <caret line="1873" selection-start-line="1873" selection-end-line="1873" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#23221#23222#0" expanded="true" />
@@ -296,7 +245,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>31</find>
       <find>show PDG</find>
       <find>showPDG</find>
       <find>currentPDG</find>
@@ -326,6 +274,7 @@
       <find>isCyclicUtil</find>
       <find>assertionReachabilityNode</find>
       <find>backedge</find>
+      <find>allSourceLines</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -408,7 +357,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578014505353" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578016936892" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -515,7 +464,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2245008" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -526,8 +474,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991699" visible="true" weight="0.32771337" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32982087" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.32771337" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32982087" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
@@ -574,6 +522,18 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
     </layout-to-restore>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
+          <line>1873</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SSAConditionalBranchInstruction.class">
@@ -945,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="2600" column="22" selection-start-line="2600" selection-start-column="22" selection-end-line="2600" selection-end-column="22" />
+        <state relative-caret-position="203">
+          <caret line="1873" selection-start-line="1873" selection-end-line="1873" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#23221#23222#0" expanded="true" />
