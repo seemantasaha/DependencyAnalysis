@@ -24,8 +24,9 @@ public class ImbalanceAnalysisItem {
     private Integer nodeCost;
     private String[] incomingItems;
     private String[] outgoingItems;
+    private boolean exceptionNodeFlag;
     
-    public ImbalanceAnalysisItem(String id, ISSABasicBlock node, Procedure proc, int numberOfInstructions, String instructions, Integer nodeCost, String[] incomingItems, String[] outgoingItems) {
+    public ImbalanceAnalysisItem(String id, ISSABasicBlock node, Procedure proc, int numberOfInstructions, String instructions, Integer nodeCost, String[] incomingItems, String[] outgoingItems, boolean exceptionNodeFlag) {
         this.itemID = id;
         this.node = node;
         this.proc = proc;
@@ -34,6 +35,7 @@ public class ImbalanceAnalysisItem {
         this.nodeCost = nodeCost;
         this.incomingItems = incomingItems;
         this.outgoingItems = outgoingItems;
+        this.exceptionNodeFlag = exceptionNodeFlag;
     }
     
     public String getID() {
@@ -65,4 +67,6 @@ public class ImbalanceAnalysisItem {
     public String[] getOutgoingItems() {
         return this.outgoingItems;
     }
+
+    public boolean getExceptionNodeFlag() { return this.exceptionNodeFlag; }
 }

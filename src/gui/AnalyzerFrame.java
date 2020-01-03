@@ -555,7 +555,8 @@ public class AnalyzerFrame extends javax.swing.JFrame {
 
         // checkbox controls
         this.aveCheckBox.setSelected       ("no".equals(configData.getField(ConfigInfo.StringType.averroes)));
-        this.exceptCheckBox.setSelected    ("yes".equals(configData.getField(ConfigInfo.StringType.exception)));
+        //this.exceptCheckBox.setSelected    ("yes".equals(configData.getField(ConfigInfo.StringType.exception)));
+        this.exceptCheckBox.setSelected(true);
         this.infCheckBox.setSelected       ("yes".equals(configData.getField(ConfigInfo.StringType.infloop)));
         this.audioFeedbackCheckBox.setSelected("yes".equals(configData.getField(ConfigInfo.StringType.audiofback)));
         this.publicMethodsCheckBox.setSelected("yes".equals(configData.getField(ConfigInfo.StringType.pubmeths)));

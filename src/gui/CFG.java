@@ -38,6 +38,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
   Map<ImbalanceAnalysisItem, IInstruction> bytecodeMap;
   
   private String endingInstruction;
+
+  private static boolean exceptionNodeFlag;
   
   public CFG(Procedure proc) throws InvalidClassFileException {
       
@@ -88,6 +90,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
     List<ISSABasicBlock> nodeList = proc.getNodeList();
       
     for (ISSABasicBlock node : nodeList) {
+      exceptionNodeFlag = false;
       if (getVertex(node) == null) {
         String nodeShrikeInstructions = constructNodeVertex(node);
         String[] shrikeInstructions = nodeShrikeInstructions.split(" ");
@@ -115,7 +118,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         instruction = instruction.replace("\"", "'");
         instruction = instruction.replace("\\\n", "newline");
 
-        ImbalanceAnalysisItem iaNode = new ImbalanceAnalysisItem(jsonItemID, node, this.procedure, shrikeInstructions.length, instruction, nodeCost, null, null);
+        ImbalanceAnalysisItem iaNode = new ImbalanceAnalysisItem(jsonItemID, node, this.procedure, shrikeInstructions.length, instruction, nodeCost, null, null, exceptionNodeFlag);
 
         nodeShrikeInstructionsMap.put(node.getNumber(), iaNode);
 
@@ -132,11 +135,11 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
       ImbalanceAnalysisItem nodeItem = nodeShrikeInstructionsMap.get(node.getNumber());
       
       String jsonItem = "{ \"id\" : \"";
-      
-      
+
       jsonItem += "[ " + nodeItem.getID() + " ] " + nodeItem.getInstruction() + "\", \"instruction_count\" : \"" + nodeItem.getNumberOfInstructions()
                     + "\", \"cost\" : \"" + nodeItem.getNodeCost()
                     + "\", \"secret_dependent_branch\" : \"" + "false"
+                    + "\", \"exception\" : \"" + nodeItem.getExceptionNodeFlag()
                     + "\"," +" \"incoming\" : { },";
       
       SSAInstruction lastInst = null;
@@ -293,6 +296,9 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
       //nodeString += "instruction: " + inst.toString() + "\n"; //format: conditional branch(lt, to iindex=43) 26,27
       nodeString += Reporter.getSSAInstructionString(inst) + "\n"; //printing the texts are shown in the cfg node
       instNum++;
+
+      if(nodeString.contains("getCaughtException"))
+          exceptionNodeFlag = true;
 
       while (neededByteCodeInst != null && this.nodeInstructionIndex < this.byteCodeInstructions.length) {
         //nodeStr += "[" + this.nodeInstructionIndex + "]";

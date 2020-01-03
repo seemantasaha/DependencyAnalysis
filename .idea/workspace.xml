@@ -3,9 +3,49 @@
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_runBellmanFord.sm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/ImbalanceAnalysisItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/ImbalanceAnalysisItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
@@ -104,8 +144,10 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t.dot" beforeDir="false" afterPath="$PROJECT_DIR$/t.dot" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -119,8 +161,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="2339" column="106" selection-start-line="2339" selection-start-column="106" selection-end-line="2339" selection-end-column="106" />
+            <state relative-caret-position="70">
+              <caret line="2600" column="22" selection-start-line="2600" selection-start-column="22" selection-end-line="2600" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#23221#23222#0" expanded="true" />
@@ -173,10 +215,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
+        <entry file="file://$PROJECT_DIR$/src/core/ConfigMaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3021">
-              <caret line="186" column="31" selection-start-line="186" selection-start-column="31" selection-end-line="186" selection-end-column="31" />
+            <state relative-caret-position="557">
+              <caret line="124" column="30" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -184,8 +226,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31198">
-              <caret line="2383" column="52" selection-start-line="2383" selection-start-column="52" selection-end-line="2383" selection-end-column="52" />
+            <state relative-caret-position="317">
+              <caret line="564" column="14" selection-start-line="564" selection-start-column="14" selection-end-line="564" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -223,8 +265,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1900">
-              <caret line="122" column="49" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
+            <state relative-caret-position="61">
+              <caret line="139" column="58" lean-forward="true" selection-start-line="139" selection-start-column="58" selection-end-line="139" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -254,16 +296,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>branchModelCount</find>
-      <find>iter</find>
-      <find>CFG construction time:</find>
-      <find>translateToSMTLib</find>
-      <find>show</find>
-      <find>this.procedure.getProcedureName() + classInfo + parameterInfo</find>
-      <find>branchModel</find>
       <find>31</find>
       <find>show PDG</find>
-      <find>backedge</find>
       <find>showPDG</find>
       <find>currentPDG</find>
       <find>procedureDependenceGraphMap</find>
@@ -274,8 +308,6 @@
       <find>branchModelCountMenuitem</find>
       <find>assertNode</find>
       <find>constructControlDependenceGraph</find>
-      <find>paintSlice</find>
-      <find>asseetionReachabilityNode</find>
       <find>itemNodeMap</find>
       <find>transitionlistMap</find>
       <find>idMap</find>
@@ -284,6 +316,16 @@
       <find>getNodeFromID</find>
       <find>isCy</find>
       <find>endNode</find>
+      <find>throw</find>
+      <find>asseetionReachabilityNode</find>
+      <find>true_prob</find>
+      <find>paintSlice</find>
+      <find>exception</find>
+      <find>setGUIConfigSettings</find>
+      <find>exceptCheckBox</find>
+      <find>isCyclicUtil</find>
+      <find>assertionReachabilityNode</find>
+      <find>backedge</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -299,7 +341,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/core/Statement.java" />
-        <option value="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/vlab/DriverProxy.java" />
         <option value="$PROJECT_DIR$/src/edu/DriverProxy.java" />
@@ -311,9 +352,10 @@
         <option value="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/core/MarkovChain.java" />
         <option value="$PROJECT_DIR$/src/gui/SliceFrame.java" />
-        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
         <option value="$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java" />
+        <option value="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" />
         <option value="$PROJECT_DIR$/src/gui/CFG.java" />
+        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
       </list>
     </option>
@@ -366,7 +408,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577772778845" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578014505353" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -533,33 +575,7 @@
       <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
     </layout-to-restore>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2533</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/classLoader/IBytecodeMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/UsernamePasswordLoginModule.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="104" column="37" lean-forward="true" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SSAConditionalBranchInstruction.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -657,13 +673,6 @@
           <folding>
             <element signature="e#6522#6523#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ConfigMaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -841,10 +850,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3021">
+          <caret line="186" column="31" selection-start-line="186" selection-start-column="31" selection-end-line="186" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1330">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SymbolTable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4294">
+          <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4541">
+          <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11932">
+          <caret line="687" column="35" selection-start-line="687" selection-start-column="35" selection-end-line="687" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ProgramDependenceGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1900">
+          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ConfigMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="124" column="30" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+          <folding>
+            <element signature="e#1513#1514#0" expanded="true" />
+            <element signature="e#1557#1558#0" expanded="true" />
+            <element signature="e#1597#1598#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="139" column="58" lean-forward="true" selection-start-line="139" selection-start-column="58" selection-end-line="139" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/javax/swing/AbstractButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="325" column="19" selection-start-line="325" selection-start-column="19" selection-end-line="325" selection-end-column="19" />
+          <folding>
+            <element signature="e#11258#11259#0" expanded="true" />
+            <element signature="e#11299#11300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="564" column="14" selection-start-line="564" selection-start-column="14" selection-end-line="564" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="2339" column="106" selection-start-line="2339" selection-start-column="106" selection-end-line="2339" selection-end-column="106" />
+        <state relative-caret-position="70">
+          <caret line="2600" column="22" selection-start-line="2600" selection-start-column="22" selection-end-line="2600" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#23221#23222#0" expanded="true" />
@@ -892,68 +994,6 @@
             <element signature="e#29834#29835#0" expanded="true" />
             <element signature="e#29885#29886#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3021">
-          <caret line="186" column="31" selection-start-line="186" selection-start-column="31" selection-end-line="186" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31198">
-          <caret line="2383" column="52" selection-start-line="2383" selection-start-column="52" selection-end-line="2383" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1330">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SymbolTable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4294">
-          <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4541">
-          <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="122" column="49" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11932">
-          <caret line="687" column="35" selection-start-line="687" selection-start-column="35" selection-end-line="687" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/ProgramDependenceGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
         </state>
       </provider>
     </entry>
