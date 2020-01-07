@@ -647,6 +647,7 @@ public class MainFrame extends javax.swing.JFrame {
         showPDGMenuItemActionPerformed(evt);
       }
     });
+    showPDGMenuItem.setEnabled(false);
     cfgOptPopupMenu.add(showPDGMenuItem);
 
     silceMenuItem.setText("Slice Program");
@@ -1837,6 +1838,7 @@ public class MainFrame extends javax.swing.JFrame {
     String falseNodeToUpdate = "";
     String insTotranslate = "";
     String jsonItemId1 = "";
+    String prevUpdatedJsonItem = "";
 
     //for (String jsonItem: jsonItems) {
     for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
@@ -1854,22 +1856,22 @@ public class MainFrame extends javax.swing.JFrame {
           insn = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
           jsonItemId2 = jsonItemID;
 
-          boolean sameVarFlag = false;
-          boolean sameLineFlag = false;
-          String[] ins1 = insTotranslate.split(" ");
-          String[] ins2 = insn.split(" ");
-          HashSet<String> tmp = new HashSet<String>();
-          for (String s : ins1) {
-            if(s.contains("v"))
-              tmp.add(s);
-          }
-          for (String s : ins2) {
-            if (tmp.contains(s)) {
-              sameVarFlag = true;
-              break;
-            }
-          }
+//          boolean sameVarFlag = false;
+//          String[] ins1 = insTotranslate.split(" ");
+//          String[] ins2 = insn.split(" ");
+//          HashSet<String> tmp = new HashSet<String>();
+//          for (String s : ins1) {
+//            if(s.contains("v"))
+//              tmp.add(s);
+//          }
+//          for (String s : ins2) {
+//            if (tmp.contains(s)) {
+//              sameVarFlag = true;
+//              break;
+//            }
+//          }
 
+          boolean sameLineFlag = false;
           if(!jsonItemId1.equals("") && !jsonItemId2.equals("")) {
             ISSABasicBlock n1 = itemNodeMap.get(jsonItemId1);
             ISSABasicBlock n2 = itemNodeMap.get(jsonItemId2);
@@ -1878,37 +1880,97 @@ public class MainFrame extends javax.swing.JFrame {
             }
           }
 
-          if(jsonItemID.equals(trueNodeToUpdate) && sameVarFlag && sameLineFlag) {
-            jsonItemsToBeRemoved.add(jsonItem);
-            String updatedInsn = insTotranslate + " and " + insn;
-            String updatedJsonItem = jsonItem.replace(insn,updatedInsn);
-            jsonItemsToBeAdded.add(updatedJsonItem);
-
-            trueNodeToUpdate = "";
-            falseNodeToUpdate = "";
-            insTotranslate = "";
+          if(jsonItemID.equals(trueNodeToUpdate) /*&& sameVarFlag*/) {
+              if(sameLineFlag) {
+                  jsonItemsToBeRemoved.add(jsonItem);
+                  insTotranslate = insTotranslate + " and " + insn;
+                  String updatedJsonItem = jsonItem.replace(insn, insTotranslate);
+                  jsonItemsToBeAdded.add(updatedJsonItem);
+                  if(!prevUpdatedJsonItem.equals("")) {
+                    jsonItemsToBeAdded.remove(prevUpdatedJsonItem);
+                  }
+                  prevUpdatedJsonItem = updatedJsonItem;
+              }else {
+                  insTotranslate = insn;
+                  jsonItemId1 = jsonItemID;
+                  jsonItemsToBeRemoved.add(jsonItem);
+                  prevUpdatedJsonItem="";
+              }
           }
-          else if(jsonItemID.equals(falseNodeToUpdate) && sameVarFlag && sameLineFlag) {
-            jsonItemsToBeRemoved.add(jsonItem);
-            String updatedInsn = "not " + insTotranslate + " and " + insn;
-            String updatedJsonItem = jsonItem.replace(insn,updatedInsn);
-            jsonItemsToBeAdded.add(updatedJsonItem);
-
-            trueNodeToUpdate = "";
-            falseNodeToUpdate = "";
-            insTotranslate = "";
+          else if(jsonItemID.equals(falseNodeToUpdate) /*&& sameVarFlag*/) {
+              if(sameLineFlag) {
+                  jsonItemsToBeRemoved.add(jsonItem);
+                  insTotranslate = "not (" + insTotranslate + ") and " + insn;
+                  String updatedJsonItem = jsonItem.replace(insn, insTotranslate);
+                  jsonItemsToBeAdded.add(updatedJsonItem);
+                  if(!prevUpdatedJsonItem.equals("")) {
+                    jsonItemsToBeAdded.remove(prevUpdatedJsonItem);
+                  }
+                  prevUpdatedJsonItem = updatedJsonItem;
+              }else {
+                  insTotranslate = insn;
+                  jsonItemId1 = jsonItemID;
+                  jsonItemsToBeRemoved.add(jsonItem);
+                  prevUpdatedJsonItem="";
+              }
           }
           else {
-            jsonItemsToBeRemoved.add(jsonItem);
-            trueNodeToUpdate = trueNode;
-            falseNodeToUpdate = falseNode;
             insTotranslate = insn;
             jsonItemId1 = jsonItemID;
+            jsonItemsToBeRemoved.add(jsonItem);
+            prevUpdatedJsonItem="";
           }
+          trueNodeToUpdate = trueNode;
+          falseNodeToUpdate = falseNode;
         }
       }
     }
-    List<String> actualList = new ArrayList<>();
+    Map<String, String> replaceMap = new HashMap<>();
+    for (int j = 0; j < jsonItemsToBeAdded.size(); j ++) {
+      String it = jsonItemsToBeAdded.get(j);
+      String itId = it.split(" ")[4];
+      for (int i = 0; i < jsonItemsToBeRemoved.size(); i ++) {
+        String item = jsonItemsToBeRemoved.get(i);
+        String itemId = item.split(" ")[4];
+        if (itemId.equals(itId)) {
+            j++;
+            if (j < jsonItemsToBeAdded.size()) {
+                it = jsonItemsToBeAdded.get(j);
+                itId = it.split(" ")[4];
+            }
+            continue;
+        }
+        replaceMap.put(itemId, itId);
+      }
+    }
+    for (String item : jsonItemsToBeRemoved) {
+      jsonItems.remove(item);
+    }
+    for(String item : jsonItemsToBeAdded) {
+      jsonItems.add(item);
+    }
+
+    List<String> newJsonItems = new ArrayList<>();
+    for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
+      String item  = it.next();
+      boolean flag = false;
+      for (Map.Entry<String,String> entry : replaceMap.entrySet()) {
+        if(item.contains(entry.getKey())) {
+          String newItem = item.replace(entry.getKey(), entry.getValue());
+          newJsonItems.add(newItem);
+          flag = true;
+        }
+      }
+      if(!flag) {
+        newJsonItems.add(item);
+      }
+    }
+    jsonItems.clear();
+    jsonItems.addAll(newJsonItems);
+
+
+
+    /*List<String> actualList = new ArrayList<>();
     for(String item : jsonItemsToBeAdded) {
       String itemId = item.split(" ")[4];
       String itemId2 = itemId;
@@ -1967,7 +2029,7 @@ public class MainFrame extends javax.swing.JFrame {
       }
     }
     jsonItems.clear();
-    jsonItems.addAll(newJsonItems);
+    jsonItems.addAll(newJsonItems);*/
     //}
 
 
@@ -2771,7 +2833,7 @@ public class MainFrame extends javax.swing.JFrame {
 
       List<String> vars = new ArrayList<>();
       for (int in = 0; in < ins_comps.length; in++) {
-        String incomp = ins_comps[in];
+        String incomp = ins_comps[in].replace("(","").replace(")","");
         if (incomp.contains("v"))
           vars.add(incomp);
         else

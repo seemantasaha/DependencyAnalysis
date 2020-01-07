@@ -42,7 +42,7 @@ public class ModelCounter {
 
     System.out.println("Constraint solving time: " + (endTime - startTime) / 1000000.0);
 
-    BigDecimal count = null;
+    BigDecimal count = new BigDecimal(0);;
     if (result) {
       startTime = System.nanoTime();
       if (this.model_count_mode.equals("abc.string")) {

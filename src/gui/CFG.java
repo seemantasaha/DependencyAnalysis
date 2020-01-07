@@ -289,6 +289,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         if (in != null) inString = in.toString();
         if (inString.equals(inst.toString())) {
           neededByteCodeInst = this.byteCodeInstructions[i];
+          break;
         }
         i++;
       }
@@ -310,24 +311,25 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
           break;
       }
     }
-    if (!flag) {
-       Iterator<ISSABasicBlock> succNodeIter = cfg.getSuccNodes(node);
-       if (succNodeIter.hasNext()) {
-        ISSABasicBlock succNode = succNodeIter.next();
-        //System.out.println(succNode.getNumber());
-        Iterator<SSAInstruction> succInstIter = succNode.iterator();
-        if (succInstIter.hasNext()) {
-          SSAInstruction inst = succInstIter.next();
-          //System.out.println(inst.toString());
-          if(inst.toString().contains("phi")) {
-              while (this.nodeInstructionIndex < this.byteCodeInstructions.length && !byteCodeInstructions[this.nodeInstructionIndex].toString().contains("LocalLoad(I,")) {
-                nodeStr += byteCodeInstructions[this.nodeInstructionIndex] + " ";
-                this.nodeInstructionIndex++;
-              }
-          }
-        }
-       }
-    }
+
+//    if (!flag) {
+//       Iterator<ISSABasicBlock> succNodeIter = cfg.getSuccNodes(node);
+//       if (succNodeIter.hasNext()) {
+//        ISSABasicBlock succNode = succNodeIter.next();
+//        //System.out.println(succNode.getNumber());
+//        Iterator<SSAInstruction> succInstIter = succNode.iterator();
+//        if (succInstIter.hasNext()) {
+//          SSAInstruction inst = succInstIter.next();
+//          //System.out.println(inst.toString());
+//          if(inst.toString().contains("phi")) {
+//              while (this.nodeInstructionIndex < this.byteCodeInstructions.length && !byteCodeInstructions[this.nodeInstructionIndex].toString().contains("LocalLoad(I,")) {
+//                nodeStr += byteCodeInstructions[this.nodeInstructionIndex] + " ";
+//                this.nodeInstructionIndex++;
+//              }
+//          }
+//        }
+//       }
+//    }
     //System.out.println("ns : " + nodeString);
     addVertex(node, instNum, nodeString);
     return nodeStr;
