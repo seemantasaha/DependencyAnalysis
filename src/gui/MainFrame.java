@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import com.ibm.wala.classLoader.IBytecodeMethod;
 //import com.ibm.wala.shrikeCT.ClassReader;
+import com.ibm.wala.shrikeBT.ConditionalBranchInstruction;
 import com.ibm.wala.shrikeBT.IInstruction;
 import com.ibm.wala.shrikeCT.InvalidClassFileException;
 import com.ibm.wala.ssa.*;
@@ -1925,6 +1926,10 @@ public class MainFrame extends javax.swing.JFrame {
         }
       }
     }
+
+    if(jsonItemsToBeAdded.size() == 0)
+      jsonItemsToBeRemoved.clear();
+
     Map<String, String> replaceMap = new HashMap<>();
     for (int j = 0; j < jsonItemsToBeAdded.size(); j ++) {
       String it = jsonItemsToBeAdded.get(j);
@@ -2407,7 +2412,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     String markovChainOutput = "digraph {\n";
     String prismOutput = "dtmc\n\n" + "module " + modelName + "\n\n";
-    if(backEdgeExists)
+    if(loopbound > 0 && backEdgeExists)
       prismOutput += "\t" + "s : [0.." + (numberofNodes * loopbound) +"] init 0;\n\n";
     else
       prismOutput += "\t" + "s : [0.." + (numberofNodes) +"] init 0;\n\n";
@@ -2432,7 +2437,7 @@ public class MainFrame extends javax.swing.JFrame {
 
           if(depNode) {
             markovChainOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + trueNodeProb + "\"];\n";
-            markovChainOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
+            markovChainOutput += "\t" + fromNode + " -> "  + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
             prismOutput += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
 
           } else {
@@ -2510,13 +2515,24 @@ public class MainFrame extends javax.swing.JFrame {
     String assertionReachabilitySpec = "";
     String assertionExecutionSpec = "";
 
-    if (!assertionReachabilityNode.equals(""))
-      assertionReachabilitySpec = "P=? [F s = " + assertionReachabilityNode + "]";
-    if (!assertionExecutionNode.equals(""))
-      assertionExecutionSpec = "P=? [F s = " + assertionExecutionNode + "]";
+    if (!assertionReachabilityNode.equals("")) {
+      if(loopbound > 1 && backEdgeExists) {
+        assertionReachabilitySpec = "P=? [F (s = " + assertionReachabilityNode + ")";
+        for(int b=1; b<loopbound; b++) {
+          String bNode = Integer.toString(Integer.parseInt(assertionReachabilityNode) + b * numberofNodes);
+          assertionReachabilitySpec += " | (s = " + bNode + ")";
+        }
+        assertionReachabilitySpec += "]";
+      } else {
+        assertionReachabilitySpec = "P=? [F s = " + assertionReachabilityNode + "]";
+      }
+    }
+
+    //if (!assertionExecutionNode.equals(""))
+    //  assertionExecutionSpec = "P=? [F s = " + assertionExecutionNode + "]";
 
     System.out.println("assertionReachabilitySpec: " + assertionReachabilitySpec);
-    System.out.println("assertionExecutionSpec: " + assertionExecutionSpec);
+    //System.out.println("assertionExecutionSpec: " + assertionExecutionSpec);
 
     int num_properties = 0;
     String proerties_file = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".csl";
@@ -2653,12 +2669,14 @@ public class MainFrame extends javax.swing.JFrame {
           System.out.println("backedge: " + i + " --> " + c);
           backEdgeExists = true;
 
+
           //dominator analysis for loop structure
           //if assertion node is dominated by loop condition but not dominated by backedge from node
           //then assertion node do not need to consider the other branch from loop condition
           //so, probability to assertion condition is 1.0 and the other branch is 0.0
           ISSABasicBlock backedgeFromNode = itemNodeMap.get(idMap.get(i));
           ISSABasicBlock backedgeToNode = itemNodeMap.get(idMap.get(Integer.parseInt(c)));
+
 
           String id = idMap.get(Integer.parseInt(assertionNode));
           String[] splittedID = id.split("#");
@@ -2669,64 +2687,116 @@ public class MainFrame extends javax.swing.JFrame {
           Set<ISSABasicBlock> postDomSet = proc.getPostDominatorSet(node);
           if(domSet.contains(backedgeToNode) && !postDomSet.contains(backedgeFromNode)) {
             String asserDomNode = Integer.toString(nodeMap.get(nodeItemMap.get(node)));
-            List<MarkovChainInformation> miList = transitionlistMap.get(c);
+            List<MarkovChainInformation> miList = null;
+            if(!backedgeToNode.getLastInstruction().toString().contains("conditional")) {
+              miList = transitionlistMap.get(Integer.toString(Integer.parseInt(c)+1)); //loop backedgetonode is not conditional branch
+            } else {
+              miList = transitionlistMap.get(c);
+            }
             boolean flagToUpDateProb = false;
             for(MarkovChainInformation mi : miList) {
-              if(mi.getToNode().equals(asserDomNode)) {
+              if(mi.getToNode().equals(asserDomNode)) { //to do: check the whole dominating parents untill loop condition
                 flagToUpDateProb = true;
+                backEdgeExists = false;
                 break;
               }
             }
+              List<String> miListTORemove = new ArrayList<>();
             if(flagToUpDateProb) {
+              //MarkovChainInformation miToRemove = null;
               for (MarkovChainInformation mi : miList) {
                 if (mi.getToNode().equals(asserDomNode)) {
-                  mi.updateProb("1.0");
+                  //mi.updateProb("1.0");
                 } else {
-                  mi.updateProb("0.0");
+                  //miToRemove = mi;
+                  ISSABasicBlock newBackedgeToNode = null;
+                  if(!backedgeToNode.getLastInstruction().toString().contains("conditional")) {
+                    newBackedgeToNode = itemNodeMap.get(idMap.get(Integer.parseInt(c)+1));
+                  }
+                  ISSABasicBlock newNode = backedgeFromNode;
+                  ISSABasicBlock prevNewNode = newNode;
+                  while(!newNode.equals(newBackedgeToNode)) {
+                    newNode = proc.getImmediateDominator(newNode);
+                    String prevNewNodeID = Integer.toString(nodeMap.get(nodeItemMap.get(prevNewNode)));
+                    if(transitionlistMap.get(prevNewNodeID) != null) {
+                      for (MarkovChainInformation m : transitionlistMap.get(prevNewNodeID)) {
+                        if(!m.getToNode().equals(c)) {
+                            ISSABasicBlock nodeToCheck = itemNodeMap.get(idMap.get(Integer.parseInt(m.getToNode())));
+                            if(!proc.getDominatorSet(backedgeFromNode).contains(nodeToCheck)) {
+                                flagToUpDateProb = false;
+                                break;
+                            }
+                            //transitionlistMap.remove(m.getToNode());
+                            //miListTORemove.add(m.getToNode());
+                        }
+                      }
+                    }
+                    if(!flagToUpDateProb)
+                        break;
+                    //transitionlistMap.remove(prevNewNodeID);
+                      miListTORemove.add(prevNewNodeID);
+                    prevNewNode = newNode;
+                  }
                 }
               }
             }
+              if(flagToUpDateProb) {
+                  MarkovChainInformation miToRemove = null;
+                  for (MarkovChainInformation mi : miList) {
+                      if (mi.getToNode().equals(asserDomNode)) {
+                          mi.updateProb("1.0");
+                      } else {
+                          miToRemove = mi;
+                      }
+                  }
+                  miList.remove(miToRemove);
+                  for(String m : miListTORemove) {
+                      transitionlistMap.remove(m);
+                  }
+              }
           }
 
 
           //unroll loops
-          int newNode = Integer.parseInt(c) + numberofNodes;
-          //edgeMap.get(Integer.toString(i)).remove(c);
-          //edgeMap.get(Integer.toString(i)).add(Integer.toString(newNode));
-          //transitionMap.put(new Pair<>(Integer.toString(i), c), transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode)));
-          //transitionMap.reprob = "1.0"move(new Pair<>(Integer.toString(i), c));
+          if(loopbound > 1 && backEdgeExists) {
+            int newNode = Integer.parseInt(c) + numberofNodes;
+            //edgeMap.get(Integer.toString(i)).remove(c);
+            //edgeMap.get(Integer.toString(i)).add(Integer.toString(newNode));
+            //transitionMap.put(new Pair<>(Integer.toString(i), c), transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode)));
+            //transitionMap.reprob = "1.0"move(new Pair<>(Integer.toString(i), c));
 
-          MarkovChainInformation chain = null;
-          if(loopbound > 1) {
-            chain = transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode));
-          } else {
-            chain = transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(endNode);
-          }
-          transitionMap.put(new Pair<>(Integer.toString(i), c), chain);
-          List<MarkovChainInformation> list = new ArrayList<>();
-          list.add(chain);
-          transitionlistMap.put(Integer.toString(i), list);
+            MarkovChainInformation chain = null;
+            if (loopbound > 0) {
+              chain = transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(Integer.toString(newNode));
+            } else {
+              chain = transitionMap.get(new Pair<>(Integer.toString(i), c)).updateToNode(endNode);
+            }
+            transitionMap.put(new Pair<>(Integer.toString(i), c), chain);
+            List<MarkovChainInformation> list = new ArrayList<>();
+            list.add(chain);
+            transitionlistMap.put(Integer.toString(i), list);
 
-          transitionMap.remove(new Pair<>(Integer.toString(i), c));
-          List<MarkovChainInformation> oldList = transitionlistMap.get(Integer.toString(i));
-          for (MarkovChainInformation m : oldList) {
-            if(m.getToNode().equals(c))
-              oldList.remove(m);
-          }
+            transitionMap.remove(new Pair<>(Integer.toString(i), c));
+            List<MarkovChainInformation> oldList = transitionlistMap.get(Integer.toString(i));
+            for (MarkovChainInformation m : oldList) {
+              if (m.getToNode().equals(c))
+                oldList.remove(m);
+            }
 
-          int be_from = i;
-          List<Integer> beFromList = new ArrayList<>();
-          beFromList.add(be_from);
-          int be = Integer.parseInt(c);
-          List<Integer> beList = new ArrayList<>();
-          beList.add(be);
-          for(int x = 0; x<loopbound-1; x++) {
-            boolean[] visitedUnroll = new boolean[numberofNodes];
-            dfsToAddUnrolledNodes(Integer.parseInt(c), visitedUnroll, be_from, be, x, beList, beFromList);
-            be_from = be_from + numberofNodes;
-            be = be + numberofNodes;
+            int be_from = i;
+            List<Integer> beFromList = new ArrayList<>();
             beFromList.add(be_from);
+            int be = Integer.parseInt(c);
+            List<Integer> beList = new ArrayList<>();
             beList.add(be);
+            for (int x = 0; x < loopbound - 1; x++) {
+              boolean[] visitedUnroll = new boolean[numberofNodes];
+              dfsToAddUnrolledNodes(Integer.parseInt(c), visitedUnroll, be_from, be, x, beList, beFromList, c);
+              be_from = be_from + numberofNodes;
+              be = be + numberofNodes;
+              beFromList.add(be_from);
+              beList.add(be);
+            }
           }
         }
       }
@@ -2738,7 +2808,7 @@ public class MainFrame extends javax.swing.JFrame {
     return false;
   }
 
-  private void dfsToAddUnrolledNodes(int i, boolean[] visited, int be_from, int be, int x, List<Integer> beList, List<Integer> beFromList) {
+  private void dfsToAddUnrolledNodes(int i, boolean[] visited, int be_from, int be, int x, List<Integer> beList, List<Integer> beFromList, String beTONode) {
 
     if (visited[i])
       return;
@@ -2759,7 +2829,7 @@ public class MainFrame extends javax.swing.JFrame {
           continue;
         //if (Integer.parseInt(c) != numberofNodes) {
         String to = "";
-        if(Integer.parseInt(c) == numberofNodes-1)
+        if(Integer.parseInt(c) == /*numberofNodes-1*/Integer.parseInt(endNode))
           to = c;
         else
           to = Integer.toString(Integer.parseInt(c) + bounded_node);
@@ -2777,21 +2847,40 @@ public class MainFrame extends javax.swing.JFrame {
         list.add(chain);
         transitionlistMap.put(from, list);
 
-        if(beFromList.contains(Integer.parseInt(c))) {
+        if(beFromList.contains(Integer.parseInt(c)) && !visited[Integer.parseInt(c)]) {
           if(x == loopbound-2) {
-            if(transitionMap.get(new Pair<>(to, Integer.toString(numberofNodes - 1))) == null) {
-              //List<String> specialChildren = new ArrayList<>();
-              //specialChildren.add(Integer.toString(numberofNodes-1));
-              //edgeMap.put(to,specialChildren);
-              MarkovChainInformation chain2 = new MarkovChainInformation(to, Integer.toString(numberofNodes - 1), "1.0", false, false, false);
-              transitionMap.put(new Pair<>(to, Integer.toString(numberofNodes - 1)), chain2);
+            ISSABasicBlock backedgeToNode = itemNodeMap.get(idMap.get(Integer.parseInt(beTONode)));
+            if(!backedgeToNode.getLastInstruction().toString().contains("conditional")) {
+              beTONode = Integer.toString(Integer.parseInt(beTONode) + 1);
+            }
+            List<MarkovChainInformation> listLoop = new ArrayList<>();
+            if (transitionlistMap.get(beTONode) != null) {
+              listLoop = transitionlistMap.get(beTONode);
+            }
+            for(MarkovChainInformation m : listLoop) {
+              ISSABasicBlock mnode = itemNodeMap.get(idMap.get(Integer.parseInt(m.getToNode())));
 
-              List<MarkovChainInformation> list2 = new ArrayList<>();
-              if (transitionlistMap.get(to) != null) {
-                list2 = transitionlistMap.get(to);
+              int origNode = Integer.parseInt(to) % numberofNodes;
+              ISSABasicBlock node = itemNodeMap.get(idMap.get(origNode));
+              String id = idMap.get(origNode);
+              String[] splittedID = id.split("#");
+              Procedure proc = itemProcMap.get(splittedID[0]);
+              Set<ISSABasicBlock> domSet = proc.getDominatorSet(node);
+
+              if(!domSet.contains(mnode)) {
+                if(transitionMap.get(new Pair<>(to, Integer.toString(Integer.parseInt(m.getToNode()) + (numberofNodes*(x+1))))) == null) {
+                  MarkovChainInformation chain2 = new MarkovChainInformation(to, Integer.toString(Integer.parseInt(m.getToNode()) + (numberofNodes*(x+1))), "1.0", false, false, false);
+                  transitionMap.put(new Pair<>(to, Integer.toString(Integer.parseInt(m.getToNode()) + (numberofNodes*(x+1))) + (numberofNodes*(x+1))), chain2);
+
+                  List<MarkovChainInformation> list2 = new ArrayList<>();
+                  if (transitionlistMap.get(to) != null) {
+                    list2 = transitionlistMap.get(to);
+                  }
+                  list2.add(chain2);
+                  transitionlistMap.put(to, list2);
+                }
+                break;
               }
-              list2.add(chain2);
-              transitionlistMap.put(to, list2);
             }
           } else {
             if(transitionMap.get(new Pair<>(to, Integer.toString(be + (numberofNodes*2)))) == null) {
@@ -2808,7 +2897,7 @@ public class MainFrame extends javax.swing.JFrame {
           }
         }
 
-        dfsToAddUnrolledNodes(Integer.parseInt(c), visited, be_from, be, x, beList, beFromList);
+        dfsToAddUnrolledNodes(Integer.parseInt(c), visited, be_from, be, x, beList, beFromList,beTONode);
       //}
       }
     }
@@ -2825,6 +2914,8 @@ public class MainFrame extends javax.swing.JFrame {
     String consVar = "";
 
     Set<String> varSet = new HashSet<>();
+
+    SymbolTable symTab = proc.getIR().getSymbolTable();
 
     for(String con: consArr) {
       String[] ins_comps = con.split(" ");
@@ -2873,7 +2964,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
       }
 
-      SymbolTable symTab = proc.getIR().getSymbolTable();
+
       int var1 = Integer.parseInt(vars.get(0).substring(1));
       int var2 = Integer.parseInt(vars.get(1).substring(1));
 
@@ -2896,6 +2987,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     for(String var : varSet) {
       //if (MainFrame.selectedVariables.contains(var)) {
+      int varInt = Integer.parseInt(var.substring(1));
+      //String v = symTab.
+      //String className = symTab.getValue(varInt).getClass().getName();
       consVar += "(declare-fun " + var + "() Int)\n";
       //}
     }
@@ -3506,7 +3600,7 @@ public class MainFrame extends javax.swing.JFrame {
 
   private int                                       recursiveBound;
   private int                                       numberofNodes;
-  private int                                       loopbound = 1;
+  private int                                       loopbound = 4;
   public static long                                dependencyAnalysisTime = 0;
   private boolean backEdgeExists = false;
   public static String cfgConsTime = "";
