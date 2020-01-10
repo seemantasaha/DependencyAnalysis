@@ -2695,11 +2695,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
             boolean flagToUpDateProb = false;
             for(MarkovChainInformation mi : miList) {
-              if(mi.getToNode().equals(asserDomNode)) { //to do: check the whole dominating parents untill loop condition
-                flagToUpDateProb = true;
-                backEdgeExists = false;
-                break;
-              }
+                ISSABasicBlock miToNode = itemNodeMap.get(idMap.get(Integer.parseInt(mi.getToNode())));
+                if(domSet.contains(miToNode)) {
+                    flagToUpDateProb = true;
+                    backEdgeExists = false;
+                    break;
+                }
             }
               List<String> miListTORemove = new ArrayList<>();
             if(flagToUpDateProb) {
@@ -2724,6 +2725,7 @@ public class MainFrame extends javax.swing.JFrame {
                             ISSABasicBlock nodeToCheck = itemNodeMap.get(idMap.get(Integer.parseInt(m.getToNode())));
                             if(!proc.getDominatorSet(backedgeFromNode).contains(nodeToCheck)) {
                                 flagToUpDateProb = false;
+                                backEdgeExists = true;
                                 break;
                             }
                             //transitionlistMap.remove(m.getToNode());

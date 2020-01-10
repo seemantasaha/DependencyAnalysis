@@ -3,44 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LIntegerEquals_test.csl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LIntegerEquals_test.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LIntegerEquals_test.sm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$26.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CFGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CFGMouseAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGMouseAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CustomClassWriter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InfoListMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InfoListMouseAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$PDGMouseAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$PDGMouseAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
@@ -147,8 +118,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="2725" selection-start-line="2725" selection-end-line="2725" />
+            <state relative-caret-position="240">
+              <caret line="2702" column="17" lean-forward="true" selection-start-line="2702" selection-start-column="17" selection-end-line="2702" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#23280#23281#0" expanded="true" />
@@ -197,9 +168,9 @@
                 <element signature="e#29983#29984#0" expanded="true" />
                 <element signature="e#148030#148031#0" expanded="true" />
                 <element signature="e#148075#148076#0" expanded="true" />
-                <element signature="e#150654#150655#0" expanded="true" />
-                <element signature="e#154445#154446#0" expanded="true" />
-                <element signature="e#154541#154542#0" expanded="true" />
+                <element signature="e#150853#150854#0" expanded="true" />
+                <element signature="e#154644#154645#0" expanded="true" />
+                <element signature="e#154740#154741#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -210,18 +181,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="608">
               <caret line="42" selection-start-line="42" selection-end-line="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="1684" column="49" lean-forward="true" selection-start-line="1684" selection-start-column="49" selection-end-line="1684" selection-end-column="49" />
-              <folding>
-                <element signature="e#67616#67663#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -242,8 +201,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>asseetionReachabilityNode</find>
-      <find>true_prob</find>
       <find>paintSlice</find>
       <find>exception</find>
       <find>setGUIConfigSettings</find>
@@ -272,6 +229,8 @@
       <find>dfsToAddUnrolledNodes</find>
       <find>loopbound</find>
       <find>backEdgeExists</find>
+      <find>unrolling loop</find>
+      <find>//to do</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -328,52 +287,16 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="drivergen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578559995255" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578617546938" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.25084746" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
@@ -476,6 +399,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.23298284" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -487,7 +411,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.2537797" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.24190065" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.46652266" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
@@ -586,19 +510,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2879</line>
+          <line>2881</line>
           <properties />
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2851</line>
+          <line>2853</line>
           <properties />
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2899</line>
+          <line>2901</line>
           <properties />
           <option name="timeStamp" value="112" />
         </line-breakpoint>
@@ -610,15 +534,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2743</line>
+          <line>2745</line>
           <properties />
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2725</line>
+          <line>2726</line>
           <properties />
           <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
+          <line>2762</line>
+          <properties />
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
+          <line>2697</line>
+          <properties />
+          <option name="timeStamp" value="126" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -990,8 +926,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="2725" selection-start-line="2725" selection-end-line="2725" />
+        <state relative-caret-position="240">
+          <caret line="2702" column="17" lean-forward="true" selection-start-line="2702" selection-start-column="17" selection-end-line="2702" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#23280#23281#0" expanded="true" />
@@ -1040,9 +976,9 @@
             <element signature="e#29983#29984#0" expanded="true" />
             <element signature="e#148030#148031#0" expanded="true" />
             <element signature="e#148075#148076#0" expanded="true" />
-            <element signature="e#150654#150655#0" expanded="true" />
-            <element signature="e#154445#154446#0" expanded="true" />
-            <element signature="e#154541#154542#0" expanded="true" />
+            <element signature="e#150853#150854#0" expanded="true" />
+            <element signature="e#154644#154645#0" expanded="true" />
+            <element signature="e#154740#154741#0" expanded="true" />
           </folding>
         </state>
       </provider>
