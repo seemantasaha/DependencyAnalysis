@@ -1821,6 +1821,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     long start = System.currentTimeMillis();
 
+    long dts = System.currentTimeMillis();
+
     if (this.currentCFG == null)
       return;
 
@@ -1838,8 +1840,12 @@ public class MainFrame extends javax.swing.JFrame {
     String trueNodeToUpdate = "";
     String falseNodeToUpdate = "";
     String insTotranslate = "";
+    String jsonItem1 = "";
     String jsonItemId1 = "";
     String prevUpdatedJsonItem = "";
+
+
+    long dts5 = System.currentTimeMillis();
 
     //for (String jsonItem: jsonItems) {
     for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
@@ -1851,11 +1857,13 @@ public class MainFrame extends javax.swing.JFrame {
         String trueNode = outgoingNodes[0].split("\"")[1];
         String falseNode = "";
         String insn = "";
+        String jsonItem2 = "";
         String jsonItemId2 = "";
         if(outgoingNodes.length == 2) {
           falseNode = outgoingNodes[1].split("\"")[1];
           insn = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
           jsonItemId2 = jsonItemID;
+          jsonItem2 = jsonItem;
 
 //          boolean sameVarFlag = false;
 //          String[] ins1 = insTotranslate.split(" ");
@@ -1884,6 +1892,12 @@ public class MainFrame extends javax.swing.JFrame {
           if(jsonItemID.equals(trueNodeToUpdate) /*&& sameVarFlag*/) {
               if(sameLineFlag) {
                   jsonItemsToBeRemoved.add(jsonItem);
+
+                  List<String> itemlist = lineItemsMap.get(jsonItem1);
+                  itemlist.add(jsonItem);
+                  lineItemsMap.put(jsonItem1, itemlist);
+                  lineItemsMap.put(jsonItem, itemlist);
+
                   insTotranslate = insTotranslate + " and " + insn;
                   String updatedJsonItem = jsonItem.replace(insn, insTotranslate);
                   jsonItemsToBeAdded.add(updatedJsonItem);
@@ -1894,13 +1908,25 @@ public class MainFrame extends javax.swing.JFrame {
               }else {
                   insTotranslate = insn;
                   jsonItemId1 = jsonItemID;
+                  jsonItem1 = jsonItem;
                   jsonItemsToBeRemoved.add(jsonItem);
+
+                  List<String> itemlist = new ArrayList<>();
+                  itemlist.add(jsonItem);
+                  lineItemsMap.put(jsonItem, itemlist);
+
                   prevUpdatedJsonItem="";
               }
           }
           else if(jsonItemID.equals(falseNodeToUpdate) /*&& sameVarFlag*/) {
               if(sameLineFlag) {
                   jsonItemsToBeRemoved.add(jsonItem);
+
+                  List<String> itemlist = lineItemsMap.get(jsonItem1);
+                  itemlist.add(jsonItem);
+                  lineItemsMap.put(jsonItem1, itemlist);
+                  lineItemsMap.put(jsonItem, itemlist);
+
                   insTotranslate = "not (" + insTotranslate + ") and " + insn;
                   String updatedJsonItem = jsonItem.replace(insn, insTotranslate);
                   jsonItemsToBeAdded.add(updatedJsonItem);
@@ -1911,14 +1937,26 @@ public class MainFrame extends javax.swing.JFrame {
               }else {
                   insTotranslate = insn;
                   jsonItemId1 = jsonItemID;
+                  jsonItem1 = jsonItem;
                   jsonItemsToBeRemoved.add(jsonItem);
+
+                  List<String> itemlist = new ArrayList<>();
+                  itemlist.add(jsonItem);
+                  lineItemsMap.put(jsonItem, itemlist);
+
                   prevUpdatedJsonItem="";
               }
           }
           else {
             insTotranslate = insn;
             jsonItemId1 = jsonItemID;
+            jsonItem1 = jsonItem;
             jsonItemsToBeRemoved.add(jsonItem);
+
+              List<String> itemlist = new ArrayList<>();
+              itemlist.add(jsonItem);
+              lineItemsMap.put(jsonItem, itemlist);
+
             prevUpdatedJsonItem="";
           }
           trueNodeToUpdate = trueNode;
@@ -1929,6 +1967,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     if(jsonItemsToBeAdded.size() == 0)
       jsonItemsToBeRemoved.clear();
+
+    List<String> temp = new ArrayList<>();
+      for (String item : jsonItemsToBeRemoved) {
+        if(lineItemsMap.get(item).size() != 1)
+          temp.add(item);
+      }
+      jsonItemsToBeRemoved.clear();
+      jsonItemsToBeRemoved.addAll(temp);
+      temp.clear();
 
     Map<String, String> replaceMap = new HashMap<>();
     for (int j = 0; j < jsonItemsToBeAdded.size(); j ++) {
@@ -1945,7 +1992,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
             continue;
         }
-        replaceMap.put(itemId, itId);
+        if(j < jsonItemsToBeAdded.size()) {
+            replaceMap.put("\"" + itemId + "\"", "\"" + itId + "\"");
+        }
       }
     }
     for (String item : jsonItemsToBeRemoved) {
@@ -1974,7 +2023,8 @@ public class MainFrame extends javax.swing.JFrame {
     jsonItems.addAll(newJsonItems);
 
 
-
+    long dfs5 = System.currentTimeMillis();
+    long det5 = dfs5 - dts5;
     /*List<String> actualList = new ArrayList<>();
     for(String item : jsonItemsToBeAdded) {
       String itemId = item.split(" ")[4];
@@ -2082,6 +2132,7 @@ public class MainFrame extends javax.swing.JFrame {
 
       if (jsonItem.contains("\"secret_dependent_branch\" : \"true\"")) {
         //start: additional code for counting secret dependent branches
+          long startTime = System.currentTimeMillis();
         String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
         System.out.println("Instruction to translate: " + ins_to_translate);
 
@@ -2098,6 +2149,8 @@ public class MainFrame extends javax.swing.JFrame {
         System.out.println("Probability of true branch: " + true_prob);
 
         double false_prob = 1.0 - true_prob;
+
+
 
 
         //end: additional code for counting secret dependent branches
@@ -2178,6 +2231,13 @@ public class MainFrame extends javax.swing.JFrame {
 
           prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
         }
+
+          String[] splittedID = jsonItemID.split("#");
+          String idModelCount = splittedID[0]+"#"+splittedID[splittedID.length-1];
+          long finishTime = System.currentTimeMillis();
+          long elapsedTime = finishTime - startTime;
+          modelCountingTimeMap.put(idModelCount, elapsedTime);
+
       } else if (jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
 
         String fromNode = getNodeFromID(jsonItemID);
@@ -2222,6 +2282,7 @@ public class MainFrame extends javax.swing.JFrame {
               graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
               prismModel += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
             } else {
+                long startTime = System.currentTimeMillis();
               String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
               System.out.println("Instruction to translate: " + ins_to_translate);
 
@@ -2242,6 +2303,8 @@ public class MainFrame extends javax.swing.JFrame {
               jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\", \"true_branch_probability\" : \"" + true_prob + "\", \"false_branch_probability\" : \"" + false_prob + "\"");
 
 
+
+
               MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,trueNode,Double.toString(true_prob),false, jsonItem.contains("$assertionsDisabled"), false);
               MarkovChainInformation falseChain = new MarkovChainInformation(fromNode,falseNode,Double.toString(false_prob),false, jsonItem.contains("$assertionsDisabled"), false);
               transitionMap.put(new Pair<>(fromNode,trueNode), trueChain);
@@ -2255,6 +2318,12 @@ public class MainFrame extends javax.swing.JFrame {
               graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + true_prob + "\"];\n";
               graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + false_prob + "\"];\n";
               prismModel += "\t" + "[] s = " + fromNode + " -> " + true_prob + " : " + "(s' = " + trueNode + ") + " + false_prob + " : " + "(s' = " + falseNode + ");\n";
+
+                String[] splittedID = jsonItemID.split("#");
+                String idModelCount = splittedID[0]+"#"+splittedID[splittedID.length-1];
+                long finishTime = System.currentTimeMillis();
+                long elapsedTime = finishTime - startTime;
+                modelCountingTimeMap.put(idModelCount, elapsedTime);
             }
           } else {
             MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,trueNode,"1.0",false, jsonItem.contains("$assertionsDisabled"), false);
@@ -2296,7 +2365,30 @@ public class MainFrame extends javax.swing.JFrame {
         String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
 
         if (outgoingNodes[0].contains("#")) {
-          String toNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
+            String toJsonItemID = outgoingNodes[0].split("\"")[1];
+          String toNode = getNodeFromID(toJsonItemID);
+
+
+          String[] jIDs = jsonItemID.split("#");
+            String[] toJIDs = toJsonItemID.split("#");
+
+            String id1=jIDs[0];
+            String id2=toJIDs[0];
+            for(int j=1; j < jIDs.length-1; j++) {
+                id1 += "#"+jIDs[j];
+            }
+            for(int j=1; j < toJIDs.length-1; j++) {
+                id2 += "#"+toJIDs[j];
+            }
+
+            String checkID1 = jIDs[0]+"#"+jIDs[1];
+            String checkID2 = toJIDs[0]+"#"+toJIDs[1];
+
+          if(!id1.equals(id2) && !jsonItemID.contains("1001001")) {
+              procCallMap.put(checkID1,checkID2);
+              interProcDomMap.put(toNode, fromNode);
+              interProcPostDomMap.put(fromNode,toNode);
+          }
 
           List<String> edgeList = edgeMap.get(fromNode);
           if (edgeList == null) {
@@ -2334,6 +2426,9 @@ public class MainFrame extends javax.swing.JFrame {
     prismModel += "\nendmodule";
     System.out.println(prismModel);
 
+      long dfs = System.currentTimeMillis();
+      long det = dfs - dts;
+
     //dominator analysis for probability distribution to true or false branch
     //++removing extra analyis where branching and merging does not effect result
     String id = idMap.get(Integer.parseInt(assertionReachabilityNode));
@@ -2343,6 +2438,7 @@ public class MainFrame extends javax.swing.JFrame {
     Set<ISSABasicBlock> domSet = proc.getDominatorSet(node);
 
 
+      long dts2 = System.currentTimeMillis();
 
     /* For all the dominators of assertionReachability node if there is no direct connection between a pair of dominators
      * 1. make a direct connection with probability 1.0
@@ -2353,41 +2449,95 @@ public class MainFrame extends javax.swing.JFrame {
 
     ISSABasicBlock prevImDom = node;
     ISSABasicBlock imDom = proc.getImmediateDominator(node);
+
+      String imDomNode = Integer.toString(nodeMap.get(nodeItemMap.get(imDom)));
+      if(procCallMap.containsKey(nodeItemMap.get(imDom))) {
+
+          String idProc = procCallMap.get(nodeItemMap.get(imDom));
+          Procedure procedure = itemProcMap.get(idProc.split("#")[0]);
+
+          while(!idProc.equals("")) {
+              for (ISSABasicBlock nd : procedure.getNodeSet()) {
+                  String n = nodeItemMap.get(nd);
+                  if (modelCountingTimeMap.get(n) != null)
+                      extraModelCountingTime += modelCountingTimeMap.get(n);
+              }
+              if(procCallMap.containsKey(idProc)) {
+                  idProc = procCallMap.get(idProc);
+                  procedure = itemProcMap.get(idProc.split("#")[0]);
+              } else {
+                  idProc = "";
+              }
+          }
+      }
+//      if(interProcDomMap.get(imDomNode) != null) {
+//          imDomNode = interProcDomMap.get(imDomNode);
+//          String imDomNodeID = idMap.get(Integer.parseInt(imDomNode));
+//          String[] imDomNodeIDsplitted = imDomNodeID.split("#");
+//          imDomNodeID = imDomNodeIDsplitted[0] + "#"+ imDomNodeIDsplitted[imDomNodeIDsplitted.length-1];
+//          imDom = itemNodeMap.get(imDomNodeID);
+//      }
+
     while(imDom != null) {
       //do something
       String ns = nodeItemMap.get(imDom);
       if(nodeMap.get(ns) == null) {
-        ns = ns.split("#")[0] + "#1#" + ns.split("#")[1];
+          String updatedNS = replaceMap.get("\""+ns+"\"");
+          if(updatedNS != null) {
+            ns = updatedNS.substring(1,updatedNS.length()-1);
+            if(nodeMap.get(ns) == null) {
+              ns = ns.split("#")[0] + "#1#" + ns.split("#")[1]; //todo: change this implementation
+             }
+          }
       }
       if(nodeMap.get(ns) != null) {
         String fromNode = Integer.toString(nodeMap.get(ns));
 
         ns = nodeItemMap.get(prevImDom);
-        if (nodeMap.get(ns) == null) {
-          ns = ns.split("#")[0] + "#1#" + ns.split("#")[1];
-        }
+          if(nodeMap.get(ns) == null) {
+              String updatedNS = replaceMap.get("\""+ns+"\"");
+              if(updatedNS != null) {
+                  ns = updatedNS.substring(1,updatedNS.length()-1);
+                  if(nodeMap.get(ns) == null) {
+                      ns = ns.split("#")[0] + "#1#" + ns.split("#")[1]; //todo: change this implementation
+                  }
+              }
+          }
         if (nodeMap.get(ns) != null) {
           String toNode = Integer.toString(nodeMap.get(ns));
 
           List<MarkovChainInformation> toList = transitionlistMap.get(fromNode);
           boolean flagToUpdate = true;
-          for (MarkovChainInformation mi : toList) {
-            if (mi.getToNode().equals(toNode)) {
+          ISSABasicBlock fNode = itemNodeMap.get(idMap.get(Integer.parseInt(fromNode)));
+          ISSABasicBlock tNode = itemNodeMap.get(idMap.get(Integer.parseInt(toNode)));
+          if(fromNode.equals(toNode) || !proc.getPostDominatorSet(fNode).contains(tNode) || toList.size() == 1) {
               flagToUpdate = false;
-              break;
-            }
           }
+//          for (MarkovChainInformation mi : toList) {
+//            if (mi.getToNode().equals(toNode) /*&& mi.getProb().equals("1.0")*/) { // to make sure that there is no connection between dominators
+//              flagToUpdate = false;
+//              break;
+//            }
+//          }
+
 
           if (flagToUpdate) {
             MarkovChainInformation directChain = new MarkovChainInformation(fromNode, toNode, "1.0", false, false, false);
             List<MarkovChainInformation> list = new ArrayList<>();
             list.add(directChain);
             transitionlistMap.put(fromNode, list);
+              String m = idMap.get(Integer.parseInt(fromNode));
+              if(modelCountingTimeMap.get(m) != null)
+                  extraModelCountingTime += modelCountingTimeMap.get(m);
+
 
             for (MarkovChainInformation mi : toList) {
               if (!mi.getToNode().equals(toNode)) {
                 removeAllTransitions(mi.getToNode(), toNode);
                 transitionlistMap.remove(mi.getToNode());
+                  m = idMap.get(Integer.parseInt(mi.getToNode()));
+                  if(modelCountingTimeMap.get(m) != null)
+                      extraModelCountingTime += modelCountingTimeMap.get(m);
               }
             }
           }
@@ -2395,17 +2545,56 @@ public class MainFrame extends javax.swing.JFrame {
       }
 
       prevImDom = imDom;
-      imDom = proc.getImmediateDominator(imDom);
+        imDom = proc.getImmediateDominator(imDom);
+        if(procCallMap.containsKey(nodeItemMap.get(imDom))) {
+
+            String idProc = procCallMap.get(nodeItemMap.get(imDom));
+            Procedure procedure = itemProcMap.get(idProc.split("#")[0]);
+
+            while(!idProc.equals("")) {
+                for (ISSABasicBlock nd : procedure.getNodeSet()) {
+                    String n = nodeItemMap.get(nd);
+                    if (modelCountingTimeMap.get(n) != null)
+                        extraModelCountingTime += modelCountingTimeMap.get(n);
+                }
+                if(procCallMap.containsKey(idProc)) {
+                    idProc = procCallMap.get(idProc);
+                    procedure = itemProcMap.get(idProc.split("#")[0]);
+                } else {
+                    idProc = "";
+                }
+            }
+        }
+
+
+
+        //proc = itemProcMap.get(nodeItemMap.get(imDom).split("#")[0]);
+//      imDom = proc.getImmediateDominator(imDom);
+//      String newID = nodeItemMap.get(imDom).split("#")[0]+"#1#"+nodeItemMap.get(imDom).split("#")[1];
+//        imDomNode = Integer.toString(nodeMap.get(newID));
+//        if(interProcDomMap.get(imDomNode) != null) {
+//            imDomNode = interProcDomMap.get(imDomNode);
+//            String imDomNodeID = idMap.get(Integer.parseInt(imDomNode));
+//            String[] imDomNodeIDsplitted = imDomNodeID.split("#");
+//            imDomNodeID = imDomNodeIDsplitted[0] + "#"+ imDomNodeIDsplitted[imDomNodeIDsplitted.length-1];
+//            imDom = itemNodeMap.get(imDomNodeID);
+//        }
 
       if(imDom.equals(prevImDom))
         break;
     }
 
+      long dfs2 = System.currentTimeMillis();
+      long det2 = dfs2 - dts2;
+
 
 
     //unrolling loop
+      long dts3 = System.currentTimeMillis();
+
     boolean[] visited = new boolean[numberofNodes];
     boolean[] recStack = new boolean[numberofNodes];
+
 
     isCyclicUtil(0, 0, visited, recStack);
 
@@ -2494,6 +2683,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     System.out.println(prismOutput);
 
+
+      long dfs3 = System.currentTimeMillis();
+      long det3 = dfs3 - dts3;
+
+      long dts4 = System.currentTimeMillis();
+
+
     String fileName = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".dot";
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
@@ -2551,6 +2747,7 @@ public class MainFrame extends javax.swing.JFrame {
     } catch(IOException ex) {
       System.out.println(ex);
     }
+
 
     long p1timeElapsed=0,p2timeElapsed=0;
     if (num_properties >= 1) {
@@ -2637,11 +2834,24 @@ public class MainFrame extends javax.swing.JFrame {
     long finish = System.currentTimeMillis();
     long timeElapsed = finish - start;
 
+      long dfs4 = System.currentTimeMillis();
+      long det4 = dfs4 - dts4;
+
+
     long totalExecutionTime = dependencyAnalysisTime + timeElapsed;
+
+    long executionTimeWithDominatorAnalysis = totalExecutionTime - extraModelCountingTime;
+
     System.out.println("CFG construction time: " + MainFrame.cfgConsTime);
     System.out.println("Dependency analysis time: " + dependencyAnalysisTime + "ms");
+    System.out.println("Main time: " + det + "ms");
+    System.out.println("Branch condition preprocessing time: " + det5 + "ms");
+    System.out.println("Dominator Analysis time: " + det2 + "ms");
+    System.out.println("Loop unrolling time: " + det3 + "ms");
+      System.out.println("File writing and PRISM time: " + det4 + "ms");
     System.out.println("Execution time for probabilistic analysis: " + timeElapsed + "ms");
     System.out.println("Total Execution time: " + totalExecutionTime + "ms");
+    System.out.println("Total Execution time with dominator analysis: " + executionTimeWithDominatorAnalysis + "ms");
     long p1execTime = totalExecutionTime - p2timeElapsed;
     long p2execTime = totalExecutionTime - p1timeElapsed;
     System.out.println("Execution time for P1: " + p1execTime + "ms");
@@ -2706,9 +2916,9 @@ public class MainFrame extends javax.swing.JFrame {
             if(flagToUpDateProb) {
               //MarkovChainInformation miToRemove = null;
               for (MarkovChainInformation mi : miList) {
-                if (mi.getToNode().equals(asserDomNode)) {
-                  //mi.updateProb("1.0");
-                } else {
+//                if (mi.getToNode().equals(asserDomNode)) {
+//                  //mi.updateProb("1.0");
+//                } else {
                   //miToRemove = mi;
                   ISSABasicBlock newBackedgeToNode = null;
                   if(!backedgeToNode.getLastInstruction().toString().contains("conditional")) {
@@ -2739,14 +2949,18 @@ public class MainFrame extends javax.swing.JFrame {
                       miListTORemove.add(prevNewNodeID);
                     prevNewNode = newNode;
                   }
-                }
+                //}
               }
             }
               if(flagToUpDateProb) {
                   MarkovChainInformation miToRemove = null;
                   for (MarkovChainInformation mi : miList) {
-                      if (mi.getToNode().equals(asserDomNode)) {
+                      ISSABasicBlock miToNode = itemNodeMap.get(idMap.get(Integer.parseInt(mi.getToNode())));
+                      if(domSet.contains(miToNode)) {
                           mi.updateProb("1.0");
+                          String m = idMap.get(Integer.parseInt(mi.getFromNode()));
+                          if(modelCountingTimeMap.get(m) != null)
+                              extraModelCountingTime += modelCountingTimeMap.get(m);
                       } else {
                           miToRemove = mi;
                       }
@@ -2754,6 +2968,9 @@ public class MainFrame extends javax.swing.JFrame {
                   miList.remove(miToRemove);
                   for(String m : miListTORemove) {
                       transitionlistMap.remove(m);
+                      m = idMap.get(Integer.parseInt(m));
+                      if(modelCountingTimeMap.get(m) != null)
+                        extraModelCountingTime += modelCountingTimeMap.get(m);
                   }
               }
           }
@@ -3604,6 +3821,7 @@ public class MainFrame extends javax.swing.JFrame {
   private int                                       numberofNodes;
   private int                                       loopbound = 4;
   public static long                                dependencyAnalysisTime = 0;
+  private static long                               extraModelCountingTime = 0;
   private boolean backEdgeExists = false;
   public static String cfgConsTime = "";
 
@@ -3616,6 +3834,9 @@ public class MainFrame extends javax.swing.JFrame {
   private static Map<Pair<String, String>, MarkovChainInformation> transitionMap = new HashMap<>();
   private static Map<String, List<MarkovChainInformation>> transitionlistMap = new HashMap<>();
   private static Map<ISSABasicBlock, Integer> nodeLineMap = new HashMap<>();
+  private static Map<String, String> interProcDomMap = new HashMap<>();
+    private static Map<String, String> interProcPostDomMap = new HashMap<>();
+    private static Map<String, String> procCallMap = new HashMap<>();
 
   private Map<String, Map<Double, Set<Procedure>>>  jBondMap = new TreeMap<>();
   static public Set<Statement> allStmtSet = new HashSet<>();
@@ -3624,6 +3845,9 @@ public class MainFrame extends javax.swing.JFrame {
   static public Map<String, Procedure> itemProcMap = new HashMap<>();
   static public Map<String, ISSABasicBlock> itemNodeMap = new HashMap<>();
   static public Map<ISSABasicBlock, String> nodeItemMap = new HashMap<>();
+  static private Map<String,Long> modelCountingTimeMap = new HashMap<>();
+  static private Map<String,List<String>> lineItemsMap = new HashMap<>();
+
   static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");
 
   final public void refreshDrawing() {
