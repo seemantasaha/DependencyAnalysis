@@ -1,0 +1,1 @@
+class what_not {};

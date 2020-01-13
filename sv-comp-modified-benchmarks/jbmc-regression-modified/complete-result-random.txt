@@ -1,0 +1,182 @@
+
+aastore_aaload1/ is complete
+
+-----------------------------
+
+ArithmeticException1/ is complete
+1017936	1017936
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+ArithmeticException6/ is complete
+1017072	1017072
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+array1/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+array2/ is complete
+1	1
+
+0 minutes and 2 seconds elapsed.
+
+-----------------------------
+
+ArrayIndexOutOfBoundsException1/ is complete
+
+-----------------------------
+
+ArrayIndexOutOfBoundsException2/ is complete
+1	1
+
+0 minutes and 2 seconds elapsed.
+
+-----------------------------
+
+ArrayIndexOutOfBoundsException3/ is complete
+
+-----------------------------
+
+arraylength1/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+arrayread1/ is complete
+3098	3098
+
+18 minutes and 33 seconds elapsed.
+
+-----------------------------
+
+assert1/ is complete
+
+-----------------------------
+
+assert2/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+assert3/ is complete
+1002752	1002752
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+assert4/ is complete
+
+-----------------------------
+
+assert5/ is complete
+
+-----------------------------
+
+assert6/ is complete
+1036025	1036025
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+bitwise1/ is complete
+
+-----------------------------
+
+BufferedReaderReadLine/ is complete
+
+-----------------------------
+
+calc/ is complete
+1	1
+
+0 minutes and 4 seconds elapsed.
+
+-----------------------------
+
+charArray/ is complete
+
+-----------------------------
+
+CharSequenceBug/ is complete
+
+-----------------------------
+
+CharSequenceToString/ is complete
+
+-----------------------------
+
+exceptions16/ is complete
+1233243	1233243
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+if_expr1/ is complete
+1299671	1299671
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+if_icmp1/ is complete
+757898	757898
+
+24 minutes and 16 seconds elapsed.
+
+-----------------------------
+
+lookupswitch1/ is complete
+1412144	1412144
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+RegexSubstitution02/ is complete
+
+-----------------------------
+
+return2/ is complete
+
+-----------------------------
+
+StringBuilderConstructors01/ is complete
+
+-----------------------------
+
+StringCompare02/ is complete
+
+-----------------------------
+
+StringCompare03/ is complete
+
+-----------------------------
+
+StringCompare05/ is complete
+
+-----------------------------
+
+StringMiscellaneous03/ is complete
+
+-----------------------------
+
+TokenTest02/ is complete
+
+-----------------------------
+
