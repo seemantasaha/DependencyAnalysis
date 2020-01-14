@@ -1805,14 +1805,18 @@ public class MainFrame extends javax.swing.JFrame {
     return nodeMap.get(jsonItemID).toString();
   }
 
-  private void removeAllTransitions(String node, String assertNode) {
+  private void removeAllTransitions(String node, String assertNode, Procedure proc) {
     List<MarkovChainInformation> list = transitionlistMap.get(node);
     if(list == null)
       return;
     for(MarkovChainInformation mi : list) {
       if(!mi.getFromNode().equals(mi.getToNode()) && !mi.getToNode().equals(assertNode)) {
-        removeAllTransitions(mi.getToNode(), assertNode);
-        transitionlistMap.remove(mi.getToNode());
+        removeAllTransitions(mi.getToNode(), assertNode, proc);
+        ISSABasicBlock aNode = itemNodeMap.get(idMap.get(Integer.parseInt(assertNode)));
+        ISSABasicBlock mNode = itemNodeMap.get(idMap.get(Integer.parseInt(mi.getToNode())));
+        Set<ISSABasicBlock> aNodeDominatorSet = proc.getDominatorSet(aNode);
+        if(assertNode.equals(assertionNode) && !aNodeDominatorSet.contains(mNode))
+          transitionlistMap.remove(mi.getToNode());
       }
     }
   }
@@ -1859,7 +1863,7 @@ public class MainFrame extends javax.swing.JFrame {
         String insn = "";
         String jsonItem2 = "";
         String jsonItemId2 = "";
-        if(outgoingNodes.length == 2) {
+        if(outgoingNodes.length == 2 && outgoingNodes[1].contains("\"")) {
           falseNode = outgoingNodes[1].split("\"")[1];
           insn = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
           jsonItemId2 = jsonItemID;
@@ -2164,7 +2168,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         String trueNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
 
-        if(outgoingNodes.length == 2) {
+        if(outgoingNodes.length == 2 && outgoingNodes[1].contains("\"")) {
 
           String falseNode = getNodeFromID(outgoingNodes[1].split("\"")[1]);
 
@@ -2282,7 +2286,7 @@ public class MainFrame extends javax.swing.JFrame {
               graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
               prismModel += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
             } else {
-                long startTime = System.currentTimeMillis();
+              long startTime = System.currentTimeMillis();
               String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
               System.out.println("Instruction to translate: " + ins_to_translate);
 
@@ -2361,28 +2365,47 @@ public class MainFrame extends javax.swing.JFrame {
       } else {
         String fromNode = getNodeFromID(jsonItemID);
 
+        String[] outgoingNodeStringArr = jsonItem.split("\"outgoing\" : \\{ ");
 
-        String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
+        String outgoingNodeString = "";
 
-        if (outgoingNodes[0].contains("#")) {
-            String toJsonItemID = outgoingNodes[0].split("\"")[1];
+        if(outgoingNodeStringArr.length > 1)
+            outgoingNodeString = outgoingNodeStringArr[1].split(" }")[0];
+
+        if(outgoingNodeString.equals(""))
+            continue;
+
+        String[] outgoingNodes = outgoingNodeString.split(",");
+
+        String selectedOutgoing = "";
+        String nonSelectedOutgoing = "";
+
+        if(outgoingNodes.length > 1) {
+            selectedOutgoing = outgoingNodes[1];
+            nonSelectedOutgoing = outgoingNodes[0];
+        } else {
+            selectedOutgoing = outgoingNodes[0];
+        }
+
+        if (selectedOutgoing.contains("#")) {
+          String toJsonItemID = selectedOutgoing.split("\"")[1];
           String toNode = getNodeFromID(toJsonItemID);
 
 
           String[] jIDs = jsonItemID.split("#");
-            String[] toJIDs = toJsonItemID.split("#");
+          String[] toJIDs = toJsonItemID.split("#");
 
-            String id1=jIDs[0];
-            String id2=toJIDs[0];
-            for(int j=1; j < jIDs.length-1; j++) {
-                id1 += "#"+jIDs[j];
-            }
-            for(int j=1; j < toJIDs.length-1; j++) {
-                id2 += "#"+toJIDs[j];
-            }
+          String id1=jIDs[0];
+          String id2=toJIDs[0];
+          for(int j=1; j < jIDs.length-1; j++) {
+            id1 += "#"+jIDs[j];
+          }
+          for(int j=1; j < toJIDs.length-1; j++) {
+            id2 += "#"+toJIDs[j];
+          }
 
-            String checkID1 = jIDs[0]+"#"+jIDs[1];
-            String checkID2 = toJIDs[0]+"#"+toJIDs[1];
+          String checkID1 = jIDs[0]+"#"+jIDs[1];
+          String checkID2 = toJIDs[0]+"#"+toJIDs[1];
 
           if(!id1.equals(id2) && !jsonItemID.contains("1001001")) {
               procCallMap.put(checkID1,checkID2);
@@ -2404,7 +2427,22 @@ public class MainFrame extends javax.swing.JFrame {
           transitionlistMap.put(fromNode, list);
 
           graphOutput += "\t" + fromNode + " -> " + toNode + "[label= " + "\"" + "1.0" + "\"];\n";
-          prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + toNode + ");\n";
+
+          if (!nonSelectedOutgoing.equals("") && nonSelectedOutgoing.contains("#")) {
+              String ignoredJsonItemID = nonSelectedOutgoing.split("\"")[1];
+              String ignoredNode = getNodeFromID(ignoredJsonItemID);
+
+              MarkovChainInformation ignoredChain = new MarkovChainInformation(fromNode,ignoredNode,"0.0",false, false, false);
+              transitionMap.put(new Pair<>(fromNode,ignoredNode), ignoredChain);
+              List<MarkovChainInformation> list2 = transitionlistMap.get(fromNode);
+              list2.add(ignoredChain);
+              transitionlistMap.put(fromNode, list2);
+
+              graphOutput += "\t" + fromNode + " -> " + toNode + "[label= " + "\"" + "0.0" + "\"];\n";
+              prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + toNode + ") + " + "0.0" + " : " + "(s' = " + ignoredNode + ");\n";
+          } else {
+              prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + toNode + ");\n";
+          }
         } else {
           MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,fromNode,"1.0",false, false, false);
           transitionMap.put(new Pair<>(fromNode,fromNode), trueChain);
@@ -2533,8 +2571,12 @@ public class MainFrame extends javax.swing.JFrame {
 
             for (MarkovChainInformation mi : toList) {
               if (!mi.getToNode().equals(toNode)) {
-                removeAllTransitions(mi.getToNode(), toNode);
-                transitionlistMap.remove(mi.getToNode());
+                removeAllTransitions(mi.getToNode(), toNode,proc);
+                ISSABasicBlock aNode = itemNodeMap.get(idMap.get(Integer.parseInt(toNode)));
+                ISSABasicBlock mNode = itemNodeMap.get(idMap.get(Integer.parseInt(mi.getToNode())));
+                Set<ISSABasicBlock> aNodeDominatorSet = proc.getDominatorSet(aNode);
+                if(toNode.equals(assertionNode) && !aNodeDominatorSet.contains(mNode))
+                  transitionlistMap.remove(mi.getToNode());
                   m = idMap.get(Integer.parseInt(mi.getToNode()));
                   if(modelCountingTimeMap.get(m) != null)
                       extraModelCountingTime += modelCountingTimeMap.get(m);
@@ -2592,8 +2634,8 @@ public class MainFrame extends javax.swing.JFrame {
     //unrolling loop
       long dts3 = System.currentTimeMillis();
 
-    boolean[] visited = new boolean[numberofNodes];
-    boolean[] recStack = new boolean[numberofNodes];
+    boolean[] visited = new boolean[numberofNodes+1];
+    boolean[] recStack = new boolean[numberofNodes+1];
 
 
     isCyclicUtil(0, 0, visited, recStack);
@@ -2712,7 +2754,7 @@ public class MainFrame extends javax.swing.JFrame {
     String assertionExecutionSpec = "";
 
     if (!assertionReachabilityNode.equals("")) {
-      if(loopbound > 1 && backEdgeExists) {
+      if(loopUnrolling && loopbound > 1 && backEdgeExists) {
         assertionReachabilitySpec = "P=? [F (s = " + assertionReachabilityNode + ")";
         for(int b=1; b<loopbound; b++) {
           String bNode = Integer.toString(Integer.parseInt(assertionReachabilityNode) + b * numberofNodes);
@@ -2912,7 +2954,7 @@ public class MainFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-              List<String> miListTORemove = new ArrayList<>();
+            List<String> miListTORemove = new ArrayList<>();
             if(flagToUpDateProb) {
               //MarkovChainInformation miToRemove = null;
               for (MarkovChainInformation mi : miList) {
@@ -2923,6 +2965,8 @@ public class MainFrame extends javax.swing.JFrame {
                   ISSABasicBlock newBackedgeToNode = null;
                   if(!backedgeToNode.getLastInstruction().toString().contains("conditional")) {
                     newBackedgeToNode = itemNodeMap.get(idMap.get(Integer.parseInt(c)+1));
+                  } else {
+                    newBackedgeToNode = itemNodeMap.get(idMap.get(Integer.parseInt(c)));
                   }
                   ISSABasicBlock newNode = backedgeFromNode;
                   ISSABasicBlock prevNewNode = newNode;
@@ -2932,21 +2976,20 @@ public class MainFrame extends javax.swing.JFrame {
                     if(transitionlistMap.get(prevNewNodeID) != null) {
                       for (MarkovChainInformation m : transitionlistMap.get(prevNewNodeID)) {
                         if(!m.getToNode().equals(c)) {
-                            ISSABasicBlock nodeToCheck = itemNodeMap.get(idMap.get(Integer.parseInt(m.getToNode())));
-                            if(!proc.getDominatorSet(backedgeFromNode).contains(nodeToCheck)) {
-                                flagToUpDateProb = false;
-                                backEdgeExists = true;
-                                break;
-                            }
-                            //transitionlistMap.remove(m.getToNode());
-                            //miListTORemove.add(m.getToNode());
+                          ISSABasicBlock nodeToCheck = itemNodeMap.get(idMap.get(Integer.parseInt(m.getToNode())));
+                          Set<ISSABasicBlock> befDomSet = proc.getDominatorSet(backedgeFromNode);
+                          if(!befDomSet.contains(nodeToCheck)) {
+                            flagToUpDateProb = false;
+                            backEdgeExists = true;
+                            break;
+                          }
                         }
                       }
                     }
                     if(!flagToUpDateProb)
                         break;
-                    //transitionlistMap.remove(prevNewNodeID);
-                      miListTORemove.add(prevNewNodeID);
+
+                    miListTORemove.add(prevNewNodeID);
                     prevNewNode = newNode;
                   }
                 //}
@@ -2977,7 +3020,7 @@ public class MainFrame extends javax.swing.JFrame {
 
 
           //unroll loops
-          if(loopbound > 1 && backEdgeExists) {
+          if(loopUnrolling && loopbound > 1 && backEdgeExists) {
             int newNode = Integer.parseInt(c) + numberofNodes;
             //edgeMap.get(Integer.toString(i)).remove(c);
             //edgeMap.get(Integer.toString(i)).add(Integer.toString(newNode));
@@ -3056,6 +3099,8 @@ public class MainFrame extends javax.swing.JFrame {
         //edgeMap.put(from, fromChildren);
 
         MarkovChainInformation mChain = transitionMap.get(new Pair<>(Integer.toString(i),c));
+        if(mChain == null)
+          continue;
         MarkovChainInformation chain = new MarkovChainInformation(from, to, mChain.getProb(), mChain.isDepBranchNode(), mChain.isAssertNode(), mChain.isExceptionNode());
         transitionMap.put(new Pair<>(from, to), chain);
 
@@ -3648,17 +3693,36 @@ public class MainFrame extends javax.swing.JFrame {
         //itemID = item.split(" ")[4];
 
         if (k == inlineProcJSON.size()-1) {
-          String exitOutgoingNew = jsonItems.get(i).split(" ")[4];
-          //System.out.println("exitOutgoingNew: " + exitOutgoingNew);
-          String oldExitOutgoingpart = exitOutgoingNew.split("#")[0] + "#";
-          //System.out.println("oldExitOutgoingpart: " + oldExitOutgoingpart);
-          if (oldProcRecursiveBound > 0)  {
-            String newExitOutgoingpart = oldExitOutgoingpart + oldProcRecursiveBound + "#";
-            //System.out.println("newExitOutgoingpart: " + newExitOutgoingpart);
-            exitOutgoingNew = exitOutgoingNew.replace(oldExitOutgoingpart, newExitOutgoingpart);
-            //System.out.println("exitOutgoingNew: " + exitOutgoingNew);
-          }
-          item = item.replace("\"outgoing\" : { }", "\"outgoing\" : { \"" + exitOutgoingNew +"\" : \"Implicit\" }");
+
+            String exitOutgoingNew = "";
+
+            String checkString = jsonItems.get(i - 1).split("\"outgoing\" : \\{ ")[1].split(" }")[0];
+
+            if (checkString.contains(",")) { //there are two outgoing special case for function calling and exception occurring later
+                exitOutgoingNew = jsonItems.get(i - 1).split("\"outgoing\" : \\{ ")[1].split(" }")[0];
+                if(item.contains("\"outgoing\" : { }"))
+                    item = item.replace("\"outgoing\" : { }", "\"outgoing\" : { " + exitOutgoingNew + " }");
+                else
+                    item = item.replace("\"outgoing\" : {}", "\"outgoing\" : { " + exitOutgoingNew + " }");
+            }
+
+            else {
+
+                exitOutgoingNew = jsonItems.get(i).split(" ")[4];
+                //System.out.println("exitOutgoingNew: " + exitOutgoingNew);
+                String oldExitOutgoingpart = exitOutgoingNew.split("#")[0] + "#";
+                //System.out.println("oldExitOutgoingpart: " + oldExitOutgoingpart);
+                if (oldProcRecursiveBound > 0) {
+                    String newExitOutgoingpart = oldExitOutgoingpart + oldProcRecursiveBound + "#";
+                    //System.out.println("newExitOutgoingpart: " + newExitOutgoingpart);
+                    exitOutgoingNew = exitOutgoingNew.replace(oldExitOutgoingpart, newExitOutgoingpart);
+                    //System.out.println("exitOutgoingNew: " + exitOutgoingNew);
+                }
+                if(item.contains("\"outgoing\" : { }"))
+                    item = item.replace("\"outgoing\" : { }", "\"outgoing\" : { \"" + exitOutgoingNew + "\" : \"Implicit\" }");
+                else
+                    item = item.replace("\"outgoing\" : {}", "\"outgoing\" : { \"" + exitOutgoingNew + "\" : \"Implicit\" }");
+            }
         }
 
         completeJSON += item + ",\n";
@@ -3667,7 +3731,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         //System.out.println(item);
 
-        if (item.contains("Invoke") && !item.contains("<init>")) {
+        if (item.contains("Invoke") && !item.contains("<init>") && !item.split("\"outgoing\" : \\{ ")[1].split(" }")[0].contains(",")) {
           //System.out.println(item);
           //JOptionPane.showMessageDialog(MainFrame.this, "At condition: \n" + completeJSON);
                 /*String itemIDToPass = "";
@@ -3819,6 +3883,7 @@ public class MainFrame extends javax.swing.JFrame {
 
   private int                                       recursiveBound;
   private int                                       numberofNodes;
+  private boolean                                   loopUnrolling = false;
   private int                                       loopbound = 4;
   public static long                                dependencyAnalysisTime = 0;
   private static long                               extraModelCountingTime = 0;

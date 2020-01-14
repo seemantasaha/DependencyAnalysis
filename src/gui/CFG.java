@@ -155,7 +155,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
       if (lastInstructionOfANode.equals("Throw()")) {
         jsonItem += " \"" + this.procedure.getProcedureName()+ classInfo + parameterInfo + "#" + this.endingInstruction + "\" : \"Implicit\"" ;
       } 
-      
+
+      int c = 1;
       while (succNodeIter.hasNext()) {
         ISSABasicBlock succNode = succNodeIter.next();
         if (getVertex(succNode) == null)
@@ -164,8 +165,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         ImbalanceAnalysisItem succNodeItem = nodeShrikeInstructionsMap.get(succNode.getNumber());
                 
         if (lastInst instanceof SSAConditionalBranchInstruction) {
-            String reportedIns = Reporter.getSSAInstructionString(lastInst);
-            jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"false\"", "\"secret_dependent_branch\" : \"branch\", \"ins_to_translate\" : \"" + reportedIns + "\"");
+          String reportedIns = Reporter.getSSAInstructionString(lastInst);
+          jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"false\"", "\"secret_dependent_branch\" : \"branch\", \"ins_to_translate\" : \"" + reportedIns + "\"");
           int target = ((SSAConditionalBranchInstruction)lastInst).getTarget();
           if (succNode == cfg.getBlockForInstruction(target)) {
               addEdge(node, succNode, "TRUE");
@@ -180,22 +181,25 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         
         addEdge(node, succNode, null);
         
-        
+        if(c == 2)
+            jsonItem += ",";
         
         if (lastInstructionOfANode.equals("")) {
-            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Implicit\" }" ;
+            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Implicit\" " ;
         } else if (lastInstructionOfANode.startsWith("Invoke") && lastInstructionOfANode.contains("Exception")) {
-            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Throw\" }" ;
+            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Throw\" " ;
         } else if (lastInstructionOfANode.startsWith("Invoke")) {
-            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Invoke\" }" ;
+            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Invoke\" " ;
         } else if (lastInstructionOfANode.startsWith("Return")) {
-            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Return\" }" ;
+            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Return\" " ;
         } else if (lastInstructionOfANode.startsWith("Goto")) {            
-            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Jump\" }" ;
+            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Jump\" " ;
         } else {
-            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Implicit\" }" ;
+            jsonItem += " \"" + succNodeItem.getID() + "\" : \"Implicit\" " ;
         }
+        c++;
       }
+      jsonItem += "}";
       //temporary fix for switch
       if (jsonItem.contains("Switch")) {
         String oldSwitchOutgoing = jsonItem.split("outgoing\" : ")[1];

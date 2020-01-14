@@ -6,9 +6,8 @@
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNode_swapNode.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LNode_swapNode.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNode_swapNode.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LNode_swapNode.sm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
@@ -108,6 +107,7 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -122,8 +122,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="2513" column="35" selection-start-line="2513" selection-start-column="35" selection-end-line="2513" selection-end-column="35" />
+            <state relative-caret-position="174">
+              <caret line="3705" column="102" selection-start-line="3705" selection-start-column="102" selection-end-line="3705" selection-end-column="102" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#23280#23281#0" expanded="true" />
@@ -178,8 +178,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="125" column="29" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="29" />
+            <state relative-caret-position="-54">
+              <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -190,8 +190,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="1680" column="69" selection-start-line="1680" selection-start-column="69" selection-end-line="1680" selection-end-column="69" />
+            <state relative-caret-position="31160">
+              <caret line="2381" column="100" selection-start-line="2381" selection-start-column="100" selection-end-line="2381" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -221,16 +221,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getModelCou</find>
-      <find>endNo</find>
-      <find>loopBound</find>
-      <find>removeAllTransitions</find>
-      <find>loopbound</find>
-      <find>backEdgeExists</find>
-      <find>unrolling loop</find>
-      <find>//to do</find>
-      <find>dominator an</find>
-      <find>getModelC</find>
       <find>extraModelCountingTime</find>
       <find>assertionReachabilityNode</find>
       <find>nodeItemMap</find>
@@ -239,18 +229,28 @@
       <find>modelCountingTimeMap.get</find>
       <find>replaceMap</find>
       <find>dfsToAddUnrolledNodes</find>
-      <find>isCyclicUtil</find>
-      <find>branchModel</find>
       <find>dfs3</find>
       <find>branchModelCountMenuitem</find>
       <find>det2</find>
-      <find>modelCountingTime</find>
       <find>dominator analysis</find>
       <find>nodeMap.put</find>
       <find>getNodeFromID</find>
       <find>getNodeFrom</find>
       <find>branchModelCount</find>
       <find>jsonItemId1</find>
+      <find>jsonItemsToBeRemoved</find>
+      <find>removeAllTransitions</find>
+      <find>transitionMap.remove</find>
+      <find>transitionListMap.remove</find>
+      <find>modelCountingTime</find>
+      <find>idMa</find>
+      <find>46342</find>
+      <find>exception</find>
+      <find>transitionlistMap.remove</find>
+      <find>recursiveInlining</find>
+      <find>branchModel</find>
+      <find>recursiveIn</find>
+      <find>isCyclicUtil</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -279,11 +279,11 @@
         <option value="$PROJECT_DIR$/src/gui/SliceFrame.java" />
         <option value="$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java" />
         <option value="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" />
-        <option value="$PROJECT_DIR$/src/gui/CFG.java" />
         <option value="$PROJECT_DIR$/src/core/Program.java" />
         <option value="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/core/PathLengthAnalysis.java" />
         <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
+        <option value="$PROJECT_DIR$/src/gui/CFG.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
       </list>
     </option>
@@ -295,9 +295,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="81" />
-    <option name="y" value="27" />
-    <option name="width" value="1657" />
+    <option name="x" value="-63" />
+    <option name="y" value="244" />
+    <option name="width" value="1647" />
     <option name="height" value="836" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -308,7 +308,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -331,12 +330,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578834496130" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579004775563" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -444,9 +444,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23298284" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2412839" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -455,7 +454,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32829374" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991699" visible="true" weight="0.27213824" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991699" visible="true" weight="0.5280778" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.31533477" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -547,41 +546,53 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>3118</line>
+          <line>1818</line>
           <properties />
-          <option name="timeStamp" value="112" />
+          <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2509</line>
+          <line>2487</line>
           <properties />
-          <option name="timeStamp" value="209" />
+          <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2513</line>
+          <line>3012</line>
           <properties />
-          <option name="timeStamp" value="212" />
+          <option name="timeStamp" value="258" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2524</line>
+          <line>2578</line>
           <properties />
-          <option name="timeStamp" value="213" />
+          <option name="timeStamp" value="259" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2497</line>
+          <line>2172</line>
           <properties />
-          <option name="timeStamp" value="214" />
+          <option name="timeStamp" value="266" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2484</line>
+          <line>3630</line>
           <properties />
-          <option name="timeStamp" value="215" />
+          <option name="timeStamp" value="272" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
+          <line>3710</line>
+          <properties />
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
+          <line>2906</line>
+          <properties />
+          <option name="timeStamp" value="276" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -830,13 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11932">
-          <caret line="687" column="35" selection-start-line="687" selection-start-column="35" selection-end-line="687" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/ProgramDependenceGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4541">
@@ -893,13 +897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/ISSABasicBlock.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SSAInstruction.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -911,6 +908,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Procedure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="687" column="35" selection-start-line="687" selection-start-column="35" selection-end-line="687" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/ISSABasicBlock.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31160">
+          <caret line="2381" column="100" selection-start-line="2381" selection-start-column="100" selection-end-line="2381" selection-end-column="100" />
         </state>
       </provider>
     </entry>
@@ -933,25 +951,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="125" column="29" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="29" />
+        <state relative-caret-position="-54">
+          <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="1680" column="69" selection-start-line="1680" selection-start-column="69" selection-end-line="1680" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="2513" column="35" selection-start-line="2513" selection-start-column="35" selection-end-line="2513" selection-end-column="35" />
+        <state relative-caret-position="174">
+          <caret line="3705" column="102" selection-start-line="3705" selection-start-column="102" selection-end-line="3705" selection-end-column="102" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#23280#23281#0" expanded="true" />

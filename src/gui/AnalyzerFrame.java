@@ -2379,7 +2379,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void appAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appAddButtonActionPerformed
     statusMessage.init();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar and Class Files","jar", "class");
-    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/jqf/tutorial/jpf-regression-modified/")); //temporary
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/jqf/tutorial/algorithms-modified/")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
