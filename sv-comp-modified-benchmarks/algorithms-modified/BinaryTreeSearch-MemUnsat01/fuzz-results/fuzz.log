@@ -1,0 +1,752 @@
+Saving new input (at run 1): input #0 of size 12; total coverage = 3
+Saved - fuzz-results/corpus/id_000000 random +count+cov
+Saving new input (at run 3): input #1 of size 12; total coverage = 10
+Saved - fuzz-results/corpus/id_000001 src:000000,havoc:15 +count+cov+valid
+Saving new input (at run 6): input #2 of size 12; total coverage = 11
+Saved - fuzz-results/corpus/id_000002 src:000000,havoc:8 +count+cov
+Saving new input (at run 61): input #3 of size 12; total coverage = 21
+Saved - fuzz-results/corpus/id_000003 src:000000,havoc:10 +count+cov+valid
+Saving new input (at run 75): input #4 of size 12; total coverage = 22
+Saved - fuzz-results/corpus/id_000004 src:000000,havoc:15 +count+cov+valid
+Saving new input (at run 156): input #5 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000005 src:000001,havoc:2 +count+cov+valid
+Saving new input (at run 212): input #6 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000006 src:000001,havoc:1 +count
+Saving new input (at run 229): input #7 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000007 src:000001,havoc:13 +count
+Saving new input (at run 461): input #8 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000008 src:000001,havoc:7 +count
+Saving new input (at run 680): input #9 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000009 src:000003,havoc:6 +count
+Saving new input (at run 767): input #10 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000010 src:000003,havoc:5 +count
+Saving new input (at run 1269): input #11 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000011 src:000003,havoc:1 +count
+Saving new input (at run 1270): input #12 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000012 src:000003,havoc:5 +count
+Saving new input (at run 2409): input #13 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000013 src:000005,havoc:3 +count
+
+# Cycle 1 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+Saving new input (at run 4276): input #14 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000014 src:000003,havoc:1 +count
+Saving new input (at run 5101): input #15 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000015 src:000004,havoc:2 +count
+
+# Cycle 2 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+Saving new input (at run 7447): input #16 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000016 src:000003,havoc:3 +count
+
+# Cycle 3 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+Saving new input (at run 11307): input #17 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000017 src:000003,havoc:4 +count
+
+# Cycle 4 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+Saving new input (at run 16362): input #18 of size 12; total coverage = 23
+Saved - fuzz-results/corpus/id_000018 src:000005,havoc:1 +count
+
+# Cycle 5 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 6 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 7 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 8 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 9 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 10 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 11 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 12 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 13 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 14 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 15 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 16 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 17 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 18 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 19 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 20 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 21 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 22 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 23 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 24 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 25 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 26 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 27 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 28 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 29 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 30 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 31 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 32 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 33 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 34 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 35 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 36 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 37 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 38 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 39 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 40 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 41 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 42 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 43 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 44 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 45 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 46 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 47 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 48 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 49 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 50 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+
+
+# Cycle 51 completed.
+Here is a list of favored inputs:
+Input 0 is responsible for 1 branches
+Input 1 is responsible for 9 branches
+Input 2 is responsible for 1 branches
+Input 3 is responsible for 10 branches
+Input 4 is responsible for 1 branches
+Input 5 is responsible for 1 branches
+Total 23 branches covered
+
+
+
+

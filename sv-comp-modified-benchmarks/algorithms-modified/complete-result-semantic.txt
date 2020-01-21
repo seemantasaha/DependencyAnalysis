@@ -1,0 +1,248 @@
+
+BellmanFord-FunSat01/ is complete
+138508	138508
+
+3 minutes and 47 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-FunSat02/ is complete
+12899	12899
+
+0 minutes and 35 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-FunUnsat01/ is complete
+84911	84911
+
+2 minutes and 2 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-FunUnsat02/ is complete
+278161	278161
+
+6 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-MemSat01/ is complete
+559432	559432
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-MemSat02/ is complete
+353101	353101
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-MemUnsat01/ is complete
+64215	64215
+
+1 minutes and 48 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-MemUnsat02/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+BinaryTreeSearch-FunSat01/ is complete
+
+-----------------------------
+
+BinaryTreeSearch-FunUnsat01/ is complete
+
+-----------------------------
+
+BinaryTreeSearch-MemSat01/ is complete
+1	1
+
+3 minutes and 37 seconds elapsed.
+
+-----------------------------
+
+BinaryTreeSearch-MemUnsat01/ is complete
+1	1
+
+8 minutes and 34 seconds elapsed.
+
+-----------------------------
+
+BinaryTreeSearch-MemUnsat02/ is complete
+1	1
+
+0 minutes and 2 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-FunSat01/ is complete
+1	1
+
+0 minutes and 22 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-FunSat02/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-FunUnsat01/ is complete
+
+-----------------------------
+
+InsertionSort-MemSat01/ is complete
+1	1
+
+0 minutes and 2 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-MemUnsat01/ is complete
+1	1
+
+0 minutes and 22 seconds elapsed.
+
+-----------------------------
+
+MergeSortIterative-FunSat01/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+MergeSortIterative-FunSat02/ is complete
+
+-----------------------------
+
+MergeSortIterative-FunUnsat01/ is complete
+
+-----------------------------
+
+MergeSortIterative-MemSat01/ is complete
+3	3
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+MergeSortIterative-MemUnsat01/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+RedBlackTree-FunSat01/ is complete
+1	1
+
+0 minutes and 22 seconds elapsed.
+
+-----------------------------
+
+RedBlackTree-FunUnsat01/ is complete
+1	1
+
+0 minutes and 22 seconds elapsed.
+
+-----------------------------
+
+RedBlackTree-MemSat01/ is complete
+
+-----------------------------
+
+RedBlackTree-MemUnsat01/ is complete
+
+-----------------------------
+
+SortedListInsert-FunSat01/ is complete
+
+-----------------------------
+
+SortedListInsert-FunSat02/ is complete
+1	1
+
+399 minutes and 59 seconds elapsed.
+
+-----------------------------
+
+SortedListInsert-FunUnsat01/ is complete
+1	1
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+SortedListInsert-MemSat01/ is complete
+1	1
+
+0 minutes and 24 seconds elapsed.
+
+-----------------------------
+
+SortedListInsert-MemUnsat01/ is complete
+1	1
+
+0 minutes and 23 seconds elapsed.
+
+-----------------------------
+
+Trie-FunSat01/ is complete
+
+-----------------------------
+
+Trie-FunUnsat01/ is complete
+
+-----------------------------
+
+Trie-MemSat01/ is complete
+368203	368203
+
+10 minutes and 0 seconds elapsed.
+
+-----------------------------
+
+Trie-MemUnsat01/ is complete
+
+-----------------------------
+
+Tsp-FunSat01/ is complete
+1	1
+
+0 minutes and 8 seconds elapsed.
+
+-----------------------------
+
+Tsp-FunUnsat01/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+Tsp-MemSat01/ is complete
+1	1
+
+0 minutes and 4 seconds elapsed.
+
+-----------------------------
+
+Tsp-MemUnsat01/ is complete
+1	1
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+

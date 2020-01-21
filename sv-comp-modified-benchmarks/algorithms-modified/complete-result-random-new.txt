@@ -1,0 +1,281 @@
+
+BellmanFord-FunSat01/ is complete
+2331218	23520
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-FunSat02/ is complete
+1501510	14877
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-FunUnsat01/ is complete
+1668758	16518
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-FunUnsat02/ is complete
+1688149	16598
+
+10 minutes and 2 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-MemSat01/ is complete
+1461718	14932
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-MemSat02/ is complete
+1660098	16588
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-MemUnsat01/ is complete
+1781765	17718
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BellmanFord-MemUnsat02/ is complete
+77	1
+
+0 minutes and 6 seconds elapsed.
+
+-----------------------------
+
+BinaryTreeSearch-FunSat01/ is complete
+1	1
+
+0 minutes and 4 seconds elapsed.
+
+-----------------------------
+
+BinaryTreeSearch-FunUnsat01/ is complete
+1	0
+
+0 minutes and 12 seconds elapsed.
+
+-----------------------------
+
+BinaryTreeSearch-MemSat01/ is complete
+20309	193
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BinaryTreeSearch-MemUnsat01/ is complete
+27822	284
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+BinaryTreeSearch-MemUnsat02/ is complete
+77	0
+
+0 minutes and 4 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-FunSat01/ is complete
+167	1
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-FunSat02/ is complete
+127	1
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-FunUnsat01/ is complete
+200	0
+
+0 minutes and 5 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-MemSat01/ is complete
+162	1
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+InsertionSort-MemUnsat01/ is complete
+139	0
+
+0 minutes and 8 seconds elapsed.
+
+-----------------------------
+
+MergeSortIterative-FunSat01/ is complete
+148	0
+
+1 minutes and 37 seconds elapsed.
+
+-----------------------------
+
+MergeSortIterative-FunSat02/ is complete
+3696	21
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+MergeSortIterative-FunUnsat01/ is complete
+410	1
+
+1 minutes and 49 seconds elapsed.
+
+-----------------------------
+
+MergeSortIterative-MemSat01/ is complete
+1181	15
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+MergeSortIterative-MemUnsat01/ is complete
+341	2
+
+0 minutes and 13 seconds elapsed.
+
+-----------------------------
+
+RedBlackTree-FunSat01/ is complete
+112	3
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+RedBlackTree-FunUnsat01/ is complete
+408	1
+
+7 minutes and 25 seconds elapsed.
+
+-----------------------------
+
+RedBlackTree-MemSat01/ is complete
+77	0
+
+37 minutes and 28 seconds elapsed.
+
+-----------------------------
+
+RedBlackTree-MemUnsat01/ is complete
+160	1
+
+10 minutes and 8 seconds elapsed.
+
+-----------------------------
+
+SortedListInsert-FunSat01/ is complete
+1	0
+
+0 minutes and 6 seconds elapsed.
+
+-----------------------------
+
+SortedListInsert-FunSat02/ is complete
+155	2
+
+0 minutes and 5 seconds elapsed.
+
+-----------------------------
+
+SortedListInsert-FunUnsat01/ is complete
+1	0
+
+0 minutes and 16 seconds elapsed.
+
+-----------------------------
+
+SortedListInsert-MemSat01/ is complete
+13111	124
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+SortedListInsert-MemUnsat01/ is complete
+1	0
+
+0 minutes and 25 seconds elapsed.
+
+-----------------------------
+
+Trie-FunSat01/ is complete
+1	0
+
+0 minutes and 3 seconds elapsed.
+
+-----------------------------
+
+Trie-FunUnsat01/ is complete
+1	0
+
+0 minutes and 4 seconds elapsed.
+
+-----------------------------
+
+Trie-MemSat01/ is complete
+1677110	16791
+
+10 minutes and 1 seconds elapsed.
+
+-----------------------------
+
+Trie-MemUnsat01/ is complete
+72	0
+
+0 minutes and 4 seconds elapsed.
+
+-----------------------------
+
+Tsp-FunSat01/ is complete
+62	1
+
+0 minutes and 6 seconds elapsed.
+
+-----------------------------
+
+Tsp-FunUnsat01/ is complete
+1	0
+
+0 minutes and 6 seconds elapsed.
+
+-----------------------------
+
+Tsp-MemSat01/ is complete
+1	0
+
+0 minutes and 6 seconds elapsed.
+
+-----------------------------
+
+Tsp-MemUnsat01/ is complete
+78	0
+
+0 minutes and 6 seconds elapsed.
+
+-----------------------------
+
