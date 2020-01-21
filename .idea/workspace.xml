@@ -6,8 +6,10 @@
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNode_swapNode.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LNode_swapNode.csl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNode_swapNode.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LNode_swapNode.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNode_swapNode.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LNode_swapNode.sm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/CFG.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/CFG.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
@@ -107,7 +109,6 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/CFG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CFG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -119,13 +120,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3135">
+              <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31160">
+              <caret line="2381" column="93" selection-start-line="2381" selection-start-column="93" selection-end-line="2381" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="3705" column="102" selection-start-line="3705" selection-start-column="102" selection-end-line="3705" selection-end-column="102" />
+            <state relative-caret-position="379">
+              <caret line="2735" column="40" selection-start-line="2735" selection-start-column="40" selection-end-line="2735" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#21149#21238#0" expanded="true" />
                 <element signature="e#23280#23281#0" expanded="true" />
                 <element signature="e#23333#23334#0" expanded="true" />
                 <element signature="e#23609#23610#0" expanded="true" />
@@ -175,82 +219,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31160">
-              <caret line="2381" column="100" selection-start-line="2381" selection-start-column="100" selection-end-line="2381" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4541">
-              <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>extraModelCountingTime</find>
-      <find>assertionReachabilityNode</find>
-      <find>nodeItemMap</find>
-      <find>interProcD</find>
-      <find>modelCountingTimeMap.put</find>
-      <find>modelCountingTimeMap.get</find>
-      <find>replaceMap</find>
-      <find>dfsToAddUnrolledNodes</find>
-      <find>dfs3</find>
-      <find>branchModelCountMenuitem</find>
-      <find>det2</find>
-      <find>dominator analysis</find>
-      <find>nodeMap.put</find>
-      <find>getNodeFromID</find>
-      <find>getNodeFrom</find>
-      <find>branchModelCount</find>
-      <find>jsonItemId1</find>
-      <find>jsonItemsToBeRemoved</find>
+      <find>dominator an</find>
+      <find>removeAllT</find>
+      <find>numberofNodes</find>
+      <find>isCyclic</find>
       <find>removeAllTransitions</find>
-      <find>transitionMap.remove</find>
-      <find>transitionListMap.remove</find>
-      <find>modelCountingTime</find>
-      <find>idMa</find>
-      <find>46342</find>
-      <find>exception</find>
+      <find>numberOfNode</find>
+      <find>counter</find>
+      <find>getNodeFromID</find>
+      <find>getNode</find>
+      <find>goto</find>
+      <find>numberOfNodesReduced++</find>
+      <find>directCh</find>
+      <find>numberOfNodes</find>
+      <find>transitionlistMap.remove(</find>
+      <find>recursive</find>
+      <find>dfsToCheck</find>
+      <find>eNode</find>
+      <find>proc</find>
+      <find>numberofNodesReduced++</find>
+      <find>procCallMap</find>
+      <find>numberofNodesReduced</find>
       <find>transitionlistMap.remove</find>
-      <find>recursiveInlining</find>
-      <find>branchModel</find>
-      <find>recursiveIn</find>
-      <find>isCyclicUtil</find>
+      <find>procCa</find>
+      <find>eNodeStrin</find>
+      <find>assertionNode</find>
+      <find>branchMode</find>
+      <find>interProcItem</find>
+      <find>assertionReachabilityNode</find>
+      <find>replaceMap.put</find>
+      <find>replaceMap</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -282,8 +284,8 @@
         <option value="$PROJECT_DIR$/src/core/Program.java" />
         <option value="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/core/PathLengthAnalysis.java" />
-        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
         <option value="$PROJECT_DIR$/src/gui/CFG.java" />
+        <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
       </list>
     </option>
@@ -308,6 +310,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -330,13 +334,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579004775563" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579598908830" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -444,8 +446,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2412839" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24405092" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -454,8 +457,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32829374" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991699" visible="true" weight="0.5280778" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.31533477" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991699" visible="true" weight="0.32721382" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3650108" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
@@ -474,7 +477,7 @@
       <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.23298284" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24405092" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -482,9 +485,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.2537797" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.24190065" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32829374" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.21274298" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3650108" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
@@ -548,63 +551,56 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>1818</line>
+          <line>2631</line>
           <properties />
-          <option name="timeStamp" value="222" />
+          <option name="timeStamp" value="283" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2487</line>
+          <line>1823</line>
           <properties />
-          <option name="timeStamp" value="257" />
+          <option name="timeStamp" value="312" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>3012</line>
+          <line>2645</line>
           <properties />
-          <option name="timeStamp" value="258" />
+          <option name="timeStamp" value="313" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2578</line>
+          <line>2628</line>
           <properties />
-          <option name="timeStamp" value="259" />
+          <option name="timeStamp" value="314" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2172</line>
+          <line>3192</line>
           <properties />
-          <option name="timeStamp" value="266" />
+          <option name="timeStamp" value="351" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>3630</line>
+          <line>2729</line>
           <properties />
-          <option name="timeStamp" value="272" />
+          <option name="timeStamp" value="392" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>3710</line>
+          <line>2720</line>
           <properties />
-          <option name="timeStamp" value="273" />
+          <option name="timeStamp" value="393" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2906</line>
+          <line>2741</line>
           <properties />
-          <option name="timeStamp" value="276" />
+          <option name="timeStamp" value="404" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/output/MessageDigest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2128">
-          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/output/TokenHandler.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4807">
@@ -779,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10602">
@@ -925,10 +914,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3135">
+          <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31160">
-          <caret line="2381" column="100" selection-start-line="2381" selection-start-column="100" selection-end-line="2381" selection-end-column="100" />
+          <caret line="2381" column="93" selection-start-line="2381" selection-start-column="93" selection-end-line="2381" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -941,7 +947,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4541">
+        <state relative-caret-position="458">
           <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -949,22 +955,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/javax/swing/plaf/basic/BasicMenuItemUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="281">
+          <caret line="846" column="32" selection-start-line="846" selection-start-column="32" selection-end-line="846" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="3705" column="102" selection-start-line="3705" selection-start-column="102" selection-end-line="3705" selection-end-column="102" />
+        <state relative-caret-position="379">
+          <caret line="2735" column="40" selection-start-line="2735" selection-start-column="40" selection-end-line="2735" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#21149#21238#0" expanded="true" />
             <element signature="e#23280#23281#0" expanded="true" />
             <element signature="e#23333#23334#0" expanded="true" />
             <element signature="e#23609#23610#0" expanded="true" />

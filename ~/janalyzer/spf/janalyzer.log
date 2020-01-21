@@ -1,0 +1,58 @@
+17-Jan-2020 02:04:25
+---------------------------------
+[00:00] ENTRY : setGUIParamSetup_FromArg
+[00:00] ENTRY : |   setGUIParamSetup_Mode: String - argList empty
+[00:00] EXIT  : |   setGUIParamSetup_Mode: String - argList empty
+[00:00] ENTRY : |   setGUIParamSetup_Visible
+[00:00] EXIT  : |   setGUIParamSetup_Visible
+[00:00] EXIT  : setGUIParamSetup_FromArg
+[00:00] EVENT : <ActionPerformed> wcaCostModelComboBox
+[00:00] EVENT : <ActionPerformed> wcaCostModelComboBox
+[00:00] EVENT : <ActionPerformed> wcaSymTypeComboBox - int
+[00:00] EVENT : <ActionPerformed> scSymTypeComboBox - int
+[00:00] DEBUG : bin dir not found - creating one
+[00:00] EXIT  : Initialization complete
+[00:00] ENTRY : generateTestMethodList
+[00:00] DEBUG : |   generateTestMethodList found 3 entries
+[00:00] EXIT  : generateTestMethodList
+[00:00] ENTRY : generateIterMethodList: class = LMain
+[00:00] DEBUG : |   found 3 method entries
+[00:00] DEBUG : |   - method set to default: test(II)V
+[00:00] EXIT  : generateIterMethodList
+[00:00] ENTRY : updateTestMethodArguments: LMain.test(II)V
+[00:00] DEBUG : |   getArgumentParamMode: <Primordial,I> -> Primitive
+[00:00] ARGS  : |   - Test P1: type = Integer, mode = Primitive
+[00:00] AUTO  : |   - Test P1: Primitive set to int
+[00:00] AUTO  : |   - Test P1: Element set to int
+[00:00] ENTRY : |   updateTestMethodParameter: P1 -> INIT
+[00:00] EXIT  : |   updateTestMethodParameter
+[00:00] DEBUG : |   getArgumentParamMode: <Primordial,I> -> Primitive
+[00:00] ARGS  : |   - Test P2: type = Integer, mode = Primitive
+[00:00] AUTO  : |   - Test P2: Primitive set to int
+[00:00] AUTO  : |   - Test P2: Element set to int
+[00:00] ENTRY : |   updateTestMethodParameter: P2 -> INIT
+[00:00] EXIT  : |   updateTestMethodParameter
+[00:00] ENTRY : |   generateIterClassList: P0: Class = , Method = 
+[00:00] EXIT  : |   generateIterClassList
+[00:00] ENTRY : |   setGUIParamSetup_FromArg
+[00:00] ENTRY : |   |   setGUIParamSetup_Mode: Primitive - offset 0
+[00:00] ENTRY : |   |   |   setGUIParamSetup_Visible
+[00:00] EXIT  : |   |   |   setGUIParamSetup_Visible
+[00:00] EXIT  : |   |   setGUIParamSetup_Mode
+[00:00] EXIT  : |   setGUIParamSetup_FromArg
+[00:00] ENTRY : |   setGUIParamSetup_ArgSelect (0)
+[00:00] DEBUG : |   |   setGUIParamSetup: param 1 = Integer
+[00:00] EXIT  : |   setGUIParamSetup_ArgSelect
+[00:00] ENTRY : |   setGUIParamSetup_Mode: Primitive - offset 0
+[00:00] ENTRY : |   |   setGUIParamSetup_Visible
+[00:00] EXIT  : |   |   setGUIParamSetup_Visible
+[00:00] EXIT  : |   setGUIParamSetup_Mode
+[00:00] ENTRY : |   setGUIParamSetup_ModesEnabled: arg 0
+[00:00] DEBUG : |   |   getArgumentParamMode: <Primordial,I> -> Primitive
+[00:00] DEBUG : |   |    - argType Integer: false,false,true,false,false
+[00:00] EXIT  : |   setGUIParamSetup_ModesEnabled
+[00:00] EXIT  : updateTestMethodArguments
+[00:00] ENTRY : enableTestSetupListeners
+[00:00] EXIT  : enableTestSetupListeners
+[00:00] ENTRY : enableParameterSetupListeners
+[00:00] EXIT  : enableParameterSetupListeners

@@ -1801,22 +1801,28 @@ public class MainFrame extends javax.swing.JFrame {
       nodeMap.put(jsonItemID, counter);
       idMap.put(counter,jsonItemID);
       counter++;
+      numberofNodes=counter;
     }
     return nodeMap.get(jsonItemID).toString();
   }
 
-  private void removeAllTransitions(String node, String assertNode, Procedure proc) {
+  private void removeAllTransitions(String node, String assertNode, Procedure proc, boolean[] visited) {
+    if(visited[Integer.parseInt(node)])
+      return;
+    visited[Integer.parseInt(node)] = true;
     List<MarkovChainInformation> list = transitionlistMap.get(node);
     if(list == null)
       return;
     for(MarkovChainInformation mi : list) {
       if(!mi.getFromNode().equals(mi.getToNode()) && !mi.getToNode().equals(assertNode)) {
-        removeAllTransitions(mi.getToNode(), assertNode, proc);
+        removeAllTransitions(mi.getToNode(), assertNode, proc, visited);
         ISSABasicBlock aNode = itemNodeMap.get(idMap.get(Integer.parseInt(assertNode)));
         ISSABasicBlock mNode = itemNodeMap.get(idMap.get(Integer.parseInt(mi.getToNode())));
         Set<ISSABasicBlock> aNodeDominatorSet = proc.getDominatorSet(aNode);
-        if(assertNode.equals(assertionNode) && !aNodeDominatorSet.contains(mNode))
-          transitionlistMap.remove(mi.getToNode());
+        if(assertNode.equals(assertionNode) && !aNodeDominatorSet.contains(mNode)) {
+            //numberofNodesReduced += 1;
+            transitionlistMap.remove(mi.getToNode());
+        }
       }
     }
   }
@@ -1849,14 +1855,51 @@ public class MainFrame extends javax.swing.JFrame {
     String prevUpdatedJsonItem = "";
 
 
+    //numberofNodes = jsonItems.size();
+
+    String completeJSON = "[ ";
+    int i = 0;
+    for (String jsonItem: jsonItems) {
+
+      String jsonItemID = jsonItem.split(" ")[4];
+      String jsonItemNodeNumber = jsonItemID.split("#")[1];
+
+      //remmeber this: Procedure cureProc = this.currentCFG.getProcedure();
+      if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
+        jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\"");
+      }
+      completeJSON += jsonItem;
+      if (i < jsonItems.size() - 1)
+        completeJSON += ",\n";
+      i++;
+
+      // Recursive inlining of function calls
+      if (jsonItem.contains("Invoke") && !jsonItem.contains("<init>")) {
+        completeJSON = recursiveInlining(invokedProcedures, jsonItems, i, jsonItemID, jsonItem, completeJSON, 0);
+      }
+    }
+    completeJSON += " ]";
+
+    System.out.println(completeJSON);
+
+
+    String[] interProcItems = completeJSON.split("\n");
+    List<String> interProcItemsList = new ArrayList<String>(interProcItems.length);
+    for (String s:interProcItems) {
+      interProcItemsList.add( s );
+    }
+
+
     long dts5 = System.currentTimeMillis();
 
     //for (String jsonItem: jsonItems) {
-    for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
+    for(Iterator<String> it = interProcItemsList.iterator(); it.hasNext();) {
       String jsonItem = it.next();
+      if(jsonItem.startsWith("[ "))
+        jsonItem = jsonItem.substring(2);
       String jsonItemID = jsonItem.split(" ")[4];
       String jsonItemNodeNumber = jsonItemID.split("#")[1];
-      if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
+      if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"true\"")) {
         String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
         String trueNode = outgoingNodes[0].split("\"")[1];
         String falseNode = "";
@@ -1887,8 +1930,16 @@ public class MainFrame extends javax.swing.JFrame {
           boolean sameLineFlag = false;
           if(!jsonItemId1.equals("") && !jsonItemId2.equals("")) {
             ISSABasicBlock n1 = itemNodeMap.get(jsonItemId1);
+            if(n1 == null) {
+              String[] jsonItem1Arr = jsonItemId1.split("#");
+              n1 = itemNodeMap.get(jsonItem1Arr[0]+"#"+jsonItem1Arr[jsonItem1Arr.length-1]);
+            }
             ISSABasicBlock n2 = itemNodeMap.get(jsonItemId2);
-            if (nodeLineMap.get(n1) == nodeLineMap.get(n2)) {
+            if(n2 == null) {
+              String[] jsonItem2Arr = jsonItemId2.split("#");
+              n2 = itemNodeMap.get(jsonItem2Arr[0]+"#"+jsonItem2Arr[jsonItem2Arr.length-1]);
+            }
+            if (n1 != null && n2 != null && nodeLineMap.get(n1) == nodeLineMap.get(n2)) {
               sameLineFlag = true;
             }
           }
@@ -1985,8 +2036,8 @@ public class MainFrame extends javax.swing.JFrame {
     for (int j = 0; j < jsonItemsToBeAdded.size(); j ++) {
       String it = jsonItemsToBeAdded.get(j);
       String itId = it.split(" ")[4];
-      for (int i = 0; i < jsonItemsToBeRemoved.size(); i ++) {
-        String item = jsonItemsToBeRemoved.get(i);
+      for (int k = 0; k < jsonItemsToBeRemoved.size(); k++) {
+        String item = jsonItemsToBeRemoved.get(k);
         String itemId = item.split(" ")[4];
         if (itemId.equals(itId)) {
             j++;
@@ -1997,23 +2048,38 @@ public class MainFrame extends javax.swing.JFrame {
             continue;
         }
         if(j < jsonItemsToBeAdded.size()) {
+//            String[] itemIDArr = itemId.split("#");
+//            itemId = itemIDArr[0] + "#" + itemIDArr[itemIDArr.length-1];
+//            String[] itIDArr = itId.split("#");
+//            itId = itIDArr[0] + "#" + itIDArr[itIDArr.length-1];
             replaceMap.put("\"" + itemId + "\"", "\"" + itId + "\"");
         }
       }
     }
+    numberofNodesMerged = jsonItemsToBeRemoved.size()-jsonItemsToBeAdded.size();
     for (String item : jsonItemsToBeRemoved) {
-      jsonItems.remove(item);
+      interProcItemsList.remove(item);
     }
     for(String item : jsonItemsToBeAdded) {
-      jsonItems.add(item);
+      interProcItemsList.add(item);
     }
 
     List<String> newJsonItems = new ArrayList<>();
-    for(Iterator<String> it = jsonItems.iterator(); it.hasNext();) {
+    for(Iterator<String> it = interProcItemsList.iterator(); it.hasNext();) {
       String item  = it.next();
       boolean flag = false;
       for (Map.Entry<String,String> entry : replaceMap.entrySet()) {
+//        String[] itIDArr = entry.getKey().split("#");
+//        String itID = itIDArr[0] + "#" + itIDArr[itIDArr.length-1];
+//        if(item.contains(itID)) {
         if(item.contains(entry.getKey())) {
+//          String[] upitIDArr = entry.getValue().split("#");
+//          String upitID = "";
+//          if(upitIDArr.length == 3)
+//            upitID = upitIDArr[0] + "#" + itIDArr[1] + "#" + upitIDArr[upitIDArr.length-1];
+//          else
+//            upitID = entry.getValue();
+//          String newItem = item.replace(entry.getKey(), upitID);
           String newItem = item.replace(entry.getKey(), entry.getValue());
           newJsonItems.add(newItem);
           flag = true;
@@ -2023,8 +2089,8 @@ public class MainFrame extends javax.swing.JFrame {
         newJsonItems.add(item);
       }
     }
-    jsonItems.clear();
-    jsonItems.addAll(newJsonItems);
+    interProcItemsList.clear();
+    interProcItemsList.addAll(newJsonItems);
 
 
     long dfs5 = System.currentTimeMillis();
@@ -2092,35 +2158,11 @@ public class MainFrame extends javax.swing.JFrame {
     //}
 
 
-    String completeJSON = "[ ";
-    int i = 0;
-    for (String jsonItem: jsonItems) {
 
-      String jsonItemID = jsonItem.split(" ")[4];
-      String jsonItemNodeNumber = jsonItemID.split("#")[1];
-
-      //remmeber this: Procedure cureProc = this.currentCFG.getProcedure();
-      if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
-        jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\"");
-      }
-      completeJSON += jsonItem;
-      if (i < jsonItems.size() - 1)
-        completeJSON += ",\n";
-      i++;
-
-      // Recursive inlining of function calls
-      if (jsonItem.contains("Invoke") && !jsonItem.contains("<init>")) {
-        completeJSON = recursiveInlining(invokedProcedures, jsonItems, i, jsonItemID, jsonItem, completeJSON, 0);
-      }
-    }
-    completeJSON += " ]";
-
-    System.out.println(completeJSON);
 
 
     //MARKOV CHAIN CONSTRUCTION
-    String[] interProcItems = completeJSON.split("\n");
-    numberofNodes = interProcItems.length;
+    numberofNodes = interProcItemsList.size() + numberofNodesMerged;
 
     String graphOutput = "digraph {\n";
     String prismModel = "dtmc\n\n" + "module " + modelName + "\n\n";
@@ -2128,7 +2170,7 @@ public class MainFrame extends javax.swing.JFrame {
     prismModel += "\t" + "s : [0.." + numberofNodes +"] init 0;\n\n";
 
 
-    for (String jsonItem: interProcItems) {
+    for (String jsonItem: interProcItemsList) {
 
       if(jsonItem.startsWith("[ "))
         jsonItem = jsonItem.substring(2);
@@ -2181,6 +2223,7 @@ public class MainFrame extends javax.swing.JFrame {
 
           if (jsonItem.contains("$assertionsDisabled")) {
             assertionReachabilityNode = falseNode;
+            assertionNode = assertionReachabilityNode;
 
             //quick naive fix to deal with assertion reachble node when there is an exception to handle
             if (!jsonItem.contains("\"exception\" : \"true\"")) {
@@ -2488,7 +2531,13 @@ public class MainFrame extends javax.swing.JFrame {
     ISSABasicBlock prevImDom = node;
     ISSABasicBlock imDom = proc.getImmediateDominator(node);
 
-      String imDomNode = Integer.toString(nodeMap.get(nodeItemMap.get(imDom)));
+    String nodeItem = nodeItemMap.get(imDom);
+    String imDomNode = "";
+    if(nodeMap.get(nodeItem) == null) {
+      String[] nodeItemArr = nodeItem.split("#");
+      nodeItem = nodeItemArr[0] + "#1#" + nodeItemArr[nodeItemArr.length-1];
+    }
+      imDomNode = Integer.toString(nodeMap.get(nodeItem));
       if(procCallMap.containsKey(nodeItemMap.get(imDom))) {
 
           String idProc = procCallMap.get(nodeItemMap.get(imDom));
@@ -2520,12 +2569,19 @@ public class MainFrame extends javax.swing.JFrame {
       //do something
       String ns = nodeItemMap.get(imDom);
       if(nodeMap.get(ns) == null) {
+//          String[] itIDArr = ns.split("#");
+//          String itID = itIDArr[0] + "#" + itIDArr[itIDArr.length-1];
+//          String updatedNS = replaceMap.get("\""+itID+"\"");
           String updatedNS = replaceMap.get("\""+ns+"\"");
+//          if(itIDArr.length == 3) {
+//            String[] updateditIDArr = updatedNS.split("#");
+//            updatedNS = updateditIDArr[0] + "#" + itIDArr[1] + "#" + itIDArr[itIDArr.length - 1];
+//          }
           if(updatedNS != null) {
             ns = updatedNS.substring(1,updatedNS.length()-1);
             if(nodeMap.get(ns) == null) {
               ns = ns.split("#")[0] + "#1#" + ns.split("#")[1]; //todo: change this implementation
-             }
+            }
           }
       }
       if(nodeMap.get(ns) != null) {
@@ -2533,13 +2589,20 @@ public class MainFrame extends javax.swing.JFrame {
 
         ns = nodeItemMap.get(prevImDom);
           if(nodeMap.get(ns) == null) {
-              String updatedNS = replaceMap.get("\""+ns+"\"");
-              if(updatedNS != null) {
-                  ns = updatedNS.substring(1,updatedNS.length()-1);
-                  if(nodeMap.get(ns) == null) {
-                      ns = ns.split("#")[0] + "#1#" + ns.split("#")[1]; //todo: change this implementation
-                  }
-              }
+//              String[] itIDArr = ns.split("#");
+//              String itID = itIDArr[0] + "#" + itIDArr[itIDArr.length-1];
+//              String updatedNS = replaceMap.get("\""+itID+"\"");
+            String updatedNS = replaceMap.get("\""+ns+"\"");
+//              if(itIDArr.length == 3) {
+//                String[] updateditIDArr = updatedNS.split("#");
+//                updatedNS = updateditIDArr[0] + "#" + itIDArr[1] + "#" + itIDArr[itIDArr.length - 1];
+//              }
+            if(updatedNS != null) {
+                ns = updatedNS.substring(1,updatedNS.length()-1);
+                if(nodeMap.get(ns) == null) {
+                    ns = ns.split("#")[0] + "#1#" + ns.split("#")[1]; //todo: change this implementation
+                }
+            }
           }
         if (nodeMap.get(ns) != null) {
           String toNode = Integer.toString(nodeMap.get(ns));
@@ -2565,74 +2628,69 @@ public class MainFrame extends javax.swing.JFrame {
             list.add(directChain);
             transitionlistMap.put(fromNode, list);
               String m = idMap.get(Integer.parseInt(fromNode));
-              if(modelCountingTimeMap.get(m) != null)
+              if(modelCountingTimeMap.get(m) != null) {
+                  //numberofNodesReduced += 2;
                   extraModelCountingTime += modelCountingTimeMap.get(m);
+              }
 
 
             for (MarkovChainInformation mi : toList) {
               if (!mi.getToNode().equals(toNode)) {
-                removeAllTransitions(mi.getToNode(), toNode,proc);
+                boolean[] removeVisited = new boolean[numberofNodes+1];
+                removeAllTransitions(mi.getToNode(), toNode,proc, removeVisited);
                 ISSABasicBlock aNode = itemNodeMap.get(idMap.get(Integer.parseInt(toNode)));
                 ISSABasicBlock mNode = itemNodeMap.get(idMap.get(Integer.parseInt(mi.getToNode())));
                 Set<ISSABasicBlock> aNodeDominatorSet = proc.getDominatorSet(aNode);
-                if(toNode.equals(assertionNode) && !aNodeDominatorSet.contains(mNode))
-                  transitionlistMap.remove(mi.getToNode());
-                  m = idMap.get(Integer.parseInt(mi.getToNode()));
-                  if(modelCountingTimeMap.get(m) != null)
-                      extraModelCountingTime += modelCountingTimeMap.get(m);
+                if(toNode.equals(assertionNode) && !aNodeDominatorSet.contains(mNode)) {
+                    //numberofNodesReduced += 1;
+                    transitionlistMap.remove(mi.getToNode());
+                }
+                m = idMap.get(Integer.parseInt(mi.getToNode()));
+                if(modelCountingTimeMap.get(m) != null) {
+                    //numberofNodesReduced += 2;
+                    extraModelCountingTime += modelCountingTimeMap.get(m);
+                }
               }
             }
           }
         }
       }
 
-      prevImDom = imDom;
+        prevImDom = imDom;
         imDom = proc.getImmediateDominator(imDom);
-        if(procCallMap.containsKey(nodeItemMap.get(imDom))) {
-
-            String idProc = procCallMap.get(nodeItemMap.get(imDom));
-            Procedure procedure = itemProcMap.get(idProc.split("#")[0]);
-
-            while(!idProc.equals("")) {
-                for (ISSABasicBlock nd : procedure.getNodeSet()) {
-                    String n = nodeItemMap.get(nd);
-                    if (modelCountingTimeMap.get(n) != null)
-                        extraModelCountingTime += modelCountingTimeMap.get(n);
-                }
-                if(procCallMap.containsKey(idProc)) {
-                    idProc = procCallMap.get(idProc);
-                    procedure = itemProcMap.get(idProc.split("#")[0]);
-                } else {
-                    idProc = "";
-                }
-            }
-        }
-
-
-
-        //proc = itemProcMap.get(nodeItemMap.get(imDom).split("#")[0]);
-//      imDom = proc.getImmediateDominator(imDom);
-//      String newID = nodeItemMap.get(imDom).split("#")[0]+"#1#"+nodeItemMap.get(imDom).split("#")[1];
-//        imDomNode = Integer.toString(nodeMap.get(newID));
-//        if(interProcDomMap.get(imDomNode) != null) {
-//            imDomNode = interProcDomMap.get(imDomNode);
-//            String imDomNodeID = idMap.get(Integer.parseInt(imDomNode));
-//            String[] imDomNodeIDsplitted = imDomNodeID.split("#");
-//            imDomNodeID = imDomNodeIDsplitted[0] + "#"+ imDomNodeIDsplitted[imDomNodeIDsplitted.length-1];
-//            imDom = itemNodeMap.get(imDomNodeID);
+//        if(procCallMap.containsKey(nodeItemMap.get(imDom))) {
+//
+//            String idProc = procCallMap.get(nodeItemMap.get(imDom));
+//            Procedure procedure = itemProcMap.get(idProc.split("#")[0]);
+//
+//            while(!idProc.equals("")) {
+//                for (ISSABasicBlock nd : procedure.getNodeSet()) {
+//                    numberofNodesReduced++;
+//                    String n = nodeItemMap.get(nd);
+//                    if (modelCountingTimeMap.get(n) != null)
+//                        extraModelCountingTime += modelCountingTimeMap.get(n);
+//                }
+//                if(procCallMap.containsKey(idProc)) {
+//                    idProc = procCallMap.get(idProc);
+//                    procedure = itemProcMap.get(idProc.split("#")[0]);
+//                } else {
+//                    idProc = "";
+//                }
+//            }
 //        }
+
 
       if(imDom.equals(prevImDom))
         break;
     }
 
-      long dfs2 = System.currentTimeMillis();
-      long det2 = dfs2 - dts2;
+    long dfs2 = System.currentTimeMillis();
+    long det2 = dfs2 - dts2;
 
 
 
     //unrolling loop
-      long dts3 = System.currentTimeMillis();
+    long dts3 = System.currentTimeMillis();
 
     boolean[] visited = new boolean[numberofNodes+1];
     boolean[] recStack = new boolean[numberofNodes+1];
@@ -2640,10 +2698,115 @@ public class MainFrame extends javax.swing.JFrame {
 
     isCyclicUtil(0, 0, visited, recStack);
 
+    //to remove all the unnecessary branching which are not relared to assertion node
+    String aNodeID = idMap.get(Integer.parseInt(assertionNode));
+    if(itemNodeMap.get(aNodeID) == null) {
+      String[] aNodeIDArr = aNodeID.split("#");
+      aNodeID = aNodeIDArr[0] + "#" + aNodeIDArr[aNodeIDArr.length-1];
+    }
+    ISSABasicBlock aNode = itemNodeMap.get(aNodeID);
+    aNode = proc.getImmediateDominator(aNode);
+
+    Set<ISSABasicBlock> assertionDomSet = proc.getDominatorSet(aNode);
+
+
+    //Add nodes from other methods in the dominator set
+    Set<ISSABasicBlock> tempSet = new HashSet<>();
+    for(ISSABasicBlock domNode : assertionDomSet) {
+      String itemID = nodeItemMap.get(domNode);
+
+      if(nodeMap.get(itemID) == null) {
+        //String[] itemIDArr = itemID.split("#");
+        //itemID = itemIDArr[0] + "#" + itemIDArr[itemIDArr.length - 1];
+        if(replaceMap.containsKey("\""+itemID+"\"")) {
+
+          itemID = replaceMap.get("\""+itemID+"\"");
+
+//          if(itemIDArr.length == 3) {
+//            String[] upitemIDArr = itemID.split("#");
+//            itemID = upitemIDArr[0] + "#" + itemIDArr[1] + "#" + itemIDArr[upitemIDArr.length - 1];
+//          }
+
+          itemID = itemID.substring(1,itemID.length()-1);
+        }
+        if(nodeMap.get(itemID) == null) {
+          String[] itemIDArr = itemID.split("#");
+          itemID = itemIDArr[0] + "#1#" + itemIDArr[itemIDArr.length - 1];
+          if(replaceMap.containsKey("\""+itemID+"\"")) {
+            itemID = replaceMap.get("\""+itemID+"\"");
+            itemID = itemID.substring(1,itemID.length()-1);
+          }
+        }
+      }
+
+      String item = Integer.toString(nodeMap.get(itemID));
+
+      if(interProcDomMap.containsKey(item)) {
+        String newItemID = idMap.get(Integer.parseInt(interProcDomMap.get(item)));
+        String[] newItemIDArr = newItemID.split("#");
+        newItemID = newItemIDArr[0] + "#" + newItemIDArr[newItemIDArr.length-1];
+        ISSABasicBlock newNode = itemNodeMap.get(newItemID);
+        Procedure newProc = itemProcMap.get(newItemID.split("#")[0]);
+        tempSet.addAll(newProc.getDominatorSet(newNode));
+      }
+    }
+
+    assertionDomSet.addAll(tempSet);
+
+    for (Map.Entry<String,List<MarkovChainInformation>> entry : transitionlistMap.entrySet()) {
+      String eNodeID = idMap.get(Integer.parseInt(entry.getKey()));
+      if(itemNodeMap.get(eNodeID) == null) {
+        String[] eNodeIDArr = eNodeID.split("#");
+        eNodeID = eNodeIDArr[0] + "#" + eNodeIDArr[eNodeIDArr.length-1];
+      }
+      ISSABasicBlock eNode = itemNodeMap.get(eNodeID);
+
+      //if(!nodeItemMap.get(aNode).split("#")[0].equals(nodeItemMap.get(eNode).split("#")[0]))
+      //  continue;
+      if(eNode != null && !assertionDomSet.contains(eNode) && entry.getValue().size() == 2) {
+        List<MarkovChainInformation> miList = entry.getValue();
+        miList.clear();
+        Procedure nodeProc = itemProcMap.get(nodeItemMap.get(eNode).split("#")[0]);
+        ISSABasicBlock directNode = nodeProc.getImmediatePostDominator(eNode);
+        String eNodeItem = nodeItemMap.get(eNode);
+        if(nodeMap.get(eNodeItem) == null) {
+          String[] eNodeItemArr = eNodeItem.split("#");
+          eNodeItem = eNodeItemArr[0] + "#1#" + eNodeItemArr[eNodeItemArr.length-1];
+        }
+        String eNodeString = Integer.toString(nodeMap.get(eNodeItem));
+
+        String directNodeItem = nodeItemMap.get(directNode);
+        if(nodeMap.get(directNodeItem) == null) {
+          String[] directNodeItemArr = directNodeItem.split("#");
+          directNodeItem = directNodeItemArr[0] + "#1#" + directNodeItemArr[directNodeItemArr.length-1];
+        }
+        String directNodeString = Integer.toString(nodeMap.get(directNodeItem));
+        MarkovChainInformation directChain = new MarkovChainInformation(eNodeString, directNodeString, "1.0", false, false, false);
+        miList.add(directChain);
+        transitionlistMap.put(entry.getKey(),miList);
+
+        String[] eNodeItemArr = eNodeItem.split("#");
+        eNodeItem = eNodeItemArr[0] + "#" + eNodeItemArr[eNodeItemArr.length-1];
+        if(modelCountingTimeMap.get(eNodeItem) != null) {
+          extraModelCountingTime += modelCountingTimeMap.get(eNodeItem);
+        }
+      }
+    }
+
+    //code to remove unnecessary nodes after domination analysis
+    visitedToCheck = new boolean[numberofNodes+1];
+    dfsToCheck("0");
+    for(int idx=0; idx < visitedToCheck.length-1; idx++) {
+        if(!visitedToCheck[idx]) {
+            transitionlistMap.remove(Integer.toString(idx));
+            numberofNodesReduced++;
+        }
+    }
+
 
     String markovChainOutput = "digraph {\n";
     String prismOutput = "dtmc\n\n" + "module " + modelName + "\n\n";
-    if(loopbound > 0 && backEdgeExists)
+    if(loopUnrolling && loopbound > 0 && backEdgeExists)
       prismOutput += "\t" + "s : [0.." + (numberofNodes * loopbound) +"] init 0;\n\n";
     else
       prismOutput += "\t" + "s : [0.." + (numberofNodes) +"] init 0;\n\n";
@@ -2894,10 +3057,26 @@ public class MainFrame extends javax.swing.JFrame {
     System.out.println("Execution time for probabilistic analysis: " + timeElapsed + "ms");
     System.out.println("Total Execution time: " + totalExecutionTime + "ms");
     System.out.println("Total Execution time with dominator analysis: " + executionTimeWithDominatorAnalysis + "ms");
+    float percentageOfNodesReduced = (float)numberofNodesReduced/(numberofNodes+numberofNodesMerged);
+    percentageOfNodesReduced = percentageOfNodesReduced * 100;
+    System.out.println("Number of nodes reduced in subgraph: " + numberofNodesReduced + "(" + percentageOfNodesReduced + "%)") ;
     long p1execTime = totalExecutionTime - p2timeElapsed;
     long p2execTime = totalExecutionTime - p1timeElapsed;
     System.out.println("Execution time for P1: " + p1execTime + "ms");
     System.out.println("Execution time for P2: " + p2execTime + "ms");
+  }
+
+  private void dfsToCheck(String i) {
+      visitedToCheck[Integer.parseInt(i)] = true;
+
+      List<MarkovChainInformation> miList = transitionlistMap.get(i);
+
+      if(miList != null) {
+          for(MarkovChainInformation mi : miList) {
+              if(!visitedToCheck[Integer.parseInt(mi.getToNode())])
+                dfsToCheck(mi.getToNode());
+          }
+      }
   }
 
   private boolean isCyclicUtil(int s, int i, boolean[] visited, boolean[] recStack) {
@@ -3002,8 +3181,9 @@ public class MainFrame extends javax.swing.JFrame {
                       if(domSet.contains(miToNode)) {
                           mi.updateProb("1.0");
                           String m = idMap.get(Integer.parseInt(mi.getFromNode()));
-                          if(modelCountingTimeMap.get(m) != null)
+                          if(modelCountingTimeMap.get(m) != null) {
                               extraModelCountingTime += modelCountingTimeMap.get(m);
+                          }
                       } else {
                           miToRemove = mi;
                       }
@@ -3012,8 +3192,9 @@ public class MainFrame extends javax.swing.JFrame {
                   for(String m : miListTORemove) {
                       transitionlistMap.remove(m);
                       m = idMap.get(Integer.parseInt(m));
-                      if(modelCountingTimeMap.get(m) != null)
-                        extraModelCountingTime += modelCountingTimeMap.get(m);
+                      if(modelCountingTimeMap.get(m) != null) {
+                          extraModelCountingTime += modelCountingTimeMap.get(m);
+                      }
                   }
               }
           }
@@ -3234,12 +3415,16 @@ public class MainFrame extends javax.swing.JFrame {
 
       if (symTab.isNumberConstant(var1)) {
         int v1 = symTab.getIntValue(var1);
-        cons += v1 + " ";
+        if(v1 < 0)
+          v1 = v1 * (-1);
+        cons += v1+" ";
       } else {
         cons += vars.get(0) + " ";
       }
       if (symTab.isNumberConstant(var2)) {
         int v2 = symTab.getIntValue(var2);
+        if(v2 < 0)
+          v2 = v2 * (-1);
         cons += v2;
       } else {
         cons += vars.get(1);
@@ -3709,6 +3894,8 @@ public class MainFrame extends javax.swing.JFrame {
             else {
 
                 exitOutgoingNew = jsonItems.get(i).split(" ")[4];
+
+                //exitOutgoingNew = jsonItems.get(i).split("\"outgoing\" : \\{ \"")[1].split("\"")[0];
                 //System.out.println("exitOutgoingNew: " + exitOutgoingNew);
                 String oldExitOutgoingpart = exitOutgoingNew.split("#")[0] + "#";
                 //System.out.println("oldExitOutgoingpart: " + oldExitOutgoingpart);
@@ -3883,6 +4070,8 @@ public class MainFrame extends javax.swing.JFrame {
 
   private int                                       recursiveBound;
   private int                                       numberofNodes;
+  private int                                       numberofNodesMerged;
+  private int                                       numberofNodesReduced;
   private boolean                                   loopUnrolling = false;
   private int                                       loopbound = 4;
   public static long                                dependencyAnalysisTime = 0;
@@ -3902,6 +4091,7 @@ public class MainFrame extends javax.swing.JFrame {
   private static Map<String, String> interProcDomMap = new HashMap<>();
     private static Map<String, String> interProcPostDomMap = new HashMap<>();
     private static Map<String, String> procCallMap = new HashMap<>();
+  private static Map<String, String> procCallReverseMap = new HashMap<>();
 
   private Map<String, Map<Double, Set<Procedure>>>  jBondMap = new TreeMap<>();
   static public Set<Statement> allStmtSet = new HashSet<>();
@@ -3912,12 +4102,13 @@ public class MainFrame extends javax.swing.JFrame {
   static public Map<ISSABasicBlock, String> nodeItemMap = new HashMap<>();
   static private Map<String,Long> modelCountingTimeMap = new HashMap<>();
   static private Map<String,List<String>> lineItemsMap = new HashMap<>();
+  static private boolean[] visitedToCheck;
 
   static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");
 
   final public void refreshDrawing() {
-    if (this.currentPDG != null)
-      showProcedureDependecenGraph(this.currentPDG.getProcedure());
+    if (this.currentPDG != null)showProcedureDependecenGraph(this.currentPDG.getProcedure());
+
     else if (this.currentCFG != null)
       showControlFlowGraph(this.currentCFG.getProcedure());
     else
