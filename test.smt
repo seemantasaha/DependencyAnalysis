@@ -1,0 +1,5 @@
+(declare-fun v4() Int)
+(declare-fun v5() Int)
+(assert (= v5 327670))
+(assert (< v4 v5))
+(check-sat)

@@ -1982,7 +1982,7 @@ public class MainFrame extends javax.swing.JFrame {
                   lineItemsMap.put(jsonItem1, itemlist);
                   lineItemsMap.put(jsonItem, itemlist);
 
-                  insTotranslate = "not (" + insTotranslate + ") and " + insn;
+                  insTotranslate = "not (" + insTotranslate + ") and not (" + insn + ")";
                   String updatedJsonItem = jsonItem.replace(insn, insTotranslate);
                   jsonItemsToBeAdded.add(updatedJsonItem);
                   if(!prevUpdatedJsonItem.equals("")) {
@@ -2190,13 +2190,20 @@ public class MainFrame extends javax.swing.JFrame {
         BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
         BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
 
-        double true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+        double true_prob = 0.0;
+        double false_prob = 0.0;
+
+        String[] ins_part = ins_to_translate.split("and");
+
+        if(ins_part.length >= 2 && ins_part[1].contains("not")) {
+          false_prob = cons_count.doubleValue() / dom_count.doubleValue();
+          true_prob = 1.0 - true_prob;
+        } else {
+          true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+          false_prob = 1.0 - true_prob;
+        }
 
         System.out.println("Probability of true branch: " + true_prob);
-
-        double false_prob = 1.0 - true_prob;
-
-
 
 
         //end: additional code for counting secret dependent branches
@@ -2341,11 +2348,19 @@ public class MainFrame extends javax.swing.JFrame {
               BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
               BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
 
-              double true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+              double true_prob = 0.0;
+              double false_prob = 0.0;
 
-              System.out.println("Probability of true branch: " + true_prob);
+              String[] ins_part = ins_to_translate.split("and");
 
-              double false_prob = 1.0 - true_prob;
+              if(ins_part.length >= 2 && ins_part[1].contains("not")) {
+                false_prob = cons_count.doubleValue() / dom_count.doubleValue();
+                true_prob = 1.0 - true_prob;
+              } else {
+                true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+                false_prob = 1.0 - true_prob;
+              }
+
               //end: additional code for counting secret dependent branches
               jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\", \"true_branch_probability\" : \"" + true_prob + "\", \"false_branch_probability\" : \"" + false_prob + "\"");
 
@@ -2773,12 +2788,20 @@ public class MainFrame extends javax.swing.JFrame {
           String[] eNodeItemArr = eNodeItem.split("#");
           eNodeItem = eNodeItemArr[0] + "#1#" + eNodeItemArr[eNodeItemArr.length-1];
         }
+        if(nodeMap.get(eNodeItem) == null) {
+          eNodeItem = replaceMap.get("\""+eNodeItem+"\"");
+          eNodeItem = eNodeItem.substring(1,eNodeItem.length()-1);
+        }
         String eNodeString = Integer.toString(nodeMap.get(eNodeItem));
 
         String directNodeItem = nodeItemMap.get(directNode);
         if(nodeMap.get(directNodeItem) == null) {
           String[] directNodeItemArr = directNodeItem.split("#");
           directNodeItem = directNodeItemArr[0] + "#1#" + directNodeItemArr[directNodeItemArr.length-1];
+        }
+        if(nodeMap.get(directNodeItem) == null) {
+          directNodeItem = replaceMap.get("\""+directNodeItem+"\"");
+          directNodeItem = directNodeItem.substring(1,directNodeItem.length()-1);
         }
         String directNodeString = Integer.toString(nodeMap.get(directNodeItem));
         MarkovChainInformation directChain = new MarkovChainInformation(eNodeString, directNodeString, "1.0", false, false, false);
@@ -3417,7 +3440,10 @@ public class MainFrame extends javax.swing.JFrame {
         int v1 = symTab.getIntValue(var1);
         if(v1 < 0)
           v1 = v1 * (-1);
-        cons += v1+" ";
+//        if(v1 >= 10000)
+//          cons += vars.get(0) + " ";
+//        else
+          cons += v1+" ";
       } else {
         cons += vars.get(0) + " ";
       }
@@ -3425,7 +3451,10 @@ public class MainFrame extends javax.swing.JFrame {
         int v2 = symTab.getIntValue(var2);
         if(v2 < 0)
           v2 = v2 * (-1);
-        cons += v2;
+//        if(v2 >= 10000)
+//          cons += vars.get(1) + " ";
+//        else
+          cons += v2+" ";
       } else {
         cons += vars.get(1);
       }

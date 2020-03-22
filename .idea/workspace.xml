@@ -6,10 +6,6 @@
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNode_swapNode.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LNode_swapNode.csl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNode_swapNode.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LNode_swapNode.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNode_swapNode.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LNode_swapNode.sm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
@@ -108,7 +104,6 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -145,7 +140,7 @@
         <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="608">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
+              <caret line="42" column="73" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -153,8 +148,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
+            <state relative-caret-position="4541">
+              <caret line="285" column="63" selection-start-line="285" selection-start-column="63" selection-end-line="285" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,8 +160,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="2735" column="40" selection-start-line="2735" selection-start-column="40" selection-end-line="2735" selection-end-column="40" />
+            <state relative-caret-position="353">
+              <caret line="2772" column="44" selection-start-line="2772" selection-start-column="44" selection-end-line="2772" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#21149#21238#0" expanded="true" />
@@ -223,12 +218,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dominator an</find>
-      <find>removeAllT</find>
-      <find>numberofNodes</find>
-      <find>isCyclic</find>
-      <find>removeAllTransitions</find>
-      <find>numberOfNode</find>
       <find>counter</find>
       <find>getNodeFromID</find>
       <find>getNode</find>
@@ -253,6 +242,12 @@
       <find>assertionReachabilityNode</find>
       <find>replaceMap.put</find>
       <find>replaceMap</find>
+      <find>Integer.pa</find>
+      <find>3115</find>
+      <find>Constraint solving time:</find>
+      <find>unsatis</find>
+      <find>transl</find>
+      <find>ins_to_translate</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -297,10 +292,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-63" />
-    <option name="y" value="244" />
-    <option name="width" value="1647" />
-    <option name="height" value="836" />
+    <option name="x" value="67" />
+    <option name="y" value="25" />
+    <option name="width" value="733" />
+    <option name="height" value="575" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -338,7 +333,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579598908830" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579948443497" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -445,7 +440,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="25" width="733" height="575" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24405092" />
@@ -457,7 +452,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32829374" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4991699" visible="true" weight="0.32721382" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.32721382" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3650108" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -551,7 +546,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2631</line>
+          <line>2646</line>
           <properties />
           <option name="timeStamp" value="283" />
         </line-breakpoint>
@@ -563,39 +558,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2645</line>
+          <line>2660</line>
           <properties />
           <option name="timeStamp" value="313" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2628</line>
+          <line>2643</line>
           <properties />
           <option name="timeStamp" value="314" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>3192</line>
+          <line>3215</line>
           <properties />
           <option name="timeStamp" value="351" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2729</line>
+          <line>2794</line>
           <properties />
-          <option name="timeStamp" value="392" />
+          <option name="timeStamp" value="406" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2720</line>
+          <line>2197</line>
           <properties />
-          <option name="timeStamp" value="393" />
+          <option name="timeStamp" value="407" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2741</line>
+          <line>2353</line>
           <properties />
-          <option name="timeStamp" value="404" />
+          <option name="timeStamp" value="408" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -775,13 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10602">
-          <caret line="591" selection-start-line="591" selection-end-line="591" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/SliceFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1596">
@@ -921,6 +909,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/javax/swing/plaf/basic/BasicMenuItemUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="846" column="32" selection-start-line="846" selection-start-column="32" selection-end-line="846" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3135">
@@ -941,31 +943,24 @@
     <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <caret line="42" column="73" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/Loop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="65" />
+        <state relative-caret-position="4541">
+          <caret line="285" column="63" selection-start-line="285" selection-start-column="63" selection-end-line="285" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/javax/swing/plaf/basic/BasicMenuItemUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="846" column="32" selection-start-line="846" selection-start-column="32" selection-end-line="846" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="2735" column="40" selection-start-line="2735" selection-start-column="40" selection-end-line="2735" selection-end-column="40" />
+        <state relative-caret-position="353">
+          <caret line="2772" column="44" selection-start-line="2772" selection-start-column="44" selection-end-line="2772" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#21149#21238#0" expanded="true" />
