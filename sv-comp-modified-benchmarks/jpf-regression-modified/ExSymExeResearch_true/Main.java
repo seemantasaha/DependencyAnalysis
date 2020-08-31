@@ -32,12 +32,11 @@ public class Main {
     int arg = 5;
     int x = arg > 0 ? arg : -arg;
     int y = 5;
-    Main inst = new Main();
-    inst.testInt(x,y);
+    test(x,y);
     //assert inst.test(x, y) != x + y;
   }
 
-  public void testInt(int a, int b) { // invokevirtual
+  public static void test(int a, int b) { // invokevirtual
     int result = 0;
     System.out.println("Testing ExSymExeResearch");
     if (a >= 0 && a < 100 && b >= 0 && b < 100) {
@@ -54,6 +53,7 @@ public class Main {
       else
         result = diff;
     }
-    assert result != a + b;
+    //assert result != a + b;
+    assert false;
   }
 }

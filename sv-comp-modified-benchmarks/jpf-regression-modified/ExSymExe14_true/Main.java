@@ -17,11 +17,15 @@ public class Main {
    */
   public static void testOrig(int x, int z) {
     System.out.println("Testing ExSymExe14");
+    System.out.println("x = " + x + " z = " + z);
     int y = 3;
     int r = x + z;
+    System.out.println("x = " + x + " z = " + z + " r = " + r);
     x = z - y;
+    System.out.println("x = " + x + " z = " + z);
     z = r;
     if (z <= x) {
+      System.out.println("x = " + x + " z = " + z);
       System.out.println("branch FOO1");
       assert false;
     } else

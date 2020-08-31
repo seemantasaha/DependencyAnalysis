@@ -3,9 +3,56 @@
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test_orig.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_boxed.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_boxed.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_boxed.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.sm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_testInt.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_testInt.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_testInt.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_unboxed.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_unboxed.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMain_unboxed.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNode_swapNode.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNode_swapNode.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LNode_swapNode.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LStringEquals_equals.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LStringEquals_equals.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LStringEquals_equals.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ldaisychaincontroller_DaisyChainController$FlapActuator_run.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ldaisychaincontroller_DaisyChainController$FlapActuator_run.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ldaisychaincontroller_DaisyChainController$FlapActuator_run.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringInsecure_verifyPasswordInsecure.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringInsecure_verifyPasswordInsecure.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringInsecure_verifyPasswordInsecure.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringInsecure_verifyPasswordInsecure_unrolled.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringSecure_verifyPasswordSecure.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringSecure_verifyPasswordSecure.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringSecure_verifyPasswordSecure.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lpasscheck_verifyPasswordInsecure.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lpasscheck_verifyPasswordInsecure.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lpasscheck_verifyPasswordInsecure.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExDarco_Main_unboxed.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExDarco_Main_unboxed.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExDarco_Main_unboxed.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExMIT_Main_foo.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExMIT_Main_foo.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExMIT_Main_foo.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExSymExe12_Main_test.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExSymExeResearch_Main_test.csl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExSymExeResearch_Main_test.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExSymExeResearch_Main_test.sm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/META-INF/JAnalyzer.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$CGFocus.class" afterDir="false" />
@@ -13,6 +60,7 @@
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jpf-reg-7-true.smt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" afterDir="false" />
@@ -104,7 +152,22 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/matches_source/MessageDigestCredentialHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tomcat/mutate_source/DigestCredentialHandlerBase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/IntegerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/IntegerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/IntegerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/IntegerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe1_true/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe1_true/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe3_true/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe3_true/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_false/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_false/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_true/IntegerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_true/IntegerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_true/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_true/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/t2.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.dot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.smt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.smt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -112,6 +175,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="JAnalyzer" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -130,8 +196,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31160">
-              <caret line="2381" column="93" selection-start-line="2381" selection-start-column="93" selection-end-line="2381" selection-end-column="93" />
+            <state relative-caret-position="24092">
+              <caret line="1316" column="38" selection-start-line="1316" selection-start-column="38" selection-end-line="1316" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/ProgramOption.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="32" column="40" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="40" />
+              <folding>
+                <element signature="e#599#600#0" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,8 +218,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="42" column="73" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="73" />
+            <state relative-caret-position="741">
+              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -160,8 +239,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="2772" column="44" selection-start-line="2772" selection-start-column="44" selection-end-line="2772" selection-end-column="44" />
+            <state relative-caret-position="250">
+              <caret line="1835" column="129" selection-start-line="1835" selection-start-column="129" selection-end-line="1835" selection-end-column="129" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#21149#21238#0" expanded="true" />
@@ -214,40 +293,66 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/core/Program.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2223">
+              <caret line="163" column="15" selection-start-line="163" selection-start-column="15" selection-end-line="163" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.hgignore">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/DriverProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>counter</find>
-      <find>getNodeFromID</find>
-      <find>getNode</find>
-      <find>goto</find>
-      <find>numberOfNodesReduced++</find>
-      <find>directCh</find>
-      <find>numberOfNodes</find>
-      <find>transitionlistMap.remove(</find>
-      <find>recursive</find>
-      <find>dfsToCheck</find>
-      <find>eNode</find>
-      <find>proc</find>
-      <find>numberofNodesReduced++</find>
-      <find>procCallMap</find>
-      <find>numberofNodesReduced</find>
-      <find>transitionlistMap.remove</find>
-      <find>procCa</find>
-      <find>eNodeStrin</find>
-      <find>assertionNode</find>
-      <find>branchMode</find>
-      <find>interProcItem</find>
+      <find>class</find>
+      <find>modelcount</find>
+      <find>backed</find>
+      <find>prismOutput</find>
+      <find>exception</find>
       <find>assertionReachabilityNode</find>
-      <find>replaceMap.put</find>
-      <find>replaceMap</find>
-      <find>Integer.pa</find>
-      <find>3115</find>
-      <find>Constraint solving time:</find>
-      <find>unsatis</find>
-      <find>transl</find>
-      <find>ins_to_translate</find>
+      <find>det</find>
+      <find>v30</find>
+      <find>v39 != v30</find>
+      <find>68</find>
+      <find>Probability of true branch:</find>
+      <find>sameL</find>
+      <find>exce</find>
+      <find>branchModelCountMenuitem</find>
+      <find>translateT</find>
+      <find>nodeLineMap</find>
+      <find>nodeLineMap.put</find>
+      <find>nodeLineMap.get</find>
+      <find>branchPro</find>
+      <find>branchProb</find>
+      <find>falseNodeToUpdate</find>
+      <find>branch_probability.txt</find>
+      <find>$PROJECT_DIR$/../../../..</find>
+      <find>translateToSMTLib</find>
+      <find>getNodeFromID</find>
+      <find>Exception</find>
+      <find>nodeMap</find>
+      <find>exceptCheckBox</find>
+      <find>getExceptionFlag</find>
+      <find>sameLineFlag</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -255,6 +360,7 @@
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -304,42 +410,17 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579948443497" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1598261445997" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../abctest" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.25084746" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -440,27 +521,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="733" height="575" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="25" width="1533" height="875" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24405092" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.267653" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24949563" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="6" side_tool="true" weight="0.32952252" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32829374" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.32721382" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3650108" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49831876" visible="true" weight="0.9597855" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49831876" weight="0.34316355" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3423326" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013835" side_tool="true" weight="0.32937366" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32937366" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.23326133" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5016812" side_tool="true" weight="0.81769437" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.23324397" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49831876" weight="0.80563" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32841823" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24932542" />
@@ -472,24 +552,24 @@
       <window_info anchor="right" id="Maven" order="8" weight="0.32982844" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24405092" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.267653" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24949563" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Favorites" order="6" side_tool="true" weight="0.32952252" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32829374" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.21274298" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3650108" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.37131366" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="5" visible="true" weight="0.36461127" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3423326" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013835" side_tool="true" weight="0.32937366" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32937366" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.23326133" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5013835" side_tool="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.23324397" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.14343163" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32841823" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24932542" />
@@ -546,91 +626,38 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2646</line>
-          <properties />
-          <option name="timeStamp" value="283" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
           <line>1823</line>
           <properties />
           <option name="timeStamp" value="312" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2660</line>
-          <properties />
-          <option name="timeStamp" value="313" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2643</line>
-          <properties />
-          <option name="timeStamp" value="314" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>3215</line>
+          <line>3378</line>
           <properties />
           <option name="timeStamp" value="351" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2794</line>
+          <line>2955</line>
           <properties />
           <option name="timeStamp" value="406" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2197</line>
+          <line>2682</line>
           <properties />
-          <option name="timeStamp" value="407" />
+          <option name="timeStamp" value="454" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2353</line>
+          <line>2268</line>
           <properties />
-          <option name="timeStamp" value="408" />
+          <option name="timeStamp" value="464" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/output/TokenHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4807">
-          <caret line="253" column="50" selection-end-line="518" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/org/apache/catalina/realm/MessageDigestCredentialHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="100" column="5" selection-end-line="1123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/OSecurityManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1919">
-          <caret line="101" column="37" selection-start-line="101" selection-start-column="37" selection-end-line="101" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/output/org/apache/catalina/realm/DataSourceRealm.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="690" column="25" lean-forward="true" selection-start-line="690" selection-start-column="25" selection-end-line="690" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ipa/cha/IClassHierarchy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/util/strings/Atom.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
@@ -825,13 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1463">
-          <caret line="123" column="36" selection-start-line="123" selection-start-column="27" selection-end-line="123" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/PDG.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -857,13 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1483" column="22" selection-start-line="1483" selection-start-column="22" selection-end-line="1483" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/DriverProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="131" column="29" selection-start-line="131" selection-start-column="29" selection-end-line="131" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -902,13 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/javax/swing/plaf/basic/BasicMenuItemUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -920,6 +926,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
           <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.mf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.8.0_231/src.zip!/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/wala/com.ibm.wala.core-1.3.9.jar!/com/ibm/wala/ssa/SSAInvokeInstruction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="104" column="1" lean-forward="true" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -935,15 +963,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31160">
-          <caret line="2381" column="93" selection-start-line="2381" selection-start-column="93" selection-end-line="2381" selection-end-column="93" />
+        <state relative-caret-position="24092">
+          <caret line="1316" column="38" selection-start-line="1316" selection-start-column="38" selection-end-line="1316" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/ProgramOption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="40" />
+          <folding>
+            <element signature="e#599#600#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="42" column="73" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="73" />
+        <state relative-caret-position="741">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -957,10 +996,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2223">
+          <caret line="163" column="15" selection-start-line="163" selection-start-column="15" selection-end-line="163" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.hgignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/DriverProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="2772" column="44" selection-start-line="2772" selection-start-column="44" selection-end-line="2772" selection-end-column="44" />
+        <state relative-caret-position="250">
+          <caret line="1835" column="129" selection-start-line="1835" selection-start-column="129" selection-end-line="1835" selection-end-column="129" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#21149#21238#0" expanded="true" />
@@ -1073,6 +1132,7 @@
             <option name="proportions">
               <list>
                 <option value="0.25084746" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -20,7 +20,7 @@ public class Main {
       System.out.println("branch BOO1");
     else {
       System.out.println("branch BOO2");
-      assert false;
+      //assert false;
     }
   }
 }

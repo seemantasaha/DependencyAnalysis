@@ -14,7 +14,7 @@ public class IntegerTest {
     public void test(@From(IntegerGenerator.class) int x) {
         //assumeTrue(x >= -32768 && x <= 32767);
 		//assumeTrue(x >= -2147483648 && x <= 2147483647);
-        //System.out.println("x: " + x);
+        System.out.println("x: " + x);
         Main.test(x);
     }
 }

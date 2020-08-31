@@ -556,7 +556,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
         // checkbox controls
         this.aveCheckBox.setSelected       ("no".equals(configData.getField(ConfigInfo.StringType.averroes)));
         //this.exceptCheckBox.setSelected    ("yes".equals(configData.getField(ConfigInfo.StringType.exception)));
-        this.exceptCheckBox.setSelected(true);
+        this.exceptCheckBox.setSelected(false);
         this.infCheckBox.setSelected       ("yes".equals(configData.getField(ConfigInfo.StringType.infloop)));
         this.audioFeedbackCheckBox.setSelected("yes".equals(configData.getField(ConfigInfo.StringType.audiofback)));
         this.publicMethodsCheckBox.setSelected("yes".equals(configData.getField(ConfigInfo.StringType.pubmeths)));
@@ -2379,7 +2379,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void appAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appAddButtonActionPerformed
     statusMessage.init();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar and Class Files","jar", "class");
-    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/jqf/tutorial/jpf-regression-modified/")); //temporary
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/benchmarks/commons-lang/target/classes/org/apache/commons/lang3/math")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
