@@ -40,11 +40,11 @@ public class ModelCounter {
     boolean result = abc.isSatisfiable(PCTranslation);
     long endTime = System.nanoTime();
 
-    System.out.println("Constraint solving time: " + (endTime - startTime) / 1000000.0);
+    System.out.println("Constraint solving time: " + (endTime - startTime) / 1000000000.0);
 
     BigDecimal count = new BigDecimal(0);;
     if (result) {
-      startTime = System.nanoTime();
+      //startTime = System.nanoTime();
       if (this.model_count_mode.equals("abc.string")) {
         HashSet<String> additional_assertions = new HashSet<String>();
         String range_constraint = "A-Z";
@@ -73,7 +73,7 @@ public class ModelCounter {
       }
 
       endTime = System.nanoTime();
-      System.out.println("Model counting time: " + (endTime - startTime) / 1000000.0);
+      System.out.println("Model counting time: " + (endTime - startTime) / 1000000000.0);
     } else {
       System.out.println("Unsatisfiable");
     }

@@ -2379,7 +2379,7 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void appAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appAddButtonActionPerformed
     statusMessage.init();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar and Class Files","jar", "class");
-    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/benchmarks/commons-lang/target/classes/org/apache/commons/lang3/math")); //temporary
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/research/tools/jqf/tutorial/jbmc-regression-modified/")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
@@ -2387,6 +2387,12 @@ public class AnalyzerFrame extends javax.swing.JFrame {
     if (retVal == JFileChooser.APPROVE_OPTION) {
       DefaultListModel listModel = (DefaultListModel)this.appList.getModel();
       File[] files = this.fileChooser.getSelectedFiles();
+      String filePart[] = files[0].toString().split("/");
+      String branchSelectivityPart = "";
+      for (int i = 0; i < filePart.length-1; i++) {
+          branchSelectivityPart += filePart[i] + "/";
+      }
+      MainFrame.rootDir = branchSelectivityPart;
       for (File file : files) {
         String app = file.getAbsolutePath();
         if (!listModel.contains(app))

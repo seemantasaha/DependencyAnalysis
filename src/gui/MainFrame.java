@@ -1833,7 +1833,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     BufferedReader reader;
     try {
-      reader = new BufferedReader(new FileReader("/home/seem/research/tools/jqf/tutorial/common-lang-fuzz/branch_probability.txt"));
+      String branch_prob_file = rootDir + "branch_probability.txt";
+      System.out.println(branch_prob_file);
+      reader = new BufferedReader(new FileReader(branch_prob_file));
       String line = reader.readLine();
       while (line != null) {
         //System.out.println(line);
@@ -2683,7 +2685,7 @@ public class MainFrame extends javax.swing.JFrame {
     long dfs = System.currentTimeMillis();
     long det = dfs - dts;
 
-    /* Removing assertio subgraph extraction */
+    /* Removing assertion subgraph extraction */
 
 //
 //    //dominator analysis for probability distribution to true or false branch
@@ -4309,6 +4311,7 @@ public class MainFrame extends javax.swing.JFrame {
   static private Map<String,Long> modelCountingTimeMap = new HashMap<>();
   static private Map<String,List<String>> lineItemsMap = new HashMap<>();
   static private boolean[] visitedToCheck;
+  static public String rootDir;
 
   static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");
 

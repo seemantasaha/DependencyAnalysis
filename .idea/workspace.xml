@@ -3,55 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="62e5fd0f-fa3c-4c3a-a374-78509387bd79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LIntegerEquals_test_orig.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_boxed.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_boxed.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_boxed.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_runBellmanFord.sm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.csl" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.csl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.dot" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LMain_test.sm" beforeDir="false" afterPath="$PROJECT_DIR$/LMain_test.sm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_testInt.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_testInt.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_testInt.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_unboxed.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_unboxed.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LMain_unboxed.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNode_swapNode.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNode_swapNode.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LNode_swapNode.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LStringEquals_equals.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LStringEquals_equals.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LStringEquals_equals.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ldaisychaincontroller_DaisyChainController$FlapActuator_run.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ldaisychaincontroller_DaisyChainController$FlapActuator_run.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ldaisychaincontroller_DaisyChainController$FlapActuator_run.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringInsecure_verifyPasswordInsecure.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringInsecure_verifyPasswordInsecure.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringInsecure_verifyPasswordInsecure.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringInsecure_verifyPasswordInsecure_unrolled.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringSecure_verifyPasswordSecure.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringSecure_verifyPasswordSecure.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lfse_PasswordCheckWithStringSecure_verifyPasswordSecure.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lpasscheck_verifyPasswordInsecure.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lpasscheck_verifyPasswordInsecure.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lpasscheck_verifyPasswordInsecure.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExDarco_Main_unboxed.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExDarco_Main_unboxed.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExDarco_Main_unboxed.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExMIT_Main_foo.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExMIT_Main_foo.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExMIT_Main_foo.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExSymExe12_Main_test.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExSymExeResearch_Main_test.csl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExSymExeResearch_Main_test.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lsvcomp_jpfregression_ExSymExeResearch_Main_test.sm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/META-INF/JAnalyzer.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lorg_apache_commons_lang3_math_NumberUtils_isCreatable.dot" beforeDir="false" afterPath="$PROJECT_DIR$/Lorg_apache_commons_lang3_math_NumberUtils_isCreatable.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lorg_apache_commons_lang3_math_NumberUtils_isCreatable.sm" beforeDir="false" afterPath="$PROJECT_DIR$/Lorg_apache_commons_lang3_math_NumberUtils_isCreatable.sm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$RunProgramGen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame$TimerListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/AnalyzerFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25$ourMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$25.class" afterDir="false" />
@@ -60,7 +19,7 @@
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$InsertInitCodeBeforeReturnMethodVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame$MarkovChainInformation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/gui/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jpf-reg-7-true.smt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/vlab/cs/ucsb/edu/ModelCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/vlab/cs/ucsb/edu/ModelCounter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/expr/solver/basicSolver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/component.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/component.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/coco-channel/graph/graph.py" afterDir="false" />
@@ -154,20 +113,8 @@
       <change beforePath="$PROJECT_DIR$/src/coco-channel/input/themis/tourplanner/TourServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/IntegerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/IntegerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/IntegerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/IntegerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe14_true/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe1_true/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe1_true/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe3_true/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExe3_true/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_false/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_false/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_true/IntegerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_true/IntegerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_true/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/sv-comp-modified-benchmarks/jpf-regression-modified/ExSymExeResearch_true/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/t2.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.smt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2.smt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -182,22 +129,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/CFG.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3135">
-              <caret line="187" column="17" selection-start-line="187" selection-start-column="17" selection-end-line="187" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24092">
-              <caret line="1316" column="38" selection-start-line="1316" selection-start-column="38" selection-end-line="1316" selection-end-column="38" />
+            <state relative-caret-position="31673">
+              <caret line="2408" column="22" selection-start-line="2408" selection-start-column="22" selection-end-line="2408" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -218,8 +153,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="40" />
+            <state relative-caret-position="1273">
+              <caret line="77" column="7" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -239,55 +174,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="1835" column="129" selection-start-line="1835" selection-start-column="129" selection-end-line="1835" selection-end-column="129" />
+            <state relative-caret-position="559">
+              <caret line="2504" column="48" selection-start-line="2504" selection-start-column="48" selection-end-line="2504" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#21149#21238#0" expanded="true" />
-                <element signature="e#23280#23281#0" expanded="true" />
-                <element signature="e#23333#23334#0" expanded="true" />
-                <element signature="e#23609#23610#0" expanded="true" />
-                <element signature="e#23660#23661#0" expanded="true" />
-                <element signature="e#23930#23931#0" expanded="true" />
-                <element signature="e#23979#23980#0" expanded="true" />
-                <element signature="e#24214#24215#0" expanded="true" />
-                <element signature="e#24268#24269#0" expanded="true" />
-                <element signature="e#24527#24528#0" expanded="true" />
-                <element signature="e#24589#24590#0" expanded="true" />
-                <element signature="e#24833#24834#0" expanded="true" />
-                <element signature="e#24891#24892#0" expanded="true" />
-                <element signature="e#25139#25140#0" expanded="true" />
-                <element signature="e#25202#25203#0" expanded="true" />
-                <element signature="e#25796#25797#0" expanded="true" />
-                <element signature="e#25846#25847#0" expanded="true" />
-                <element signature="e#26252#26253#0" expanded="true" />
-                <element signature="e#26302#26303#0" expanded="true" />
-                <element signature="e#26451#26452#0" expanded="true" />
-                <element signature="e#26500#26501#0" expanded="true" />
-                <element signature="e#26655#26656#0" expanded="true" />
-                <element signature="e#26710#26711#0" expanded="true" />
-                <element signature="e#27017#27018#0" expanded="true" />
-                <element signature="e#27075#27076#0" expanded="true" />
-                <element signature="e#27265#27266#0" expanded="true" />
-                <element signature="e#27315#27316#0" expanded="true" />
-                <element signature="e#27501#27502#0" expanded="true" />
-                <element signature="e#27551#27552#0" expanded="true" />
-                <element signature="e#27738#27739#0" expanded="true" />
-                <element signature="e#27788#27789#0" expanded="true" />
-                <element signature="e#27974#27975#0" expanded="true" />
-                <element signature="e#28024#28025#0" expanded="true" />
-                <element signature="e#28214#28215#0" expanded="true" />
-                <element signature="e#28265#28266#0" expanded="true" />
-                <element signature="e#28448#28449#0" expanded="true" />
-                <element signature="e#28497#28498#0" expanded="true" />
-                <element signature="e#28789#28790#0" expanded="true" />
-                <element signature="e#28847#28848#0" expanded="true" />
-                <element signature="e#29049#29050#0" expanded="true" />
-                <element signature="e#29107#29108#0" expanded="true" />
-                <element signature="e#29499#29500#0" expanded="true" />
-                <element signature="e#29549#29550#0" expanded="true" />
-                <element signature="e#29932#29933#0" expanded="true" />
-                <element signature="e#29983#29984#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -323,18 +214,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>class</find>
-      <find>modelcount</find>
-      <find>backed</find>
-      <find>prismOutput</find>
-      <find>exception</find>
-      <find>assertionReachabilityNode</find>
-      <find>det</find>
-      <find>v30</find>
-      <find>v39 != v30</find>
-      <find>68</find>
-      <find>Probability of true branch:</find>
-      <find>sameL</find>
       <find>exce</find>
       <find>branchModelCountMenuitem</find>
       <find>translateT</find>
@@ -353,6 +232,18 @@
       <find>exceptCheckBox</find>
       <find>getExceptionFlag</find>
       <find>sameLineFlag</find>
+      <find>abstract</find>
+      <find>interpretation</find>
+      <find>lineNu</find>
+      <find>common</find>
+      <find>static</find>
+      <find>projpath</find>
+      <find>projpathOpenButton</find>
+      <find>probability</find>
+      <find>branch</find>
+      <find>appAddButton</find>
+      <find>startTime</find>
+      <find>branchProbMap</find>
     </findStrings>
     <replaceStrings>
       <replace>new String</replace>
@@ -383,10 +274,10 @@
         <option value="$PROJECT_DIR$/src/core/ProcedureDependenceGraph.java" />
         <option value="$PROJECT_DIR$/src/gui/ImbalanceAnalysisItem.java" />
         <option value="$PROJECT_DIR$/src/core/Program.java" />
-        <option value="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/core/PathLengthAnalysis.java" />
         <option value="$PROJECT_DIR$/src/gui/CFG.java" />
         <option value="$PROJECT_DIR$/src/gui/AnalyzerFrame.java" />
+        <option value="$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
       </list>
     </option>
@@ -410,13 +301,27 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="JAnalyzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="janalyzer" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1598261445997" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1614845325235" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../abctest" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.25084746" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -523,7 +428,7 @@
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1533" height="875" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.267653" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19031607" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24949563" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -531,19 +436,19 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" weight="0.32952252" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32829374" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49831876" visible="true" weight="0.9597855" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32707775" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49831876" visible="true" weight="0.39678285" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49831876" weight="0.34316355" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986165" weight="0.32937366" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5016812" side_tool="true" weight="0.81769437" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.23324397" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49831876" weight="0.80563" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49831876" weight="0.22386059" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32841823" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24932542" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.24882314" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
@@ -626,33 +531,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>1823</line>
-          <properties />
-          <option name="timeStamp" value="312" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>3378</line>
+          <line>3380</line>
           <properties />
           <option name="timeStamp" value="351" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2955</line>
+          <line>2957</line>
           <properties />
           <option name="timeStamp" value="406" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2682</line>
+          <line>1856</line>
           <properties />
-          <option name="timeStamp" value="454" />
+          <option name="timeStamp" value="470" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
-          <line>2268</line>
+          <line>2320</line>
           <properties />
-          <option name="timeStamp" value="464" />
+          <option name="timeStamp" value="471" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/gui/MainFrame.java</url>
+          <line>2507</line>
+          <properties />
+          <option name="timeStamp" value="472" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -963,8 +868,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/AnalyzerFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24092">
-          <caret line="1316" column="38" selection-start-line="1316" selection-start-column="38" selection-end-line="1316" selection-end-column="38" />
+        <state relative-caret-position="31673">
+          <caret line="2408" column="22" selection-start-line="2408" selection-start-column="22" selection-end-line="2408" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -981,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vlab/cs/ucsb/edu/ModelCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="40" />
+        <state relative-caret-position="1273">
+          <caret line="77" column="7" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1018,55 +923,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="1835" column="129" selection-start-line="1835" selection-start-column="129" selection-end-line="1835" selection-end-column="129" />
+        <state relative-caret-position="559">
+          <caret line="2504" column="48" selection-start-line="2504" selection-start-column="48" selection-end-line="2504" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#21149#21238#0" expanded="true" />
-            <element signature="e#23280#23281#0" expanded="true" />
-            <element signature="e#23333#23334#0" expanded="true" />
-            <element signature="e#23609#23610#0" expanded="true" />
-            <element signature="e#23660#23661#0" expanded="true" />
-            <element signature="e#23930#23931#0" expanded="true" />
-            <element signature="e#23979#23980#0" expanded="true" />
-            <element signature="e#24214#24215#0" expanded="true" />
-            <element signature="e#24268#24269#0" expanded="true" />
-            <element signature="e#24527#24528#0" expanded="true" />
-            <element signature="e#24589#24590#0" expanded="true" />
-            <element signature="e#24833#24834#0" expanded="true" />
-            <element signature="e#24891#24892#0" expanded="true" />
-            <element signature="e#25139#25140#0" expanded="true" />
-            <element signature="e#25202#25203#0" expanded="true" />
-            <element signature="e#25796#25797#0" expanded="true" />
-            <element signature="e#25846#25847#0" expanded="true" />
-            <element signature="e#26252#26253#0" expanded="true" />
-            <element signature="e#26302#26303#0" expanded="true" />
-            <element signature="e#26451#26452#0" expanded="true" />
-            <element signature="e#26500#26501#0" expanded="true" />
-            <element signature="e#26655#26656#0" expanded="true" />
-            <element signature="e#26710#26711#0" expanded="true" />
-            <element signature="e#27017#27018#0" expanded="true" />
-            <element signature="e#27075#27076#0" expanded="true" />
-            <element signature="e#27265#27266#0" expanded="true" />
-            <element signature="e#27315#27316#0" expanded="true" />
-            <element signature="e#27501#27502#0" expanded="true" />
-            <element signature="e#27551#27552#0" expanded="true" />
-            <element signature="e#27738#27739#0" expanded="true" />
-            <element signature="e#27788#27789#0" expanded="true" />
-            <element signature="e#27974#27975#0" expanded="true" />
-            <element signature="e#28024#28025#0" expanded="true" />
-            <element signature="e#28214#28215#0" expanded="true" />
-            <element signature="e#28265#28266#0" expanded="true" />
-            <element signature="e#28448#28449#0" expanded="true" />
-            <element signature="e#28497#28498#0" expanded="true" />
-            <element signature="e#28789#28790#0" expanded="true" />
-            <element signature="e#28847#28848#0" expanded="true" />
-            <element signature="e#29049#29050#0" expanded="true" />
-            <element signature="e#29107#29108#0" expanded="true" />
-            <element signature="e#29499#29500#0" expanded="true" />
-            <element signature="e#29549#29550#0" expanded="true" />
-            <element signature="e#29932#29933#0" expanded="true" />
-            <element signature="e#29983#29984#0" expanded="true" />
           </folding>
         </state>
       </provider>

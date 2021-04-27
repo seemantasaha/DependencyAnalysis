@@ -11,9 +11,10 @@ import edu.berkeley.cs.jqf.fuzz.*;
 public class IntegerTest {
 
     @Fuzz
-    public void test(@From(IntegerGenerator.class) int x) {
-        assumeTrue(x >= -32768 && x <= 32767);
-        System.out.println("x: " + x);
-        Main.test(x,5);
+    public void test(@From(IntegerGenerator.class) int x, @From(IntegerGenerator.class) int y) {
+        //assumeTrue(x >= -32768 && x <= 32767);
+		//assumeTrue(x >= -2147483648 && x <= 2147483647);
+        //System.out.println("x: " + x);
+        Main.test(x,y);
     }
 }
