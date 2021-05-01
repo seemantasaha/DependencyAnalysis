@@ -1,19 +1,14 @@
-import core.CGType;
+import com.ibm.wala.shrikeCT.InvalidClassFileException;
 import core.LibrarySummary;
 import core.Program;
-import core.ProgramOption;
+import gui.MainLogic;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PReach {
 
@@ -24,6 +19,9 @@ public class PReach {
     private ArrayList<String> libPaths;
     private String apiPath;
     private String entryFilePath;
+    private String procSign;
+    private ArrayList<String> testInputParams;
+    private String branchProbFile;
 
     private RunProgramGen programGen;
     private Thread  genThread;          // thread in which generateProgram() runs
@@ -33,12 +31,16 @@ public class PReach {
     static public String classPath = "";
 
     PReach(ArrayList<String> appPaths, ArrayList<String> libPaths,
-           String apiPath, String entryFilePath) {
+           String apiPath, String entryFilePath,
+           String procSign, ArrayList<String> testInputParams, String branchProbFile) {
         timer = new Timer(1000, new TimerListener());
         this.appPaths = appPaths;
         this.libPaths = libPaths;
         this.apiPath = apiPath;
         this.entryFilePath = entryFilePath;
+        this.procSign = procSign;
+        this.testInputParams = testInputParams;
+        this.branchProbFile = branchProbFile;
     }
 
 
@@ -82,6 +84,7 @@ public class PReach {
             Program.analyzeProgram();
             Set<String> misses = Program.checkAnalysisScope();
             Set<String> unknowns = LibrarySummary.getUnknownMethodSet();
+            doAnalysis(procSign, testInputParams);
         } catch (Exception e) {
             e.printStackTrace();
             return 2;
@@ -108,6 +111,12 @@ public class PReach {
         }
     }
 
+    private void doAnalysis(String procSign, ArrayList<String> testInputParams) throws InvalidClassFileException {
+        MainLogic mainLogic = new MainLogic();
+        mainLogic.doDependencyAnalysis(procSign, testInputParams);
+        mainLogic.doMarkovChainAnalysis(branchProbFile);
+    }
+
     private void launchProgramGen () {
         // start the program generation in another thread
         if (genThread != null)
@@ -124,14 +133,22 @@ public class PReach {
         timer.start();
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws InvalidClassFileException {
         System.out.println("PReach Script Writing Starts...");
 
         String[] classList = args[0].split(",");
         String[] libList = args[1].split(",");
+        String procSign = args[2];
+        String[] paramList = args[3].split(",");
+        String branchProbFile = args[4];
+
+        ArrayList<String> testInputParams = new ArrayList(Arrays.asList(paramList));
 
         PReach preach = new PReach(new ArrayList(Arrays.asList(classList)),
-                new ArrayList(Arrays.asList(libList)), "", "");
+                new ArrayList(Arrays.asList(libList)), "", "",
+                procSign, testInputParams, branchProbFile);
         preach.launchProgramGen();
+
+        //preach.doAnalysis(procSign, testInputParams);
     }
 }

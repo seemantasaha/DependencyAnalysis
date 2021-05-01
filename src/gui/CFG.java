@@ -75,8 +75,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         parameterInfo += paramInfoParts;
     }
 
-    MainFrame.itemProcMap.put(this.procedure.getProcedureName() + classInfo + parameterInfo, this.procedure);
-    
+    MainLogic.itemProcMap.put(this.procedure.getProcedureName() + classInfo + parameterInfo, this.procedure);
+
     ControlFlowGraph<SSAInstruction, ISSABasicBlock> cfg = proc.getCFG();
     IBytecodeMethod method = (IBytecodeMethod)this.procedure.getIR().getMethod();
     this.byteCodeInstructions = method.getInstructions();
@@ -122,8 +122,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
 
         nodeShrikeInstructionsMap.put(node.getNumber(), iaNode);
 
-        MainFrame.itemNodeMap.put(jsonItemID,node);
-        MainFrame.nodeItemMap.put(node,jsonItemID);
+        MainLogic.itemNodeMap.put(jsonItemID,node);
+        MainLogic.nodeItemMap.put(node,jsonItemID);
       }
     }
     

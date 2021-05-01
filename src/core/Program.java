@@ -97,7 +97,7 @@ public class Program {
       cha = ClassHierarchy.make(scope);
     }
     
-      System.out.println("constructing CG");
+    System.out.println("constructing CG");
     
     constructCG(entryFilePath);
     
@@ -105,7 +105,7 @@ public class Program {
     for (Procedure entryProc : entryProcedureSet)
       generateProcedurePostOrderList(entryProc, procFlagSet);
     
-    collectRecursion();
+    //collectRecursion();
   }
   
   /*
@@ -115,24 +115,24 @@ public class Program {
   */
   static public void analyzeProgram() {
     // the order to call these methods are important! keep it!
-    NestedLoopAnalysis.deriveInterproceduralNestedLoopSet();
-    NewObjectAnalysis.deriveNewObjectNestedLoopList();
+    //NestedLoopAnalysis.deriveInterproceduralNestedLoopSet();
+    //NewObjectAnalysis.deriveNewObjectNestedLoopList();
     
-    OtherAnalysis.deriveModuloSet(); //Added by Madeline Sgro
-    OtherAnalysis.deriveStringCompSet(); //Added by Thomas Marosz
+    //OtherAnalysis.deriveModuloSet(); //Added by Madeline Sgro
+    //OtherAnalysis.deriveStringCompSet(); //Added by Thomas Marosz
     
     ProgramDependenceGraph.makeProgramDependenceGraph();
-    PathLengthAnalysis.summarizeProgram();
+    //PathLengthAnalysis.summarizeProgram();
     
     int numProc = 0;
     HashSet<String> classes = new HashSet<>();
     for (Procedure proc : procedureMap.values()) {
       numProc++;
       classes.add(proc.getClassName());
-      for (Loop loop : proc.getLoopSet())
-        loop.checkLoopExitCondition();
+      //for (Loop loop : proc.getLoopSet())
+      //  loop.checkLoopExitCondition();
     }
-      System.out.println("#Classes : " + classes.size() + "   #Methods : " + numProc);
+    System.out.println("#Classes : " + classes.size() + "   #Methods : " + numProc);
   }
   
   static private void constructCG(String entryFilePath) throws Exception {    
@@ -195,7 +195,7 @@ public class Program {
         nP++;
         cls.add(p.getClassName());
     }
-      System.out.println("Root --> #Classes : " + cls.size() + "  #Methods : " + nP);
+    System.out.println("Root --> #Classes : " + cls.size() + "  #Methods : " + nP);
   }
   
   static private Procedure extractProcedure(CGNode cgNode) {
