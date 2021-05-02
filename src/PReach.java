@@ -80,6 +80,7 @@ public class PReach {
 
     private int generateProgram () {
         try {
+            this.entryFilePath = null; //for public methods as entry points
             Program.makeProgram(this.appPaths, this.libPaths, this.apiPath, this.entryFilePath);
             Program.analyzeProgram();
             Set<String> misses = Program.checkAnalysisScope();

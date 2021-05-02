@@ -146,8 +146,8 @@ public class Program {
       reader.close();
     }
     
-    Iterable<Entrypoint> entryPts = entryFilePath != null ? 
-        ConfigMaker.makeEntrypoints(scope, cha, otherEntrySet) : 
+    Iterable<Entrypoint> entryPts = entryFilePath != null ?
+        ConfigMaker.makeEntrypoints(scope, cha, otherEntrySet) :
         ConfigMaker.makeAllPublicEntryPoints(scope, cha);
     AnalysisOptions opts = new AnalysisOptions(scope, entryPts);
     if (ProgramOption.getAverroesFlag()) {
