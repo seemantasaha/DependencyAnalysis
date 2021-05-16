@@ -176,10 +176,17 @@ public class Program {
         else
           cgBuilder = Util.makeZeroOneCFABuilder(opts, cache, cha, scope);
     }
+    long startTime = System.currentTimeMillis();
     cg = cgBuilder.makeCallGraph(opts, null);
+    long endTime = System.currentTimeMillis();
+    long elapsedTime = endTime - startTime;
+    System.out.println("Constructing call graph: " + elapsedTime/1000 + "s");
     pts = cgBuilder.getPointerAnalysis();
+    startTime = System.currentTimeMillis();
     hg = new BasicHeapGraph(pts, cg);
-    
+    endTime = System.currentTimeMillis();
+    elapsedTime = endTime - startTime;
+    System.out.println("Constructing heap graph: " + elapsedTime/1000 + "s");
     System.out.print(CallGraphStats.getCGStats(cg));
     
     Collection<CGNode> entryCGNodes = cg.getEntrypointNodes();

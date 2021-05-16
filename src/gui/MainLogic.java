@@ -1003,6 +1003,10 @@ public class MainLogic {
           graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
 
           prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
+
+          branchNodes.add(trueNode);
+          branchNodes.add(falseNode);
+
         } else {
           List<String> edgeList = edgeMap.get(fromNode);
           if (edgeList == null) {
@@ -1075,6 +1079,10 @@ public class MainLogic {
               graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + "0.0" + "\"];\n";
               graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
               prismModel += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+
+              //branchNodes.add(trueNode);
+              //branchNodes.add(falseNode);
+
             } else {
               long startTime = System.currentTimeMillis();
               String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
@@ -1148,11 +1156,14 @@ public class MainLogic {
               graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + false_prob + "\"];\n";
               prismModel += "\t" + "[] s = " + fromNode + " -> " + true_prob + " : " + "(s' = " + trueNode + ") + " + false_prob + " : " + "(s' = " + falseNode + ");\n";
 
-                String[] splittedID = jsonItemID.split("#");
-                String idModelCount = splittedID[0]+"#"+splittedID[splittedID.length-1];
-                long finishTime = System.currentTimeMillis();
-                long elapsedTime = finishTime - startTime;
-                modelCountingTimeMap.put(idModelCount, elapsedTime);
+              branchNodes.add(trueNode);
+              branchNodes.add(falseNode);
+
+              String[] splittedID = jsonItemID.split("#");
+              String idModelCount = splittedID[0]+"#"+splittedID[splittedID.length-1];
+              long finishTime = System.currentTimeMillis();
+              long elapsedTime = finishTime - startTime;
+              modelCountingTimeMap.put(idModelCount, elapsedTime);
             }
           } else {
             MarkovChainInformation trueChain = new MarkovChainInformation(fromNode,trueNode,"1.0",false, jsonItem.contains("$assertionsDisabled"), false);
@@ -1735,14 +1746,18 @@ public class MainLogic {
     String proerties_file = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".csl";
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(proerties_file));
-      if(!assertionReachabilitySpec.equals("") && !assertionExecutionSpec.equals("")) {
-        writer.write(assertionReachabilitySpec + "\n" + assertionExecutionSpec);
-        num_properties = 2;
-      }
-      else if (!assertionReachabilitySpec.equals("")) {
-        writer.write(assertionReachabilitySpec);
-        num_properties = 1;
-      }
+//      if(!assertionReachabilitySpec.equals("") && !assertionExecutionSpec.equals("")) {
+//        writer.write(assertionReachabilitySpec + "\n" + assertionExecutionSpec);
+//        num_properties = 2;
+//      }
+//      else if (!assertionReachabilitySpec.equals("")) {
+//        writer.write(assertionReachabilitySpec);
+//        num_properties = 1;
+//      }
+
+        for(String p : branchNodes) {
+            writer.write("P=? [F s = " + p + "]\n");
+        }
 
       writer.close();
     } catch(IOException ex) {
@@ -1751,14 +1766,15 @@ public class MainLogic {
 
 
     long p1timeElapsed=0,p2timeElapsed=0;
-    if (num_properties >= 1) {
+    //if (num_properties >= 1) {
       long p1start = System.currentTimeMillis();
       Process proc1 = null;
       try {
-        proc1 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "1"});
+        //proc1 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "1"});
 
-        if (proc1 == null) return;
-        ;
+          proc1 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file});
+
+          if (proc1 == null) return;
 
         BufferedReader stdInput = new BufferedReader(new
                 InputStreamReader(proc1.getInputStream()));
@@ -1771,13 +1787,22 @@ public class MainLogic {
 //      if ((s = stdInput.readLine()) != null) {
 //        System.out.println("PRISM run output:\n");
 //      }
+
+        int numOfSelectiveBranchNodes = 0;
         while ((s = stdInput.readLine()) != null) {
           System.out.println(s);
           if (s.contains("Result: ")) {
             String prob = s.split("Result: ")[1].split(" ")[0];
-            System.out.println("Probability to reach assertion: " + prob);
+            //System.out.println("Probability to reach assertion: " + prob);
+              double state_prob = Double.parseDouble(prob);
+              if (state_prob < 0.05) {
+                  numOfSelectiveBranchNodes++;
+              }
           }
         }
+
+        System.out.println("Number of branch nodes: " + branchNodes.size());
+        System.out.println("Number of selective branch nodes: " + numOfSelectiveBranchNodes);
 
         // Read any errors from the attempted command
         if ((s = stdError.readLine()) != null)
@@ -1790,7 +1815,7 @@ public class MainLogic {
       }
       long p1finish = System.currentTimeMillis();
       p1timeElapsed = p1finish - p1start;
-    }
+    //}
 
     if(num_properties == 2) {
       long p2start = System.currentTimeMillis();
@@ -2446,14 +2471,15 @@ public class MainLogic {
   private static Map<String, Integer> nodeMap = new HashMap<>();
   private static Map<Integer, String> idMap = new HashMap<>();
   private static Map<String, List<String>> edgeMap =  new HashMap<>();
+  private static List<String> branchNodes = new ArrayList<>();
   private static String endNode = "";
   private static String assertionNode = "";
   private static Map<Pair<String, String>, MarkovChainInformation> transitionMap = new HashMap<>();
   private static Map<String, List<MarkovChainInformation>> transitionlistMap = new HashMap<>();
   private static Map<ISSABasicBlock, Integer> nodeLineMap = new HashMap<>();
   private static Map<String, String> interProcDomMap = new HashMap<>();
-    private static Map<String, String> interProcPostDomMap = new HashMap<>();
-    private static Map<String, String> procCallMap = new HashMap<>();
+  private static Map<String, String> interProcPostDomMap = new HashMap<>();
+  private static Map<String, String> procCallMap = new HashMap<>();
   private static Map<String, String> procCallReverseMap = new HashMap<>();
 
   private Map<String, Map<Double, Set<Procedure>>>  jBondMap = new TreeMap<>();
