@@ -27,26 +27,6 @@ import core.Recursion;
 import core.Reporter;
 import core.Statement;
 import core.StatementType;
-import jdk.internal.org.objectweb.asm.*;
-import sun.applet.Main;
-
-import jdk.internal.org.objectweb.asm.tree.AbstractInsnNode;
-import jdk.internal.org.objectweb.asm.tree.ClassNode;
-import jdk.internal.org.objectweb.asm.tree.FieldInsnNode;
-import jdk.internal.org.objectweb.asm.tree.IincInsnNode;
-import jdk.internal.org.objectweb.asm.tree.InsnList;
-import jdk.internal.org.objectweb.asm.tree.InsnNode;
-import jdk.internal.org.objectweb.asm.tree.IntInsnNode;
-import jdk.internal.org.objectweb.asm.tree.JumpInsnNode;
-import jdk.internal.org.objectweb.asm.tree.LabelNode;
-import jdk.internal.org.objectweb.asm.tree.LdcInsnNode;
-import jdk.internal.org.objectweb.asm.tree.LineNumberNode;
-import jdk.internal.org.objectweb.asm.tree.MethodInsnNode;
-import jdk.internal.org.objectweb.asm.tree.MethodNode;
-import jdk.internal.org.objectweb.asm.tree.MultiANewArrayInsnNode;
-import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
-import jdk.internal.org.objectweb.asm.tree.TypeInsnNode;
-import jdk.internal.org.objectweb.asm.tree.VarInsnNode;
 import vlab.cs.ucsb.edu.ModelCounter;
 
 
@@ -695,7 +675,7 @@ public class MainFrame extends javax.swing.JFrame {
     invokeCoCoChannel.setText("Invoke CoCo-Channel");
     invokeCoCoChannel.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        invokeCoCoChannelMenuitemActionPerformed(evt);
+        //invokeCoCoChannelMenuitemActionPerformed(evt);
       }
     });
     cfgOptPopupMenu.add(invokeCoCoChannel);
@@ -703,7 +683,7 @@ public class MainFrame extends javax.swing.JFrame {
     instrumentSecretDepBranch.setText("Instrument Secret Dependent Branch");
     instrumentSecretDepBranch.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        instrumentSecretDepbranchMenuitemActionPerformed(evt);
+        //instrumentSecretDepbranchMenuitemActionPerformed(evt);
       }
     });
     cfgOptPopupMenu.add(instrumentSecretDepBranch);
@@ -3750,270 +3730,6 @@ public class MainFrame extends javax.swing.JFrame {
     paintSlice(new HashSet<Statement>());
   }
 
-  private void invokeCoCoChannelMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
-    String s = null;
-    try {
-      Process p = Runtime.getRuntime().exec("python src/coco-channel/main.py " + fileToSave);
-
-      BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-      BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-
-      List<String> branchNodesForSideChannel = new ArrayList<String>();
-
-      // read the output from the command
-      while ((s = stdInput.readLine()) != null) {
-        if(s.startsWith("side channel branch component id :")) {
-          String node = s.split("side channel branch component id : ")[1];
-          System.out.println(node);
-          branchNodesForSideChannel.add(node);
-        }
-      }
-      // read any errors from the attempted command
-      while ((s = stdError.readLine()) != null) {
-        System.out.println(s);
-      }
-
-      paintSideChannel(branchNodesForSideChannel);
-    }
-    catch (IOException e) {
-      System.out.println("exception happened - here's what I know: ");
-      e.printStackTrace();
-    }
-  }
-
-  private void instrumentSecretDepbranchMenuitemActionPerformed(java.awt.event.ActionEvent evt) {
-    System.out.println(MainFrame.allSourceLines);
-
-    System.out.println(AnalyzerFrame.classPath);
-    if (AnalyzerFrame.classPath.endsWith(".jar")) {
-      String patharray[] = AnalyzerFrame.classPath.split("/");
-      String path = "";
-      for (int i=0; i < patharray.length-1; i++) {
-        path = path + patharray[i] + "/";
-      }
-//      if(path.endsWith("/jar/")) {
-//        path = path.split("/jar/")[0]+"/classes/";
-//      }
-      AnalyzerFrame.classPath = path + currentCFG.getProcedure().getClassName().substring(1)+".class";
-      System.out.println(AnalyzerFrame.classPath);
-    }
-
-    //asm bytecode instrumentation
-    try {
-      //Set<Integer> allSrcLines = new HashSet<>();
-      //allSrcLines.add(30); allSrcLines.add(35); allSrcLines.add(36);
-      //InputStream in = new FileInputStream("src/input/Login.class");
-      InputStream in = new FileInputStream(AnalyzerFrame.classPath);
-      String className = this.currentCFG.getProcedure().getClassName().substring(1);
-      Set<String> procNameSet = new HashSet<>();
-      Set<Integer> lineVisited = new HashSet<>();
-      for (Map.Entry<Integer, String> entry : allSourceLines.entrySet()) {
-        procNameSet.add(entry.getValue());
-      }
-      try {
-        ClassReader cr = new ClassReader(in);
-        ClassWriter cw = new ClassWriter(cr, Opcodes.ASM4);
-
-        // add the static final fields
-        for (int lineno : allSourceLines.keySet()) {
-          cw.visitField(Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC, "branchAt"+lineno+"all", "int", null, null).visitEnd();
-          cw.visitField(Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC, "branchAt"+lineno+"fallThrough", "int", null, null).visitEnd();
-        }
-
-        ClassVisitor cv = new ClassVisitor(Opcodes.ASM4, cw) {
-
-          class ourMethodVisitor extends MethodVisitor {
-            int access;
-            int line;
-            boolean firstline = true;
-            jdk.internal.org.objectweb.asm.Type[] params;
-
-            ourMethodVisitor(MethodVisitor mv, int access, jdk.internal.org.objectweb.asm.Type[] param) {
-              super(Opcodes.ASM4, mv);
-              this.params = param;
-              this.access = access;
-            }
-
-            //@Override
-            //public void visitMethodc
-
-            @Override
-            public void visitInsn(int opcode) {
-              //whenever we find a RETURN, we instert the code, here only crazy example code
-              switch(opcode) {
-                case Opcodes.IRETURN:
-                case Opcodes.FRETURN:
-                case Opcodes.ARETURN:
-                case Opcodes.LRETURN:
-                case Opcodes.DRETURN:
-                case Opcodes.RETURN:
-                  int i = 0;
-                  System.out.println(access);
-                  if (access != 9 && access != 25) {
-                    i = 1;
-                  }
-                  for (jdk.internal.org.objectweb.asm.Type tp : params) {
-                    System.out.println(tp);
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    if (tp.equals(jdk.internal.org.objectweb.asm.Type.BOOLEAN_TYPE)) {
-                      mv.visitVarInsn(Opcodes.ILOAD, i);
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Z)V");
-                    } else if (tp.equals(jdk.internal.org.objectweb.asm.Type.BYTE_TYPE)) {
-                      mv.visitVarInsn(Opcodes.ALOAD, i);
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(B)V");
-                    } else if (tp.equals(jdk.internal.org.objectweb.asm.Type.CHAR_TYPE)) {
-                      mv.visitVarInsn(Opcodes.ILOAD, i);
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(C)V");
-                    } else if (tp.equals(jdk.internal.org.objectweb.asm.Type.SHORT_TYPE)) {
-                      mv.visitVarInsn(Opcodes.ILOAD, i);
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(S)V");
-                    } else if (tp.equals(jdk.internal.org.objectweb.asm.Type.INT_TYPE)) {
-                      mv.visitVarInsn(Opcodes.ILOAD, i);
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(I)V");
-                    } else if (tp.equals(jdk.internal.org.objectweb.asm.Type.LONG_TYPE)) {
-                      mv.visitVarInsn(Opcodes.LLOAD, i);
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(J)V");
-                    } else if (tp.equals(jdk.internal.org.objectweb.asm.Type.FLOAT_TYPE)) {
-                      mv.visitVarInsn(Opcodes.FLOAD, i);
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(F)V");
-                    } else if (tp.equals(jdk.internal.org.objectweb.asm.Type.DOUBLE_TYPE)) {
-                      mv.visitVarInsn(Opcodes.DLOAD, i);
-                      mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(D)V");
-                    } else {
-                      if (tp.toString().equals("[B")) {
-                        mv.visitVarInsn(Opcodes.ALOAD, i);
-                        mv.visitFieldInsn(Opcodes.INVOKESTATIC, "java/util/Arrays", "toString", "([B)Ljava/lang/String;");
-                        //mv.visitTypeInsn(Opcodes.NEW, "java/lang/String");
-                        //mv.visitInsn(Opcodes.DUP);
-                        //mv.visitFieldInsn(Opcodes.INVOKESPECIAL, "java/lang/String", "<init>", "([B)Ljava/lang/String;");
-                        mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-                      } else if (tp.toString().equals("[I")) {
-                        mv.visitVarInsn(Opcodes.ALOAD, i);
-                        mv.visitFieldInsn(Opcodes.INVOKESTATIC, "java/util/Arrays", "toString", "([I)Ljava/lang/String;");
-                        mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-                      } else {
-                        mv.visitVarInsn(Opcodes.ALOAD, i);
-                        mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-                      }
-                    }
-
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    mv.visitLdcInsn("\t");
-                    mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-
-                    i++;
-                  }
-
-                  for (int lineno : allSourceLines.keySet()) {
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    mv.visitLdcInsn("branchAt"+lineno+"all = ");
-                    mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, className, "branchAt"+lineno+"all", "I");
-                    mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    mv.visitLdcInsn("\t");
-                    mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    mv.visitLdcInsn("branchAt"+lineno+"fallThrough = ");
-                    mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, className, "branchAt"+lineno+"fallThrough", "I");
-                    mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-
-                    mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    mv.visitLdcInsn("\t");
-                    mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-                  }
-                  mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                  mv.visitLdcInsn("\n");
-                  mv.visitFieldInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "print", "(Ljava/lang/String;)V");
-                  break;
-                default: // do nothing
-              }
-              super.visitInsn(opcode);
-            }
-
-            @Override
-            public void visitLineNumber(int line, Label l) {
-              this.line = line;
-              //if (!lineVisited.contains(line)) {
-                int prevLinediff = 1;
-                while(!this.firstline && !lineVisited.contains(line-prevLinediff)){
-                  prevLinediff++;
-                }
-                System.err.println("line="+line);
-                System.err.println("prevLinediff="+prevLinediff);
-                if (allSourceLines.keySet().contains(line - prevLinediff)) {
-                  System.err.println("fallThrough");
-                  mv.visitVarInsn(Opcodes.ALOAD, 0);
-                  mv.visitVarInsn(Opcodes.ALOAD, 0);
-                  mv.visitFieldInsn(Opcodes.GETSTATIC, className, "branchAt" + (line - prevLinediff) + "fallThrough", "I");
-                  mv.visitInsn(Opcodes.ICONST_1);
-                  mv.visitInsn(Opcodes.IADD);
-                  mv.visitFieldInsn(Opcodes.PUTSTATIC, className, "branchAt" + (line - prevLinediff) + "fallThrough", "I");
-                }
-                if (allSourceLines.keySet().contains(line)) {
-                  System.err.println("branchAt");
-                  mv.visitVarInsn(Opcodes.ALOAD, 0);
-                  mv.visitVarInsn(Opcodes.ALOAD, 0);
-                  mv.visitFieldInsn(Opcodes.GETSTATIC, className, "branchAt" + line + "all", "I");
-                  mv.visitInsn(Opcodes.ICONST_1);
-                  mv.visitInsn(Opcodes.IADD);
-                  mv.visitFieldInsn(Opcodes.PUTSTATIC, className, "branchAt" + line + "all", "I");
-                }
-              //}
-              this.firstline = false;
-              lineVisited.add(line);
-            }
-          }
-
-          public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
-            if (cv == null) {
-              return null;
-            }
-            MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
-            if (procNameSet.contains(name)) {
-              System.out.println("access = " + access);
-              System.out.println("name = " + name);
-              System.out.println("desc = " + desc);
-              System.out.println("signature = " + signature);
-              return new ourMethodVisitor(mv, access, jdk.internal.org.objectweb.asm.Type.getArgumentTypes(desc));
-            }
-            return mv;
-          }
-        };
-
-        // feed the original class to the wrapped ClassVisitor
-        cr.accept(cv, 0);
-
-        // produce the modified class
-        //Dump the class in a file
-        File outDir=new File("src/output/");
-        outDir.mkdirs();
-//        if (className.contains("/")) {
-//          String[] clsarr = className.split("/");
-//          className = clsarr[clsarr.length - 1].split(".class")[0];
-//        }
-        DataOutputStream dout=new DataOutputStream(new FileOutputStream(new File(outDir,className+".class")));
-        dout.write(cw.toByteArray());
-        dout.flush();
-        dout.close();
-        JOptionPane.showMessageDialog(this, "Instrumented class saved to src/output directory");
-        //System.out.println(getLineNumber("src/Login.class"));
-
-      } catch(IOException ex) {
-        System.err.println(ex.toString());
-      }
-    } catch(FileNotFoundException ex) {
-      System.err.println(ex.toString());
-    }
-  }
 
   private String recursiveInlining(List<String> invokedProcedures, List<String> jsonItems, int i, String jsonItemID, String jsonItem, String completeJSON, Integer oldProcRecursiveBound) {
     //JOptionPane.showMessageDialog(MainFrame.this, "At Start: \n" + completeJSON);
@@ -4392,41 +4108,9 @@ public class MainFrame extends javax.swing.JFrame {
   // End of variables declaration//GEN-END:variables
   public File fileToSave = null;
 
-  public class CustomClassWriter {
-
-    ClassReader reader;
-    ClassWriter writer;
-
-    public CustomClassWriter(String className) throws IOException {
-      reader = new ClassReader(className);
-      writer = new ClassWriter(reader, 0);
-    }
-  }
-
-  private class InsertInitCodeBeforeReturnMethodVisitor extends MethodVisitor{
-
-    public InsertInitCodeBeforeReturnMethodVisitor(MethodVisitor mv) {
-      super(Opcodes.ASM4, mv);
-    }
 
 
-    @Override
-    public void visitInsn(int opcode) {
-      //whenever we find a RETURN, we instert the code, here only crazy example code
-      switch(opcode) {
-        case Opcodes.IRETURN:
-        case Opcodes.FRETURN:
-        case Opcodes.ARETURN:
-        case Opcodes.LRETURN:
-        case Opcodes.DRETURN:
-        case Opcodes.RETURN:
-          mv.visitVarInsn(Opcodes.ALOAD, 42);
-          break;
-        default: // do nothing
-      }
-      super.visitInsn(opcode);
-    }
-  }
+
 
   private class MarkovChainInformation {
 

@@ -6,6 +6,7 @@ import gui.MainLogic;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
@@ -14,6 +15,7 @@ public class PReach {
 
     private static String  myProjPath;
     private static String  jrePathName;
+    public static ArrayList<String> methodList = new ArrayList<>();
 
     private ArrayList<String> appPaths;
     private ArrayList<String> libPaths;
@@ -22,6 +24,8 @@ public class PReach {
     private String procSign;
     private ArrayList<String> testInputParams;
     private String branchProbFile;
+
+    private ArrayList<String> procList = new ArrayList<>();
 
     private RunProgramGen programGen;
     private Thread  genThread;          // thread in which generateProgram() runs
@@ -41,6 +45,16 @@ public class PReach {
         this.procSign = procSign;
         this.testInputParams = testInputParams;
         this.branchProbFile = branchProbFile;
+    }
+
+    PReach(ArrayList<String> appPaths, ArrayList<String> libPaths,
+           String apiPath, String entryFilePath, ArrayList<String> methodList) {
+        timer = new Timer(1000, new TimerListener());
+        this.appPaths = appPaths;
+        this.libPaths = libPaths;
+        this.apiPath = apiPath;
+        this.entryFilePath = entryFilePath;
+        this.procList = methodList;
     }
 
 
@@ -85,7 +99,9 @@ public class PReach {
             Program.analyzeProgram();
             Set<String> misses = Program.checkAnalysisScope();
             Set<String> unknowns = LibrarySummary.getUnknownMethodSet();
-            doAnalysis(procSign, testInputParams);
+
+
+            //doAnalysis(procSign, testInputParams);
         } catch (Exception e) {
             e.printStackTrace();
             return 2;
@@ -135,19 +151,59 @@ public class PReach {
     }
 
     public static void main(String args[]) throws InvalidClassFileException {
-        System.out.println("PReach Script Writing Starts...");
 
-        String[] classList = args[0].split(",");
+//        String[] classList = args[0].split(",");
+//        String[] libList = args[1].split(",");
+//        String procSign = args[2];
+//        String[] paramList = args[3].split(",");
+//        String branchProbFile = args[4];
+//
+//        ArrayList<String> testInputParams = new ArrayList(Arrays.asList(paramList));
+
+//        PReach preach = new PReach(new ArrayList(Arrays.asList(classList)),
+//                new ArrayList(Arrays.asList(libList)), "", "",
+//                procSign, testInputParams, branchProbFile);
+
+        //---------------------------------------------------------------------------
+        //Additional code for extracting code metric features from PReach
+        ArrayList<String> classList = new ArrayList<>();
+        String classRootDir = args[0];
         String[] libList = args[1].split(",");
-        String procSign = args[2];
-        String[] paramList = args[3].split(",");
-        String branchProbFile = args[4];
 
-        ArrayList<String> testInputParams = new ArrayList(Arrays.asList(paramList));
+        String codeMetricsFile = args[2];
+        File file = new File(codeMetricsFile);
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
 
-        PReach preach = new PReach(new ArrayList(Arrays.asList(classList)),
-                new ArrayList(Arrays.asList(libList)), "", "",
-                procSign, testInputParams, branchProbFile);
+            String st;
+            while ((st = br.readLine()) != null) {
+                if(st.startsWith("ID,method"))
+                    continue;
+                String methodInfo = st.split(",")[1];
+                methodList.add(methodInfo);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        for (String methodInfo : methodList) {
+            String className = methodInfo.split(":")[0];
+            className = className.replace(".","/");
+            className = classRootDir + "/" + className + ".class";
+            System.out.println(className);
+
+            File tmpDir = new File(className);
+            boolean exists = tmpDir.exists();
+            if(exists)
+                classList.add(className);
+            else
+                System.err.println("This class does not exist");
+        }
+        //---------------------------------------------------------------------------
+
+        PReach preach = new PReach(classList, new ArrayList(Arrays.asList(libList)), "", "", methodList);
+
         preach.launchProgramGen();
 
         //preach.doAnalysis(procSign, testInputParams);
