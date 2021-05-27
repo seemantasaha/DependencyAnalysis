@@ -370,6 +370,15 @@ public class Program {
     }
     return null;
   }
+
+  static public Procedure getProcedureUsingMethodName(String procName) {
+    for (Procedure proc : procedureMap.values()) {
+      String procFullName = proc.getClassName()+":"+proc.getProcedureName();
+      if (procFullName.equals("L"+procName.replace(".","/")))
+        return proc;
+    }
+    return null;
+  }
   
   static public Set<Procedure> getProcedureSet() {
     return new HashSet<>(procedureMap.values());

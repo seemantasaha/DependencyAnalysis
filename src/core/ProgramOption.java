@@ -6,7 +6,7 @@ package core;
  */
 public class ProgramOption {
   private static CGType   cgType = CGType.ZeroOneCFA;
-  private static boolean  averroes = true;
+  private static boolean  averroes = false;
   private static boolean  exception = false;
   private static boolean  infiniteLoop = true;
   

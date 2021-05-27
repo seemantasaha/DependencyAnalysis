@@ -1813,7 +1813,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     BufferedReader reader;
     try {
-      String branch_prob_file = rootDir + "branch_probability.txt";
+      //String branch_prob_file = rootDir + "branch_probability.txt";
+      String branch_prob_file = "/home/seem/Downloads/saner-jss/workspace/projects/checkstyle/branch_probability.txt";
       System.out.println(branch_prob_file);
       reader = new BufferedReader(new FileReader(branch_prob_file));
       String line = reader.readLine();
@@ -2257,31 +2258,31 @@ public class MainFrame extends javax.swing.JFrame {
       if (jsonItem.contains("\"secret_dependent_branch\" : \"true\"")) {
         //start: additional code for counting secret dependent branches
           long startTime = System.currentTimeMillis();
-        String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
-        System.out.println("Instruction to translate: " + ins_to_translate);
-
-        List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
-        System.out.println(smtConsList.get(1));
-
-        modelCounter.setBound(15);
-        modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
-        BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
-        BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
+//        String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
+//        System.out.println("Instruction to translate: " + ins_to_translate);
+//
+//        List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
+//        System.out.println(smtConsList.get(1));
+//
+//        modelCounter.setBound(15);
+//        modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
+//        BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
+//        BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
 
         double true_prob = 0.0;
         double false_prob = 0.0;
 
-        String[] ins_part = ins_to_translate.split("and");
-
-        //boolean flag_to_update_prob = false;
-        if(ins_part.length >= 2 && ins_part[1].contains("not")) {
-          false_prob = cons_count.doubleValue() / dom_count.doubleValue();
-          true_prob = 1.0 - false_prob;
-        } else {
-            //flag_to_update_prob = true;
-          true_prob = cons_count.doubleValue() / dom_count.doubleValue();
-          false_prob = 1.0 - true_prob;
-        }
+//        String[] ins_part = ins_to_translate.split("and");
+//
+//        //boolean flag_to_update_prob = false;
+//        if(ins_part.length >= 2 && ins_part[1].contains("not")) {
+//          false_prob = cons_count.doubleValue() / dom_count.doubleValue();
+//          true_prob = 1.0 - false_prob;
+//        } else {
+//            //flag_to_update_prob = true;
+//          true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+//          false_prob = 1.0 - true_prob;
+//        }
 
         System.out.println("Probability of true branch: " + true_prob);
         System.out.println("Probability of false branch: " + false_prob);
@@ -2449,31 +2450,31 @@ public class MainFrame extends javax.swing.JFrame {
               prismModel += "\t" + "[] s = " + fromNode + " -> " + "0.0" + " : " + "(s' = " + trueNode + ") + " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
             } else {
               long startTime = System.currentTimeMillis();
-              String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
-              System.out.println("Instruction to translate: " + ins_to_translate);
-
-              List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
-              System.out.println(smtConsList.get(1));
-
-              modelCounter.setBound(31);
-              modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
-              BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
-              BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
+//              String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
+//              System.out.println("Instruction to translate: " + ins_to_translate);
+//
+//              List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
+//              System.out.println(smtConsList.get(1));
+//
+//              modelCounter.setBound(31);
+//              modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
+//              BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
+//              BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
 
               double true_prob = 0.0;
               double false_prob = 0.0;
 
-              String[] ins_part = ins_to_translate.split("and");
-
-              //boolean flag_to_update_prob = false;
-              if(ins_part.length >= 2 && ins_part[1].contains("not")) {
-                false_prob = cons_count.doubleValue() / dom_count.doubleValue();
-                true_prob = 1.0 - true_prob;
-              } else {
-                  //flag_to_update_prob = true;
-                true_prob = cons_count.doubleValue() / dom_count.doubleValue();
-                false_prob = 1.0 - true_prob;
-              }
+//              String[] ins_part = ins_to_translate.split("and");
+//
+//              //boolean flag_to_update_prob = false;
+//              if(ins_part.length >= 2 && ins_part[1].contains("not")) {
+//                false_prob = cons_count.doubleValue() / dom_count.doubleValue();
+//                true_prob = 1.0 - true_prob;
+//              } else {
+//                  //flag_to_update_prob = true;
+//                true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+//                false_prob = 1.0 - true_prob;
+//              }
 
                 // Using branch selectivity separately ---------------------------------------
                 ISSABasicBlock node = itemNodeMap.get(jsonItemID);

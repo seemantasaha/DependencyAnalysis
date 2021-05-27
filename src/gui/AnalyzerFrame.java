@@ -2379,25 +2379,25 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void appAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appAddButtonActionPerformed
     statusMessage.init();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar and Class Files","jar", "class");
-    this.fileChooser.setCurrentDirectory(new File("/home/seem/Downloads/saner-jss/workspace/projects/checkstyle/target")); //temporary
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/Downloads/saner-jss/workspace/projects/checkstyle/classes/checkstyle/com/puppycrawl/tools/checkstyle")); //temporary
     this.fileChooser.setFileFilter(filter);
     this.fileChooser.setSelectedFile(null);
     this.fileChooser.setMultiSelectionEnabled(true);
     int retVal = this.fileChooser.showOpenDialog(this);
     if (retVal == JFileChooser.APPROVE_OPTION) {
-      DefaultListModel listModel = (DefaultListModel)this.appList.getModel();
-      File[] files = this.fileChooser.getSelectedFiles();
-      String filePart[] = files[0].toString().split("/");
-      String branchSelectivityPart = "";
-      for (int i = 0; i < filePart.length-1; i++) {
-          branchSelectivityPart += filePart[i] + "/";
-      }
-      MainFrame.rootDir = branchSelectivityPart;
-      for (File file : files) {
-        String app = file.getAbsolutePath();
-        if (!listModel.contains(app))
-          listModel.addElement(app);
-      }
+        DefaultListModel listModel = (DefaultListModel) this.appList.getModel();
+        File[] files = this.fileChooser.getSelectedFiles();
+        String filePart[] = files[0].toString().split("/");
+        String branchSelectivityPart = "";
+        for (int i = 0; i < filePart.length - 1; i++) {
+            branchSelectivityPart += filePart[i] + "/";
+        }
+        MainFrame.rootDir = branchSelectivityPart;
+        for (File file : files) {
+            String app = file.getAbsolutePath();
+            if (!listModel.contains(app))
+                listModel.addElement(app);
+        }
     }
   }//GEN-LAST:event_appAddButtonActionPerformed
 
@@ -2484,7 +2484,8 @@ public class AnalyzerFrame extends javax.swing.JFrame {
   private void entryOpenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entryOpenButtonActionPerformed
     statusMessage.init();
     this.fileChooser.setFileFilter(null);
-    //this.fileChooser.setSelectedFile(new File("entry_point"));
+    this.fileChooser.setCurrentDirectory(new File("/home/seem/Downloads/saner-jss/workspace/projects/checkstyle/")); //temporary
+      //this.fileChooser.setSelectedFile(new File("entry_point"));
     this.fileChooser.setMultiSelectionEnabled(false);
     int retVal = this.fileChooser.showOpenDialog(this);
     if (retVal == JFileChooser.APPROVE_OPTION) {

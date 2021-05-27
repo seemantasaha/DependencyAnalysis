@@ -57,26 +57,49 @@ public class ConfigMaker {
           result.add(new DefaultEntrypoint(mth, cha));
       }
     }
-    
+    int countIgnoredMethod=0;
     for (String entry : otherEntrySet) {
       Atom entryMth = Atom.findOrCreateAsciiAtom(getEntryMethodName(entry));
-      System.out.println(entryMth);
+      //System.out.println(entryMth);
       TypeReference typeRef = TypeReference.findOrCreate(appClsLoaderRef, TypeName.string2TypeName(getEntryClassName(entry)));
-      System.out.println(typeRef);
-      System.out.println(typeRef.getName());
+      //System.out.println(typeRef);
+      //System.out.println(typeRef.getName());
       IClass cls = cha.lookupClass(typeRef);
-      System.out.println(cls);
-      if (cls.isAbstract()) {
-        // TODO: we need to check whether the subclass is still abstract? and find the nearest non-abstract desendant
-        for (IClass subCls : cha.getImmediateSubclasses(cls)) {
-          MethodReference entryRef = MethodReference.findOrCreate(subCls.getReference(), entryMth, Descriptor.findOrCreateUTF8(getEntryParameterList(entry)));
-          result.add(new SubtypesEntrypoint(entryRef, cha));
-        }
-      } else {
-        MethodReference entryRef = MethodReference.findOrCreate(typeRef, entryMth, Descriptor.findOrCreateUTF8(getEntryParameterList(entry)));
-        result.add(new DefaultEntrypoint(entryRef, cha));
+      //System.out.println(cls);
+      if(cls == null) {
+        System.err.println("Ignored Method (null class): " + typeRef.getName() + " " + entryMth.toString());
+        countIgnoredMethod++;
+        continue;
+      }
+      try {
+          if (cls.isAbstract()) {
+              // TODO: we need to check whether the subclass is still abstract? and find the nearest non-abstract desendant
+              for (IClass subCls : cha.getImmediateSubclasses(cls)) {
+                  MethodReference entryRef = MethodReference.findOrCreate(subCls.getReference(), entryMth, Descriptor.findOrCreateUTF8(getEntryParameterList(entry)));
+                  result.add(new SubtypesEntrypoint(entryRef, cha));
+              }
+          } else {
+              MethodReference entryRef = MethodReference.findOrCreate(typeRef, entryMth, Descriptor.findOrCreateUTF8(getEntryParameterList(entry)));
+              //if(entryMth.toString().equals("getCacheFile")) {
+              //  System.err.println("Ignored Method: " + typeRef.getName() + " " + entryMth.toString());
+              //  countIgnoredMethod++;
+              //  continue;
+              //}
+              if(!entryRef.getDeclaringClass().getName().toString().endsWith(entryMth.toString())) { //to ignore constructors
+                result.add(new DefaultEntrypoint(entryRef, cha));
+              }
+
+              //} else {
+              //  System.err.println("Ignored Method (null in DefaultEntryPoint): " + typeRef.getName() + " " + entryMth.toString());
+              //  countIgnoredMethod++;
+              // }
+          }
+      } catch(Exception ex) {
+          ex.printStackTrace();
       }
     }
+
+    System.out.println("Number of ignored methods: " + countIgnoredMethod);
     
     if (ProgramOption.getAverroesFlag()) {
       TypeReference typeRef = TypeReference.findOrCreate(appClsLoaderRef, TypeName.string2TypeName("Laverroes/Library"));

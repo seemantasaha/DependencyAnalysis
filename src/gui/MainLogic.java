@@ -69,11 +69,11 @@ public class MainLogic {
 
     private void paintSlice(Set<Statement> stmtSet) {
     CG cg = this.getCG();
-    cg.paintProcedureSet(Program.getProcedureSet(), "white");
+    //cg.paintProcedureSet(Program.getProcedureSet(), "white");
     for (Procedure proc : Program.getProcedureSet()) {
       CFG cfg = this.getCFG(proc);
       cfg.getProcedure().dependentNodes.clear();
-      cfg.paintNodeSet(proc.getNodeSet(), "aquamarine");
+      //cfg.paintNodeSet(proc.getNodeSet(), "aquamarine");
     }
 
     for (Statement stmt : stmtSet) {
@@ -81,7 +81,7 @@ public class MainLogic {
       CFG cfg = this.getCFG(proc);
       if (proc == null || cfg == null)
         continue;
-      cg.colorVertex(proc, "green");
+      //cg.colorVertex(proc, "green");
 
       StatementType stmtType = stmt.getStatementType();
       if (stmtType == StatementType.Instruction) {
@@ -94,21 +94,22 @@ public class MainLogic {
             bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
             try {
               int src_line_number = target.getMethod().getLineNumber(bcIndex);
+              System.out.println(target.getMethod() + ":" + src_line_number);
               nodeLineMap.put(target, src_line_number);
-              System.out.println("Source line number = " + src_line_number);
+              //System.out.println("Source line number = " + src_line_number);
               MainLogic.allSourceLines.put(src_line_number, proc.getProcedureName());
             } catch (Exception e) {
-              System.out.println("Bytecode index is incorrect");
-              System.out.println(e.getMessage());
+              //System.out.println("Bytecode index is incorrect");
+              System.err.println(e.getMessage());
             }
           }
         } catch (Exception e ) {
-          System.err.println("it's probably not a BT method (e.g. it's a fakeroot method)");
+          //System.err.println("it's probably not a BT method (e.g. it's a fakeroot method)");
           System.err.println(e.getMessage());
         }
         if (target != null) {
           cfg.getProcedure().dependentNodes.add(""+target.getNumber());
-          cfg.paintNode(target, "green");
+          //cfg.paintNode(target, "green");
         }
       } else if (stmtType == StatementType.ActualIn || stmtType == StatementType.ActualOut) {
         Statement ctrlStmt = stmt.getControlStatement();
@@ -122,20 +123,22 @@ public class MainLogic {
               bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
               try {
                 int src_line_number = target.getMethod().getLineNumber(bcIndex);
-                System.out.println("Source line number = " + src_line_number);
+                System.out.println(target.getMethod() + ":" + src_line_number);
+                nodeLineMap.put(target, src_line_number);
+                //System.out.println("Source line number = " + src_line_number);
                 MainLogic.allSourceLines.put(src_line_number, proc.getProcedureName());
               } catch (Exception e) {
-                System.out.println("Bytecode index no good");
-                System.out.println(e.getMessage());
+                //System.out.println("Bytecode index no good");
+                System.err.println(e.getMessage());
               }
             }
           } catch (Exception e ) {
-            System.out.println("it's probably not a BT method (e.g. it's a fakeroot method)");
+            //System.out.println("it's probably not a BT method (e.g. it's a fakeroot method)");
             System.out.println(e.getMessage());
           }
           if (target != null) {
             cfg.getProcedure().dependentNodes.add(""+target.getNumber());
-            cfg.paintNode(target, "green");
+            //cfg.paintNode(target, "green");
           }
         }
       }
@@ -146,7 +149,7 @@ public class MainLogic {
         SSAInstruction inst = block.getLastInstruction();
         if (inst == null)
           continue;
-        System.err.println(inst);
+        //System.err.println(inst);
         if (inst.toString().startsWith("return") /*|| inst.toString().contains("= invokevirtual")*/) {
           ISSABasicBlock target = proc.getNode(inst);
           int bcIndex = 0;
@@ -154,16 +157,16 @@ public class MainLogic {
             bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
             try {
               int src_line_number = target.getMethod().getLineNumber(bcIndex);
-              System.err.println("Source line number = " + src_line_number);
+              //System.out.println("Source line number = " + src_line_number);
               if(MainLogic.allSourceLines.containsKey(src_line_number)) {
                 MainLogic.allSourceLines.remove(src_line_number);
               }
             } catch (Exception e) {
-              System.err.println("Bytecode index no good");
+              //System.err.println("Bytecode index no good");
               System.err.println(e.getMessage());
             }
           } catch (Exception e ) {
-            System.err.println("it's probably not a BT method (e.g. it's a fakeroot method)");
+            //System.err.println("it's probably not a BT method (e.g. it's a fakeroot method)");
             System.err.println(e.getMessage());
           }
         }
@@ -281,10 +284,72 @@ public class MainLogic {
     }
   }
 
-  public void doDependencyAnalysisPerParam(String procSign, String param) {
+  public void initializeForPReachAnalysis() {
+    loopUnrolling = false;
+    loopbound = 4;
+    backEdgeExists = false;
+
+
+    dependencyAnalysisTime = 0;
+    extraModelCountingTime = 0;
+    cfgConsTime = "";
+
+    counter = 0;
+    nodeMap = new HashMap<>();
+    idMap = new HashMap<>();
+    edgeMap =  new HashMap<>();
+    branchNodes = new ArrayList<>();
+    endNode = "";
+    assertionNode = "";
+    transitionMap = new HashMap<>();
+    transitionlistMap = new HashMap<>();
+    nodeLineMap = new HashMap<>();
+    interProcDomMap = new HashMap<>();
+    interProcPostDomMap = new HashMap<>();
+    procCallMap = new HashMap<>();
+    procCallReverseMap = new HashMap<>();
+
+    allStmtSet = new HashSet<>();
+    selectedVariables = new HashSet<>();
+    allSourceLines = new HashMap<>();
+    modelCountingTimeMap = new HashMap<>();
+  }
+
+  public ArrayList<String> doPReachAnalysis(ArrayList<String> procNameList, String branchProbFile) {
+
+    collectBranchProbabilities(branchProbFile);
+
+    preachFeatureList.add("Method,numOfBranchNodes,numOfSelectiveBranchNodes\n");
+
+    for (String procName: procNameList) {
+
+        initializeForPReachAnalysis();
+
+        Procedure proc = Program.getProcedureUsingMethodName(procName);
+        if (proc == null) {
+            System.out.println(procName + "is null");
+            continue;
+        }
+        int paramNumber = proc.getIR().getNumberOfParameters();
+        for (int p = 1; p < paramNumber; p++) {
+            System.out.println(procName + ":" + paramNumber);
+            doDependencyAnalysisPerParam(procName, "v" + paramNumber);
+        }
+
+        if(paramNumber == 1) {
+          currentCFG = this.controlFlowGraphMap.get(proc);
+        }
+
+        doMarkovChainAnalysis();
+    }
+
+    return preachFeatureList;
+  }
+
+  public void doDependencyAnalysisPerParam(String procName, String param) {
     Set found = new HashSet<>();
     long start = System.currentTimeMillis();
-    Procedure proc = Program.getProcedure(procSign);
+    Procedure proc = Program.getProcedureUsingMethodName(procName);
     currentCFG = this.controlFlowGraphMap.get(proc);
     if (currentCFG == null){
       return;
@@ -315,22 +380,22 @@ public class MainLogic {
                     ((compare.contains("phi") || compare.contains("arrayload") || compare.contains("arraylength")) &&
                             compare.matches("(.*[^0-9])?" + selected.substring(1, selected.length()) + "([^0-9].*)?"))){
               found.add(entry);
-              System.out.println("\n=============================\n");
+              //System.out.println("\n=============================\n");
               Iterator<SSAInstruction> itr = entry.iterator();
               while(itr.hasNext()) {
                 SSAInstruction ins = itr.next();
-                System.out.println(ins);
+                //System.out.println(ins);
                 if(Reporter.getSSAInstructionString(ins).contains("=")) {
                   String[] inspart = Reporter.getSSAInstructionString(ins).split("=");
                   if(inspart[1].contains(selected)) {
                     stmtSet.addAll(ProgramDependenceGraph.sliceProgramForward(currentCFG.getProcedure(),ins));
                     String newvar = inspart[0].replace(" ","");
-                    System.out.println(newvar);
+                    //System.out.println(newvar);
                     MainLogic.selectedVariables.add(newvar);
                   }
                 }
               }
-              System.out.println("\n=============================\n");
+              //System.out.println("\n=============================\n");
               String[] inspart = Reporter.getSSAInstructionString(entry.getLastInstruction()).split(" ");
               boolean runFlag = false;
               for(String s : inspart){
@@ -358,13 +423,13 @@ public class MainLogic {
                       SSAInstruction insts = instIter.next();
                       if (insts.toString().contains("phi")) {
                         String var = insts.toString().split(" = ")[0];
-                        System.out.println("variable : v" + var);
+                        //System.out.println("variable : v" + var);
                         Iterator<SSAInstruction> loopInstIter = loopNode.iterator();
                         while (loopInstIter.hasNext()) {
                           SSAInstruction instsLoop = loopInstIter.next();
                           if (instsLoop.toString().contains("phi  " + var)) {
                             String varToSlice = "v" + instsLoop.toString().split(" = ")[0];
-                            System.out.println("variable to slice : " + varToSlice);
+                            //System.out.println("variable to slice : " + varToSlice);
                             for (ISSABasicBlock node : mapCFG.keySet()){
                               String compareNode = currentCFG.getGraph().getLabel(mapCFG.get(node));
                               String[] compareNodeArray = compareNode.split("\n");
@@ -436,31 +501,31 @@ public class MainLogic {
     }
   }
 
-  public void doMarkovChainAnalysis(String branchProbFile) {
-
-    Map<String, Double> branchProbMap = new HashMap<>();
-
-    BufferedReader reader;
-    try {
-      System.out.println(branchProbFile);
-      reader = new BufferedReader(new FileReader(branchProbFile));
-      String line = reader.readLine();
-      while (line != null) {
-        //System.out.println(line);
-        String[] temp = line.split("\t");
-        if(temp.length < 2)
-            continue;
+  public void collectBranchProbabilities(String branchProbFile) {
+      BufferedReader reader;
+      try {
+          System.out.println(branchProbFile);
+          reader = new BufferedReader(new FileReader(branchProbFile));
+          String line = reader.readLine();
+          while (line != null) {
+              //System.out.println(line);
+              String[] temp = line.split("\t");
+              if(temp.length < 2)
+                  continue;
 //        if(temp[2].equals("1")) {
-            branchProbMap.put(temp[0], 1.0 - Double.parseDouble(temp[1]));
+              branchProbMap.put(temp[0], 1.0 - Double.parseDouble(temp[1]));
 //        } else {
 //            branchProbMap.put(temp[0], Double.parseDouble(temp[1]));
 //        }
-        line = reader.readLine();
+              line = reader.readLine();
+          }
+          reader.close();
+      } catch (IOException e) {
+          e.printStackTrace();
       }
-      reader.close();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+  }
+
+  public void doMarkovChainAnalysis() {
 
     long start = System.currentTimeMillis();
 
@@ -884,35 +949,35 @@ public class MainLogic {
 
       if (jsonItem.contains("\"secret_dependent_branch\" : \"true\"")) {
         //start: additional code for counting secret dependent branches
-          long startTime = System.currentTimeMillis();
-        String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
-        System.out.println("Instruction to translate: " + ins_to_translate);
+        long startTime = System.currentTimeMillis();
+//        String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
 
-        List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
-        System.out.println(smtConsList.get(1));
-
-        modelCounter.setBound(15);
-        modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
-        BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
-        BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
+//        System.out.println("Instruction to translate: " + ins_to_translate);
+//        List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
+//        System.out.println(smtConsList.get(1));
+//
+//        modelCounter.setBound(15);
+//        modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
+//        BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
+//        BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
 
         double true_prob = 0.0;
         double false_prob = 0.0;
 
-        String[] ins_part = ins_to_translate.split("and");
+//        String[] ins_part = ins_to_translate.split("and");
+//
+//        //boolean flag_to_update_prob = false;
+//        if(ins_part.length >= 2 && ins_part[1].contains("not")) {
+//          false_prob = cons_count.doubleValue() / dom_count.doubleValue();
+//          true_prob = 1.0 - false_prob;
+//        } else {
+//            //flag_to_update_prob = true;
+//          true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+//          false_prob = 1.0 - true_prob;
+//        }
 
-        //boolean flag_to_update_prob = false;
-        if(ins_part.length >= 2 && ins_part[1].contains("not")) {
-          false_prob = cons_count.doubleValue() / dom_count.doubleValue();
-          true_prob = 1.0 - false_prob;
-        } else {
-            //flag_to_update_prob = true;
-          true_prob = cons_count.doubleValue() / dom_count.doubleValue();
-          false_prob = 1.0 - true_prob;
-        }
-
-        System.out.println("Probability of true branch: " + true_prob);
-        System.out.println("Probability of false branch: " + false_prob);
+//        System.out.println("Probability of true branch: " + true_prob);
+//        System.out.println("Probability of false branch: " + false_prob);
 
         // Using branch selectivity separately ---------------------------------------
           ISSABasicBlock node = itemNodeMap.get(jsonItemID);
@@ -925,7 +990,7 @@ public class MainLogic {
               String className = currentCFG.getProcedure().getClassName().replace("/", ".");
               String[] classNamePart = className.split("\\.");
               className = classNamePart[classNamePart.length-1];
-              String key = className.replace("L", "") + ".java:" + line;
+              String key = className + ".java:" + line;
               if (branchProbMap.containsKey(key)) {
                   //if(flag_to_update_prob) {
                       true_prob = branchProbMap.get(key);
@@ -1004,8 +1069,10 @@ public class MainLogic {
 
           prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
 
+          //if(jsonItemID.split("#")[0].equals(outgoingNodes[0].split("#")[0])) {
           branchNodes.add(trueNode);
           branchNodes.add(falseNode);
+          //}
 
         } else {
           List<String> edgeList = edgeMap.get(fromNode);
@@ -1085,31 +1152,30 @@ public class MainLogic {
 
             } else {
               long startTime = System.currentTimeMillis();
-              String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
-              System.out.println("Instruction to translate: " + ins_to_translate);
-
-              List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
-              System.out.println(smtConsList.get(1));
-
-              modelCounter.setBound(31);
-              modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
-              BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
-              BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
+//              String ins_to_translate = jsonItem.split("\"ins_to_translate\" : \"")[1].split("\"")[0];
+//              System.out.println("Instruction to translate: " + ins_to_translate);
+//              List<String> smtConsList = translateToSMTLib(ins_to_translate, itemProcMap.get(jsonItemID.split("#")[0]));
+//              System.out.println(smtConsList.get(1));
+//
+//              modelCounter.setBound(31);
+//              modelCounter.setModelCountMode("abc.linear_integer_arithmetic");
+//              BigDecimal cons_count = modelCounter.getModelCount(smtConsList.get(1));
+//              BigDecimal dom_count = modelCounter.getModelCount(smtConsList.get(0));
 
               double true_prob = 0.0;
               double false_prob = 0.0;
 
-              String[] ins_part = ins_to_translate.split("and");
-
-              //boolean flag_to_update_prob = false;
-              if(ins_part.length >= 2 && ins_part[1].contains("not")) {
-                false_prob = cons_count.doubleValue() / dom_count.doubleValue();
-                true_prob = 1.0 - true_prob;
-              } else {
-                  //flag_to_update_prob = true;
-                true_prob = cons_count.doubleValue() / dom_count.doubleValue();
-                false_prob = 1.0 - true_prob;
-              }
+//              String[] ins_part = ins_to_translate.split("and");
+//
+//              //boolean flag_to_update_prob = false;
+//              if(ins_part.length >= 2 && ins_part[1].contains("not")) {
+//                false_prob = cons_count.doubleValue() / dom_count.doubleValue();
+//                true_prob = 1.0 - true_prob;
+//              } else {
+//                  //flag_to_update_prob = true;
+//                true_prob = cons_count.doubleValue() / dom_count.doubleValue();
+//                false_prob = 1.0 - true_prob;
+//              }
 
                 // Using branch selectivity separately ---------------------------------------
                 ISSABasicBlock node = itemNodeMap.get(jsonItemID);
@@ -1120,7 +1186,7 @@ public class MainLogic {
                 if(nodeLineMap.containsKey(node)) {
                     int line = nodeLineMap.get(node);
                     String className = currentCFG.getProcedure().getClassName().replace("/", ".");
-                    String key = className.replace("L", "") + ".java:" + line;
+                    String key = className + ".java:" + line;
                     if (branchProbMap.containsKey(key)) {
                         //if(flag_to_update_prob) {
                             true_prob = branchProbMap.get(key);
@@ -1156,8 +1222,10 @@ public class MainLogic {
               graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + false_prob + "\"];\n";
               prismModel += "\t" + "[] s = " + fromNode + " -> " + true_prob + " : " + "(s' = " + trueNode + ") + " + false_prob + " : " + "(s' = " + falseNode + ");\n";
 
+              //if(jsonItemID.split("#")[0].equals(outgoingNodes[0].split("#")[0])) {
               branchNodes.add(trueNode);
               branchNodes.add(falseNode);
+              //}
 
               String[] splittedID = jsonItemID.split("#");
               String idModelCount = splittedID[0]+"#"+splittedID[splittedID.length-1];
@@ -1697,7 +1765,17 @@ public class MainLogic {
 //      long dfs3 = System.currentTimeMillis();
 //      long det3 = dfs3 - dts3;
 
-      long dts4 = System.currentTimeMillis();
+
+    if(branchNodes.size() == 0) {
+      String featureString = this.currentCFG.getProcedure().getClassName().substring(1) + ":"
+              + this.currentCFG.getProcedure().getProcedureName() + ","
+              + "0" + ","
+              + "0" + "\n";
+      preachFeatureList.add(featureString);
+      return;
+    }
+
+    long dts4 = System.currentTimeMillis();
 
 
     String fileName = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".dot";
@@ -1804,6 +1882,12 @@ public class MainLogic {
         System.out.println("Number of branch nodes: " + branchNodes.size());
         System.out.println("Number of selective branch nodes: " + numOfSelectiveBranchNodes);
 
+        String featureString = this.currentCFG.getProcedure().getClassName().substring(1) + ":"
+                + this.currentCFG.getProcedure().getProcedureName() + ","
+                + branchNodes.size() + ","
+                + numOfSelectiveBranchNodes + "\n";
+        preachFeatureList.add(featureString);
+
         // Read any errors from the attempted command
         if ((s = stdError.readLine()) != null)
           System.out.println("Here is the standard error of the command (if any):\n");
@@ -1817,45 +1901,45 @@ public class MainLogic {
       p1timeElapsed = p1finish - p1start;
     //}
 
-    if(num_properties == 2) {
-      long p2start = System.currentTimeMillis();
-      Process proc2 = null;
-      try {
-        proc2 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "2"});
-
-        if (proc2 == null) return;
-        ;
-
-        BufferedReader stdInput = new BufferedReader(new
-                InputStreamReader(proc2.getInputStream()));
-
-        BufferedReader stdError = new BufferedReader(new
-                InputStreamReader(proc2.getErrorStream()));
-
-        // Read the output from the command
-        String s = null;
-//      if ((s = stdInput.readLine()) != null) {
-//        System.out.println("PRISM run output:\n");
+//    if(num_properties == 2) {
+//      long p2start = System.currentTimeMillis();
+//      Process proc2 = null;
+//      try {
+//        proc2 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "2"});
+//
+//        if (proc2 == null) return;
+//        ;
+//
+//        BufferedReader stdInput = new BufferedReader(new
+//                InputStreamReader(proc2.getInputStream()));
+//
+//        BufferedReader stdError = new BufferedReader(new
+//                InputStreamReader(proc2.getErrorStream()));
+//
+//        // Read the output from the command
+//        String s = null;
+////      if ((s = stdInput.readLine()) != null) {
+////        System.out.println("PRISM run output:\n");
+////      }
+//        while ((s = stdInput.readLine()) != null) {
+//          if (s.contains("Result: ")) {
+//            String prob = s.split("Result: ")[1].split(" ")[0];
+//            System.out.println("Probability for assertion failure: " + prob);
+//          }
+//        }
+//
+//        // Read any errors from the attempted command
+//        if ((s = stdError.readLine()) != null)
+//          System.out.println("Here is the standard error of the command (if any):\n");
+//        while ((s = stdError.readLine()) != null) {
+//          System.out.println(s);
+//        }
+//      } catch (Exception ex) {
+//        System.out.println(ex);
 //      }
-        while ((s = stdInput.readLine()) != null) {
-          if (s.contains("Result: ")) {
-            String prob = s.split("Result: ")[1].split(" ")[0];
-            System.out.println("Probability for assertion failure: " + prob);
-          }
-        }
-
-        // Read any errors from the attempted command
-        if ((s = stdError.readLine()) != null)
-          System.out.println("Here is the standard error of the command (if any):\n");
-        while ((s = stdError.readLine()) != null) {
-          System.out.println(s);
-        }
-      } catch (Exception ex) {
-        System.out.println(ex);
-      }
-      long p2finish = System.currentTimeMillis();
-      p2timeElapsed = p2finish - p2start;
-    }
+//      long p2finish = System.currentTimeMillis();
+//      p2timeElapsed = p2finish - p2start;
+//    }
 
     long finish = System.currentTimeMillis();
     long timeElapsed = finish - start;
@@ -1868,23 +1952,23 @@ public class MainLogic {
 
     long executionTimeWithDominatorAnalysis = totalExecutionTime - extraModelCountingTime;
 
-    System.out.println("CFG construction time: " + MainLogic.cfgConsTime);
-    System.out.println("Dependency analysis time: " + dependencyAnalysisTime + "ms");
-    System.out.println("Main time: " + det + "ms");
-    System.out.println("Branch condition preprocessing time: " + det5 + "ms");
+    //System.out.println("CFG construction time: " + MainLogic.cfgConsTime);
+    //System.out.println("Dependency analysis time: " + dependencyAnalysisTime + "ms");
+    //System.out.println("Main time: " + det + "ms");
+    //System.out.println("Branch condition preprocessing time: " + det5 + "ms");
     //System.out.println("Dominator Analysis time: " + det2 + "ms");
     //System.out.println("Loop unrolling time: " + det3 + "ms");
-      System.out.println("File writing and PRISM time: " + det4 + "ms");
-    System.out.println("Execution time for probabilistic analysis: " + timeElapsed + "ms");
-    System.out.println("Total Execution time: " + totalExecutionTime + "ms");
-    System.out.println("Total Execution time with dominator analysis: " + executionTimeWithDominatorAnalysis + "ms");
-    float percentageOfNodesReduced = (float)numberofNodesReduced/(numberofNodes+numberofNodesMerged);
-    percentageOfNodesReduced = percentageOfNodesReduced * 100;
-    System.out.println("Number of nodes reduced in subgraph: " + numberofNodesReduced + "(" + percentageOfNodesReduced + "%)") ;
+    //System.out.println("File writing and PRISM time: " + det4 + "ms");
+    //System.out.println("Execution time for probabilistic analysis: " + timeElapsed + "ms");
+    //System.out.println("Total Execution time: " + totalExecutionTime + "ms");
+    //System.out.println("Total Execution time with dominator analysis: " + executionTimeWithDominatorAnalysis + "ms");
+    //float percentageOfNodesReduced = (float)numberofNodesReduced/(numberofNodes+numberofNodesMerged);
+    //percentageOfNodesReduced = percentageOfNodesReduced * 100;
+    //System.out.println("Number of nodes reduced in subgraph: " + numberofNodesReduced + "(" + percentageOfNodesReduced + "%)") ;
     long p1execTime = totalExecutionTime - p2timeElapsed;
-    long p2execTime = totalExecutionTime - p1timeElapsed;
-    System.out.println("Execution time for P1: " + p1execTime + "ms");
-    System.out.println("Execution time for P2: " + p2execTime + "ms");
+    //long p2execTime = totalExecutionTime - p1timeElapsed;
+    System.out.println("Execution time: " + p1execTime + "ms");
+    //System.out.println("Execution time for P2: " + p2execTime + "ms");
   }
 
   private void dfsToCheck(String i) {
@@ -2460,39 +2544,44 @@ public class MainLogic {
   private int                                       numberofNodes;
   private int                                       numberofNodesMerged;
   private int                                       numberofNodesReduced;
-  private boolean                                   loopUnrolling = false;
-  private int                                       loopbound = 4;
-  public static long                                dependencyAnalysisTime = 0;
-  private static long                               extraModelCountingTime = 0;
-  private boolean backEdgeExists = false;
-  public static String cfgConsTime = "";
+  private boolean                                   loopUnrolling;
+  private int                                       loopbound;
+  public static long                                dependencyAnalysisTime;
+  private static long                               extraModelCountingTime;
+  private boolean backEdgeExists;
+  public static String cfgConsTime;
 
-  private static int counter = 0;
-  private static Map<String, Integer> nodeMap = new HashMap<>();
-  private static Map<Integer, String> idMap = new HashMap<>();
-  private static Map<String, List<String>> edgeMap =  new HashMap<>();
-  private static List<String> branchNodes = new ArrayList<>();
-  private static String endNode = "";
-  private static String assertionNode = "";
-  private static Map<Pair<String, String>, MarkovChainInformation> transitionMap = new HashMap<>();
-  private static Map<String, List<MarkovChainInformation>> transitionlistMap = new HashMap<>();
-  private static Map<ISSABasicBlock, Integer> nodeLineMap = new HashMap<>();
-  private static Map<String, String> interProcDomMap = new HashMap<>();
-  private static Map<String, String> interProcPostDomMap = new HashMap<>();
-  private static Map<String, String> procCallMap = new HashMap<>();
-  private static Map<String, String> procCallReverseMap = new HashMap<>();
+  private static int counter;
+  private static Map<String, Integer> nodeMap;
+  private static Map<Integer, String> idMap;
+  private static Map<String, List<String>> edgeMap;
+  private static List<String> branchNodes;
+  private static String endNode;
+  private static String assertionNode;
+  private static Map<Pair<String, String>, MarkovChainInformation> transitionMap;
+  private static Map<String, List<MarkovChainInformation>> transitionlistMap;
+  private static Map<ISSABasicBlock, Integer> nodeLineMap;
+  private static Map<String, String> interProcDomMap;
+  private static Map<String, String> interProcPostDomMap;
+  private static Map<String, String> procCallMap;
+  private static Map<String, String> procCallReverseMap;
 
   private Map<String, Map<Double, Set<Procedure>>>  jBondMap = new TreeMap<>();
-  static public Set<Statement> allStmtSet = new HashSet<>();
-  static public Set<String> selectedVariables = new HashSet<>();
-  static public Map<Integer, String> allSourceLines = new HashMap<>();
+
+  static public Set<Statement> allStmtSet;
+  static public Set<String> selectedVariables;
+  static public Map<Integer, String> allSourceLines;
+
   static public Map<String, Procedure> itemProcMap = new HashMap<>();
   static public Map<String, ISSABasicBlock> itemNodeMap = new HashMap<>();
   static public Map<ISSABasicBlock, String> nodeItemMap = new HashMap<>();
-  static private Map<String,Long> modelCountingTimeMap = new HashMap<>();
+
+  static private Map<String,Long> modelCountingTimeMap;
   static private Map<String,List<String>> lineItemsMap = new HashMap<>();
   static private boolean[] visitedToCheck;
   static public String rootDir;
+  static public Map<String, Double> branchProbMap = new HashMap<>();
+  static public ArrayList<String> preachFeatureList = new ArrayList<>();
 
   static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");
 

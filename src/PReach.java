@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 public class PReach {
@@ -16,7 +17,11 @@ public class PReach {
     private static String  myProjPath;
     private static String  jrePathName;
     public static ArrayList<String> methodList = new ArrayList<>();
+    public static ArrayList<String> methodSignList = new ArrayList<>();
 
+    private static Long analysisStartTime;
+
+    private String rootDir;
     private ArrayList<String> appPaths;
     private ArrayList<String> libPaths;
     private String apiPath;
@@ -25,7 +30,7 @@ public class PReach {
     private ArrayList<String> testInputParams;
     private String branchProbFile;
 
-    private ArrayList<String> procList = new ArrayList<>();
+    //private ArrayList<String> procList = new ArrayList<>();
 
     private RunProgramGen programGen;
     private Thread  genThread;          // thread in which generateProgram() runs
@@ -47,14 +52,15 @@ public class PReach {
         this.branchProbFile = branchProbFile;
     }
 
-    PReach(ArrayList<String> appPaths, ArrayList<String> libPaths,
-           String apiPath, String entryFilePath, ArrayList<String> methodList) {
+    PReach(String rootDir, ArrayList<String> appPaths, ArrayList<String> libPaths,
+           String apiPath, String entryFilePath, ArrayList<String> methodList, ArrayList<String> methodSignList, String branchProbFile) {
         timer = new Timer(1000, new TimerListener());
+        this.rootDir = rootDir;
         this.appPaths = appPaths;
         this.libPaths = libPaths;
         this.apiPath = apiPath;
         this.entryFilePath = entryFilePath;
-        this.procList = methodList;
+        this.branchProbFile = branchProbFile;
     }
 
 
@@ -94,7 +100,9 @@ public class PReach {
 
     private int generateProgram () {
         try {
-            this.entryFilePath = null; //for public methods as entry points
+            if(this.entryFilePath.equals("")) {
+                this.entryFilePath = null; //for public methods as entry points
+            }
             Program.makeProgram(this.appPaths, this.libPaths, this.apiPath, this.entryFilePath);
             Program.analyzeProgram();
             Set<String> misses = Program.checkAnalysisScope();
@@ -102,6 +110,8 @@ public class PReach {
 
 
             //doAnalysis(procSign, testInputParams);
+            doAnalysis(methodList);
+
         } catch (Exception e) {
             e.printStackTrace();
             return 2;
@@ -131,7 +141,32 @@ public class PReach {
     private void doAnalysis(String procSign, ArrayList<String> testInputParams) throws InvalidClassFileException {
         MainLogic mainLogic = new MainLogic();
         mainLogic.doDependencyAnalysis(procSign, testInputParams);
-        mainLogic.doMarkovChainAnalysis(branchProbFile);
+        mainLogic.collectBranchProbabilities(branchProbFile);
+        mainLogic.initializeForPReachAnalysis();
+        mainLogic.doMarkovChainAnalysis();
+        Long analysisEndTime = System.currentTimeMillis();
+        Long totalAnalysisTime = analysisEndTime - analysisStartTime;
+        System.out.println("PReach Analysis Time: " + totalAnalysisTime);
+    }
+
+    private void doAnalysis(ArrayList<String> methodList) throws InvalidClassFileException {
+        MainLogic mainLogic = new MainLogic();
+        ArrayList<String> preachFeatureList = mainLogic.doPReachAnalysis(methodList, branchProbFile);
+
+        //Write preach features to a file
+        String preachFeatureFile = rootDir + "/PreachFeatures.csv";
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(preachFeatureFile, false));
+            for (String feature : preachFeatureList) {
+                writer.write(feature);
+            }
+            writer.close();
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+        Long analysisEndTime = System.currentTimeMillis();
+        Long totalAnalysisTime = analysisEndTime - analysisStartTime;
+        System.out.println("PReach Analysis Time: " + totalAnalysisTime);
     }
 
     private void launchProgramGen () {
@@ -150,6 +185,22 @@ public class PReach {
         timer.start();
     }
 
+    private static void addClassPaths(String rootDir, Set<String> classSet) {
+        File root = new File(rootDir);
+        ArrayList<File> fileList = new ArrayList<>(Arrays.asList(root.listFiles()));
+        for (File classFile : fileList) {
+            if (classFile.isDirectory()) {
+                File dir = new File(classFile.getAbsolutePath());
+                addClassPaths(dir.toString(), classSet);
+            } else {
+                String name = classFile.getAbsolutePath();
+                if(name.endsWith(".class")) {
+                    classSet.add(name);
+                }
+            }
+        }
+    }
+
     public static void main(String args[]) throws InvalidClassFileException {
 
 //        String[] classList = args[0].split(",");
@@ -165,12 +216,15 @@ public class PReach {
 //                procSign, testInputParams, branchProbFile);
 
         //---------------------------------------------------------------------------
-        //Additional code for extracting code metric features from PReach
-        ArrayList<String> classList = new ArrayList<>();
-        String classRootDir = args[0];
-        String[] libList = args[1].split(",");
+        analysisStartTime = System.currentTimeMillis();
 
+        //Additional code for extracting code metric features from PReach
+        Set<String> classSet = new HashSet<>();
+        String rootDir = args[0];
+        String[] libList = args[1].split(";");
         String codeMetricsFile = args[2];
+        String branchProbFile = args[3];
+
         File file = new File(codeMetricsFile);
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -181,31 +235,56 @@ public class PReach {
                     continue;
                 String methodInfo = st.split(",")[1];
                 methodList.add(methodInfo);
+                String methodSign = st.split(",")[2];
+                methodSignList.add(methodSign);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
-        for (String methodInfo : methodList) {
-            String className = methodInfo.split(":")[0];
-            className = className.replace(".","/");
-            className = classRootDir + "/" + className + ".class";
-            System.out.println(className);
+//        for (String methodInfo : methodList) {
+//            String className = methodInfo.split(":")[0];
+//            className = className.replace(".","/");
+//            //className = rootDir + "/target/classes/" + className + ".class";
+//            String classDir = rootDir + "/classes/checkstyle/" + className + ".class";
+//
+//            File tmpDir = new File(classDir);
+//            boolean exists = tmpDir.exists();
+//            if(exists) {
+//                //System.out.println(classDir);
+//                classSet.add(classDir);
+//            }
+//            else {
+//                classDir = rootDir + "/classes/tests/" + className + ".class";
+//                tmpDir = new File(classDir);
+//                exists = tmpDir.exists();
+//                if(exists) {
+//                    //System.out.println(classDir);
+//                    classSet.add(classDir);
+//                }
+//            }
+//            else
+//                System.err.println("This class does not exist");
+//        }
 
-            File tmpDir = new File(className);
-            boolean exists = tmpDir.exists();
-            if(exists)
-                classList.add(className);
-            else
-                System.err.println("This class does not exist");
+        addClassPaths(rootDir, classSet);
+
+        //Write entries to entryFile
+        String entryFilePath = rootDir + "/entryMethods.txt";
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(entryFilePath, false));
+            for (String entry : methodSignList) {
+                writer.write(entry + "\n");
+            }
+            writer.close();
+        } catch(Exception ex) {
+            ex.printStackTrace();
         }
         //---------------------------------------------------------------------------
 
-        PReach preach = new PReach(classList, new ArrayList(Arrays.asList(libList)), "", "", methodList);
+        PReach preach = new PReach(rootDir, new ArrayList<String>(classSet), new ArrayList(Arrays.asList(libList)), "", "", methodList, methodSignList, branchProbFile);
 
         preach.launchProgramGen();
-
-        //preach.doAnalysis(procSign, testInputParams);
     }
 }
