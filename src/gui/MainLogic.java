@@ -321,12 +321,14 @@ public class MainLogic {
 
     preachFeatureList.add("Method,numOfBranchNodes,numOfSelectiveBranchNodes\n");
 
+    int num = 0;
     for (String procName: procNameList) {
 
         initializeForPReachAnalysis();
 
         Procedure proc = Program.getProcedureUsingMethodName(procName);
         if (proc == null) {
+            num++;
             System.out.println(procName + "is null");
             continue;
         }
@@ -940,12 +942,20 @@ public class MainLogic {
     String assertionReachabilityNode="", assertionExecutionNode="";
     prismModel += "\t" + "s : [0.." + numberofNodes +"] init 0;\n\n";
 
+    boolean first = true;
+    String originalMethodID = "";
+    int numOfBranchNodes = 0;
 
     for (String jsonItem: interProcItemsList) {
 
       if(jsonItem.startsWith("[ "))
         jsonItem = jsonItem.substring(2);
       String jsonItemID = jsonItem.split(" ")[4];
+
+      if(first) {
+        originalMethodID = jsonItemID.split("#")[0];
+        first = false;
+      }
 
       if (jsonItem.contains("\"secret_dependent_branch\" : \"true\"")) {
         //start: additional code for counting secret dependent branches
@@ -1069,10 +1079,12 @@ public class MainLogic {
 
           prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
 
-          //if(jsonItemID.split("#")[0].equals(outgoingNodes[0].split("#")[0])) {
-          branchNodes.add(trueNode);
-          branchNodes.add(falseNode);
-          //}
+          if(outgoingNodes[0].split("\"")[1].split("#")[0].equals(originalMethodID) &&
+                  outgoingNodes[1].split("\"")[1].split("#")[0].equals(originalMethodID)) {
+            branchNodes.add(trueNode);
+            branchNodes.add(falseNode);
+            numOfBranchNodes += 2;
+          }
 
         } else {
           List<String> edgeList = edgeMap.get(fromNode);
@@ -1222,10 +1234,12 @@ public class MainLogic {
               graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + false_prob + "\"];\n";
               prismModel += "\t" + "[] s = " + fromNode + " -> " + true_prob + " : " + "(s' = " + trueNode + ") + " + false_prob + " : " + "(s' = " + falseNode + ");\n";
 
-              //if(jsonItemID.split("#")[0].equals(outgoingNodes[0].split("#")[0])) {
-              branchNodes.add(trueNode);
-              branchNodes.add(falseNode);
-              //}
+              if(outgoingNodes[0].split("\"")[1].split("#")[0].equals(originalMethodID) &&
+                      outgoingNodes[1].split("\"")[1].split("#")[0].equals(originalMethodID)) {
+                branchNodes.add(trueNode);
+                branchNodes.add(falseNode);
+                numOfBranchNodes += 2;
+              }
 
               String[] splittedID = jsonItemID.split("#");
               String idModelCount = splittedID[0]+"#"+splittedID[splittedID.length-1];
@@ -1248,6 +1262,11 @@ public class MainLogic {
             graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + "1.0" + "\"];\n";
             prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + trueNode + ");\n";
             prismModel += "\t" + "[] s = " + fromNode + " -> " + "1.0" + " : " + "(s' = " + falseNode + ");\n";
+
+            if(outgoingNodes[0].split("\"")[1].split("#")[0].equals(originalMethodID) &&
+                    outgoingNodes[1].split("\"")[1].split("#")[0].equals(originalMethodID)) {
+              numOfBranchNodes += 2;
+            }
           }
         } else {
           List<String> edgeList = edgeMap.get(fromNode);
@@ -1879,12 +1898,12 @@ public class MainLogic {
           }
         }
 
-        System.out.println("Number of branch nodes: " + branchNodes.size());
+        System.out.println("Number of branch nodes: " + numOfBranchNodes);
         System.out.println("Number of selective branch nodes: " + numOfSelectiveBranchNodes);
 
         String featureString = this.currentCFG.getProcedure().getClassName().substring(1) + ":"
                 + this.currentCFG.getProcedure().getProcedureName() + ","
-                + branchNodes.size() + ","
+                + numOfBranchNodes + ","
                 + numOfSelectiveBranchNodes + "\n";
         preachFeatureList.add(featureString);
 

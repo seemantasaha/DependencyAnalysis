@@ -268,19 +268,24 @@ public class PReach {
 //                System.err.println("This class does not exist");
 //        }
 
-        addClassPaths(rootDir, classSet);
+        if(rootDir.endsWith(".jar")) {
+            classSet.add(rootDir);
+            rootDir = rootDir.substring(0,rootDir.lastIndexOf("/"));
+        } else {
+            addClassPaths(rootDir, classSet);
+        }
 
         //Write entries to entryFile
-        String entryFilePath = rootDir + "/entryMethods.txt";
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(entryFilePath, false));
-            for (String entry : methodSignList) {
-                writer.write(entry + "\n");
-            }
-            writer.close();
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
+//        String entryFilePath = rootDir + "/entryMethods.txt";
+//        try {
+//            BufferedWriter writer = new BufferedWriter(new FileWriter(entryFilePath, false));
+//            for (String entry : methodSignList) {
+//                writer.write(entry + "\n");
+//            }
+//            writer.close();
+//        } catch(Exception ex) {
+//            ex.printStackTrace();
+//        }
         //---------------------------------------------------------------------------
 
         PReach preach = new PReach(rootDir, new ArrayList<String>(classSet), new ArrayList(Arrays.asList(libList)), "", "", methodList, methodSignList, branchProbFile);
