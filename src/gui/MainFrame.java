@@ -1200,7 +1200,7 @@ public class MainFrame extends javax.swing.JFrame {
         ISSABasicBlock target = proc.getNode(inst);
         int bcIndex = 0;
         try {
-          if (inst.toString().startsWith("conditional branch")) {
+          if (inst.toString().startsWith("conditional branch") || inst.toString().startsWith("switch")) {
             System.out.println ( "Bytecode : " + inst.toString() );
             bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
             try {
@@ -1228,7 +1228,7 @@ public class MainFrame extends javax.swing.JFrame {
           ISSABasicBlock target = proc.getNode(inst);
           int bcIndex = 0;
           try {
-            if (inst.toString().startsWith("conditional branch")) {
+            if (inst.toString().startsWith("conditional branch") || inst.toString().startsWith("switch")) {
               System.out.println ( "Bytecode : " + inst.toString() );
               bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
               try {
@@ -1814,7 +1814,8 @@ public class MainFrame extends javax.swing.JFrame {
     BufferedReader reader;
     try {
       //String branch_prob_file = rootDir + "branch_probability.txt";
-      String branch_prob_file = "/home/seem/Downloads/saner-jss/workspace/projects/checkstyle/branch_probability.txt";
+      //String branch_prob_file = "/home/seem/Downloads/saner-jss/workspace/projects/checkstyle/branch_probability.txt";
+      String branch_prob_file = "/home/seem/Desktop/check/branch_probability.txt";
       System.out.println(branch_prob_file);
       reader = new BufferedReader(new FileReader(branch_prob_file));
       String line = reader.readLine();
@@ -1824,7 +1825,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(temp.length < 2)
             continue;
 //        if(temp[2].equals("1")) {
-            branchProbMap.put(temp[0], 1.0 - Double.parseDouble(temp[1]));
+            branchProbMap.put(temp[0], 1.0 - Double.parseDouble(temp[1].split(",")[0]));
 //        } else {
 //            branchProbMap.put(temp[0], Double.parseDouble(temp[1]));
 //        }

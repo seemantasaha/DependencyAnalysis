@@ -67,7 +67,7 @@ public class MainLogic {
     this.procedureDependenceGraphMap.put(proc, procDepGraph);
   }
 
-    private void paintSlice(Set<Statement> stmtSet) {
+  private void paintSlice(Set<Statement> stmtSet) {
     CG cg = this.getCG();
     //cg.paintProcedureSet(Program.getProcedureSet(), "white");
     for (Procedure proc : Program.getProcedureSet()) {
@@ -89,7 +89,7 @@ public class MainLogic {
         ISSABasicBlock target = proc.getNode(inst);
         int bcIndex = 0;
         try {
-          if (inst.toString().startsWith("conditional branch")) {
+          if (inst.toString().startsWith("conditional branch") || inst.toString().startsWith("switch")) {
             System.out.println ( "Bytecode : " + inst.toString() );
             bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
             try {
@@ -98,6 +98,10 @@ public class MainLogic {
               nodeLineMap.put(target, src_line_number);
               //System.out.println("Source line number = " + src_line_number);
               MainLogic.allSourceLines.put(src_line_number, proc.getProcedureName());
+              if(inst.toString().startsWith("switch")){
+                String item = nodeItemMap.get(target);
+                System.out.println(item);
+              }
             } catch (Exception e) {
               //System.out.println("Bytecode index is incorrect");
               System.err.println(e.getMessage());
@@ -118,7 +122,7 @@ public class MainLogic {
           ISSABasicBlock target = proc.getNode(inst);
           int bcIndex = 0;
           try {
-            if (inst.toString().startsWith("conditional branch")) {
+            if (inst.toString().startsWith("conditional branch") || inst.toString().startsWith("switch")) {
               System.out.println ( "Bytecode : " + inst.toString() );
               bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(inst.iindex);
               try {
@@ -319,7 +323,7 @@ public class MainLogic {
 
     collectBranchProbabilities(branchProbFile);
 
-    preachFeatureList.add("Method,numOfBranchNodes,numOfSelectiveBranchNodes\n");
+    preachFeatureList.add("Method,numOfBranchNodes,,numOfBranchesAsMethodCall,numOfBranchesAsNullChecker,numOfSelectiveBranchNodes,numOfSelectiveBrancesAsLoopCond,numOfSelectivebranchesAsSwitchCase,numOfHardToReachBranchNodes\n");
 
     int num = 0;
     for (String procName: procNameList) {
@@ -514,11 +518,29 @@ public class MainLogic {
               String[] temp = line.split("\t");
               if(temp.length < 2)
                   continue;
-//        if(temp[2].equals("1")) {
-              branchProbMap.put(temp[0], 1.0 - Double.parseDouble(temp[1]));
-//        } else {
-//            branchProbMap.put(temp[0], Double.parseDouble(temp[1]));
-//        }
+              String[] info = temp[1].split(",");
+              if(info.length >= 1) {
+                if(!branchProbMap.containsKey(temp[0])) {
+                  ArrayList<Double> probList = new ArrayList<Double>();
+                  probList.add(1.0 - Double.parseDouble(info[0]));
+                  branchProbMap.put(temp[0], probList);
+                }
+                else if (branchProbMap.get(temp[0]).size() == 1){
+                  double prob = 1.0 - branchProbMap.get(temp[0]).get(0);
+                  branchProbMap.get(temp[0]).clear();
+                  branchProbMap.get(temp[0]).add(prob);
+                  branchProbMap.get(temp[0]).add(Double.parseDouble(info[0]));
+                }
+                else {
+                  branchProbMap.get(temp[0]).add(Double.parseDouble(info[0]));
+                }
+              }
+              if(info.length >= 4) {
+                branchSelectivityInfoMap.put(temp[0], info[1]);
+                branchInfoMap.put(temp[0], info[2]);
+                branchSelectivityMap.put(temp[0], info[3]);
+              }
+
               line = reader.readLine();
           }
           reader.close();
@@ -564,7 +586,7 @@ public class MainLogic {
       String jsonItemID = jsonItem.split(" ")[4];
       String jsonItemNodeNumber = jsonItemID.split("#")[1];
 
-      //remmeber this: Procedure cureProc = this.currentCFG.getProcedure();
+      //remember this: Procedure cureProc = this.currentCFG.getProcedure();
       if (cureProc.dependentNodes.contains(jsonItemNodeNumber) && jsonItem.contains("\"secret_dependent_branch\" : \"branch\"")) {
         jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"branch\"", "\"secret_dependent_branch\" : \"true\"");
       }
@@ -945,6 +967,11 @@ public class MainLogic {
     boolean first = true;
     String originalMethodID = "";
     int numOfBranchNodes = 0;
+    int numOfBranchNodesWithNullChecker = 0;
+    int numOfBranchNodesWithMethodCall = 0;
+    int numOfSelectiveBranchNodes = 0;
+    int numOfSelectiveBranchNodesAsLoopCond = 0;
+    int numOfSelectiveBranchNodesAsSwitchCase = 0;
 
     for (String jsonItem: interProcItemsList) {
 
@@ -995,20 +1022,23 @@ public class MainLogic {
               String[] jsonItemArr = jsonItemID.split("#");
               node = itemNodeMap.get(jsonItemArr[0]+"#"+jsonItemArr[jsonItemArr.length-1]);
           }
+          String key = "";
           if(nodeLineMap.containsKey(node)) {
               int line = nodeLineMap.get(node);
               String className = currentCFG.getProcedure().getClassName().replace("/", ".");
               String[] classNamePart = className.split("\\.");
               className = classNamePart[classNamePart.length-1];
-              String key = className + ".java:" + line;
+              key = className + ".java:" + line;
               if (branchProbMap.containsKey(key)) {
-                  //if(flag_to_update_prob) {
-                      true_prob = branchProbMap.get(key);
-                      false_prob = 1.0 - true_prob;
-                  //} else {
-                  //    false_prob = branchProbMap.get(key);
-                  //    true_prob = 1.0 - false_prob;
-                  //}
+                true_prob = branchProbMap.get(key).get(0);
+                false_prob = 1.0 - true_prob;
+              }
+              if(branchInfoMap.containsKey(key)) {
+                if(branchInfoMap.get(key).equals("N")) {
+                  numOfBranchNodesWithNullChecker++;
+                } else if(branchInfoMap.get(key).equals("M")) {
+                  numOfBranchNodesWithMethodCall++;
+                }
               }
           } else {
               true_prob = 0.5;
@@ -1028,7 +1058,47 @@ public class MainLogic {
 
         String trueNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
 
-        if(outgoingNodes.length == 2 && outgoingNodes[1].contains("\"")) {
+        if(outgoingNodes.length > 2) { //switch case
+          List<String> edgeList = edgeMap.get(fromNode);
+          if (edgeList == null) {
+            edgeList = new ArrayList<>();
+          }
+          double otherProb = 0.0;
+          prismModel += "\t" + "[] s = " + fromNode + " -> ";
+          for (int on = 0; on < outgoingNodes.length; on++) {
+            String swNode = getNodeFromID(outgoingNodes[on].split("\"")[1]);
+            branchNodes.add(swNode);
+            numOfBranchNodes++;
+            edgeList.add(swNode);
+            edgeMap.put(swNode,edgeList);
+
+            String swNodeProb = "0.0";
+            if(on == outgoingNodes.length-1) {
+              double lastProb = 1.0 - otherProb;
+              swNodeProb = ""+lastProb;
+            } else {
+              swNodeProb = branchProbMap.get(key).get(on).toString();
+              otherProb += branchProbMap.get(key).get(on);
+            }
+            MarkovChainInformation swChain = new MarkovChainInformation(fromNode,swNode,swNodeProb,true, false, false);
+            transitionMap.put(new Pair<>(fromNode,trueNode), swChain);
+
+            List<MarkovChainInformation> list = new ArrayList<>();
+            list.add(swChain);
+            transitionlistMap.put(fromNode, list);
+
+            graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + swNodeProb + "\"];\n";
+
+            if(on == 0)
+              prismModel += swNodeProb + " : " + "(s' = " + swNode + ")";
+            else if(on == outgoingNodes.length-1)
+              prismModel +=  " + "  + swNodeProb + " : " + "(s' = " + swNode + ");\n";
+            else
+              prismModel +=  " + "  + swNodeProb + " : " + "(s' = " + swNode + ")";
+          }
+        }
+
+        else if(outgoingNodes.length == 2 && outgoingNodes[1].contains("\"")) {
 
           String falseNode = getNodeFromID(outgoingNodes[1].split("\"")[1]);
 
@@ -1077,6 +1147,12 @@ public class MainLogic {
           graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + trueNodeProb + "\"];\n";
           graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + falseNodeProb + "\"];\n";
 
+          //temporary fix for different line branch condition
+          if(trueNodeProb.equals("0.0") && falseNodeProb.equals("0.0")) {
+            trueNodeProb = "0.5";
+            falseNodeProb = "0.5";
+          }
+
           prismModel += "\t" + "[] s = " + fromNode + " -> " + trueNodeProb + " : " + "(s' = " + trueNode + ") + " + falseNodeProb + " : " + "(s' = " + falseNode + ");\n";
 
           if(outgoingNodes[0].split("\"")[1].split("#")[0].equals(originalMethodID) &&
@@ -1084,6 +1160,18 @@ public class MainLogic {
             branchNodes.add(trueNode);
             branchNodes.add(falseNode);
             numOfBranchNodes += 2;
+          }
+          if(branchSelectivityMap.containsKey(key)) {
+            if(branchSelectivityMap.get(key).equals("true")) {
+              numOfSelectiveBranchNodes++;
+              if(branchSelectivityInfoMap.containsKey(key)) {
+                if(branchSelectivityInfoMap.get(key).equals("L")) {
+                  numOfSelectiveBranchNodesAsLoopCond++;
+                } else if(branchSelectivityInfoMap.get(key).equals("S")) {
+                  numOfSelectiveBranchNodesAsSwitchCase++;
+                }
+              }
+            }
           }
 
         } else {
@@ -1119,6 +1207,37 @@ public class MainLogic {
         String[] outgoingNodes = jsonItem.split("\"outgoing\" : \\{ ")[1].split(" }")[0].split(",");
 
         String trueNode = getNodeFromID(outgoingNodes[0].split("\"")[1]);
+
+        if(outgoingNodes.length > 2) { //switch case
+          List<String> edgeList = edgeMap.get(fromNode);
+          if (edgeList == null) {
+            edgeList = new ArrayList<>();
+          }
+          String swNodeProb = "" + (1.0 / outgoingNodes.length);
+          prismModel += "\t" + "[] s = " + fromNode + " -> ";
+          for (int on = 0; on < outgoingNodes.length; on++) {
+            String swNode = getNodeFromID(outgoingNodes[on].split("\"")[1]);
+            numOfBranchNodes++;
+            edgeList.add(swNode);
+            edgeMap.put(swNode,edgeList);
+
+            MarkovChainInformation swChain = new MarkovChainInformation(fromNode,swNode,swNodeProb,true, false, false);
+            transitionMap.put(new Pair<>(fromNode,trueNode), swChain);
+
+            List<MarkovChainInformation> list = new ArrayList<>();
+            list.add(swChain);
+            transitionlistMap.put(fromNode, list);
+
+            graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + swNodeProb + "\"];\n";
+
+            if(on == 0)
+              prismModel += swNodeProb + " : " + "(s' = " + swNode + ")";
+            else if(on == outgoingNodes.length-1)
+              prismModel +=  " + "  + swNodeProb + " : " + "(s' = " + swNode + ");\n";
+            else
+              prismModel +=  " + "  + swNodeProb + " : " + "(s' = " + swNode + ")";
+          }
+        }
 
 
         if (outgoingNodes.length == 2) {
@@ -1195,18 +1314,14 @@ public class MainLogic {
                     String[] jsonItemArr = jsonItemID.split("#");
                     node = itemNodeMap.get(jsonItemArr[0]+"#"+jsonItemArr[jsonItemArr.length-1]);
                 }
+                String key = "";
                 if(nodeLineMap.containsKey(node)) {
                     int line = nodeLineMap.get(node);
                     String className = currentCFG.getProcedure().getClassName().replace("/", ".");
-                    String key = className + ".java:" + line;
+                    key = className + ".java:" + line;
                     if (branchProbMap.containsKey(key)) {
-                        //if(flag_to_update_prob) {
-                            true_prob = branchProbMap.get(key);
-                            false_prob = 1.0 - true_prob;
-                        //} else {
-                        //    false_prob = branchProbMap.get(key);
-                        //    true_prob = 1.0 - false_prob;
-                        //}
+                        true_prob = branchProbMap.get(key).get(0);
+                        false_prob = 1.0 - true_prob;
                     }
                 } else {
                     true_prob = 0.5;
@@ -1230,16 +1345,35 @@ public class MainLogic {
               list.add(falseChain);
               transitionlistMap.put(fromNode, list);
 
+              //temporary fix for different line branch condition
+              if(true_prob == 0.0 && false_prob == 0.0) {
+                true_prob = 0.5;
+                false_prob = 0.5;
+              }
+
+
               graphOutput += "\t" + fromNode + " -> " + trueNode + "[label= " + "\"" + true_prob + "\"];\n";
               graphOutput += "\t" + fromNode + " -> " + falseNode + "[label= " + "\"" + false_prob + "\"];\n";
               prismModel += "\t" + "[] s = " + fromNode + " -> " + true_prob + " : " + "(s' = " + trueNode + ") + " + false_prob + " : " + "(s' = " + falseNode + ");\n";
 
               if(outgoingNodes[0].split("\"")[1].split("#")[0].equals(originalMethodID) &&
                       outgoingNodes[1].split("\"")[1].split("#")[0].equals(originalMethodID)) {
-                branchNodes.add(trueNode);
-                branchNodes.add(falseNode);
+                //branchNodes.add(trueNode);
+                //branchNodes.add(falseNode);
                 numOfBranchNodes += 2;
               }
+//              if(branchSelectivityMap.containsKey(key)) {
+//                if(branchSelectivityMap.get(key).equals("true")) {
+//                  numOfSelectiveBranchNodes++;
+//                  if(branchSelectivityInfoMap.containsKey(key)) {
+//                    if(branchSelectivityInfoMap.get(key).equals("L")) {
+//                      numOfSelectiveBranchNodesAsLoopCond++;
+//                    } else if(branchSelectivityInfoMap.get(key).equals("S")) {
+//                      numOfSelectiveBranchNodesAsSwitchCase++;
+//                    }
+//                  }
+//                }
+//              }
 
               String[] splittedID = jsonItemID.split("#");
               String idModelCount = splittedID[0]+"#"+splittedID[splittedID.length-1];
@@ -1265,6 +1399,14 @@ public class MainLogic {
 
             if(outgoingNodes[0].split("\"")[1].split("#")[0].equals(originalMethodID) &&
                     outgoingNodes[1].split("\"")[1].split("#")[0].equals(originalMethodID)) {
+              ISSABasicBlock target = itemNodeMap.get(jsonItemID);
+              try {
+                int bcIndex = ((IBytecodeMethod) target.getMethod()).getBytecodeIndex(target.getLastInstruction().iindex);
+                int src_line_number = target.getMethod().getLineNumber(bcIndex);
+                System.out.println("line number: " + src_line_number);
+              }catch(Exception ex) {
+                System.out.println("!!!");
+              }
               numOfBranchNodes += 2;
             }
           }
@@ -1788,6 +1930,11 @@ public class MainLogic {
     if(branchNodes.size() == 0) {
       String featureString = this.currentCFG.getProcedure().getClassName().substring(1) + ":"
               + this.currentCFG.getProcedure().getProcedureName() + ","
+              + numOfBranchNodes + ","
+              + numOfBranchNodesWithMethodCall + ","
+              + numOfBranchNodesWithNullChecker + ","
+              + "0" + ","
+              + "0" + ","
               + "0" + ","
               + "0" + "\n";
       preachFeatureList.add(featureString);
@@ -1885,26 +2032,37 @@ public class MainLogic {
 //        System.out.println("PRISM run output:\n");
 //      }
 
-        int numOfSelectiveBranchNodes = 0;
+        int numOfHardToReachBranchNodes = 0;
+//        int numOfSelectiveBranchNodesIsTop10Percent = 0;
+//        int numOfSelectiveBranchNodesIsBottom10Percent = 0;
         while ((s = stdInput.readLine()) != null) {
           System.out.println(s);
+//          int node;
+//          if (s.contains("Model checking: P=? [ F s=")) {
+//            node = Integer.parseInt(s.split("Model checking: P=? \\[ F s=")[1].split(" ")[0]);
+//          }
           if (s.contains("Result: ")) {
             String prob = s.split("Result: ")[1].split(" ")[0];
             //System.out.println("Probability to reach assertion: " + prob);
               double state_prob = Double.parseDouble(prob);
               if (state_prob < 0.05) {
-                  numOfSelectiveBranchNodes++;
+                numOfHardToReachBranchNodes++;
               }
           }
         }
 
         System.out.println("Number of branch nodes: " + numOfBranchNodes);
-        System.out.println("Number of selective branch nodes: " + numOfSelectiveBranchNodes);
+        System.out.println("Number of hard to reach branch nodes: " + numOfHardToReachBranchNodes);
 
         String featureString = this.currentCFG.getProcedure().getClassName().substring(1) + ":"
                 + this.currentCFG.getProcedure().getProcedureName() + ","
                 + numOfBranchNodes + ","
-                + numOfSelectiveBranchNodes + "\n";
+                + numOfBranchNodesWithMethodCall + ","
+                + numOfBranchNodesWithNullChecker + ","
+                + numOfSelectiveBranchNodes + ","
+                + numOfSelectiveBranchNodesAsLoopCond + ","
+                + numOfSelectiveBranchNodesAsSwitchCase + ","
+                + numOfHardToReachBranchNodes + "\n";
         preachFeatureList.add(featureString);
 
         // Read any errors from the attempted command
@@ -2599,7 +2757,10 @@ public class MainLogic {
   static private Map<String,List<String>> lineItemsMap = new HashMap<>();
   static private boolean[] visitedToCheck;
   static public String rootDir;
-  static public Map<String, Double> branchProbMap = new HashMap<>();
+  static public Map<String, ArrayList<Double>> branchProbMap = new HashMap<>();
+  static public Map<String, String> branchInfoMap = new HashMap<>();
+  static public Map<String, String> branchSelectivityInfoMap = new HashMap<>();
+  static public Map<String, String> branchSelectivityMap = new HashMap<>();
   static public ArrayList<String> preachFeatureList = new ArrayList<>();
 
   static public ModelCounter modelCounter = new ModelCounter(4, "abc.string");

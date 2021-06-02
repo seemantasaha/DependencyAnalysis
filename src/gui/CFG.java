@@ -7,6 +7,7 @@ import com.ibm.wala.shrikeCT.InvalidClassFileException;
 import com.ibm.wala.ssa.ISSABasicBlock;
 import com.ibm.wala.ssa.SSAConditionalBranchInstruction;
 import com.ibm.wala.ssa.SSAInstruction;
+import com.ibm.wala.ssa.SSASwitchInstruction;
 import core.Procedure;
 import java.util.Iterator;
 import java.util.Set;
@@ -145,6 +146,11 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
       SSAInstruction lastInst = null;
       if (node.getLastInstructionIndex() >= 0)
         lastInst = node.getLastInstruction();
+
+    if (lastInst instanceof SSASwitchInstruction) {
+        String reportedIns = Reporter.getSSAInstructionString(lastInst);
+        jsonItem = jsonItem.replace("\"secret_dependent_branch\" : \"false\"", "\"secret_dependent_branch\" : \"branch\", \"ins_to_translate\" : \"" + reportedIns + "\"");
+    }
       
       Iterator<ISSABasicBlock> succNodeIter = cfg.getSuccNodes(node);
       jsonItem += " \"outgoing\" : {";
@@ -181,7 +187,7 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
         
         addEdge(node, succNode, null);
         
-        if(c == 2)
+        if(c >= 2)
             jsonItem += ",";
         
         if (lastInstructionOfANode.equals("")) {
@@ -196,6 +202,8 @@ public class CFG extends BaseGraph<ISSABasicBlock> {
             jsonItem += " \"" + succNodeItem.getID() + "\" : \"Jump\" " ;
         } else {
             jsonItem += " \"" + succNodeItem.getID() + "\" : \"Implicit\" " ;
+            if (lastInst instanceof SSASwitchInstruction) {
+            }
         }
         c++;
       }
