@@ -365,7 +365,10 @@ public class Program {
   
   static public Procedure getProcedure(String procSig) {
     for (Procedure proc : procedureMap.values()) {
-      if (proc.getFullSignature().equals(procSig))
+      String procSignToCompare = proc.getFullSignature();
+      //System.out.println("proc sign to compare: " + procSignToCompare);
+      //System.out.println("original proc sign: " + procSig);
+      if (procSignToCompare.equals(procSig))
         return proc;
     }
     return null;

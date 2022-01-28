@@ -22,6 +22,7 @@ public class PReach {
     private String procSign;
     private ArrayList<String> testInputParams;
     private String branchProbFile;
+    private String prismBinary;
 
     private RunProgramGen programGen;
     private Thread  genThread;          // thread in which generateProgram() runs
@@ -32,7 +33,7 @@ public class PReach {
 
     PReach(ArrayList<String> appPaths, ArrayList<String> libPaths,
            String apiPath, String entryFilePath,
-           String procSign, ArrayList<String> testInputParams, String branchProbFile) {
+           String procSign, ArrayList<String> testInputParams, String branchProbFile, String prismBinary) {
         timer = new Timer(1000, new TimerListener());
         this.appPaths = appPaths;
         this.libPaths = libPaths;
@@ -41,6 +42,7 @@ public class PReach {
         this.procSign = procSign;
         this.testInputParams = testInputParams;
         this.branchProbFile = branchProbFile;
+        this.prismBinary = prismBinary;
     }
 
 
@@ -115,7 +117,7 @@ public class PReach {
     private void doAnalysis(String procSign, ArrayList<String> testInputParams) throws InvalidClassFileException {
         MainLogic mainLogic = new MainLogic();
         mainLogic.doDependencyAnalysis(procSign, testInputParams);
-        mainLogic.doMarkovChainAnalysis(branchProbFile);
+        mainLogic.doMarkovChainAnalysis(branchProbFile, prismBinary);
     }
 
     private void launchProgramGen () {
@@ -142,12 +144,13 @@ public class PReach {
         String procSign = args[2];
         String[] paramList = args[3].split(",");
         String branchProbFile = args[4];
+        String prismBinary = args[5];
 
         ArrayList<String> testInputParams = new ArrayList(Arrays.asList(paramList));
 
         PReach preach = new PReach(new ArrayList(Arrays.asList(classList)),
                 new ArrayList(Arrays.asList(libList)), "", "",
-                procSign, testInputParams, branchProbFile);
+                procSign, testInputParams, branchProbFile, prismBinary);
         preach.launchProgramGen();
 
         //preach.doAnalysis(procSign, testInputParams);

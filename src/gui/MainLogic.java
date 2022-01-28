@@ -276,14 +276,28 @@ public class MainLogic {
   }
 
   public void doDependencyAnalysis(String procSign, ArrayList<String> testInputParams) {
+    System.out.println("Dependency analysis started ...");
     for (String param: testInputParams) {
       doDependencyAnalysisPerParam(procSign, param);
     }
   }
 
+  public String removeFirstAndLast(String s) {
+    StringBuilder sb = new StringBuilder(s);
+    sb.deleteCharAt(s.length()-1);
+    sb.deleteCharAt(0);
+    return sb.toString();
+  }
+
+
   public void doDependencyAnalysisPerParam(String procSign, String param) {
     Set found = new HashSet<>();
     long start = System.currentTimeMillis();
+    //System.out.println(procSign);
+    if (procSign.charAt(0) == '\'' && procSign.charAt(procSign.length()-1) == '\'') {
+      procSign = removeFirstAndLast(procSign);
+    }
+    //System.out.println("Trimmed sign: " + procSign);
     Procedure proc = Program.getProcedure(procSign);
     currentCFG = this.controlFlowGraphMap.get(proc);
     if (currentCFG == null){
@@ -436,7 +450,9 @@ public class MainLogic {
     }
   }
 
-  public void doMarkovChainAnalysis(String branchProbFile) {
+  public void doMarkovChainAnalysis(String branchProbFile, String prismBinary) {
+
+    System.out.println("Starting Markov Chain analysis ...");
 
     Map<String, Double> branchProbMap = new HashMap<>();
 
@@ -448,10 +464,10 @@ public class MainLogic {
       while (line != null) {
         //System.out.println(line);
         String[] temp = line.split("\t");
-        if(temp.length < 2)
-            continue;
+        if (temp.length < 2)
+          continue;
 //        if(temp[2].equals("1")) {
-            branchProbMap.put(temp[0], 1.0 - Double.parseDouble(temp[1]));
+        branchProbMap.put(temp[0], 1.0 - Double.parseDouble(temp[1].split(",")[0]));
 //        } else {
 //            branchProbMap.put(temp[0], Double.parseDouble(temp[1]));
 //        }
@@ -466,8 +482,13 @@ public class MainLogic {
 
     long dts = System.currentTimeMillis();
 
-    if (this.currentCFG == null)
+
+    if (this.currentCFG == null) {
+      System.out.println("Can not find the control flow graph with the provided method signtaure");
       return;
+    }
+
+    //System.out.println("Procedure name: " + this.currentCFG.getProcedure().getProcedureName());
 
     List<String> jsonItems = this.currentCFG.getJSON();
     List<String> invokedProcedures = new ArrayList<String>();
@@ -476,6 +497,7 @@ public class MainLogic {
     String modelName = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName();
     modelName = modelName.replace("$","_");
     Procedure cureProc = this.currentCFG.getProcedure();
+
 
     //preprocessing source code branch condition in CFG
     List<String> jsonItemsToBeAdded = new ArrayList<>();
@@ -868,6 +890,7 @@ public class MainLogic {
 
 
     //MARKOV CHAIN CONSTRUCTION
+    System.out.println("Constructing Markov chain...");
     numberofNodes = interProcItemsList.size() + numberofNodesMerged;
 
     String graphOutput = "digraph {\n";
@@ -1295,10 +1318,10 @@ public class MainLogic {
     }
 
     graphOutput += "}";
-    System.out.println(graphOutput);
+    //System.out.println(graphOutput);
 
     prismModel += "\nendmodule";
-    System.out.println(prismModel);
+    //System.out.println(prismModel);
 
 
     long dfs = System.currentTimeMillis();
@@ -1704,6 +1727,7 @@ public class MainLogic {
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
       //writer.write(markovChainOutput);
+      System.out.println(graphOutput);
       writer.write(graphOutput); //ignoring assertion subgraph extraction
       writer.close();
     } catch(IOException ex) {
@@ -1714,6 +1738,7 @@ public class MainLogic {
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(model_file));
       //writer.write(prismOutput);
+      System.out.println(prismModel);
       writer.write(prismModel); //ignoring assertion subgraph extraction
       writer.close();
     } catch(IOException ex) {
@@ -1746,18 +1771,18 @@ public class MainLogic {
     String proerties_file = currentCFG.getProcedure().getClassName().replace("/","_") + "_" + currentCFG.getProcedure().getProcedureName() + ".csl";
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(proerties_file));
-//      if(!assertionReachabilitySpec.equals("") && !assertionExecutionSpec.equals("")) {
-//        writer.write(assertionReachabilitySpec + "\n" + assertionExecutionSpec);
-//        num_properties = 2;
-//      }
-//      else if (!assertionReachabilitySpec.equals("")) {
-//        writer.write(assertionReachabilitySpec);
-//        num_properties = 1;
-//      }
+      if(!assertionReachabilitySpec.equals("") && !assertionExecutionSpec.equals("")) {
+        writer.write(assertionReachabilitySpec + "\n" + assertionExecutionSpec);
+        num_properties = 2;
+      }
+      else if (!assertionReachabilitySpec.equals("")) {
+        writer.write(assertionReachabilitySpec);
+        num_properties = 1;
+      }
 
-        for(String p : branchNodes) {
-            writer.write("P=? [F s = " + p + "]\n");
-        }
+//      for(String p : branchNodes) {
+//          writer.write("P=? [F s = " + p + "]\n");
+//      }
 
       writer.close();
     } catch(IOException ex) {
@@ -1770,9 +1795,9 @@ public class MainLogic {
       long p1start = System.currentTimeMillis();
       Process proc1 = null;
       try {
-        //proc1 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "1"});
+        //proc1 = Runtime.getRuntime().exec(new String[]{"/PReach/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "1"});
 
-          proc1 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file});
+          proc1 = Runtime.getRuntime().exec(new String[]{prismBinary, model_file, proerties_file});
 
           if (proc1 == null) return;
 
@@ -1788,7 +1813,7 @@ public class MainLogic {
 //        System.out.println("PRISM run output:\n");
 //      }
 
-        int numOfSelectiveBranchNodes = 0;
+        /*int numOfSelectiveBranchNodes = 0;
         while ((s = stdInput.readLine()) != null) {
           System.out.println(s);
           if (s.contains("Result: ")) {
@@ -1802,14 +1827,21 @@ public class MainLogic {
         }
 
         System.out.println("Number of branch nodes: " + branchNodes.size());
-        System.out.println("Number of selective branch nodes: " + numOfSelectiveBranchNodes);
+        System.out.println("Number of selective branch nodes: " + numOfSelectiveBranchNodes);*/
 
         // Read any errors from the attempted command
-        if ((s = stdError.readLine()) != null)
-          System.out.println("Here is the standard error of the command (if any):\n");
         while ((s = stdError.readLine()) != null) {
           System.out.println(s);
         }
+
+         while ((s = stdInput.readLine()) != null) {
+            System.out.println(s);
+            if (s.contains("Result: ")) {
+              String prob = s.split("Result: ")[1].split(" ")[0];
+              System.out.println("Probability for assertion failure: " + prob);
+              break;
+            }
+         }
       } catch (Exception ex) {
         System.out.println(ex);
       }
@@ -1821,7 +1853,7 @@ public class MainLogic {
       long p2start = System.currentTimeMillis();
       Process proc2 = null;
       try {
-        proc2 = Runtime.getRuntime().exec(new String[]{"/home/seem/Downloads/prism-4.5-linux64/bin/prism", model_file, proerties_file, "-prop", "2"});
+        proc2 = Runtime.getRuntime().exec(new String[]{prismBinary, model_file, proerties_file, "-prop", "2"});
 
         if (proc2 == null) return;
         ;
@@ -1837,18 +1869,20 @@ public class MainLogic {
 //      if ((s = stdInput.readLine()) != null) {
 //        System.out.println("PRISM run output:\n");
 //      }
+
+
+        // Read any errors from the attempted command
+        while ((s = stdError.readLine()) != null) {
+          System.out.println(s);
+        }
+
         while ((s = stdInput.readLine()) != null) {
+          //System.out.println(s);
           if (s.contains("Result: ")) {
             String prob = s.split("Result: ")[1].split(" ")[0];
             System.out.println("Probability for assertion failure: " + prob);
+            break;
           }
-        }
-
-        // Read any errors from the attempted command
-        if ((s = stdError.readLine()) != null)
-          System.out.println("Here is the standard error of the command (if any):\n");
-        while ((s = stdError.readLine()) != null) {
-          System.out.println(s);
         }
       } catch (Exception ex) {
         System.out.println(ex);
@@ -1868,23 +1902,23 @@ public class MainLogic {
 
     long executionTimeWithDominatorAnalysis = totalExecutionTime - extraModelCountingTime;
 
-    System.out.println("CFG construction time: " + MainLogic.cfgConsTime);
+    //System.out.println("CFG construction time: " + MainLogic.cfgConsTime);
     System.out.println("Dependency analysis time: " + dependencyAnalysisTime + "ms");
-    System.out.println("Main time: " + det + "ms");
-    System.out.println("Branch condition preprocessing time: " + det5 + "ms");
+    //System.out.println("Main time: " + det + "ms");
+    //System.out.println("Branch condition preprocessing time: " + det5 + "ms");
     //System.out.println("Dominator Analysis time: " + det2 + "ms");
     //System.out.println("Loop unrolling time: " + det3 + "ms");
-      System.out.println("File writing and PRISM time: " + det4 + "ms");
+    // System.out.println("File writing and PRISM time: " + det4 + "ms");
     System.out.println("Execution time for probabilistic analysis: " + timeElapsed + "ms");
     System.out.println("Total Execution time: " + totalExecutionTime + "ms");
-    System.out.println("Total Execution time with dominator analysis: " + executionTimeWithDominatorAnalysis + "ms");
+    //System.out.println("Total Execution time with dominator analysis: " + executionTimeWithDominatorAnalysis + "ms");
     float percentageOfNodesReduced = (float)numberofNodesReduced/(numberofNodes+numberofNodesMerged);
     percentageOfNodesReduced = percentageOfNodesReduced * 100;
-    System.out.println("Number of nodes reduced in subgraph: " + numberofNodesReduced + "(" + percentageOfNodesReduced + "%)") ;
+    //System.out.println("Number of nodes reduced in subgraph: " + numberofNodesReduced + "(" + percentageOfNodesReduced + "%)") ;
     long p1execTime = totalExecutionTime - p2timeElapsed;
     long p2execTime = totalExecutionTime - p1timeElapsed;
-    System.out.println("Execution time for P1: " + p1execTime + "ms");
-    System.out.println("Execution time for P2: " + p2execTime + "ms");
+    //System.out.println("Execution time for P1: " + p1execTime + "ms");
+    //System.out.println("Execution time for P2: " + p2execTime + "ms");
   }
 
   private void dfsToCheck(String i) {
