@@ -1,9 +1,0 @@
-[ { "id" : "[ modPow1_safeLMP1BIBIBI#5 ] " , "instruction_count" : 83 , "secret_dependent_branch" : "false",  "outgoing" : { "modPow1_safeLMP1BIBIBI#8" : "1"} }, 
-{ "id" : "[ modPow1_safeLMP1BIBIBI#4 ] " , "instruction_count" : 12 , "secret_dependent_branch" : "true",  "outgoing" : { "modPow1_safeLMP1BIBIBI#5" : "1", "modPow1_safeLMP1BIBIBI#16" : "1"} }, 
-{ "id" : "[ modPow1_safeLMP1BIBIBI#1001001 ] " , "instruction_count" : 1 , "secret_dependent_branch" : "false",  "outgoing" : { } }, 
-{ "id" : "[ modPow1_safeLMP1BIBIBI#0 ] " , "instruction_count" : 1 , "secret_dependent_branch" : "false",  "outgoing" : { "modPow1_safeLMP1BIBIBI#4" : "1"} }, 
-{ "id" : "[ modPow1_safeLMP1BIBIBI#9 ] " , "instruction_count" : 75 , "secret_dependent_branch" : "false",  "outgoing" : { "modPow1_safeLMP1BIBIBI#15" : "1"} }, 
-{ "id" : "[ modPow1_safeLMP1BIBIBI#8 ] " , "instruction_count" : 63 , "secret_dependent_branch" : "true",  "outgoing" : { "modPow1_safeLMP1BIBIBI#12" : "1", "modPow1_safeLMP1BIBIBI#9" : "1"} }, 
-{ "id" : "[ modPow1_safeLMP1BIBIBI#12 ] " , "instruction_count" : 74 , "secret_dependent_branch" : "false",  "outgoing" : { "modPow1_safeLMP1BIBIBI#15" : "1"} }, 
-{ "id" : "[ modPow1_safeLMP1BIBIBI#16 ] " , "instruction_count" : 2 , "secret_dependent_branch" : "false",  "outgoing" : { "modPow1_safeLMP1BIBIBI#1001001" : "1"} }, 
-{ "id" : "[ modPow1_safeLMP1BIBIBI#15 ] " , "instruction_count" : 7, "secret_dependent_branch" : "false",  "outgoing" : { "modPow1_safeLMP1BIBIBI#4" : "1"} } ]

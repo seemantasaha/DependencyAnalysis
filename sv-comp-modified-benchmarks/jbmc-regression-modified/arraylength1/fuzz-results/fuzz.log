@@ -1,2 +1,0 @@
-Found crash: class java.lang.OutOfMemoryError - Java heap space
-Saved - fuzz-results/failures/id_000000 random +crash

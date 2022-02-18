@@ -1,8 +1,0 @@
-[ { "id" : "[ modular_exponentiation_safeLGPT14BIBIBI#0 ] " , "instruction_count" : 9 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI#4" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI#5 ] " , "instruction_count" : 151 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI#10" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI#4 ] " , "instruction_count" : 3 , "secret_dependent_branch" : "branch",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI#13" : "1", "modular_exponentiation_safeLGPT14BIBIBI#5" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI#13 ] " , "instruction_count" : 2 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI#1001001" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI#12 ] " , "instruction_count" : 6 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI#4" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI#11 ] " , "instruction_count" : 2 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI#12" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI#10 ] " , "instruction_count" : 2 , "secret_dependent_branch" : "true",  "outgoing" : { "modular_exponentiation_safeLGPT14BIBIBI#12" : "1", "modular_exponentiation_safeLGPT14BIBIBI#11" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLGPT14BIBIBI#1001001 ] " , "instruction_count" : 1, "secret_dependent_branch" : "false",  "outgoing" : { } } ]

@@ -1,9 +1,0 @@
-[ { "id" : "[ modular_exponentiation_safeLK96BIBIBI_12 ] " , "instruction_count" : 25 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLK96BIBIBI_3" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLK96BIBIBI_15 ] " , "instruction_count" : 2 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLK96BIBIBI_1001001" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLK96BIBIBI_9 ] " , "instruction_count" : 74 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLK96BIBIBI_12" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLK96BIBIBI_6 ] " , "instruction_count" : 77 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLK96BIBIBI_12" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLK96BIBIBI_5 ] " , "instruction_count" : 2 , "secret_dependent_branch" : "true",  "outgoing" : { "modular_exponentiation_safeLK96BIBIBI_6" : "1", "modular_exponentiation_safeLK96BIBIBI_9" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLK96BIBIBI_4 ] " , "instruction_count" : 3 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLK96BIBIBI_5" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLK96BIBIBI_3 ] " , "instruction_count" : 70 , "secret_dependent_branch" : "true",  "outgoing" : { "modular_exponentiation_safeLK96BIBIBI_4" : "1", "modular_exponentiation_safeLK96BIBIBI_15" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLK96BIBIBI_0 ] " , "instruction_count" : 1 , "secret_dependent_branch" : "false",  "outgoing" : { "modular_exponentiation_safeLK96BIBIBI_3" : "1"} }, 
-{ "id" : "[ modular_exponentiation_safeLK96BIBIBI_1001001 ] " , "instruction_count" : 1, "secret_dependent_branch" : "false",  "outgoing" : { } } ]
